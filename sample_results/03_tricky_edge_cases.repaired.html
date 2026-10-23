@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edge cases the agent must NOT auto-fix</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; color: #1b2433; background: #ffffff; }
+    main { max-width: 560px; margin: 40px auto; padding: 24px; }
+    button { margin: 8px 0; border: 0; border-radius: 6px; background: #0b4a8b; color: #ffffff; padding: 10px 16px; font: inherit; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Ambiguous patterns</h1>
+  <form action="#" method="get">
+    <!-- A: label separated from input by a wrapper: not "immediately adjacent" -->
+    <label>City</label>
+    <div><input id="city" name="city" type="text"></div>
+
+    <!-- B: input with no id: nothing safe to point a for= at -->
+    <label>Postcode</label>
+    <input name="postcode" type="text">
+
+    <!-- C: duplicated id: a for= would be ambiguous -->
+    <label>Nickname</label>
+    <input id="dup" name="nick" type="text">
+    <input id="dup" name="nick2" type="text">
+
+    <!-- D: icon-only button: agent cannot know the meaning -->
+    <button id="mystery" type="button"><svg aria-hidden="true" width="16" height="16"><circle cx="8" cy="8" r="6"/></svg></button>
+
+    <!-- E: hidden text but button has no id to target -->
+    <button type="button"><span aria-hidden="true">Save draft</span></button>
+
+    <!-- F: two hidden spans: not the single-span template -->
+    <button id="two-spans" type="button"><span aria-hidden="true">Go</span><span aria-hidden="true">Now</span></button>
+  </form>
+</main>
+</body>
+</html>

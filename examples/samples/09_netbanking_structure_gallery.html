@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Account services | Meridian Bank</title>
+  <!-- Legacy session timeout: sends the customer away after 10 minutes without warning -->
+  <meta http-equiv="refresh" content="600; url=/logout">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; color: #1d2433; }
+    .content { padding: 16px 24px; max-width: 920px; }
+    .icon { width: 14px; height: 14px; padding: 0; border: 1px solid #8a94a6; background: #fff; }
+    table { border-collapse: collapse; margin: 8px 0; }
+    td, th { border: 1px solid #c8cfdb; padding: 4px 8px; }
+  </style>
+</head>
+<body>
+  <a href="#content-start">Skip to content</a>
+  <header>
+    <span>Meridian Bank</span>
+    <span accesskey="h">Home</span> <span accesskey="h">Help</span>
+  </header>
+  <nav>
+    <ul role="directory"><li><a href="/accounts">Accounts</a></li><li><a href="/cards">Cards</a></li></ul>
+  </nav>
+  <nav>
+    <header role="banner">Quick links</header>
+    <a href="/rates">Rates</a> <a href="/branches">Branches</a>
+  </nav>
+
+  <div class="content">
+    <h2>Your accounts</h2>
+    <h4>Savings account ending 4821</h4>
+    <p>Compare our <a href="/rates" style="color:#2a5db0;text-decoration:none">current savings rates</a> before you move money into a fixed deposit.</p>
+    <p style="letter-spacing: 0.02em !important; line-height: 1.1 !important">Balances are updated every 15 minutes during banking hours.</p>
+    <h3></h3>
+
+    <object data="statement-chart.svg" type="image/svg+xml" width="320" height="120"></object>
+    <p>Meridian Bank logo <img src="logo.png" alt="Meridian Bank logo" width="40" height="40"></p>
+    <img src="divider.png" role="presentation" alt="" tabindex="0" width="300" height="4">
+
+    <h3>Update your details</h3>
+    <form action="/profile" method="post">
+      <input type="text" name="mobile" title="Mobile number">
+      <p><input type="checkbox" id="sms" aria-checked="true"><label for="sms">Send me SMS alerts</label></p>
+      <div role="checkbox" tabindex="0">Paperless statements</div>
+      <label for="pan">PAN</label> <label for="pan">Permanent account number</label>
+      <input type="text" id="pan" name="pan">
+      <p id="acct-help">Use the 12-digit number on your passbook.</p>
+      <input type="text" name="acct" aria-describedby="acct-help">
+      <p id="acct-help">Joint accounts need both holders to sign.</p>
+      <button aria-label="Submit profile update">Save</button>
+      <button aria-expanded="yes" type="button">More options</button>
+      <button class="icon" type="button" aria-label="Previous"></button><button class="icon" type="button" aria-label="Next"></button>
+    </form>
+
+    <h3>Recent transactions</h3>
+    <table summary="Recent transactions">
+      <caption>Recent transactions</caption>
+      <tr><th id="t-date">Date</th><th id="t-desc">Description</th><th></th></tr>
+      <tr><td headers="t-date">02 Oct</td><td headers="t-desc t-amount">UPI transfer</td><td>₹2,500</td></tr>
+      <tr><td scope="row">05 Oct</td><td>Salary credit</td><td>₹68,000</td></tr>
+    </table>
+
+    <h3>Fees and charges</h3>
+    <ul>
+      <div>Cheque book: free for the first 25 leaves</div>
+      <li role="link">Debit card: ₹250 a year</li>
+    </ul>
+    <li>Locker rent depends on locker size</li>
+    <dl>
+      <p>Charges are inclusive of GST.</p>
+      <dt>NEFT</dt><dd>Free online</dd>
+    </dl>
+    <dt>RTGS</dt><dd>Free online above ₹2 lakh</dd>
+
+    <h3>Help</h3>
+    <div aria-hidden="true" class="promo"><a href="/offers">Pre-approved personal loan offer</a></div>
+    <p role="text"><a href="/faq">Read the FAQ</a></p>
+    <div role="list"><span>Call 1800 000 000</span><span>Visit a branch</span></div>
+    <span role="option">Chat with us</span>
+    <span aria-label="Support hours">Support: 8am to 8pm</span>
+    <iframe src="offers-a.html" title="Offers" width="300" height="80"></iframe>
+    <iframe src="offers-b.html" title="Offers" width="300" height="80"></iframe>
+    <video src="how-to-upi.mp4" controls width="320"></video>
+  </div>
+
+  <footer>© Meridian Bank</footer>
+  <footer><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></footer>
+</body>
+</html>

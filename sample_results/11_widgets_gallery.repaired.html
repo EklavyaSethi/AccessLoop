@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Investments dashboard | Meridian Bank</title>
+  <style>.skip { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+         .skip:focus { position: static; width: auto; height: auto; }</style>
+</head>
+<body>
+  <a href="#main-content" class="skip">Skip to main content</a>
+  <header><span>Meridian Bank</span></header>
+  <section aria-label="Market status"><span>Market status: open</span></section>
+  <main id="main-content">
+    <h1>Investments dashboard</h1>
+    <p><span>New</span> Tax-saving funds are now available.</p>
+    <p><a href="/funds" tabindex="0">Browse funds</a></p>
+
+    <h2>Portfolio</h2>
+    <div role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-label="Reviewer typed description"></div>
+    <div role="meter" aria-valuenow="7" aria-valuemin="0" aria-valuemax="10" aria-label="Reviewer typed description"></div>
+    <div role="img" aria-label="Reviewer typed description"></div>
+    <div role="img" aria-braillelabel="Fund chart" aria-label="Reviewer typed description"></div>
+    <img src="allocation.png" usemap="#alloc" alt="Asset allocation">
+    <map name="alloc"><area href="/equity" shape="rect" coords="0,0,50,50" alt="Reviewer typed description"></map>
+    <a href="/branch-map"><img src="map.png" alt="Branch map"></a>
+
+    <h2>Controls</h2>
+    <div role="tablist"><div role="tab" tabindex="0" aria-selected="true" aria-label="Reviewer typed description"></div></div>
+    <div role="button" tabindex="0" aria-label="Reviewer typed description"></div>
+    <div role="button" tabindex="0">Refresh</div>
+    <div role="switch" aria-checked="false" tabindex="0" aria-label="Reviewer typed description"></div>
+    <div role="textbox" contenteditable="true" aria-label="Reviewer typed description"></div>
+    <div role="tooltip" aria-label="Reviewer typed description"></div>
+    <div role="tree"><div role="treeitem" aria-label="Reviewer typed description"></div></div>
+    <div role="dialog" aria-label="Reviewer typed description"><p>Your session will end soon.</p></div>
+    <iframe src="nav-chart.html" width="300" height="60" title="Reviewer typed description"></iframe>
+    <div>Prices delayed by 15 minutes.</div>
+  </main>
+  <footer><p>© Meridian Bank</p></footer>
+</body>
+</html>

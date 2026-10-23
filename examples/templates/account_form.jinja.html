@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ bank }} | Open an account</title>
+</head>
+<body>
+  <main>
+    <h1>Open a savings account</h1>
+    <form action="/apply" method="post">
+      <label>Full name</label>
+      <input id="full-name" name="full_name" type="text" value="{{ customer.name }}">
+      <label>Mobile number</label>
+      <input id="mobile" name="mobile" type="tel">
+      {% for doc in documents %}
+      <p><input type="checkbox" name="doc_{{ loop.index }}"> {{ doc }}</p>
+      {% endfor %}
+      <button type="submit"><span aria-hidden="true">Continue</span></button>
+    </form>
+    <img src="/static/rates-{{ year }}.png">
+  </main>
+</body>
+</html>

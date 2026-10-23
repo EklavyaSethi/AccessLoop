@@ -1,0 +1,88 @@
+{
+  "product": "AccessLoop",
+  "scope": "Static HTML; automated WCAG rule checks; not a conformance certificate",
+  "original_sha256": "161612e9cef9fe0c163451f7aa740a8c331af8c0539519086c14087c7e45a900",
+  "current_sha256": "161612e9cef9fe0c163451f7aa740a8c331af8c0539519086c14087c7e45a900",
+  "baseline_counts": {
+    "button-name": 3,
+    "label": 4,
+    "target-size": 1
+  },
+  "current_counts": {
+    "button-name": 3,
+    "label": 4,
+    "target-size": 1
+  },
+  "unresolved": [
+    {
+      "rule_id": "button-name",
+      "selector": "#mystery",
+      "impact": "critical",
+      "help": "Buttons must have discernible text",
+      "description": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+    },
+    {
+      "rule_id": "button-name",
+      "selector": "button:nth-child(9)",
+      "impact": "critical",
+      "help": "Buttons must have discernible text",
+      "description": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+    },
+    {
+      "rule_id": "button-name",
+      "selector": "#two-spans",
+      "impact": "critical",
+      "help": "Buttons must have discernible text",
+      "description": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+    },
+    {
+      "rule_id": "label",
+      "selector": "#city",
+      "impact": "critical",
+      "help": "Form elements must have labels",
+      "description": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+    },
+    {
+      "rule_id": "label",
+      "selector": "input[name=\"postcode\"]",
+      "impact": "critical",
+      "help": "Form elements must have labels",
+      "description": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+    },
+    {
+      "rule_id": "label",
+      "selector": "input[name=\"nick\"]",
+      "impact": "critical",
+      "help": "Form elements must have labels",
+      "description": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+    },
+    {
+      "rule_id": "label",
+      "selector": "input[name=\"nick2\"]",
+      "impact": "critical",
+      "help": "Form elements must have labels",
+      "description": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+    },
+    {
+      "rule_id": "target-size",
+      "selector": "#city",
+      "impact": "serious",
+      "help": "All touch targets must be 24px large, or leave sufficient space",
+      "description": "Fix any of the following:\n  Target has insufficient size (185px by 21px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23px instead of at least 24px."
+    }
+  ],
+  "audit_events": [
+    {
+      "timestamp_utc": "2026-10-22T13:55:39+00:00",
+      "event": "loaded",
+      "detail": "Original saved as a separate immutable-for-session copy.",
+      "working_sha256": "161612e9cef9fe0c163451f7aa740a8c331af8c0539519086c14087c7e45a900"
+    },
+    {
+      "timestamp_utc": "2026-10-22T13:55:40+00:00",
+      "event": "scanned",
+      "detail": "8 detected violation nodes; 0 patch proposals.",
+      "working_sha256": "161612e9cef9fe0c163451f7aa740a8c331af8c0539519086c14087c7e45a900"
+    }
+  ]
+}

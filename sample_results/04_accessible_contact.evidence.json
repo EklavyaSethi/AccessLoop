@@ -1,0 +1,23 @@
+{
+  "product": "AccessLoop",
+  "scope": "Static HTML; automated WCAG rule checks; not a conformance certificate",
+  "original_sha256": "40f18c6731303d1cc3287a20a3b4baf2766f7581c51e32022ada3e5ff2a67941",
+  "current_sha256": "40f18c6731303d1cc3287a20a3b4baf2766f7581c51e32022ada3e5ff2a67941",
+  "baseline_counts": {},
+  "current_counts": {},
+  "unresolved": [],
+  "audit_events": [
+    {
+      "timestamp_utc": "2026-10-22T13:55:40+00:00",
+      "event": "loaded",
+      "detail": "Original saved as a separate immutable-for-session copy.",
+      "working_sha256": "40f18c6731303d1cc3287a20a3b4baf2766f7581c51e32022ada3e5ff2a67941"
+    },
+    {
+      "timestamp_utc": "2026-10-22T13:55:40+00:00",
+      "event": "scanned",
+      "detail": "0 detected violation nodes; 0 patch proposals.",
+      "working_sha256": "40f18c6731303d1cc3287a20a3b4baf2766f7581c51e32022ada3e5ff2a67941"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Investments dashboard | Meridian Bank</title>
+  <style>.skip { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+         .skip:focus { position: static; width: auto; height: auto; }</style>
+</head>
+<body>
+  <a href="#portfolio-start" class="skip">Skip to main content</a>
+  <header><span>Meridian Bank</span></header>
+  <header><span>Market status: open</span></header>
+  <main>
+    <h1>Investments dashboard</h1>
+    <p><blink>New</blink> Tax-saving funds are now available.</p>
+    <p><a href="/funds" tabindex="3">Browse funds</a></p>
+
+    <h2>Portfolio</h2>
+    <div role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+    <div role="meter" aria-valuenow="7" aria-valuemin="0" aria-valuemax="10"></div>
+    <div role="img"></div>
+    <div role="img" aria-braillelabel="Fund chart"></div>
+    <img src="allocation.png" usemap="#alloc" alt="Asset allocation">
+    <map name="alloc"><area href="/equity" shape="rect" coords="0,0,50,50"></map>
+    <a href="/branch-map"><img src="map.png" alt="Branch map" ismap></a>
+
+    <h2>Controls</h2>
+    <div role="tablist"><div role="tab" tabindex="0" aria-selected="true"></div></div>
+    <div role="button" tabindex="0"></div>
+    <div role="button" tabindex="0" aria-checked="true">Refresh</div>
+    <div role="switch" aria-checked="false" tabindex="0"></div>
+    <div role="textbox" contenteditable="true"></div>
+    <div role="tooltip"></div>
+    <div role="tree"><div role="treeitem"></div></div>
+    <div role="dialog"><p>Your session will end soon.</p></div>
+    <iframe src="nav-chart.html" width="300" height="60"></iframe>
+    <div role="contentinfo">Prices delayed by 15 minutes.</div>
+  </main>
+  <footer><p>© Meridian Bank</p></footer>
+</body>
+</html>

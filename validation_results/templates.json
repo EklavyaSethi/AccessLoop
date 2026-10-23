@@ -1,0 +1,3293 @@
+{
+ "pages": [
+  {
+   "status": "ok",
+   "scan_seconds": 1.42,
+   "violations": {
+    "color-contrast": 7,
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 16
+   },
+   "reviews": {
+    "color-contrast": 23
+   },
+   "proposals": {
+    "color-contrast": 7,
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 3,
+    "auto": 6
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 6,
+     "status": "verified",
+     "detail": "6 fixes applied together. Target rule improved (30 \u2192 24); no increase in detected rule counts.",
+     "seconds": 1.66
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (24 \u2192 23); no increase in detected rule counts.",
+     "seconds": 1.44
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.51
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.73
+    }
+   ],
+   "final_violations": {
+    "region": 15
+   },
+   "final_reviews": {
+    "color-contrast": 23
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-agency/dist/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.26,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 1
+   },
+   "reviews": {
+    "color-contrast": 7
+   },
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.36
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 7
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-business-casual/dist/about.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.31,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {
+    "color-contrast": 7
+   },
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.39
+    }
+   ],
+   "final_violations": {
+    "region": 1
+   },
+   "final_reviews": {
+    "color-contrast": 7
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-business-casual/dist/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.22,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 3
+   },
+   "reviews": {
+    "color-contrast": 7
+   },
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.3
+    }
+   ],
+   "final_violations": {
+    "region": 2
+   },
+   "final_reviews": {
+    "color-contrast": 7
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-business-casual/dist/products.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.32,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {
+    "color-contrast": 7
+   },
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.5
+    }
+   ],
+   "final_violations": {
+    "region": 1
+   },
+   "final_reviews": {
+    "color-contrast": 7
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-business-casual/dist/store.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.25,
+   "violations": {
+    "link-name": 3
+   },
+   "reviews": {
+    "color-contrast": 7
+   },
+   "proposals": {
+    "link-name": 3
+   },
+   "proposal_modes": {
+    "input": 3
+   },
+   "outcomes": [
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.19
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.14
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.28
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 7
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-clean-blog/dist/about.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.16,
+   "violations": {
+    "color-contrast": 1,
+    "link-name": 3
+   },
+   "reviews": {
+    "color-contrast": 11
+   },
+   "proposals": {
+    "color-contrast": 1,
+    "link-name": 3
+   },
+   "proposal_modes": {
+    "input": 4
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (12 \u2192 12).",
+     "seconds": 1.29
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.4
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.21
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.15
+    }
+   ],
+   "final_violations": {
+    "color-contrast": 1
+   },
+   "final_reviews": {
+    "color-contrast": 11
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-clean-blog/dist/contact.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.3,
+   "violations": {
+    "color-contrast": 1,
+    "landmark-one-main": 1,
+    "link-name": 3,
+    "region": 1
+   },
+   "reviews": {
+    "color-contrast": 7
+   },
+   "proposals": {
+    "color-contrast": 1,
+    "landmark-one-main": 1,
+    "link-name": 3
+   },
+   "proposal_modes": {
+    "input": 5
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (8 \u2192 7); no increase in detected rule counts.",
+     "seconds": 1.23
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.14
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.26
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.19
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.29
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 7
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-clean-blog/dist/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.32,
+   "violations": {
+    "landmark-one-main": 1,
+    "link-name": 3,
+    "region": 1
+   },
+   "reviews": {
+    "color-contrast": 9,
+    "link-in-text-block": 1
+   },
+   "proposals": {
+    "landmark-one-main": 1,
+    "link-name": 3,
+    "link-in-text-block": 1
+   },
+   "proposal_modes": {
+    "input": 4,
+    "auto": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.3
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.54
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.27
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.23
+    },
+    {
+     "rule": "link-in-text-block",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.27
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 9
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-clean-blog/dist/post.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.28,
+   "violations": {
+    "color-contrast": 4,
+    "landmark-one-main": 1,
+    "region": 15
+   },
+   "reviews": {
+    "color-contrast": 23
+   },
+   "proposals": {
+    "color-contrast": 4,
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 4,
+    "auto": 1
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (27 \u2192 26); no increase in detected rule counts.",
+     "seconds": 1.36
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (26 \u2192 26).",
+     "seconds": 1.24
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (26 \u2192 26).",
+     "seconds": 1.22
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (26 \u2192 25); no increase in detected rule counts.",
+     "seconds": 1.25
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.29
+    }
+   ],
+   "final_violations": {
+    "color-contrast": 2,
+    "region": 13
+   },
+   "final_reviews": {
+    "color-contrast": 23
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-creative/dist/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.31,
+   "violations": {
+    "color-contrast": 7,
+    "heading-order": 1,
+    "landmark-one-main": 1,
+    "link-name": 4,
+    "region": 12
+   },
+   "reviews": {
+    "color-contrast": 4
+   },
+   "proposals": {
+    "color-contrast": 7,
+    "heading-order": 1,
+    "landmark-one-main": 1,
+    "link-name": 4
+   },
+   "proposal_modes": {
+    "input": 12,
+    "auto": 1
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (11 \u2192 11).",
+     "seconds": 1.22
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (11 \u2192 10); no increase in detected rule counts.",
+     "seconds": 1.15
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (10 \u2192 10).",
+     "seconds": 1.23
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (10 \u2192 9); no increase in detected rule counts.",
+     "seconds": 1.2
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (9 \u2192 8); no increase in detected rule counts.",
+     "seconds": 1.17
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (8 \u2192 7); no increase in detected rule counts.",
+     "seconds": 1.27
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (7 \u2192 7).",
+     "seconds": 1.32
+    },
+    {
+     "rule": "heading-order",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.35
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.4
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (4 \u2192 3); no increase in detected rule counts.",
+     "seconds": 1.33
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.34
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.38
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.23
+    }
+   ],
+   "final_violations": {
+    "color-contrast": 3,
+    "region": 11
+   },
+   "final_reviews": {
+    "color-contrast": 4
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-freelancer/dist/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.13,
+   "violations": {
+    "color-contrast": 5,
+    "heading-order": 2,
+    "landmark-one-main": 1,
+    "link-name": 3,
+    "region": 5
+   },
+   "reviews": {
+    "color-contrast": 11
+   },
+   "proposals": {
+    "color-contrast": 5,
+    "heading-order": 2,
+    "landmark-one-main": 1,
+    "link-name": 3
+   },
+   "proposal_modes": {
+    "input": 5,
+    "auto": 6
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 4,
+     "status": "verified",
+     "detail": "4 fixes applied together. Target rule improved (16 \u2192 12); no increase in detected rule counts.",
+     "seconds": 1.25
+    },
+    {
+     "rule": "heading-order",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.12
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (12 \u2192 11); no increase in detected rule counts.",
+     "seconds": 1.21
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.2
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.27
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.27
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.39
+    }
+   ],
+   "final_violations": {
+    "region": 4
+   },
+   "final_reviews": {
+    "color-contrast": 11
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-grayscale/dist/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.26,
+   "violations": {
+    "color-contrast": 5,
+    "heading-order": 2,
+    "landmark-one-main": 1,
+    "link-name": 3,
+    "region": 5
+   },
+   "reviews": {
+    "color-contrast": 9
+   },
+   "proposals": {
+    "color-contrast": 5,
+    "heading-order": 2,
+    "landmark-one-main": 1,
+    "link-name": 3
+   },
+   "proposal_modes": {
+    "auto": 7,
+    "input": 4
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 5,
+     "status": "verified",
+     "detail": "5 fixes applied together. Target rule improved (14 \u2192 9); no increase in detected rule counts.",
+     "seconds": 1.25
+    },
+    {
+     "rule": "heading-order",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.41
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.22
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.28
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.25
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.22
+    }
+   ],
+   "final_violations": {
+    "region": 4
+   },
+   "final_reviews": {
+    "color-contrast": 9
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-landing-page/dist/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.03,
+   "violations": {
+    "color-contrast": 5,
+    "heading-order": 1
+   },
+   "reviews": {
+    "color-contrast": 1
+   },
+   "proposals": {
+    "color-contrast": 5,
+    "heading-order": 1
+   },
+   "proposal_modes": {
+    "auto": 6
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 5,
+     "status": "verified",
+     "detail": "5 fixes applied together. Target rule improved (6 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.08
+    },
+    {
+     "rule": "heading-order",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.04
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 1
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-modern-business/dist/about.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.25,
+   "violations": {
+    "color-contrast": 4,
+    "link-name": 4
+   },
+   "reviews": {
+    "color-contrast": 4
+   },
+   "proposals": {
+    "color-contrast": 4,
+    "link-name": 4
+   },
+   "proposal_modes": {
+    "auto": 4,
+    "input": 4
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 4,
+     "status": "verified",
+     "detail": "4 fixes applied together. Target rule improved (8 \u2192 4); no increase in detected rule counts.",
+     "seconds": 1.22
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (4 \u2192 3); no increase in detected rule counts.",
+     "seconds": 1.15
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.18
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.09
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.25
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 4
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-modern-business/dist/blog-home.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.09,
+   "violations": {
+    "color-contrast": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "color-contrast": 2
+   },
+   "proposal_modes": {
+    "auto": 2
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.02
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-modern-business/dist/blog-post.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.16,
+   "violations": {
+    "color-contrast": 2
+   },
+   "reviews": {
+    "color-contrast": 4
+   },
+   "proposals": {
+    "color-contrast": 2
+   },
+   "proposal_modes": {
+    "auto": 1,
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "auto",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (6 \u2192 11).",
+     "seconds": 1.18
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (6 \u2192 6).",
+     "seconds": 1.18
+    }
+   ],
+   "final_violations": {
+    "color-contrast": 2
+   },
+   "final_reviews": {
+    "color-contrast": 4
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-modern-business/dist/contact.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.21,
+   "violations": {
+    "color-contrast": 2,
+    "link-name": 4
+   },
+   "reviews": {
+    "aria-prohibited-attr": 2,
+    "duplicate-id-aria": 3
+   },
+   "proposals": {
+    "color-contrast": 2,
+    "link-name": 4,
+    "aria-prohibited-attr": 2,
+    "duplicate-id-aria": 3
+   },
+   "proposal_modes": {
+    "auto": 7,
+    "input": 4
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.32
+    },
+    {
+     "rule": "aria-prohibited-attr",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.21
+    },
+    {
+     "rule": "duplicate-id-aria",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.31
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (4 \u2192 3); no increase in detected rule counts.",
+     "seconds": 1.26
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.23
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.19
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.29
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-modern-business/dist/faq.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.24,
+   "violations": {
+    "heading-order": 1
+   },
+   "reviews": {
+    "color-contrast": 7
+   },
+   "proposals": {
+    "heading-order": 1
+   },
+   "proposal_modes": {
+    "auto": 1
+   },
+   "outcomes": [
+    {
+     "rule": "heading-order",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.12
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 7
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-modern-business/dist/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.06,
+   "violations": {},
+   "reviews": {
+    "color-contrast": 1
+   },
+   "proposals": {},
+   "proposal_modes": {},
+   "outcomes": [],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 1
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-modern-business/dist/portfolio-item.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.12,
+   "violations": {},
+   "reviews": {},
+   "proposals": {},
+   "proposal_modes": {},
+   "outcomes": [],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-modern-business/dist/portfolio-overview.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.13,
+   "violations": {
+    "color-contrast": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "color-contrast": 1
+   },
+   "proposal_modes": {
+    "auto": 1
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.11
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-modern-business/dist/pricing.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.22,
+   "violations": {
+    "color-contrast": 12,
+    "landmark-one-main": 1,
+    "link-name": 4,
+    "region": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "color-contrast": 12,
+    "landmark-one-main": 1,
+    "link-name": 4
+   },
+   "proposal_modes": {
+    "input": 11,
+    "auto": 6
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 6,
+     "status": "verified",
+     "detail": "6 fixes applied together. Target rule improved (12 \u2192 6); no increase in detected rule counts.",
+     "seconds": 1.21
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (6 \u2192 6).",
+     "seconds": 1.11
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (6 \u2192 6).",
+     "seconds": 1.31
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (6 \u2192 6).",
+     "seconds": 1.3
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (6 \u2192 6).",
+     "seconds": 1.24
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (6 \u2192 6).",
+     "seconds": 1.24
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Target rule color-contrast did not improve (6 \u2192 6).",
+     "seconds": 1.26
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.12
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (4 \u2192 3); no increase in detected rule counts.",
+     "seconds": 1.26
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.31
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.17
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.23
+    }
+   ],
+   "final_violations": {
+    "color-contrast": 6
+   },
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-resume/dist/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.26,
+   "violations": {
+    "button-name": 2,
+    "color-contrast": 8,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "list": 2,
+    "page-has-heading-one": 1,
+    "region": 10
+   },
+   "reviews": {
+    "aria-prohibited-attr": 1,
+    "aria-valid-attr-value": 2,
+    "color-contrast": 12
+   },
+   "proposals": {
+    "button-name": 2,
+    "color-contrast": 8,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "list": 2,
+    "page-has-heading-one": 1,
+    "aria-prohibited-attr": 1
+   },
+   "proposal_modes": {
+    "input": 6,
+    "auto": 10
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 7,
+     "status": "verified",
+     "detail": "7 fixes applied together. Target rule improved (20 \u2192 13); no increase in detected rule counts.",
+     "seconds": 1.34
+    },
+    {
+     "rule": "list",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.4
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.22
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.4
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (13 \u2192 12); no increase in detected rule counts.",
+     "seconds": 1.42
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.23
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.28
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "rolled_back",
+     "detail": "Automated regression: heading-order increased (0 \u2192 1).",
+     "seconds": 1.15
+    },
+    {
+     "rule": "aria-prohibited-attr",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.19
+    }
+   ],
+   "final_violations": {
+    "page-has-heading-one": 1
+   },
+   "final_reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 12
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/404.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.27,
+   "violations": {
+    "button-name": 2,
+    "color-contrast": 6,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "list": 2,
+    "region": 10
+   },
+   "reviews": {
+    "aria-prohibited-attr": 1,
+    "aria-valid-attr-value": 2,
+    "color-contrast": 11
+   },
+   "proposals": {
+    "button-name": 2,
+    "color-contrast": 6,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "list": 2,
+    "aria-prohibited-attr": 1
+   },
+   "proposal_modes": {
+    "input": 5,
+    "auto": 8
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 5,
+     "status": "verified",
+     "detail": "5 fixes applied together. Target rule improved (17 \u2192 12); no increase in detected rule counts.",
+     "seconds": 1.32
+    },
+    {
+     "rule": "list",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.33
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.14
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.42
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (12 \u2192 11); no increase in detected rule counts.",
+     "seconds": 1.3
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.13
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.25
+    },
+    {
+     "rule": "aria-prohibited-attr",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.35
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 11
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/blank.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.59,
+   "violations": {
+    "button-name": 2,
+    "color-contrast": 29,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-name": 15,
+    "list": 2,
+    "region": 10
+   },
+   "reviews": {
+    "aria-prohibited-attr": 1,
+    "aria-valid-attr-value": 2,
+    "color-contrast": 11
+   },
+   "proposals": {
+    "button-name": 2,
+    "color-contrast": 29,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-name": 15,
+    "list": 2,
+    "aria-prohibited-attr": 1
+   },
+   "proposal_modes": {
+    "input": 29,
+    "auto": 23
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 19,
+     "status": "verified",
+     "detail": "19 fixes applied together. Target rule improved (40 \u2192 21); no increase in detected rule counts.",
+     "seconds": 1.63
+    },
+    {
+     "rule": "list",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.53
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.5
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.57
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (21 \u2192 20); no increase in detected rule counts.",
+     "seconds": 1.52
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (20 \u2192 19); no increase in detected rule counts.",
+     "seconds": 1.46
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (19 \u2192 18); no increase in detected rule counts.",
+     "seconds": 1.44
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (18 \u2192 17); no increase in detected rule counts.",
+     "seconds": 1.5
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (17 \u2192 16); no increase in detected rule counts.",
+     "seconds": 1.48
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (16 \u2192 15); no increase in detected rule counts.",
+     "seconds": 1.34
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (15 \u2192 14); no increase in detected rule counts.",
+     "seconds": 1.13
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (14 \u2192 13); no increase in detected rule counts.",
+     "seconds": 1.61
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (13 \u2192 12); no increase in detected rule counts.",
+     "seconds": 1.36
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (12 \u2192 11); no increase in detected rule counts.",
+     "seconds": 1.5
+    },
+    {
+     "rule": "heading-order",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.49
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.42
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.42
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (15 \u2192 14); no increase in detected rule counts.",
+     "seconds": 1.66
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (14 \u2192 13); no increase in detected rule counts.",
+     "seconds": 1.28
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (13 \u2192 12); no increase in detected rule counts.",
+     "seconds": 1.27
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (12 \u2192 11); no increase in detected rule counts.",
+     "seconds": 1.52
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (11 \u2192 10); no increase in detected rule counts.",
+     "seconds": 1.32
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (10 \u2192 9); no increase in detected rule counts.",
+     "seconds": 1.4
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (9 \u2192 8); no increase in detected rule counts.",
+     "seconds": 1.51
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (8 \u2192 7); no increase in detected rule counts.",
+     "seconds": 1.6
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (7 \u2192 6); no increase in detected rule counts.",
+     "seconds": 1.45
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (6 \u2192 5); no increase in detected rule counts.",
+     "seconds": 1.43
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (5 \u2192 4); no increase in detected rule counts.",
+     "seconds": 1.56
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (4 \u2192 3); no increase in detected rule counts.",
+     "seconds": 1.27
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.55
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.8
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.53
+    },
+    {
+     "rule": "aria-prohibited-attr",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.43
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 11
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/buttons.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.38,
+   "violations": {
+    "aria-progressbar-name": 1,
+    "button-name": 2,
+    "color-contrast": 18,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-name": 1,
+    "list": 2,
+    "region": 15
+   },
+   "reviews": {
+    "aria-prohibited-attr": 1,
+    "aria-valid-attr-value": 2,
+    "color-contrast": 11
+   },
+   "proposals": {
+    "aria-progressbar-name": 1,
+    "button-name": 2,
+    "color-contrast": 18,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-name": 1,
+    "list": 2,
+    "aria-prohibited-attr": 1
+   },
+   "proposal_modes": {
+    "input": 7,
+    "auto": 21
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 17,
+     "status": "verified",
+     "detail": "17 fixes applied together. Target rule improved (29 \u2192 12); no increase in detected rule counts.",
+     "seconds": 1.26
+    },
+    {
+     "rule": "list",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.34
+    },
+    {
+     "rule": "aria-progressbar-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.46
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.41
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.48
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (12 \u2192 11); no increase in detected rule counts.",
+     "seconds": 1.4
+    },
+    {
+     "rule": "heading-order",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.38
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.33
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.37
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.39
+    },
+    {
+     "rule": "aria-prohibited-attr",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.34
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 11
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/cards.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.34,
+   "violations": {
+    "button-name": 2,
+    "color-contrast": 14,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-in-text-block": 1,
+    "list": 2,
+    "region": 10
+   },
+   "reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 11
+   },
+   "proposals": {
+    "button-name": 2,
+    "color-contrast": 14,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-in-text-block": 1,
+    "list": 2
+   },
+   "proposal_modes": {
+    "input": 5,
+    "auto": 17
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 13,
+     "status": "verified",
+     "detail": "13 fixes applied together. Target rule improved (25 \u2192 12); no increase in detected rule counts.",
+     "seconds": 1.43
+    },
+    {
+     "rule": "list",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.33
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.29
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.25
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (12 \u2192 11); no increase in detected rule counts.",
+     "seconds": 1.24
+    },
+    {
+     "rule": "heading-order",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.17
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.21
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.27
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 11
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/charts.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.12,
+   "violations": {
+    "color-contrast": 4,
+    "label-title-only": 1,
+    "landmark-one-main": 1,
+    "region": 1
+   },
+   "reviews": {
+    "aria-valid-attr-value": 1
+   },
+   "proposals": {
+    "color-contrast": 4,
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "auto": 3,
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 3,
+     "status": "verified",
+     "detail": "3 fixes applied together. Target rule improved (4 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.11
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.08
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.04
+    }
+   ],
+   "final_violations": {
+    "label-title-only": 1
+   },
+   "final_reviews": {
+    "aria-valid-attr-value": 1
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/forgot-password.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.54,
+   "violations": {
+    "aria-progressbar-name": 6,
+    "button-name": 2,
+    "color-contrast": 47,
+    "heading-order": 2,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-in-text-block": 1,
+    "link-name": 2,
+    "list": 2,
+    "region": 17
+   },
+   "reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 13,
+    "duplicate-id-aria": 1
+   },
+   "proposals": {
+    "aria-progressbar-name": 6,
+    "button-name": 2,
+    "color-contrast": 47,
+    "heading-order": 2,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-in-text-block": 1,
+    "link-name": 2,
+    "list": 2,
+    "duplicate-id-aria": 1
+   },
+   "proposal_modes": {
+    "input": 27,
+    "auto": 38
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 32,
+     "status": "verified",
+     "detail": "32 fixes applied together. Target rule improved (60 \u2192 28); no increase in detected rule counts.",
+     "seconds": 1.66
+    },
+    {
+     "rule": "heading-order",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.45
+    },
+    {
+     "rule": "list",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.42
+    },
+    {
+     "rule": "aria-progressbar-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (6 \u2192 5); no increase in detected rule counts.",
+     "seconds": 1.78
+    },
+    {
+     "rule": "aria-progressbar-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (5 \u2192 4); no increase in detected rule counts.",
+     "seconds": 1.5
+    },
+    {
+     "rule": "aria-progressbar-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (4 \u2192 3); no increase in detected rule counts.",
+     "seconds": 1.38
+    },
+    {
+     "rule": "aria-progressbar-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.57
+    },
+    {
+     "rule": "aria-progressbar-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.44
+    },
+    {
+     "rule": "aria-progressbar-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.39
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.69
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.62
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (28 \u2192 27); no increase in detected rule counts.",
+     "seconds": 1.58
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (27 \u2192 26); no increase in detected rule counts.",
+     "seconds": 1.52
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (26 \u2192 25); no increase in detected rule counts.",
+     "seconds": 1.43
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (25 \u2192 24); no increase in detected rule counts.",
+     "seconds": 1.49
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (24 \u2192 23); no increase in detected rule counts.",
+     "seconds": 1.55
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (23 \u2192 22); no increase in detected rule counts.",
+     "seconds": 1.5
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (22 \u2192 21); no increase in detected rule counts.",
+     "seconds": 1.26
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (21 \u2192 20); no increase in detected rule counts.",
+     "seconds": 1.44
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (20 \u2192 19); no increase in detected rule counts.",
+     "seconds": 1.52
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (19 \u2192 18); no increase in detected rule counts.",
+     "seconds": 1.7
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (18 \u2192 17); no increase in detected rule counts.",
+     "seconds": 1.5
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (17 \u2192 16); no increase in detected rule counts.",
+     "seconds": 1.52
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (16 \u2192 15); no increase in detected rule counts.",
+     "seconds": 1.43
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (15 \u2192 14); no increase in detected rule counts.",
+     "seconds": 1.41
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (14 \u2192 13); no increase in detected rule counts.",
+     "seconds": 1.67
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.39
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.59
+    },
+    {
+     "rule": "link-in-text-block",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.51
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.46
+    },
+    {
+     "rule": "link-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.54
+    },
+    {
+     "rule": "duplicate-id-aria",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.77
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 13
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.09,
+   "violations": {
+    "color-contrast": 5,
+    "label-title-only": 1,
+    "landmark-one-main": 1,
+    "region": 1
+   },
+   "reviews": {
+    "aria-valid-attr-value": 1
+   },
+   "proposals": {
+    "color-contrast": 5,
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "auto": 3,
+    "input": 3
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 3,
+     "status": "verified",
+     "detail": "3 fixes applied together. Target rule improved (5 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.07
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.11
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.1
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.11
+    }
+   ],
+   "final_violations": {
+    "label-title-only": 1
+   },
+   "final_reviews": {
+    "aria-valid-attr-value": 1
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/login.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.95,
+   "violations": {
+    "color-contrast": 4,
+    "landmark-one-main": 1,
+    "region": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "color-contrast": 4,
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 3,
+    "auto": 2
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (4 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.04
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 0.97
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.02
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.98
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/register.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.87,
+   "violations": {
+    "button-name": 2,
+    "color-contrast": 360,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-in-text-block": 1,
+    "list": 2,
+    "region": 10
+   },
+   "reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 11,
+    "th-has-data-cells": 1
+   },
+   "proposals": {
+    "button-name": 2,
+    "color-contrast": 360,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-in-text-block": 1,
+    "list": 2
+   },
+   "proposal_modes": {
+    "input": 5,
+    "auto": 363
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 359,
+     "status": "verified",
+     "detail": "359 fixes applied together. Target rule improved (371 \u2192 12); no increase in detected rule counts.",
+     "seconds": 4.15
+    },
+    {
+     "rule": "list",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.95
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.81
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 2.1
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (12 \u2192 11); no increase in detected rule counts.",
+     "seconds": 1.98
+    },
+    {
+     "rule": "heading-order",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 2.06
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.98
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.99
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 11,
+    "th-has-data-cells": 1
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/tables.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.6,
+   "violations": {
+    "button-name": 2,
+    "color-contrast": 19,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "landmark-unique": 1,
+    "link-in-text-block": 1,
+    "list": 2,
+    "region": 20
+   },
+   "reviews": {
+    "aria-prohibited-attr": 1,
+    "aria-valid-attr-value": 2,
+    "color-contrast": 11,
+    "duplicate-id-aria": 1
+   },
+   "proposals": {
+    "button-name": 2,
+    "color-contrast": 19,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "landmark-unique": 1,
+    "link-in-text-block": 1,
+    "list": 2,
+    "aria-prohibited-attr": 1,
+    "duplicate-id-aria": 1
+   },
+   "proposal_modes": {
+    "input": 7,
+    "auto": 23
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 17,
+     "status": "verified",
+     "detail": "17 fixes applied together. Target rule improved (30 \u2192 13); no increase in detected rule counts.",
+     "seconds": 1.2
+    },
+    {
+     "rule": "list",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.19
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.29
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.31
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (13 \u2192 12); no increase in detected rule counts.",
+     "seconds": 1.26
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (12 \u2192 11); no increase in detected rule counts.",
+     "seconds": 1.32
+    },
+    {
+     "rule": "heading-order",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.25
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.5
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.39
+    },
+    {
+     "rule": "landmark-unique",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.27
+    },
+    {
+     "rule": "aria-prohibited-attr",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.51
+    },
+    {
+     "rule": "duplicate-id-aria",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.39
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 11
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/utilities-animation.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.48,
+   "violations": {
+    "button-name": 2,
+    "color-contrast": 21,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-in-text-block": 1,
+    "list": 2,
+    "region": 10
+   },
+   "reviews": {
+    "aria-prohibited-attr": 1,
+    "aria-valid-attr-value": 2,
+    "color-contrast": 11
+   },
+   "proposals": {
+    "button-name": 2,
+    "color-contrast": 21,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-in-text-block": 1,
+    "list": 2,
+    "aria-prohibited-attr": 1
+   },
+   "proposal_modes": {
+    "input": 5,
+    "auto": 24
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 20,
+     "status": "verified",
+     "detail": "20 fixes applied together. Target rule improved (32 \u2192 12); no increase in detected rule counts.",
+     "seconds": 1.43
+    },
+    {
+     "rule": "list",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.39
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.52
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.4
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (12 \u2192 11); no increase in detected rule counts.",
+     "seconds": 1.27
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.39
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.29
+    },
+    {
+     "rule": "aria-prohibited-attr",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.34
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 11
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/utilities-border.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.41,
+   "violations": {
+    "button-name": 2,
+    "color-contrast": 22,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-in-text-block": 1,
+    "list": 2,
+    "region": 10
+   },
+   "reviews": {
+    "aria-prohibited-attr": 1,
+    "aria-valid-attr-value": 2,
+    "color-contrast": 19
+   },
+   "proposals": {
+    "button-name": 2,
+    "color-contrast": 22,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-in-text-block": 1,
+    "list": 2,
+    "aria-prohibited-attr": 1
+   },
+   "proposal_modes": {
+    "input": 7,
+    "auto": 24
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 19,
+     "status": "verified",
+     "detail": "19 fixes applied together. Target rule improved (41 \u2192 22); no increase in detected rule counts.",
+     "seconds": 1.2
+    },
+    {
+     "rule": "list",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.17
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.35
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.14
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (22 \u2192 21); no increase in detected rule counts.",
+     "seconds": 1.26
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (21 \u2192 20); no increase in detected rule counts.",
+     "seconds": 1.2
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (20 \u2192 19); no increase in detected rule counts.",
+     "seconds": 1.22
+    },
+    {
+     "rule": "heading-order",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.23
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.43
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.31
+    },
+    {
+     "rule": "aria-prohibited-attr",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.6
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 19
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/utilities-color.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.15,
+   "violations": {
+    "aria-progressbar-name": 2,
+    "button-name": 2,
+    "color-contrast": 24,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-in-text-block": 1,
+    "list": 2,
+    "region": 10
+   },
+   "reviews": {
+    "aria-prohibited-attr": 1,
+    "aria-valid-attr-value": 2,
+    "color-contrast": 11
+   },
+   "proposals": {
+    "aria-progressbar-name": 2,
+    "button-name": 2,
+    "color-contrast": 24,
+    "heading-order": 1,
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "link-in-text-block": 1,
+    "list": 2,
+    "aria-prohibited-attr": 1
+   },
+   "proposal_modes": {
+    "input": 10,
+    "auto": 25
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 20,
+     "status": "verified",
+     "detail": "20 fixes applied together. Target rule improved (35 \u2192 15); no increase in detected rule counts.",
+     "seconds": 1.27
+    },
+    {
+     "rule": "list",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.29
+    },
+    {
+     "rule": "aria-progressbar-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.29
+    },
+    {
+     "rule": "aria-progressbar-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.32
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.26
+    },
+    {
+     "rule": "button-name",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.39
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (15 \u2192 14); no increase in detected rule counts.",
+     "seconds": 1.4
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (14 \u2192 13); no increase in detected rule counts.",
+     "seconds": 1.24
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (13 \u2192 12); no increase in detected rule counts.",
+     "seconds": 1.38
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (12 \u2192 11); no increase in detected rule counts.",
+     "seconds": 1.35
+    },
+    {
+     "rule": "heading-order",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.49
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.29
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.47
+    },
+    {
+     "rule": "aria-prohibited-attr",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.5
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "aria-valid-attr-value": 1,
+    "color-contrast": 11
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-sb-admin-2/utilities-other.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.13,
+   "violations": {
+    "heading-order": 1,
+    "landmark-one-main": 1,
+    "region": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "heading-order": 1,
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "auto": 1,
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "heading-order",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.23
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.28
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-shop-homepage/dist/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.05,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.97
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "startbootstrap-small-business/dist/index.html"
+  }
+ ]
+}

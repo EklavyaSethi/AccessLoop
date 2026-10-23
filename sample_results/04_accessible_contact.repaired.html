@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact the Department</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; color: #1b2433; background: #ffffff; }
+    main { max-width: 520px; margin: 40px auto; padding: 24px; }
+    label, input, textarea { display: block; width: 100%; box-sizing: border-box; }
+    label { margin: 18px 0 6px; font-weight: 600; }
+    input, textarea { border: 1px solid #5c6878; border-radius: 6px; padding: 10px; font: inherit; }
+    button { margin-top: 18px; border: 0; border-radius: 6px; background: #0b4a8b; color: #ffffff; padding: 10px 16px; font: inherit; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Contact the department</h1>
+  <p>Control page: already accessible, should produce zero violations and zero edits.</p>
+  <form action="#" method="get">
+    <label for="c-name">Name</label>
+    <input id="c-name" name="name" type="text" autocomplete="name">
+    <label for="c-email">Email</label>
+    <input id="c-email" name="email" type="email" autocomplete="email">
+    <label for="c-msg">Message</label>
+    <textarea id="c-msg" name="message" rows="4"></textarea>
+    <button type="submit">Send message</button>
+  </form>
+</main>
+</body>
+</html>

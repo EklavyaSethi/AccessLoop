@@ -1,0 +1,734 @@
+{
+ "govuk": {
+  "pages": 142,
+  "ok": 142,
+  "detected": 43,
+  "detected_as_violation": 38,
+  "tools": {
+   "axe": {
+    "found": 41,
+    "flagged": 43,
+    "n": 142
+   },
+   "wave": {
+    "found": 25,
+    "flagged": 57,
+    "n": 142
+   },
+   "sortsite": {
+    "found": 57,
+    "flagged": 57,
+    "n": 142
+   },
+   "asqatasun": {
+    "found": 35,
+    "flagged": 67,
+    "n": 142
+   },
+   "tenon": {
+    "found": 46,
+    "flagged": 48,
+    "n": 142
+   },
+   "codesniffer": {
+    "found": 29,
+    "flagged": 49,
+    "n": 142
+   },
+   "achecker": {
+    "found": 29,
+    "flagged": 49,
+    "n": 142
+   },
+   "siteimprove": {
+    "found": 41,
+    "flagged": 51,
+    "n": 142
+   },
+   "fae": {
+    "found": 36,
+    "flagged": 71,
+    "n": 142
+   },
+   "aslint": {
+    "found": 33,
+    "flagged": 53,
+    "n": 142
+   },
+   "google": {
+    "found": 23,
+    "flagged": 24,
+    "n": 142
+   },
+   "eiii": {
+    "found": 24,
+    "flagged": 24,
+    "n": 142
+   },
+   "nu": {
+    "found": 18,
+    "flagged": 23,
+    "n": 142
+   }
+  },
+  "fixable": 40,
+  "cleared": 38,
+  "by_category": {
+   "Buttons": [
+    3,
+    4
+   ],
+   "Colour and Contrast": [
+    4,
+    6
+   ],
+   "Content": [
+    1,
+    5
+   ],
+   "CSS": [
+    0,
+    5
+   ],
+   "Forms": [
+    9,
+    19
+   ],
+   "Frames": [
+    1,
+    2
+   ],
+   "Headings": [
+    2,
+    4
+   ],
+   "HTML": [
+    3,
+    11
+   ],
+   "Images": [
+    3,
+    10
+   ],
+   "Keyboard Access": [
+    1,
+    16
+   ],
+   "Language of content": [
+    1,
+    9
+   ],
+   "Links": [
+    4,
+    20
+   ],
+   "Lists": [
+    3,
+    4
+   ],
+   "Multimedia": [
+    1,
+    3
+   ],
+   "Navigation": [
+    1,
+    1
+   ],
+   "Page Layout": [
+    1,
+    1
+   ],
+   "Page Title": [
+    0,
+    3
+   ],
+   "Tables": [
+    3,
+    11
+   ],
+   "Typography": [
+    2,
+    8
+   ]
+  },
+  "noise": {
+   "region": 1
+  },
+  "not_detected": [
+   "A distraction is present, an animated gif",
+   "Accesskey attribute used",
+   "Adjacent links going to the same destination",
+   "Alert shows for a short time",
+   "All caps text found",
+   "Colour alone is used to convey content",
+   "Concertina items don't get keyboard focus",
+   "Content identified by location",
+   "Content is not organised into well-defined groups or chunks, using headings, lists, and other visual mechanisms",
+   "Content is not readable and functional when text is increased",
+   "Deprecated center element",
+   "Deprecated font element",
+   "Dropdown navigation - only the top level items receive focus",
+   "Duplicate id",
+   "Embedded audio file is missing text alternative",
+   "Empty legend",
+   "Empty page title",
+   "Empty paragraph",
+   "Error messages - no suggestion for corrections given, e.g. required format",
+   "Errors are not identified",
+   "Errors identified by colour only",
+   "Fake button is not keyboard accessible",
+   "Field hint not associated with input",
+   "Fieldset without a legend",
+   "First instance of abbreviation not expanded",
+   "Flashing content doesn't have warning",
+   "Focus not visible",
+   "Focus order in wrong order",
+   "Form control that changes context without warning",
+   "Identifying links by colour alone",
+   "Image alt attribute contains image file name",
+   "Image has alt and title that are different",
+   "Image has empty alt and non-empty title",
+   "Image that conveys information has an empty alt attribute",
+   "Image that conveys information has inappropriate alt text",
+   "Image with partial text alternative",
+   "Inadequate line height used",
+   "Inappropriate page title",
+   "Inline style adds colour",
+   "Italics used on long sections of text",
+   "Justified text found",
+   "Keyboard focus assigned to a non focusable element using tabindex=0",
+   "Keyboard focus is not indicated visually",
+   "Keyboard trap",
+   "Left aligned form labels with too much white space",
+   "Lightbox - ESC key doesn't close the lightbox",
+   "Lightbox - close button doesn't receive focus",
+   "Lightbox - focus is not moved immediately to lightbox",
+   "Lightbox - focus is not retained within the lightbox",
+   "Link contains only a full stop",
+   "Link launches new window with no warning",
+   "Link not clearly identifiable and distinguishable from surrounding text",
+   "Link text does not make sense out of context",
+   "Link text with identical title",
+   "Link to #, invalid hypertext reference",
+   "Link to PDF does not include information on file format and file size",
+   "Link to a multimedia file, no transcript",
+   "Link to an image, no text alternative",
+   "Link to javascript, invalid hypertext reference",
+   "Link with a role=button does not work with space bar",
+   "Links not separated by printable characters",
+   "Links to a sound file, no transcript",
+   "Links with the same text go to different pages",
+   "List not marked up as a list",
+   "Long lines of text",
+   "Missing H1",
+   "Missing page title",
+   "Non-decorative content inserted using CSS",
+   "Non-specific link text",
+   "Non-unique field label found",
+   "PRE element without CODE element inside it",
+   "Page zoom - boxes that don't expand with the text",
+   "Placeholder no label",
+   "Plain language is not used",
+   "Spacer image found",
+   "Start and close tags don't match",
+   "Table has no scope attributes",
+   "Table has no table headings",
+   "Table is missing a caption",
+   "Table nested within table",
+   "Table nested within table header",
+   "Table with column headers and double row headers",
+   "Table with inconsistent numbers of columns in rows",
+   "Table with some empty cells",
+   "Text formatting used instead of an actual heading",
+   "Text language changed without required change in direction",
+   "Text language is in the wrong direction",
+   "Tooltips don't receive keyboard focus",
+   "Uninformative alt attribute value on image button",
+   "Very small text found",
+   "display:none used to visually hide content when it should be available to screenreader",
+   "html element has an empty lang attribute",
+   "html element has an invalid value in the lang attribute",
+   "html element has lang attribute set to wrong language",
+   "html element is missing a lang attribute",
+   "iframe title attribute does not describe the content or purpose of the iframe",
+   "lang attribute not used to identify change of language",
+   "lang attribute used to identify change of language, but with wrong language",
+   "visibility:hidden used to visually hide content when it should be available to screenreader"
+  ]
+ },
+ "act": {
+  "rules": 45,
+  "failed": 224,
+  "passed": 278,
+  "detected": 209,
+  "proposed": 179,
+  "fixed": 166,
+  "false_alarm": 2,
+  "false_edit": 21,
+  "false_edit_review": 19,
+  "out_of_scope": [
+   "Audio element content has transcript",
+   "Audio element content is media alternative for text",
+   "Iframe with interactive elements is not excluded from tab-order",
+   "Links with identical accessible names have equivalent purpose",
+   "Meta element has no refresh delay (no exception)",
+   "Orientation of the page is not restricted using CSS transforms",
+   "Text has enhanced contrast"
+  ],
+  "false_alarm_examples": [
+   "Meta element has no refresh delay - Passed Example 2",
+   "Visible label is part of accessible name - Passed Example 6"
+  ],
+  "per_rule": {
+   "ARIA attribute is defined in WAI-ARIA": {
+    "failed": 2,
+    "detected": 2,
+    "fixed": 2,
+    "passed": 4,
+    "false_alarm": 0
+   },
+   "Element with aria-hidden has no content in sequential focus navigation": {
+    "failed": 6,
+    "detected": 6,
+    "fixed": 5,
+    "passed": 6,
+    "false_alarm": 0
+   },
+   "ARIA required context role": {
+    "failed": 4,
+    "detected": 4,
+    "fixed": 1,
+    "passed": 6,
+    "false_alarm": 0
+   },
+   "ARIA required owned elements": {
+    "failed": 10,
+    "detected": 9,
+    "fixed": 1,
+    "passed": 10,
+    "false_alarm": 0
+   },
+   "ARIA state or property is permitted": {
+    "failed": 2,
+    "detected": 2,
+    "fixed": 2,
+    "passed": 13,
+    "false_alarm": 0
+   },
+   "ARIA state or property has valid value": {
+    "failed": 7,
+    "detected": 7,
+    "fixed": 4,
+    "passed": 10,
+    "false_alarm": 0
+   },
+   "Audio or video element avoids automatically playing audio": {
+    "failed": 2,
+    "detected": 0,
+    "fixed": 0,
+    "passed": 3,
+    "false_alarm": 0
+   },
+   "Autocomplete attribute has valid value": {
+    "failed": 10,
+    "detected": 10,
+    "fixed": 10,
+    "passed": 8,
+    "false_alarm": 0
+   },
+   "Block of repeated content is collapsible": {
+    "failed": 3,
+    "detected": 3,
+    "fixed": 3,
+    "passed": 4,
+    "false_alarm": 0
+   },
+   "Button has non-empty accessible name": {
+    "failed": 5,
+    "detected": 5,
+    "fixed": 5,
+    "passed": 7,
+    "false_alarm": 0
+   },
+   "Bypass Blocks of Repeated Content": {
+    "failed": 1,
+    "detected": 1,
+    "fixed": 1,
+    "passed": 12,
+    "false_alarm": 0
+   },
+   "Document has heading for non-repeated content": {
+    "failed": 4,
+    "detected": 2,
+    "fixed": 2,
+    "passed": 9,
+    "false_alarm": 0
+   },
+   "Document has an instrument to move focus to non-repeated content": {
+    "failed": 3,
+    "detected": 1,
+    "fixed": 1,
+    "passed": 8,
+    "false_alarm": 0
+   },
+   "Document has a landmark with non-repeated content": {
+    "failed": 3,
+    "detected": 3,
+    "fixed": 2,
+    "passed": 4,
+    "false_alarm": 0
+   },
+   "Element with lang attribute has valid language tag": {
+    "failed": 9,
+    "detected": 9,
+    "fixed": 9,
+    "passed": 5,
+    "false_alarm": 0
+   },
+   "Element marked as decorative is not exposed": {
+    "failed": 3,
+    "detected": 3,
+    "fixed": 2,
+    "passed": 6,
+    "false_alarm": 0
+   },
+   "SVG element with explicit role has non-empty accessible name": {
+    "failed": 4,
+    "detected": 4,
+    "fixed": 4,
+    "passed": 3,
+    "false_alarm": 0
+   },
+   "Form field has non-empty accessible name": {
+    "failed": 9,
+    "detected": 9,
+    "fixed": 6,
+    "passed": 9,
+    "false_alarm": 0
+   },
+   "Heading has non-empty accessible name": {
+    "failed": 8,
+    "detected": 8,
+    "fixed": 5,
+    "passed": 5,
+    "false_alarm": 0
+   },
+   "HTML page has lang attribute": {
+    "failed": 4,
+    "detected": 4,
+    "fixed": 4,
+    "passed": 1,
+    "false_alarm": 0
+   },
+   "HTML page lang attribute has valid language tag": {
+    "failed": 4,
+    "detected": 4,
+    "fixed": 4,
+    "passed": 2,
+    "false_alarm": 0
+   },
+   "HTML page lang and xml:lang attributes have matching values": {
+    "failed": 2,
+    "detected": 2,
+    "fixed": 2,
+    "passed": 3,
+    "false_alarm": 0
+   },
+   "HTML page has non-empty title": {
+    "failed": 6,
+    "detected": 6,
+    "fixed": 5,
+    "passed": 5,
+    "false_alarm": 0
+   },
+   "Id attribute value is unique": {
+    "failed": 3,
+    "detected": 3,
+    "fixed": 3,
+    "passed": 4,
+    "false_alarm": 0
+   },
+   "Iframe elements with identical accessible names have equivalent purpose": {
+    "failed": 4,
+    "detected": 1,
+    "fixed": 1,
+    "passed": 10,
+    "false_alarm": 0
+   },
+   "Iframe element has non-empty accessible name": {
+    "failed": 4,
+    "detected": 4,
+    "fixed": 4,
+    "passed": 3,
+    "false_alarm": 0
+   },
+   "Image button has non-empty accessible name": {
+    "failed": 3,
+    "detected": 3,
+    "fixed": 3,
+    "passed": 4,
+    "false_alarm": 0
+   },
+   "Image has non-empty accessible name": {
+    "failed": 5,
+    "detected": 5,
+    "fixed": 5,
+    "passed": 8,
+    "false_alarm": 0
+   },
+   "Important letter spacing in style attributes is wide enough": {
+    "failed": 4,
+    "detected": 4,
+    "fixed": 4,
+    "passed": 6,
+    "false_alarm": 0
+   },
+   "Important line height in style attributes is wide enough": {
+    "failed": 6,
+    "detected": 6,
+    "fixed": 6,
+    "passed": 8,
+    "false_alarm": 0
+   },
+   "Important word spacing in style attributes is wide enough": {
+    "failed": 4,
+    "detected": 4,
+    "fixed": 4,
+    "passed": 6,
+    "false_alarm": 0
+   },
+   "Link has non-empty accessible name": {
+    "failed": 11,
+    "detected": 11,
+    "fixed": 11,
+    "passed": 11,
+    "false_alarm": 0
+   },
+   "Menuitem has non-empty accessible name": {
+    "failed": 2,
+    "detected": 2,
+    "fixed": 2,
+    "passed": 4,
+    "false_alarm": 0
+   },
+   "Meta element has no refresh delay": {
+    "failed": 4,
+    "detected": 4,
+    "fixed": 4,
+    "passed": 3,
+    "false_alarm": 1
+   },
+   "Meta viewport allows for zoom": {
+    "failed": 7,
+    "detected": 5,
+    "fixed": 2,
+    "passed": 5,
+    "false_alarm": 0
+   },
+   "Object element rendering non-text content has non-empty accessible name": {
+    "failed": 6,
+    "detected": 5,
+    "fixed": 5,
+    "passed": 4,
+    "false_alarm": 0
+   },
+   "Element with presentational children has no focusable content": {
+    "failed": 5,
+    "detected": 5,
+    "fixed": 0,
+    "passed": 4,
+    "false_alarm": 0
+   },
+   "Role attribute has valid value": {
+    "failed": 2,
+    "detected": 2,
+    "fixed": 2,
+    "passed": 3,
+    "false_alarm": 0
+   },
+   "Element with role attribute has required states and properties": {
+    "failed": 5,
+    "detected": 5,
+    "fixed": 4,
+    "passed": 6,
+    "false_alarm": 0
+   },
+   "Scrollable content can be reached with sequential focus navigation": {
+    "failed": 2,
+    "detected": 2,
+    "fixed": 2,
+    "passed": 3,
+    "false_alarm": 0
+   },
+   "Table header cell has assigned cells": {
+    "failed": 3,
+    "detected": 2,
+    "fixed": 0,
+    "passed": 6,
+    "false_alarm": 0
+   },
+   "Headers attribute specified on a cell refers to cells in the same table element": {
+    "failed": 4,
+    "detected": 4,
+    "fixed": 0,
+    "passed": 8,
+    "false_alarm": 0
+   },
+   "Text has minimum contrast": {
+    "failed": 11,
+    "detected": 10,
+    "fixed": 6,
+    "passed": 11,
+    "false_alarm": 0
+   },
+   "Video element auditory content has accessible alternative": {
+    "failed": 2,
+    "detected": 2,
+    "fixed": 2,
+    "passed": 2,
+    "false_alarm": 0
+   },
+   "Visible label is part of accessible name": {
+    "failed": 16,
+    "detected": 16,
+    "fixed": 16,
+    "passed": 16,
+    "false_alarm": 1
+   }
+  },
+  "errors": 0
+ },
+ "mdn": {
+  "pages": 59,
+  "ok": 59,
+  "violations_before": 286,
+  "violations_after": 13,
+  "reviews_before": 22,
+  "reviews_after": 19,
+  "left_top": [
+   [
+    "region",
+    13
+   ]
+  ],
+  "scan_median": 0.88,
+  "errors": []
+ },
+ "templates": {
+  "pages": 39,
+  "ok": 39,
+  "violations_before": 1013,
+  "violations_after": 68,
+  "reviews_before": 319,
+  "reviews_after": 295,
+  "left_top": [
+   [
+    "region",
+    51
+   ],
+   [
+    "color-contrast",
+    14
+   ],
+   [
+    "label-title-only",
+    2
+   ],
+   [
+    "page-has-heading-one",
+    1
+   ]
+  ],
+  "scan_median": 1.25,
+  "errors": []
+ },
+ "overall": {
+  "approvals": 1066,
+  "outcomes": {
+   "verified": 1030,
+   "rolled_back": 32,
+   "refused": 4
+  },
+  "fixes": {
+   "verified": 1648,
+   "rolled_back": 33,
+   "refused": 4
+  },
+  "batches": 57,
+  "median_seconds": 0.93,
+  "p95_seconds": 1.98,
+  "originals_untouched": true,
+  "audit_chains_ok": true,
+  "pages": 464,
+  "pages_worse": 0,
+  "pages_measured": 464,
+  "rollbacks_by_rule": [
+   [
+    "color-contrast",
+    15
+   ],
+   [
+    "landmark-one-main",
+    4
+   ],
+   [
+    "aria-required-children",
+    2
+   ],
+   [
+    "aria-required-parent",
+    2
+   ],
+   [
+    "page-has-heading-one",
+    2
+   ],
+   [
+    "aria-input-field-name",
+    2
+   ],
+   [
+    "dlitem",
+    1
+   ],
+   [
+    "bypass",
+    1
+   ],
+   [
+    "aria-valid-attr-value",
+    1
+   ],
+   [
+    "document-title",
+    1
+   ]
+  ],
+  "rollback_reasons": [
+   [
+    "Target rule color-contrast did not improve",
+    15
+   ],
+   [
+    "Automated regression",
+    8
+   ],
+   [
+    "Target rule landmark-one-main did not improve",
+    3
+   ],
+   [
+    "Target rule aria-input-field-name did not improve",
+    2
+   ],
+   [
+    "Target rule bypass did not improve",
+    1
+   ],
+   [
+    "Target rule aria-valid-attr-value did not improve",
+    1
+   ]
+  ]
+ }
+}

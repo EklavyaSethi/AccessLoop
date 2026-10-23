@@ -1,0 +1,156 @@
+{
+  "product": "AccessLoop",
+  "scope": "Static HTML; automated WCAG rule checks; not a conformance certificate",
+  "original_sha256": "b707f13f886650073e49b281d1fab5fbd2a901bebf71f137c6612fb30b58496d",
+  "current_sha256": "352cd20e208d187d6f5902349337736311a0cb656c03019eaaa128b77b2b2ad1",
+  "baseline_counts": {
+    "button-name": 1,
+    "label": 3
+  },
+  "current_counts": {},
+  "unresolved": [],
+  "audit_events": [
+    {
+      "seq": 1,
+      "timestamp_utc": "2026-10-23T04:35:06+00:00",
+      "event": "loaded",
+      "detail": "Original saved as a separate copy; it is never modified.",
+      "working_sha256": "b707f13f886650073e49b281d1fab5fbd2a901bebf71f137c6612fb30b58496d",
+      "versions": {
+        "accessloop": "0.9.0"
+      },
+      "original_sha256": "b707f13f886650073e49b281d1fab5fbd2a901bebf71f137c6612fb30b58496d",
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "f934503e82a5fa4f9590ee239621e6cb808221d503dcfe5386d9845c8d121a70"
+    },
+    {
+      "seq": 2,
+      "timestamp_utc": "2026-10-23T04:35:06+00:00",
+      "event": "scanned",
+      "detail": "4 violation nodes, 0 needs-review nodes; 4 fix proposals.",
+      "working_sha256": "b707f13f886650073e49b281d1fab5fbd2a901bebf71f137c6612fb30b58496d",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "best_practice": false,
+      "counts": {
+        "button-name": 1,
+        "label": 3
+      },
+      "proposals": 4,
+      "input_proposals": 1,
+      "scan_ms": 293,
+      "plan_ms": 0,
+      "prev": "f934503e82a5fa4f9590ee239621e6cb808221d503dcfe5386d9845c8d121a70",
+      "hash": "151611cb47aea84471c716f7fd35d6d2bc74d4120186b02be856239d27848951"
+    },
+    {
+      "seq": 3,
+      "timestamp_utc": "2026-10-23T04:35:06+00:00",
+      "event": "verified",
+      "detail": "b707f13f88-0-button-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "2f9e5505b29eb3a22851b2754a11145731f5c06fb1f6e60badce6438aef8fcd8",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "b707f13f88-0-button-name",
+      "rule": "button-name",
+      "announce_before": "(no name), button",
+      "announce_after": "“Reset calculator”, button",
+      "verify_ms": 302,
+      "mode": "input",
+      "selector": "#emi-reset",
+      "before": "<button id=\"emi-reset\" type=\"reset\">",
+      "after": "<button id=\"emi-reset\" type=\"reset\" aria-label=\"Reset calculator\">",
+      "reviewer_text": {
+        "text": "Reset calculator"
+      },
+      "backup": "0002_b707f13f8866.html",
+      "prev": "151611cb47aea84471c716f7fd35d6d2bc74d4120186b02be856239d27848951",
+      "hash": "ff4c44aa60c05fd07f74b9ac4090033596449183a0253238485352ea9c5fa300"
+    },
+    {
+      "seq": 4,
+      "timestamp_utc": "2026-10-23T04:35:07+00:00",
+      "event": "verified",
+      "detail": "2f9e5505b2-0-label: Target rule improved (3 → 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "b4a88b0d50adaa88785e9ea854b49c749f940fb54cb4a056c898bfcfa9cb5c23",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "2f9e5505b2-0-label",
+      "rule": "label",
+      "announce_before": "(no name), spin button",
+      "announce_after": "“Loan amount (₹)”, spin button",
+      "verify_ms": 305,
+      "mode": "auto",
+      "selector": "#emi-amount",
+      "before": "<label>Loan amount (₹)</label>\n    <input id=\"emi-amount\" name=\"principal\" type=\"number\" min=\"100000\">",
+      "after": "<label for=\"emi-amount\">Loan amount (₹)</label>\n    <input id=\"emi-amount\" name=\"principal\" type=\"number\" min=\"100000\">",
+      "backup": "0003_2f9e5505b29e.html",
+      "prev": "ff4c44aa60c05fd07f74b9ac4090033596449183a0253238485352ea9c5fa300",
+      "hash": "6b103f92f0c61a951da8007867c04cb99a34232b63b822ec58658d0975377ace"
+    },
+    {
+      "seq": 5,
+      "timestamp_utc": "2026-10-23T04:35:07+00:00",
+      "event": "verified",
+      "detail": "b4a88b0d50-0-label: Target rule improved (2 → 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "bf109e12aab49d3934c873368cfd13890995b4eb0be6ef3f83a75f24a59418e9",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "b4a88b0d50-0-label",
+      "rule": "label",
+      "announce_before": "(no name), spin button",
+      "announce_after": "“Interest rate (% per year)”, spin button",
+      "verify_ms": 301,
+      "mode": "auto",
+      "selector": "#emi-rate",
+      "before": "<label>Interest rate (% per year)</label>\n    <input id=\"emi-rate\" name=\"rate\" type=\"number\" step=\"0.05\">",
+      "after": "<label for=\"emi-rate\">Interest rate (% per year)</label>\n    <input id=\"emi-rate\" name=\"rate\" type=\"number\" step=\"0.05\">",
+      "backup": "0004_b4a88b0d50ad.html",
+      "prev": "6b103f92f0c61a951da8007867c04cb99a34232b63b822ec58658d0975377ace",
+      "hash": "dd580d297c7749ce07d8ea705ed08ff793b354826baf6f9780685a9274f03de1"
+    },
+    {
+      "seq": 6,
+      "timestamp_utc": "2026-10-23T04:35:07+00:00",
+      "event": "verified",
+      "detail": "bf109e12aa-0-label: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "352cd20e208d187d6f5902349337736311a0cb656c03019eaaa128b77b2b2ad1",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "bf109e12aa-0-label",
+      "rule": "label",
+      "announce_before": "(no name), spin button",
+      "announce_after": "“Tenure (months)”, spin button",
+      "verify_ms": 328,
+      "mode": "auto",
+      "selector": "#emi-tenure",
+      "before": "<label>Tenure (months)</label>\n    <input id=\"emi-tenure\" name=\"tenure\" type=\"number\" min=\"12\" max=\"360\">",
+      "after": "<label for=\"emi-tenure\">Tenure (months)</label>\n    <input id=\"emi-tenure\" name=\"tenure\" type=\"number\" min=\"12\" max=\"360\">",
+      "backup": "0005_bf109e12aab4.html",
+      "prev": "dd580d297c7749ce07d8ea705ed08ff793b354826baf6f9780685a9274f03de1",
+      "hash": "003e22805a457bff4ce0390db1096ab12024e03cd9b30473c396229444fbb2a2"
+    }
+  ],
+  "audit_log": {
+    "file": "audit.jsonl",
+    "entries": 6,
+    "verified": true,
+    "message": "All 6 entries verified; head 003e22805a457bff…",
+    "head_sha256": "003e22805a457bff4ce0390db1096ab12024e03cd9b30473c396229444fbb2a2"
+  }
+}

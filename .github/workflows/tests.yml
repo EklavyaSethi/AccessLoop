@@ -1,0 +1,48 @@
+name: AccessLoop tests
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  full-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: Install pinned dependencies and the browser
+        run: |
+          python -m pip install -r requirements.lock
+          python -m playwright install --with-deps chromium
+          npm ci --no-audit --no-fund
+      - name: All tests (engine, web UI, Streamlit AppTest, fuzz, templates, accounts)
+        run: python -m pytest -q
+      - name: Real-browser smoke test
+        run: python -m accessloop.smoke
+      - name: AccessLoop checks its own interfaces for accessibility
+        run: python -m accessloop.selfcheck
+      - name: Sample suite (every fix template proven on real pages)
+        run: python -m accessloop.sample_suite
+  supply-chain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: Known-vulnerability audit
+        run: |
+          python -m pip install pip-audit
+          pip-audit -r requirements.lock
+          npm audit --omit=dev --audit-level=high
+      - name: Software bill of materials (CycloneDX)
+        run: |
+          python -m pip install -r requirements.lock
+          npm ci --no-audit --no-fund
+          python -m accessloop.sbom > sbom.cdx.json
+      - uses: actions/upload-artifact@v4
+        with: { name: sbom, path: sbom.cdx.json }

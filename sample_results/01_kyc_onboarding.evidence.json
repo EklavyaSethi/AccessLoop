@@ -1,0 +1,192 @@
+{
+  "product": "AccessLoop",
+  "scope": "Static HTML; automated WCAG rule checks; not a conformance certificate",
+  "original_sha256": "fa3c42e9a6c6969df9587d38e4d97137cf81976e8747f9ee923c5a9cb80bea7d",
+  "current_sha256": "fa3c42e9a6c6969df9587d38e4d97137cf81976e8747f9ee923c5a9cb80bea7d",
+  "baseline_counts": {
+    "button-name": 1,
+    "html-has-lang": 1,
+    "label": 4
+  },
+  "current_counts": {
+    "button-name": 1,
+    "html-has-lang": 1,
+    "label": 4
+  },
+  "unresolved": [
+    {
+      "rule_id": "button-name",
+      "selector": "#submit-kyc",
+      "impact": "critical",
+      "help": "Buttons must have discernible text",
+      "description": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+      "uid": 20,
+      "html": "<button id=\"submit-kyc\" type=\"submit\"><span aria-hidden=\"true\">Submit KYC details</span></button>",
+      "data": {
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "button",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "html-has-lang",
+      "selector": "html",
+      "impact": "serious",
+      "help": "<html> element must have a lang attribute",
+      "description": "Fix any of the following:\n  The <html> element does not have a lang attribute",
+      "uid": 0,
+      "html": "<html>",
+      "data": {
+        "has-lang": {
+          "messageKey": "noLang"
+        }
+      },
+      "kind": "violation",
+      "announce": null
+    },
+    {
+      "rule_id": "label",
+      "selector": "#kyc-name",
+      "impact": "critical",
+      "help": "Form elements must have labels",
+      "description": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+      "uid": 13,
+      "html": "<input id=\"kyc-name\" name=\"full_name\" type=\"text\">",
+      "data": {
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        },
+        "non-empty-placeholder": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "textbox",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "label",
+      "selector": "#kyc-pan",
+      "impact": "critical",
+      "help": "Form elements must have labels",
+      "description": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+      "uid": 15,
+      "html": "<input id=\"kyc-pan\" name=\"pan\" type=\"text\">",
+      "data": {
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        },
+        "non-empty-placeholder": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "textbox",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "label",
+      "selector": "#kyc-dob",
+      "impact": "critical",
+      "help": "Form elements must have labels",
+      "description": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+      "uid": 17,
+      "html": "<input id=\"kyc-dob\" name=\"dob\" type=\"date\">",
+      "data": {
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        },
+        "non-empty-placeholder": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "textbox",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "label",
+      "selector": "#kyc-mobile",
+      "impact": "critical",
+      "help": "Form elements must have labels",
+      "description": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+      "uid": 19,
+      "html": "<input id=\"kyc-mobile\" name=\"mobile\" type=\"tel\">",
+      "data": {
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        },
+        "non-empty-placeholder": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "textbox",
+        "states": []
+      }
+    }
+  ],
+  "audit_events": [
+    {
+      "seq": 1,
+      "timestamp_utc": "2026-10-23T04:35:03+00:00",
+      "event": "loaded",
+      "detail": "Original saved as a separate copy; it is never modified.",
+      "working_sha256": "fa3c42e9a6c6969df9587d38e4d97137cf81976e8747f9ee923c5a9cb80bea7d",
+      "versions": {
+        "accessloop": "0.9.0"
+      },
+      "original_sha256": "fa3c42e9a6c6969df9587d38e4d97137cf81976e8747f9ee923c5a9cb80bea7d",
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "b723b3c55a026c5ceab322baabb5fd951999690d4c1f194f9dbb5ae3d5be5614"
+    },
+    {
+      "seq": 2,
+      "timestamp_utc": "2026-10-23T04:35:04+00:00",
+      "event": "scanned",
+      "detail": "6 violation nodes, 0 needs-review nodes; 5 fix proposals.",
+      "working_sha256": "fa3c42e9a6c6969df9587d38e4d97137cf81976e8747f9ee923c5a9cb80bea7d",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "best_practice": false,
+      "counts": {
+        "button-name": 1,
+        "html-has-lang": 1,
+        "label": 4
+      },
+      "proposals": 5,
+      "input_proposals": 0,
+      "scan_ms": 279,
+      "plan_ms": 1,
+      "prev": "b723b3c55a026c5ceab322baabb5fd951999690d4c1f194f9dbb5ae3d5be5614",
+      "hash": "6a2ac1359dcaf52a7c66d08de330aa2bff5892dd0fc098c22e6ea76b6979bc93"
+    }
+  ],
+  "audit_log": {
+    "file": "audit.jsonl",
+    "entries": 2,
+    "verified": true,
+    "message": "All 2 entries verified; head 6a2ac1359dcaf52a…",
+    "head_sha256": "6a2ac1359dcaf52a7c66d08de330aa2bff5892dd0fc098c22e6ea76b6979bc93"
+  }
+}

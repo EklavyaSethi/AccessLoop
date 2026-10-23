@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Card offers | Meridian Bank</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; color: #1d2433; }
+    main { padding: 16px; }
+    a:focus, button:focus, input:focus { outline: none; }          /* legacy reset: removes every focus ring */
+    .offer-strip { width: 980px; background: #eef3fb; padding: 12px; }  /* fixed desktop width */
+    .teaser { height: 22px; overflow: hidden; }                    /* fixed-height text box */
+  </style>
+<style data-accessloop="focus-visible">:focus-visible { outline: 3px solid #1a4fd6 !important; outline-offset: 2px !important; }</style></head>
+<body>
+  <main>
+    <h1>Credit card offers</h1>
+    <div class="offer-strip" style="max-width: 100% !important; box-sizing: border-box; overflow-wrap: anywhere">Platinum card: 5% cashback on groceries, fuel surcharge waiver and airport lounge access every quarter.</div>
+    <p class="teaser" style="height: auto !important; max-height: none !important; overflow: visible !important">Annual fee waived when you spend ₹1.5 lakh or more in a year on this card.</p>
+    <form action="/apply" method="post">
+      <label for="income">Monthly income (₹)</label>
+      <input id="income" name="income" type="number">
+      <button type="submit">Check eligibility</button>
+    </form>
+    <p><a href="/terms">Terms and conditions</a></p>
+    <details>
+      <summary>Fees and charges</summary>
+      <img src="fee-table.png" width="300" height="120" alt="Reviewer typed description">
+    </details>
+  </main>
+</body>
+</html>

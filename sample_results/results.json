@@ -1,0 +1,1846 @@
+[
+  {
+    "name": "Starter demo (regression)",
+    "file": "examples/student_registration.html",
+    "purpose": "Original starter page: 3 seeded rules fixed end-to-end",
+    "passed": true,
+    "checks": [
+      [
+        "3 seeded rules detected",
+        true
+      ],
+      [
+        "every applied patch verified",
+        true
+      ],
+      [
+        "seeded rules cleared",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "button-name": 1,
+      "html-has-lang": 1,
+      "label": 1
+    },
+    "final": {},
+    "applied": [
+      {
+        "rule": "button-name",
+        "selector": "#submit-registration",
+        "status": "verified",
+        "before": "<span aria-hidden=\"true\">Submit registration</span>",
+        "after": "<span>Submit registration</span>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "html-has-lang",
+        "selector": "html",
+        "status": "verified",
+        "before": "<html>",
+        "after": "<html lang=\"en\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#email",
+        "status": "verified",
+        "before": "<label>University email</label>\n    <input id=\"email\" name=\"email\" type=\"email\" required>",
+        "after": "<label for=\"email\">University email</label>\n    <input id=\"email\" name=\"email\" type=\"email\" required>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "Starter ambiguous icon (regression)",
+    "file": "examples/ambiguous_icon_button.html",
+    "purpose": "Icon-only button asks the reviewer, never guessed",
+    "passed": true,
+    "checks": [
+      [
+        "button-name detected",
+        true
+      ],
+      [
+        "no invented label: one input proposal, nothing written yet",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "button-name": 1
+    },
+    "final": {
+      "button-name": 1
+    },
+    "applied": [],
+    "manual_queue": [
+      "button-name #icon-action"
+    ],
+    "note": ""
+  },
+  {
+    "name": "B1 KYC onboarding",
+    "file": "examples/samples/01_kyc_onboarding.html",
+    "purpose": "Many instances + reject / no-approval / stale guards on a KYC form",
+    "passed": true,
+    "checks": [
+      [
+        "html-has-lang=1, label=4, button-name=1 detected",
+        true
+      ],
+      [
+        "6 proposals generated",
+        true
+      ],
+      [
+        "reject leaves working file byte-identical",
+        true
+      ],
+      [
+        "approved=False leaves working file byte-identical",
+        true
+      ],
+      [
+        "stale proposal blocked",
+        true
+      ],
+      [
+        "6 patches applied, all verified",
+        true
+      ],
+      [
+        "total violations reach 0",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "button-name": 1,
+      "html-has-lang": 1,
+      "label": 4
+    },
+    "final": {},
+    "applied": [
+      {
+        "rule": "button-name",
+        "selector": "#submit-kyc",
+        "status": "verified",
+        "before": "<span aria-hidden=\"true\">Submit KYC details</span>",
+        "after": "<span>Submit KYC details</span>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "html-has-lang",
+        "selector": "html",
+        "status": "verified",
+        "before": "<html>",
+        "after": "<html lang=\"en\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#kyc-name",
+        "status": "verified",
+        "before": "<label>Full name (as on PAN)</label>\n    <input id=\"kyc-name\" name=\"full_name\" type=\"text\">",
+        "after": "<label for=\"kyc-name\">Full name (as on PAN)</label>\n    <input id=\"kyc-name\" name=\"full_name\" type=\"text\">",
+        "detail": "Target rule improved (4 \u2192 3); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#kyc-pan",
+        "status": "verified",
+        "before": "<label>PAN number</label>\n    <input id=\"kyc-pan\" name=\"pan\" type=\"text\">",
+        "after": "<label for=\"kyc-pan\">PAN number</label>\n    <input id=\"kyc-pan\" name=\"pan\" type=\"text\">",
+        "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#kyc-dob",
+        "status": "verified",
+        "before": "<label>Date of birth</label>\n    <input id=\"kyc-dob\" name=\"dob\" type=\"date\">",
+        "after": "<label for=\"kyc-dob\">Date of birth</label>\n    <input id=\"kyc-dob\" name=\"dob\" type=\"date\">",
+        "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#kyc-mobile",
+        "status": "verified",
+        "before": "<label>Mobile number</label>\n    <input id=\"kyc-mobile\" name=\"mobile\" type=\"tel\">",
+        "after": "<label for=\"kyc-mobile\">Mobile number</label>\n    <input id=\"kyc-mobile\" name=\"mobile\" type=\"tel\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "B1b Invalid language",
+    "file": "examples/samples/01_kyc_onboarding.html",
+    "purpose": "Bad reviewer language input",
+    "passed": true,
+    "checks": [
+      [
+        "invalid language code -> no html-has-lang proposal",
+        true
+      ],
+      [
+        "other proposals still offered",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "button-name": 1,
+      "html-has-lang": 1,
+      "label": 4
+    },
+    "final": {
+      "button-name": 1,
+      "html-has-lang": 1,
+      "label": 4
+    },
+    "applied": [],
+    "manual_queue": [
+      "button-name #submit-kyc",
+      "html-has-lang html",
+      "label #kyc-name",
+      "label #kyc-pan",
+      "label #kyc-dob",
+      "label #kyc-mobile"
+    ],
+    "note": "Reviewer language \"english\" is not a BCP-47 code; agent abstains for that rule only."
+  },
+  {
+    "name": "B2 SIP sign-up",
+    "file": "examples/samples/02_sip_signup.html",
+    "purpose": "Mixed: auto fixes plus three fixes that need reviewer-typed text",
+    "passed": true,
+    "checks": [
+      [
+        "language, labels, image, link and select problems detected",
+        true
+      ],
+      [
+        "alt text, link name and select name ask the reviewer (never guessed)",
+        true
+      ],
+      [
+        "input fix without typed text refused",
+        true
+      ],
+      [
+        "6 patches, all verified",
+        true
+      ],
+      [
+        "total violations reach 0",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "html-has-lang": 1,
+      "image-alt": 1,
+      "label": 2,
+      "link-name": 1,
+      "select-name": 1
+    },
+    "final": {},
+    "applied": [
+      {
+        "rule": "html-has-lang",
+        "selector": "html",
+        "status": "verified",
+        "before": "<html>",
+        "after": "<html lang=\"en\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "image-alt",
+        "selector": "img",
+        "status": "verified",
+        "before": "<img src=\"banner-sip.png\" width=\"480\" height=\"100\">",
+        "after": "alt=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#sip-name",
+        "status": "verified",
+        "before": "<label>Investor name</label>\n    <input id=\"sip-name\" name=\"investor\" type=\"text\">",
+        "after": "<label for=\"sip-name\">Investor name</label>\n    <input id=\"sip-name\" name=\"investor\" type=\"text\">",
+        "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#sip-amount",
+        "status": "verified",
+        "before": "<label>Monthly amount (\u20b9)</label>\n    <input id=\"sip-amount\" name=\"amount\" type=\"number\" min=\"500\">",
+        "after": "<label for=\"sip-amount\">Monthly amount (\u20b9)</label>\n    <input id=\"sip-amount\" name=\"amount\" type=\"number\" min=\"500\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "link-name",
+        "selector": "a",
+        "status": "verified",
+        "before": "<a href=\"#risk\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "select-name",
+        "selector": "#sip-fund",
+        "status": "verified",
+        "before": "<select id=\"sip-fund\" name=\"fund\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "B3 Loan EMI calculator",
+    "file": "examples/samples/03_loan_emi_calculator.html",
+    "purpose": "Labels auto-fixed; icon-only reset button asks the reviewer",
+    "passed": true,
+    "checks": [
+      [
+        "3 labels and 1 button name detected",
+        true
+      ],
+      [
+        "icon-only reset button asks the reviewer instead of guessing",
+        true
+      ],
+      [
+        "all verified, violations reach 0",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "button-name": 1,
+      "label": 3
+    },
+    "final": {},
+    "applied": [
+      {
+        "rule": "button-name",
+        "selector": "#emi-reset",
+        "status": "verified",
+        "before": "<button id=\"emi-reset\" type=\"reset\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#emi-amount",
+        "status": "verified",
+        "before": "<label>Loan amount (\u20b9)</label>\n    <input id=\"emi-amount\" name=\"principal\" type=\"number\" min=\"100000\">",
+        "after": "<label for=\"emi-amount\">Loan amount (\u20b9)</label>\n    <input id=\"emi-amount\" name=\"principal\" type=\"number\" min=\"100000\">",
+        "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#emi-rate",
+        "status": "verified",
+        "before": "<label>Interest rate (% per year)</label>\n    <input id=\"emi-rate\" name=\"rate\" type=\"number\" step=\"0.05\">",
+        "after": "<label for=\"emi-rate\">Interest rate (% per year)</label>\n    <input id=\"emi-rate\" name=\"rate\" type=\"number\" step=\"0.05\">",
+        "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#emi-tenure",
+        "status": "verified",
+        "before": "<label>Tenure (months)</label>\n    <input id=\"emi-tenure\" name=\"tenure\" type=\"number\" min=\"12\" max=\"360\">",
+        "after": "<label for=\"emi-tenure\">Tenure (months)</label>\n    <input id=\"emi-tenure\" name=\"tenure\" type=\"number\" min=\"12\" max=\"360\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "B4 Insurance claim",
+    "file": "examples/samples/04_insurance_claim.html",
+    "purpose": "Claim form fully repaired and verified",
+    "passed": true,
+    "checks": [
+      [
+        "language, 3 labels, button name detected",
+        true
+      ],
+      [
+        "already-labelled textarea is not touched",
+        true
+      ],
+      [
+        "5 patches applied, all verified",
+        true
+      ],
+      [
+        "total violations reach 0",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "button-name": 1,
+      "html-has-lang": 1,
+      "label": 3
+    },
+    "final": {},
+    "applied": [
+      {
+        "rule": "button-name",
+        "selector": "#submit-claim",
+        "status": "verified",
+        "before": "<span aria-hidden=\"true\">Submit claim</span>",
+        "after": "<span>Submit claim</span>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "html-has-lang",
+        "selector": "html",
+        "status": "verified",
+        "before": "<html>",
+        "after": "<html lang=\"en\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#claim-policy",
+        "status": "verified",
+        "before": "<label>Policy number</label>\n    <input id=\"claim-policy\" name=\"policy\" type=\"text\">",
+        "after": "<label for=\"claim-policy\">Policy number</label>\n    <input id=\"claim-policy\" name=\"policy\" type=\"text\">",
+        "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#claim-date",
+        "status": "verified",
+        "before": "<label>Date of incident</label>\n    <input id=\"claim-date\" name=\"incident_date\" type=\"date\">",
+        "after": "<label for=\"claim-date\">Date of incident</label>\n    <input id=\"claim-date\" name=\"incident_date\" type=\"date\">",
+        "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#claim-amount",
+        "status": "verified",
+        "before": "<label>Estimated claim amount (\u20b9)</label>\n    <input id=\"claim-amount\" name=\"amount\" type=\"number\" min=\"0\">",
+        "after": "<label for=\"claim-amount\">Estimated claim amount (\u20b9)</label>\n    <input id=\"claim-amount\" name=\"amount\" type=\"number\" min=\"0\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "B5 Payment edge cases",
+    "file": "examples/samples/05_banking_edge_cases.html",
+    "purpose": "Near-miss patterns on a payment form: ask, never guess; contradicting typed text is rolled back",
+    "passed": true,
+    "checks": [
+      [
+        "label, button-name and link-name findings detected",
+        true
+      ],
+      [
+        "ambiguous patterns ask the reviewer; clear ones are auto",
+        true
+      ],
+      [
+        "typed name that contradicts the visible text is rolled back by the re-scan, file unchanged",
+        true
+      ],
+      [
+        "typed name that matches the visible text is verified",
+        true
+      ],
+      [
+        "every remaining fix verified",
+        true
+      ],
+      [
+        "total violations reach 0",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "button-name": 3,
+      "label": 4,
+      "link-name": 1
+    },
+    "final": {},
+    "applied": [
+      {
+        "rule": "link-name",
+        "selector": "#stmt-link",
+        "status": "rolled_back",
+        "before": "<a href=\"/statements\" id=\"stmt-link\">",
+        "after": "aria-label=\"Download\"",
+        "detail": "Automated regression: label-content-name-mismatch increased (0 \u2192 1)."
+      },
+      {
+        "rule": "button-name",
+        "selector": "#mystery",
+        "status": "verified",
+        "before": "<button id=\"mystery\" type=\"button\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "button-name",
+        "selector": "button",
+        "status": "verified",
+        "before": "<span aria-hidden=\"true\">Pay now</span>",
+        "after": "<span>Pay now</span>",
+        "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "button-name",
+        "selector": "#two-spans",
+        "status": "verified",
+        "before": "<span aria-hidden=\"true\">Confirm</span><span aria-hidden=\"true\">transfer</span>",
+        "after": "<span>Confirm</span><span>transfer</span>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#acct",
+        "status": "verified",
+        "before": "<input id=\"acct\" name=\"account\" type=\"text\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (4 \u2192 3); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "input",
+        "status": "verified",
+        "before": "<label>IFSC code</label>\n    <input name=\"ifsc\" type=\"text\">",
+        "after": "<label for=\"al-ifsc-code\">IFSC code</label>\n    <input name=\"ifsc\" type=\"text\" id=\"al-ifsc-code\">",
+        "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "input",
+        "status": "verified",
+        "before": "<input id=\"dup\" name=\"amount\" type=\"number\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "input",
+        "status": "verified",
+        "before": "<input id=\"dup\" name=\"confirm_amount\" type=\"number\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "B8 Legacy portal gallery",
+    "file": "examples/samples/08_legacy_portal_gallery.html",
+    "purpose": "22 defects across 20 rule types, all fixed and verified",
+    "passed": true,
+    "checks": [
+      [
+        "legacy portal has 20+ defects across 15+ rule types",
+        true
+      ],
+      [
+        "every finding gets a proposal",
+        true
+      ],
+      [
+        "every patch verified (none rolled back)",
+        true
+      ],
+      [
+        "total violations reach 0",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "aria-roles": 1,
+      "aria-valid-attr": 1,
+      "autocomplete-valid": 1,
+      "button-name": 2,
+      "color-contrast": 1,
+      "document-title": 1,
+      "html-has-lang": 1,
+      "image-alt": 1,
+      "input-button-name": 1,
+      "input-image-alt": 1,
+      "label": 3,
+      "link-name": 1,
+      "marquee": 1,
+      "meta-viewport": 1,
+      "scrollable-region-focusable": 1,
+      "select-name": 1,
+      "summary-name": 1,
+      "svg-img-alt": 1,
+      "valid-lang": 1
+    },
+    "final": {},
+    "applied": [
+      {
+        "rule": "aria-roles",
+        "selector": "#fake-role",
+        "status": "verified",
+        "before": "<div role=\"buton\" id=\"fake-role\">",
+        "after": "<div id=\"fake-role\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-valid-attr",
+        "selector": "#typo-attr",
+        "status": "verified",
+        "before": "<div aria-lable=\"Balance\" id=\"typo-attr\">",
+        "after": "<div id=\"typo-attr\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "autocomplete-valid",
+        "selector": "#reg-email",
+        "status": "verified",
+        "before": "<input id=\"reg-email\" name=\"email\" type=\"email\" autocomplete=\"fullname\">",
+        "after": "autocomplete=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "button-name",
+        "selector": "#icon-only",
+        "status": "verified",
+        "before": "<button id=\"icon-only\" type=\"button\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "button-name",
+        "selector": "#go",
+        "status": "verified",
+        "before": "<span aria-hidden=\"true\">Continue</span>",
+        "after": "<span>Continue</span>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "color-contrast",
+        "selector": ".muted",
+        "status": "verified",
+        "before": "<p class=\"muted\">",
+        "after": "<p class=\"muted\" style=\"color: #747474 !important\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "document-title",
+        "selector": "html",
+        "status": "verified",
+        "before": "<head>",
+        "after": "<title>\u2026</title>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "html-has-lang",
+        "selector": "html",
+        "status": "verified",
+        "before": "<html>",
+        "after": "<html lang=\"en\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "image-alt",
+        "selector": "img",
+        "status": "verified",
+        "before": "<img src=\"rates-banner.png\" width=\"400\" height=\"80\">",
+        "after": "alt=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "input-button-name",
+        "selector": "#clear",
+        "status": "verified",
+        "before": "<input type=\"button\" id=\"clear\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "input-image-alt",
+        "selector": "input",
+        "status": "verified",
+        "before": "<input type=\"image\" src=\"go.png\" width=\"24\" height=\"24\">",
+        "after": "alt=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "input",
+        "status": "verified",
+        "before": "<label>Customer name</label>\n    <input name=\"cust\" type=\"text\">",
+        "after": "<label for=\"al-customer-name\">Customer name</label>\n    <input name=\"cust\" type=\"text\" id=\"al-customer-name\">",
+        "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#reg-email",
+        "status": "verified",
+        "before": "<label>Registered email</label>\n    <input id=\"reg-email\" name=\"email\" type=\"email\" autocomplete=\"name\">",
+        "after": "<label for=\"reg-email\">Registered email</label>\n    <input id=\"reg-email\" name=\"email\" type=\"email\" autocomplete=\"name\">",
+        "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "#wrapped",
+        "status": "verified",
+        "before": "<input id=\"wrapped\" name=\"wrapped\" type=\"text\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "link-name",
+        "selector": "a",
+        "status": "verified",
+        "before": "<a href=\"#statements\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "marquee",
+        "selector": "marquee",
+        "status": "verified",
+        "before": "<marquee>",
+        "after": "<div>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "meta-viewport",
+        "selector": "meta",
+        "status": "verified",
+        "before": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">",
+        "after": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "scrollable-region-focusable",
+        "selector": ".scroll",
+        "status": "verified",
+        "before": "<div class=\"scroll\">",
+        "after": "<div class=\"scroll\" tabindex=\"0\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "select-name",
+        "selector": "#acct-type",
+        "status": "verified",
+        "before": "<label>Account type</label>\n    <select id=\"acct-type\" name=\"type\">",
+        "after": "<label for=\"acct-type\">Account type</label>\n    <select id=\"acct-type\" name=\"type\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "summary-name",
+        "selector": "summary",
+        "status": "verified",
+        "before": "<summary>",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "svg-img-alt",
+        "selector": "svg",
+        "status": "verified",
+        "before": "<svg role=\"img\" width=\"16\" height=\"16\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "valid-lang",
+        "selector": "span",
+        "status": "verified",
+        "before": "<span lang=\"english\">",
+        "after": "lang=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "B9 Net-banking structure gallery",
+    "file": "examples/samples/09_netbanking_structure_gallery.html",
+    "purpose": "Best-practice + needs-review: 80+ problems across 35+ rule types, all fixed and verified",
+    "passed": true,
+    "checks": [
+      [
+        "best-practice scan finds 70+ problems across 30+ rule types",
+        true
+      ],
+      [
+        "\"needs review\" items are found and offered as fixes too",
+        true
+      ],
+      [
+        "every approved patch verified (none rolled back)",
+        true
+      ],
+      [
+        "only page-structure items left (at most 2 region nodes)",
+        true
+      ],
+      [
+        "no needs-review items left",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "accesskeys": 1,
+      "aria-allowed-role": 1,
+      "aria-conditional-attr": 1,
+      "aria-deprecated-role": 1,
+      "aria-hidden-focus": 1,
+      "aria-required-attr": 1,
+      "aria-required-children": 1,
+      "aria-required-parent": 1,
+      "aria-text": 1,
+      "aria-valid-attr-value": 1,
+      "avoid-inline-spacing": 1,
+      "definition-list": 1,
+      "dlitem": 2,
+      "empty-heading": 1,
+      "empty-table-header": 1,
+      "heading-order": 1,
+      "image-redundant-alt": 1,
+      "label-content-name-mismatch": 1,
+      "label-title-only": 2,
+      "label": 1,
+      "landmark-banner-is-top-level": 1,
+      "landmark-no-duplicate-banner": 1,
+      "landmark-no-duplicate-contentinfo": 1,
+      "landmark-one-main": 1,
+      "landmark-unique": 3,
+      "link-in-text-block": 1,
+      "list": 1,
+      "listitem": 3,
+      "meta-refresh": 1,
+      "object-alt": 1,
+      "page-has-heading-one": 1,
+      "presentation-role-conflict": 1,
+      "region": 31,
+      "scope-attr-valid": 1,
+      "table-duplicate-name": 1,
+      "target-size": 4,
+      "td-headers-attr": 1
+    },
+    "final": {
+      "region": 1
+    },
+    "applied": [
+      {
+        "rule": "accesskeys",
+        "selector": "span",
+        "status": "verified",
+        "before": "<span accesskey=\"h\">Home</span> <span accesskey=\"h\">Help</span>",
+        "after": "<span accesskey=\"h\">Home</span> <span>Help</span>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-allowed-role",
+        "selector": "li",
+        "status": "verified",
+        "before": "<li role=\"link\">",
+        "after": "<li>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-conditional-attr",
+        "selector": "#sms",
+        "status": "verified",
+        "before": "<input type=\"checkbox\" id=\"sms\" aria-checked=\"true\">",
+        "after": "<input type=\"checkbox\" id=\"sms\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-deprecated-role",
+        "selector": "ul",
+        "status": "verified",
+        "before": "<ul role=\"directory\">",
+        "after": "<ul role=\"list\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-hidden-focus",
+        "selector": ".promo",
+        "status": "verified",
+        "before": "<div aria-hidden=\"true\" class=\"promo\">",
+        "after": "aria-hidden \u2026 / tabindex=\"-1\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-required-attr",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"checkbox\" tabindex=\"0\">",
+        "after": "aria-checked=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-required-children",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"list\"><span>Call 1800 000 000</span><span>Visit a branch</span></div>",
+        "after": "<div role=\"list\"><span role=\"listitem\">Call 1800 000 000</span><span role=\"listitem\">Visit a branch</span></div>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-required-parent",
+        "selector": "span",
+        "status": "verified",
+        "before": "<span role=\"option\">",
+        "after": "<span>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-text",
+        "selector": "p",
+        "status": "verified",
+        "before": "<p role=\"text\">",
+        "after": "<p>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-valid-attr-value",
+        "selector": "button",
+        "status": "verified",
+        "before": "<button aria-expanded=\"yes\" type=\"button\">",
+        "after": "aria-expanded=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "avoid-inline-spacing",
+        "selector": "p",
+        "status": "verified",
+        "before": "<p style=\"letter-spacing: 0.02em !important; line-height: 1.1 !important\">",
+        "after": "<p style=\"letter-spacing: 0.02em; line-height: 1.1\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "definition-list",
+        "selector": "dl",
+        "status": "verified",
+        "before": "<dl>\n      <p>Charges are inclusive of GST.</p>\n      <dt>NEFT</dt><dd>Free online</dd>\n    </dl>",
+        "after": "<dt>/<dd>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "dlitem",
+        "selector": "dt",
+        "status": "verified",
+        "before": "<dt>RTGS</dt><dd>Free online above \u20b92 lakh</dd>",
+        "after": "<dt>RTGS</dt><dd>Free online above \u20b92 lakh</dd></dl>",
+        "detail": "Target rule improved (2 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "empty-heading",
+        "selector": "h3",
+        "status": "verified",
+        "before": "<h3></h3>",
+        "after": "<h3>\u2026</h3>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Note: region 30 \u2192 31 (page has no main landmark yet; fix that to clear all region items). Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "empty-table-header",
+        "selector": "th",
+        "status": "verified",
+        "before": "<th></th>",
+        "after": "<th>\u2026</th>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "heading-order",
+        "selector": "h4",
+        "status": "verified",
+        "before": "<h4>",
+        "after": "<h4 aria-level=\"3\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "image-redundant-alt",
+        "selector": "img",
+        "status": "verified",
+        "before": "<img src=\"logo.png\" alt=\"Meridian Bank logo\" width=\"40\" height=\"40\">",
+        "after": "<img src=\"logo.png\" alt=\"\" width=\"40\" height=\"40\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label-content-name-mismatch",
+        "selector": "button",
+        "status": "verified",
+        "before": "<button aria-label=\"Submit profile update\">",
+        "after": "<button>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label-title-only",
+        "selector": "input",
+        "status": "verified",
+        "before": "<input type=\"text\" name=\"mobile\" title=\"Mobile number\">",
+        "after": "<input type=\"text\" name=\"mobile\" title=\"Mobile number\" aria-label=\"Mobile number\">",
+        "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "label",
+        "selector": "input",
+        "status": "verified",
+        "before": "<input type=\"text\" name=\"acct\" aria-describedby=\"acct-help\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "landmark-banner-is-top-level",
+        "selector": "header",
+        "status": "verified",
+        "before": "<header role=\"banner\">",
+        "after": "<header>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "landmark-no-duplicate-contentinfo",
+        "selector": "footer",
+        "status": "verified",
+        "before": "<footer>",
+        "after": "<section aria-label=\"\u2026\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "landmark-one-main",
+        "selector": "html",
+        "status": "verified",
+        "before": "<div class=\"content\">",
+        "after": "role=\"main\" / <main>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "landmark-unique",
+        "selector": "nav",
+        "status": "verified",
+        "before": "<nav>",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "link-in-text-block",
+        "selector": "a",
+        "status": "verified",
+        "before": "<a href=\"/rates\" style=\"color:#2a5db0;text-decoration:none\">",
+        "after": "<a href=\"/rates\" style=\"color:#2a5db0; text-decoration: underline\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "list",
+        "selector": "ul",
+        "status": "verified",
+        "before": "<ul>\n      <div>Cheque book: free for the first 25 leaves</div>\n      <li>Debit card: \u20b9250 a year</li>\n    </ul>",
+        "after": "<ul>\n      <li>Cheque book: free for the first 25 leaves</li>\n      <li>Debit card: \u20b9250 a year</li>\n    </ul>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "listitem",
+        "selector": "li",
+        "status": "verified",
+        "before": "<li>Locker rent depends on locker size</li>",
+        "after": "<li>Locker rent depends on locker size</li></ul>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "meta-refresh",
+        "selector": "meta",
+        "status": "verified",
+        "before": "<meta http-equiv=\"refresh\" content=\"600; url=/logout\">",
+        "after": "meta refresh \u2026",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "object-alt",
+        "selector": "object",
+        "status": "verified",
+        "before": "<object data=\"statement-chart.svg\" type=\"image/svg+xml\" width=\"320\" height=\"120\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "page-has-heading-one",
+        "selector": "html",
+        "status": "verified",
+        "before": "<div class=\"content\" role=\"main\">",
+        "after": "<h1>\u2026</h1>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "presentation-role-conflict",
+        "selector": "img",
+        "status": "verified",
+        "before": "<img src=\"divider.png\" role=\"presentation\" alt=\"\" tabindex=\"0\" width=\"300\" height=\"4\">",
+        "after": "<img src=\"divider.png\" alt=\"\" width=\"300\" height=\"4\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "scope-attr-valid",
+        "selector": "td",
+        "status": "verified",
+        "before": "<td scope=\"row\">",
+        "after": "<td>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "table-duplicate-name",
+        "selector": "table",
+        "status": "verified",
+        "before": "<table summary=\"Recent transactions\">",
+        "after": "<table>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "target-size",
+        "selector": "a",
+        "status": "verified",
+        "before": "<a href=\"/accounts\">",
+        "after": "<a href=\"/accounts\" style=\"min-width: 24px; min-height: 24px; display: inline-block\">",
+        "detail": "Target rule improved (4 \u2192 3); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "target-size",
+        "selector": "a",
+        "status": "verified",
+        "before": "<a href=\"/cards\">",
+        "after": "<a href=\"/cards\" style=\"min-width: 24px; min-height: 24px; display: inline-block\">",
+        "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "target-size",
+        "selector": "button",
+        "status": "verified",
+        "before": "<button class=\"icon\" type=\"button\" aria-label=\"Previous\">",
+        "after": "<button class=\"icon\" type=\"button\" aria-label=\"Previous\" style=\"min-width: 24px; min-height: 24px\">",
+        "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "target-size",
+        "selector": "button",
+        "status": "verified",
+        "before": "<button class=\"icon\" type=\"button\" aria-label=\"Next\">",
+        "after": "<button class=\"icon\" type=\"button\" aria-label=\"Next\" style=\"min-width: 24px; min-height: 24px\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "td-headers-attr",
+        "selector": "table",
+        "status": "verified",
+        "before": "<table>",
+        "after": "<table>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-prohibited-attr",
+        "selector": "span",
+        "status": "verified",
+        "before": "<span aria-label=\"Support hours\">",
+        "after": "<span>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "duplicate-id-aria",
+        "selector": "p",
+        "status": "verified",
+        "before": "<p id=\"acct-help\">Use the 12-digit number on your passbook.</p>\n      <input type=\"text\" name=\"acct\" aria-describedby=\"acct-help\" aria-label=\"Reviewer typed description\">\n      <p id=\"acct-help\">Joint accounts need both holders to sign.</p>",
+        "after": "<p id=\"acct-help\">Use the 12-digit number on your passbook.</p>\n      <input type=\"text\" name=\"acct\" aria-describedby=\"acct-help\" aria-label=\"Reviewer typed description\">\n      <p id=\"acct-help-2\">Joint accounts need both holders to sign.</p>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "form-field-multiple-labels",
+        "selector": "#pan",
+        "status": "verified",
+        "before": "<input type=\"text\" id=\"pan\" name=\"pan\">",
+        "after": "one <label for> kept",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "frame-title-unique",
+        "selector": "iframe",
+        "status": "verified",
+        "before": "<iframe src=\"offers-a.html\" title=\"Offers\" width=\"300\" height=\"80\">",
+        "after": "title=\"\u2026\"",
+        "detail": "Target rule improved (2 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "video-caption",
+        "selector": "video",
+        "status": "verified",
+        "before": "<video src=\"how-to-upi.mp4\" controls width=\"320\">",
+        "after": "<track kind=\"captions\" src=\"\u2026\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [
+      "region a"
+    ],
+    "note": ""
+  },
+  {
+    "name": "B10 No landmarks notice",
+    "file": "examples/samples/10_no_landmarks_notice.html",
+    "purpose": "axe \"needs review\" for bypass blocks: reviewer picks the main content",
+    "passed": true,
+    "checks": [
+      [
+        "no WCAG violations, but axe asks for review of \"bypass blocks\"",
+        true
+      ],
+      [
+        "reviewer is asked which part is the main content",
+        true
+      ],
+      [
+        "main landmark added and verified",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {},
+    "final": {},
+    "applied": [
+      {
+        "rule": "bypass",
+        "selector": "html",
+        "status": "verified",
+        "before": "<div class=\"page\">",
+        "after": "role=\"main\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "B11 Investments widgets gallery",
+    "file": "examples/samples/11_widgets_gallery.html",
+    "purpose": "Custom ARIA widgets, moving text, image maps, skip link and duplicate landmarks",
+    "passed": true,
+    "checks": [
+      [
+        "custom widgets without names, moving text, image maps and landmark problems detected",
+        true
+      ],
+      [
+        "every approved patch verified (none rolled back)",
+        true
+      ],
+      [
+        "no violations and no needs-review items left",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "area-alt": 1,
+      "aria-allowed-attr": 1,
+      "aria-command-name": 1,
+      "aria-dialog-name": 1,
+      "aria-input-field-name": 1,
+      "aria-meter-name": 1,
+      "aria-progressbar-name": 1,
+      "aria-tab-name": 1,
+      "aria-toggle-field-name": 1,
+      "aria-tooltip-name": 1,
+      "aria-treeitem-name": 1,
+      "blink": 1,
+      "frame-title": 1,
+      "landmark-contentinfo-is-top-level": 1,
+      "landmark-no-duplicate-banner": 1,
+      "landmark-no-duplicate-contentinfo": 1,
+      "landmark-unique": 2,
+      "region": 1,
+      "role-img-alt": 2,
+      "skip-link": 1,
+      "tabindex": 1
+    },
+    "final": {},
+    "applied": [
+      {
+        "rule": "area-alt",
+        "selector": "area",
+        "status": "verified",
+        "before": "<area href=\"/equity\" shape=\"rect\" coords=\"0,0,50,50\">",
+        "after": "alt=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-allowed-attr",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"button\" tabindex=\"0\" aria-checked=\"true\">",
+        "after": "<div role=\"button\" tabindex=\"0\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-command-name",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"button\" tabindex=\"0\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-dialog-name",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"dialog\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-input-field-name",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"textbox\" contenteditable=\"true\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-meter-name",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"meter\" aria-valuenow=\"7\" aria-valuemin=\"0\" aria-valuemax=\"10\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-progressbar-name",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"progressbar\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-tab-name",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"tab\" tabindex=\"0\" aria-selected=\"true\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-toggle-field-name",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"switch\" aria-checked=\"false\" tabindex=\"0\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-tooltip-name",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"tooltip\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-treeitem-name",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"treeitem\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "blink",
+        "selector": "blink",
+        "status": "verified",
+        "before": "<blink>",
+        "after": "<span>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "frame-title",
+        "selector": "iframe",
+        "status": "verified",
+        "before": "<iframe src=\"nav-chart.html\" width=\"300\" height=\"60\">",
+        "after": "title=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "landmark-contentinfo-is-top-level",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"contentinfo\">",
+        "after": "<div>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "landmark-no-duplicate-banner",
+        "selector": "header",
+        "status": "verified",
+        "before": "<header>",
+        "after": "<section aria-label=\"\u2026\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "role-img-alt",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"img\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "role-img-alt",
+        "selector": "div",
+        "status": "verified",
+        "before": "<div role=\"img\" aria-braillelabel=\"Fund chart\">",
+        "after": "aria-label=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "skip-link",
+        "selector": ".skip",
+        "status": "verified",
+        "before": "<a href=\"#portfolio-start\" class=\"skip\">",
+        "after": "<a href=\"#main-content\" class=\"skip\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "tabindex",
+        "selector": "a",
+        "status": "verified",
+        "before": "<a href=\"/funds\" tabindex=\"3\">",
+        "after": "<a href=\"/funds\" tabindex=\"0\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "server-side-image-map",
+        "selector": "img",
+        "status": "verified",
+        "before": "<img src=\"map.png\" alt=\"Branch map\" ismap>",
+        "after": "<img src=\"map.png\" alt=\"Branch map\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "B12 Page-level settings",
+    "file": "examples/samples/06_accessible_login.html",
+    "purpose": "Invalid language, lang/xml:lang mismatch, zoom limits, braille-only label, hidden body (six small pages)",
+    "passed": true,
+    "checks": [
+      [
+        "invalid page language: detected, fixed and verified",
+        true
+      ],
+      [
+        "lang and xml:lang disagree: detected, fixed and verified",
+        true
+      ],
+      [
+        "zoom limited to 150%: detected, fixed and verified",
+        true
+      ],
+      [
+        "zoom limited to 300%: detected, fixed and verified",
+        true
+      ],
+      [
+        "braille-only label: detected, fixed and verified",
+        true
+      ],
+      [
+        "whole page hidden from screen readers: detected, fixed and verified",
+        true
+      ],
+      [
+        "every approved patch verified",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "invalid page language: html-lang-valid": 1,
+      "lang and xml:lang disagree: html-xml-lang-mismatch": 1,
+      "zoom limited to 150%: meta-viewport": 1,
+      "zoom limited to 300%: meta-viewport-large": 1,
+      "braille-only label: presentation-role-conflict": 1,
+      "braille-only label: review:aria-braille-equivalent": 1,
+      "whole page hidden from screen readers: aria-hidden-body": 1,
+      "whole page hidden from screen readers: landmark-one-main": 1,
+      "whole page hidden from screen readers: page-has-heading-one": 1
+    },
+    "final": {},
+    "applied": [
+      {
+        "rule": "html-lang-valid",
+        "selector": "html",
+        "status": "verified",
+        "before": "<html lang=\"english\">",
+        "after": "lang=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "html-xml-lang-mismatch",
+        "selector": "html",
+        "status": "verified",
+        "before": "<html lang=\"en\" xml:lang=\"fr\">",
+        "after": "<html lang=\"en\" xml:lang=\"en\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "meta-viewport",
+        "selector": "meta",
+        "status": "verified",
+        "before": "<meta name=\"viewport\" content=\"width=device-width, maximum-scale=1.5\">",
+        "after": "<meta name=\"viewport\" content=\"width=device-width\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "meta-viewport-large",
+        "selector": "meta",
+        "status": "verified",
+        "before": "<meta name=\"viewport\" content=\"width=device-width, maximum-scale=3\">",
+        "after": "<meta name=\"viewport\" content=\"width=device-width\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-braille-equivalent",
+        "selector": "img",
+        "status": "verified",
+        "before": "<img src=\"chart.png\" alt=\"\" aria-braillelabel=\"Rate chart\">",
+        "after": "<img src=\"chart.png\" alt=\"\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "aria-hidden-body",
+        "selector": "body",
+        "status": "verified",
+        "before": "<body aria-hidden=\"true\">",
+        "after": "<body>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "B13 Card offers: responsive and focus",
+    "file": "examples/samples/12_responsive_focus_gallery.html",
+    "purpose": "AccessLoop browser checks: keyboard focus, 320 px reflow, text spacing, closed details opened",
+    "passed": true,
+    "checks": [
+      [
+        "browser checks find hidden focus, clipped text, sideways scrolling and the image inside closed details",
+        true
+      ],
+      [
+        "every approved patch verified",
+        true
+      ],
+      [
+        "no violations and no needs-review items left",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "image-alt": 1,
+      "al-focus-visible": 3,
+      "al-text-spacing": 1,
+      "review:al-reflow": 1
+    },
+    "final": {},
+    "applied": [
+      {
+        "rule": "image-alt",
+        "selector": "img",
+        "status": "verified",
+        "before": "<img src=\"fee-table.png\" width=\"300\" height=\"120\">",
+        "after": "alt=\"\u2026\"",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "al-focus-visible",
+        "selector": "",
+        "status": "verified",
+        "before": "<head>",
+        "after": "<head>",
+        "detail": "Target rule improved (3 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "al-text-spacing",
+        "selector": "",
+        "status": "verified",
+        "before": "<p class=\"teaser\">",
+        "after": "<p class=\"teaser\" style=\"height: auto !important; max-height: none !important; overflow: visible !important\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "al-reflow",
+        "selector": "",
+        "status": "verified",
+        "before": "<div class=\"offer-strip\">",
+        "after": "<div class=\"offer-strip\" style=\"max-width: 100% !important; box-sizing: border-box; overflow-wrap: anywhere\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "B14 Account statement: duplicate main, empty header",
+    "file": "examples/samples/13_statement_layout.html",
+    "purpose": "Two main landmarks and a header cell that labels no data: reviewer decides, fix verified",
+    "passed": true,
+    "checks": [
+      [
+        "two main landmarks and a header cell with no data are found",
+        true
+      ],
+      [
+        "both are structural decisions: medium risk, and they need the reviewer (the agent never applies them alone)",
+        true
+      ],
+      [
+        "every approved patch verified (none rolled back)",
+        true
+      ],
+      [
+        "no violations and no needs-review items left",
+        true
+      ],
+      [
+        "the second main became a named region; the empty header became a normal cell",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "landmark-no-duplicate-main": 1,
+      "landmark-unique": 1
+    },
+    "final": {},
+    "applied": [
+      {
+        "rule": "landmark-no-duplicate-main",
+        "selector": "main",
+        "status": "verified",
+        "before": "<main>",
+        "after": "<section aria-label=\"\u2026\">",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      },
+      {
+        "rule": "th-has-data-cells",
+        "selector": "table",
+        "status": "verified",
+        "before": "<th scope=\"row\">Closing balance as on 31 October</th>",
+        "after": "<td>\u2026</td>",
+        "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
+      }
+    ],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "B15 Agent mode on the legacy portal",
+    "file": "examples/samples/08_legacy_portal_gallery.html",
+    "purpose": "One run: the agent fixes what its policy allows, verifies each change and hands the rest to a person",
+    "passed": true,
+    "checks": [
+      [
+        "the agent ran perceive \u2192 plan \u2192 act \u2192 verify \u2192 hand over on its own",
+        true
+      ],
+      [
+        "violations fell and nothing was rolled back",
+        true
+      ],
+      [
+        "it applied only low-risk automatic fixes and typed no text",
+        true
+      ],
+      [
+        "everything else was handed to a person as a question or a held fix",
+        true
+      ],
+      [
+        "the run and its policy are in the audit log",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {
+      "aria-roles": 1,
+      "aria-valid-attr": 1,
+      "autocomplete-valid": 1,
+      "button-name": 2,
+      "color-contrast": 1,
+      "document-title": 1,
+      "html-has-lang": 1,
+      "image-alt": 1,
+      "input-button-name": 1,
+      "input-image-alt": 1,
+      "label": 3,
+      "link-name": 1,
+      "marquee": 1,
+      "meta-viewport": 1,
+      "scrollable-region-focusable": 1,
+      "select-name": 1,
+      "summary-name": 1,
+      "svg-img-alt": 1,
+      "valid-lang": 1
+    },
+    "final": {
+      "aria-roles": 1,
+      "aria-valid-attr": 1,
+      "autocomplete-valid": 1,
+      "button-name": 1,
+      "color-contrast": 1,
+      "document-title": 1,
+      "image-alt": 1,
+      "input-button-name": 1,
+      "input-image-alt": 1,
+      "label": 1,
+      "link-name": 1,
+      "marquee": 1,
+      "summary-name": 1,
+      "svg-img-alt": 1,
+      "valid-lang": 1
+    },
+    "applied": [
+      {
+        "rule": "agent",
+        "selector": "7 fixes",
+        "status": "verified",
+        "before": "22 violations",
+        "after": "15 violations",
+        "detail": "applies low-risk automatic fixes; at most 200 changes; stops after 6 rollbacks in a row; never types text for you."
+      }
+    ],
+    "manual_queue": [
+      "aria-roles #fake-role",
+      "aria-valid-attr #typo-attr",
+      "autocomplete-valid #reg-email",
+      "button-name #icon-only",
+      "color-contrast .muted",
+      "document-title html",
+      "image-alt img",
+      "input-button-name #clear",
+      "input-image-alt input",
+      "label #wrapped",
+      "link-name a",
+      "marquee marquee",
+      "summary-name summary",
+      "svg-img-alt svg",
+      "valid-lang span"
+    ],
+    "note": ""
+  },
+  {
+    "name": "B6 Accessible sign-in",
+    "file": "examples/samples/06_accessible_login.html",
+    "purpose": "Clean control page; no false positives / edits",
+    "passed": true,
+    "checks": [
+      [
+        "zero violations on clean page",
+        true
+      ],
+      [
+        "zero proposals",
+        true
+      ],
+      [
+        "original.html never modified",
+        true
+      ]
+    ],
+    "baseline": {},
+    "final": {},
+    "applied": [],
+    "manual_queue": [],
+    "note": ""
+  },
+  {
+    "name": "B7 Unsafe payment page",
+    "file": "examples/samples/07_unsafe_payment_page.html",
+    "purpose": "Script + inline handler refused at input",
+    "passed": true,
+    "checks": [
+      [
+        "script/onclick page refused before scan",
+        true
+      ]
+    ],
+    "baseline": {},
+    "final": {},
+    "applied": [],
+    "manual_queue": [],
+    "note": "Refused: Inline event handlers (onclick and similar) are not supported."
+  }
+]

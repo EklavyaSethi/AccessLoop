@@ -1,0 +1,292 @@
+{
+  "product": "AccessLoop",
+  "scope": "Static HTML; automated WCAG rule checks; not a conformance certificate",
+  "original_sha256": "a5739dfcebd618ba2626a96c6d6d37960ed0018144ffced1c10394c8a59ddbaf",
+  "current_sha256": "877e35e92f23f5e23115a37beafb79084428e75c9b7b344f4c7416b33c525313",
+  "baseline_counts": {
+    "button-name": 3,
+    "label": 4,
+    "link-name": 1
+  },
+  "current_counts": {},
+  "unresolved": [],
+  "audit_events": [
+    {
+      "seq": 1,
+      "timestamp_utc": "2026-10-23T04:35:09+00:00",
+      "event": "loaded",
+      "detail": "Original saved as a separate copy; it is never modified.",
+      "working_sha256": "a5739dfcebd618ba2626a96c6d6d37960ed0018144ffced1c10394c8a59ddbaf",
+      "versions": {
+        "accessloop": "0.9.0"
+      },
+      "original_sha256": "a5739dfcebd618ba2626a96c6d6d37960ed0018144ffced1c10394c8a59ddbaf",
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "cfeb1d913f27fe2e33eff74a0c400ea856b4d637c96dcb20d4e859c9cb05a289"
+    },
+    {
+      "seq": 2,
+      "timestamp_utc": "2026-10-23T04:35:10+00:00",
+      "event": "scanned",
+      "detail": "8 violation nodes, 0 needs-review nodes; 8 fix proposals.",
+      "working_sha256": "a5739dfcebd618ba2626a96c6d6d37960ed0018144ffced1c10394c8a59ddbaf",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "best_practice": false,
+      "counts": {
+        "button-name": 3,
+        "label": 4,
+        "link-name": 1
+      },
+      "proposals": 8,
+      "input_proposals": 5,
+      "scan_ms": 324,
+      "plan_ms": 1,
+      "prev": "cfeb1d913f27fe2e33eff74a0c400ea856b4d637c96dcb20d4e859c9cb05a289",
+      "hash": "33ce54441eb56d18bcc700f7a7d0c78f64e88aa7f45b61cfec6a9a353190b029"
+    },
+    {
+      "seq": 3,
+      "timestamp_utc": "2026-10-23T04:35:10+00:00",
+      "event": "rolled_back",
+      "detail": "a5739dfceb-7-link-name: Automated regression: label-content-name-mismatch increased (0 → 1).",
+      "working_sha256": "a5739dfcebd618ba2626a96c6d6d37960ed0018144ffced1c10394c8a59ddbaf",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "a5739dfceb-7-link-name",
+      "rule": "link-name",
+      "announce_before": "(no name), link",
+      "announce_after": "“Download”, link",
+      "verify_ms": 323,
+      "guardrail": "verification gate",
+      "selector": "#stmt-link",
+      "before": "<a href=\"/statements\" id=\"stmt-link\">",
+      "after": "<a href=\"/statements\" id=\"stmt-link\" aria-label=\"Download\">",
+      "reviewer_text": {
+        "text": "Download"
+      },
+      "prev": "33ce54441eb56d18bcc700f7a7d0c78f64e88aa7f45b61cfec6a9a353190b029",
+      "hash": "1665c0380077b4b16c486bf8268ff79b2fd32f5252d30d0a813c9da317dc365f"
+    },
+    {
+      "seq": 4,
+      "timestamp_utc": "2026-10-23T04:35:10+00:00",
+      "event": "verified",
+      "detail": "a5739dfceb-7-link-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "79e4eba0a29254fd25925fdd7296b3df942bc01f9c4c181f9e275f520bd9bca0",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "a5739dfceb-7-link-name",
+      "rule": "link-name",
+      "announce_before": "(no name), link",
+      "announce_after": "“Statements”, link",
+      "verify_ms": 294,
+      "mode": "input",
+      "selector": "#stmt-link",
+      "before": "<a href=\"/statements\" id=\"stmt-link\">",
+      "after": "<a href=\"/statements\" id=\"stmt-link\" aria-label=\"Statements\">",
+      "reviewer_text": {
+        "text": "Statements"
+      },
+      "backup": "0003_a5739dfcebd6.html",
+      "prev": "1665c0380077b4b16c486bf8268ff79b2fd32f5252d30d0a813c9da317dc365f",
+      "hash": "19c4398e927133e7b50cb4d83a49449fd827a38b96f5caaca0bd4031f497b65f"
+    },
+    {
+      "seq": 5,
+      "timestamp_utc": "2026-10-23T04:35:10+00:00",
+      "event": "verified",
+      "detail": "79e4eba0a2-0-button-name: Target rule improved (3 → 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "ed9c853528dce1949754731726b28e2cd456f55be4bea98e1f389d737b8ad1c5",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "79e4eba0a2-0-button-name",
+      "rule": "button-name",
+      "announce_before": "(no name), button",
+      "announce_after": "“Reviewer typed description”, button",
+      "verify_ms": 302,
+      "mode": "input",
+      "selector": "#mystery",
+      "before": "<button id=\"mystery\" type=\"button\">",
+      "after": "<button id=\"mystery\" type=\"button\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0004_79e4eba0a292.html",
+      "prev": "19c4398e927133e7b50cb4d83a49449fd827a38b96f5caaca0bd4031f497b65f",
+      "hash": "3796d2a1e68d320ba5a9d29707811ce3508b7d04e2e5f9a8f573bc0ad76ee79f"
+    },
+    {
+      "seq": 6,
+      "timestamp_utc": "2026-10-23T04:35:11+00:00",
+      "event": "verified",
+      "detail": "ed9c853528-0-button-name: Target rule improved (2 → 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "dab22f5c3ceb53d6081c72d5af45e20b55a2beb9832532e25b1a77d00df6dd81",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "ed9c853528-0-button-name",
+      "rule": "button-name",
+      "announce_before": "(no name), button",
+      "announce_after": "“Pay now”, button",
+      "verify_ms": 318,
+      "mode": "auto",
+      "selector": "button",
+      "before": "<span aria-hidden=\"true\">Pay now</span>",
+      "after": "<span>Pay now</span>",
+      "backup": "0005_ed9c853528dc.html",
+      "prev": "3796d2a1e68d320ba5a9d29707811ce3508b7d04e2e5f9a8f573bc0ad76ee79f",
+      "hash": "0f205b3365a303e053bda273630052a38a0594a2015ed7c68df6c8e21d3533c1"
+    },
+    {
+      "seq": 7,
+      "timestamp_utc": "2026-10-23T04:35:11+00:00",
+      "event": "verified",
+      "detail": "dab22f5c3c-0-button-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "d1387126fc49349d4326380cfdfcd3d39e18e81d443a051fe3c53cec69885d78",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "dab22f5c3c-0-button-name",
+      "rule": "button-name",
+      "announce_before": "(no name), button",
+      "announce_after": "“Confirmtransfer”, button",
+      "verify_ms": 297,
+      "mode": "auto",
+      "selector": "#two-spans",
+      "before": "<span aria-hidden=\"true\">Confirm</span><span aria-hidden=\"true\">transfer</span>",
+      "after": "<span>Confirm</span><span>transfer</span>",
+      "backup": "0006_dab22f5c3ceb.html",
+      "prev": "0f205b3365a303e053bda273630052a38a0594a2015ed7c68df6c8e21d3533c1",
+      "hash": "5df2f1ce958074beb9bb47c3ec30bb903e33bc1d57f57a2dc1ebfdd249913e95"
+    },
+    {
+      "seq": 8,
+      "timestamp_utc": "2026-10-23T04:35:11+00:00",
+      "event": "verified",
+      "detail": "d1387126fc-0-label: Target rule improved (4 → 3); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "97a2b4a6246020084979056914e3b375de199f0c0334354ba758305ff720086b",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "d1387126fc-0-label",
+      "rule": "label",
+      "announce_before": "(no name), edit text",
+      "announce_after": "“Reviewer typed description”, edit text",
+      "verify_ms": 298,
+      "mode": "input",
+      "selector": "#acct",
+      "before": "<input id=\"acct\" name=\"account\" type=\"text\">",
+      "after": "<input id=\"acct\" name=\"account\" type=\"text\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0007_d1387126fc49.html",
+      "prev": "5df2f1ce958074beb9bb47c3ec30bb903e33bc1d57f57a2dc1ebfdd249913e95",
+      "hash": "7a4e1e9326124ce8f0e845fa753cdf4adb2d0f7377a1fbf8a0cc9dc4d52e7361"
+    },
+    {
+      "seq": 9,
+      "timestamp_utc": "2026-10-23T04:35:12+00:00",
+      "event": "verified",
+      "detail": "97a2b4a624-0-label: Target rule improved (3 → 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "2033796dc1734b475e2265eb2a0e2c7ba4d563bf93c7fd2f6ee3ff304bd1933c",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "97a2b4a624-0-label",
+      "rule": "label",
+      "announce_before": "(no name), edit text",
+      "announce_after": "“IFSC code”, edit text",
+      "verify_ms": 281,
+      "mode": "auto",
+      "selector": "input",
+      "before": "<label>IFSC code</label>\n    <input name=\"ifsc\" type=\"text\">",
+      "after": "<label for=\"al-ifsc-code\">IFSC code</label>\n    <input name=\"ifsc\" type=\"text\" id=\"al-ifsc-code\">",
+      "backup": "0008_97a2b4a62460.html",
+      "prev": "7a4e1e9326124ce8f0e845fa753cdf4adb2d0f7377a1fbf8a0cc9dc4d52e7361",
+      "hash": "12b5001a3bf1912e8407f3d0c63527f5d8631b7a01e3b505d7bf8dc5ba62f507"
+    },
+    {
+      "seq": 10,
+      "timestamp_utc": "2026-10-23T04:35:12+00:00",
+      "event": "verified",
+      "detail": "2033796dc1-0-label: Target rule improved (2 → 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "013ad47fb9d52f14bbed2023c5213cd29f900557c7219c20be15ab98aa3dbd01",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "2033796dc1-0-label",
+      "rule": "label",
+      "announce_before": "(no name), spin button",
+      "announce_after": "“Reviewer typed description”, spin button",
+      "verify_ms": 320,
+      "mode": "input",
+      "selector": "input",
+      "before": "<input id=\"dup\" name=\"amount\" type=\"number\">",
+      "after": "<input id=\"dup\" name=\"amount\" type=\"number\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0009_2033796dc173.html",
+      "prev": "12b5001a3bf1912e8407f3d0c63527f5d8631b7a01e3b505d7bf8dc5ba62f507",
+      "hash": "1730a5a1ab46b4be69287a4e84c3b910b82a907bf86d364c54d21e08db334486"
+    },
+    {
+      "seq": 11,
+      "timestamp_utc": "2026-10-23T04:35:12+00:00",
+      "event": "verified",
+      "detail": "013ad47fb9-0-label: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "877e35e92f23f5e23115a37beafb79084428e75c9b7b344f4c7416b33c525313",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "013ad47fb9-0-label",
+      "rule": "label",
+      "announce_before": "(no name), spin button",
+      "announce_after": "“Reviewer typed description”, spin button",
+      "verify_ms": 325,
+      "mode": "input",
+      "selector": "input",
+      "before": "<input id=\"dup\" name=\"confirm_amount\" type=\"number\">",
+      "after": "<input id=\"dup\" name=\"confirm_amount\" type=\"number\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0010_013ad47fb9d5.html",
+      "prev": "1730a5a1ab46b4be69287a4e84c3b910b82a907bf86d364c54d21e08db334486",
+      "hash": "20c81c66261f66631b0e34c34e0dffca0b6e2b9f2a2aed339cc8927aafea9547"
+    }
+  ],
+  "audit_log": {
+    "file": "audit.jsonl",
+    "entries": 11,
+    "verified": true,
+    "message": "All 11 entries verified; head 20c81c66261f6663…",
+    "head_sha256": "20c81c66261f66631b0e34c34e0dffca0b6e2b9f2a2aed339cc8927aafea9547"
+  }
+}

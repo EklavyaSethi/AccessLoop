@@ -1,0 +1,78 @@
+{
+  "product": "AccessLoop",
+  "scope": "Static HTML; automated WCAG rule checks; not a conformance certificate",
+  "original_sha256": "8894a065fcd09a778aba7f15c7d769c5a26268bb1a47eb460e290fcb59bc4e69",
+  "current_sha256": "8894a065fcd09a778aba7f15c7d769c5a26268bb1a47eb460e290fcb59bc4e69",
+  "baseline_counts": {
+    "button-name": 1
+  },
+  "current_counts": {
+    "button-name": 1
+  },
+  "unresolved": [
+    {
+      "rule_id": "button-name",
+      "selector": "#icon-action",
+      "impact": "critical",
+      "help": "Buttons must have discernible text",
+      "description": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+      "uid": 7,
+      "html": "<button id=\"icon-action\" type=\"button\"><svg aria-hidden=\"true\" width=\"20\" height=\"20\"><circle cx=\"10\" cy=\"10\" r=\"8\"></circle></svg></button>",
+      "data": {
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "button",
+        "states": []
+      }
+    }
+  ],
+  "audit_events": [
+    {
+      "seq": 1,
+      "timestamp_utc": "2026-10-23T04:35:01+00:00",
+      "event": "loaded",
+      "detail": "Original saved as a separate copy; it is never modified.",
+      "working_sha256": "8894a065fcd09a778aba7f15c7d769c5a26268bb1a47eb460e290fcb59bc4e69",
+      "versions": {
+        "accessloop": "0.9.0"
+      },
+      "original_sha256": "8894a065fcd09a778aba7f15c7d769c5a26268bb1a47eb460e290fcb59bc4e69",
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "481d92bac5b3c5aa24ae3940a4689b4cf9da590bf841b80d5542915b625727b2"
+    },
+    {
+      "seq": 2,
+      "timestamp_utc": "2026-10-23T04:35:01+00:00",
+      "event": "scanned",
+      "detail": "1 violation nodes, 0 needs-review nodes; 1 fix proposals.",
+      "working_sha256": "8894a065fcd09a778aba7f15c7d769c5a26268bb1a47eb460e290fcb59bc4e69",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "best_practice": false,
+      "counts": {
+        "button-name": 1
+      },
+      "proposals": 1,
+      "input_proposals": 1,
+      "scan_ms": 294,
+      "plan_ms": 0,
+      "prev": "481d92bac5b3c5aa24ae3940a4689b4cf9da590bf841b80d5542915b625727b2",
+      "hash": "0d18b2bd39f9d34f303be265be7bd6f263719af6e9e5e10348a36129e6419baf"
+    }
+  ],
+  "audit_log": {
+    "file": "audit.jsonl",
+    "entries": 2,
+    "verified": true,
+    "message": "All 2 entries verified; head 0d18b2bd39f9d34f…",
+    "head_sha256": "0d18b2bd39f9d34f303be265be7bd6f263719af6e9e5e10348a36129e6419baf"
+  }
+}

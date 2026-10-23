@@ -1,0 +1,115 @@
+{
+  "product": "AccessLoop",
+  "scope": "Static HTML; automated WCAG rule checks; not a conformance certificate",
+  "original_sha256": "74ef0f4918148f08d7c475044b4c13d7bf10022d4683ed54c9f66cc91007d7a3",
+  "current_sha256": "cb22c9fad0be7610dcd9176fc7e0e981c1cac2e0065e3fdfebe51fd3b9b18bad",
+  "baseline_counts": {
+    "landmark-no-duplicate-main": 1,
+    "landmark-unique": 1
+  },
+  "current_counts": {},
+  "unresolved": [],
+  "audit_events": [
+    {
+      "seq": 1,
+      "timestamp_utc": "2026-10-23T04:35:57+00:00",
+      "event": "loaded",
+      "detail": "Original saved as a separate copy; it is never modified.",
+      "working_sha256": "74ef0f4918148f08d7c475044b4c13d7bf10022d4683ed54c9f66cc91007d7a3",
+      "versions": {
+        "accessloop": "0.9.0"
+      },
+      "original_sha256": "74ef0f4918148f08d7c475044b4c13d7bf10022d4683ed54c9f66cc91007d7a3",
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "e29ca2d95d480259e66c3c441de46e7ddfb85d6d50d7fbf1100b48f977f005ab"
+    },
+    {
+      "seq": 2,
+      "timestamp_utc": "2026-10-23T04:35:57+00:00",
+      "event": "scanned",
+      "detail": "2 violation nodes, 1 needs-review nodes; 3 fix proposals.",
+      "working_sha256": "74ef0f4918148f08d7c475044b4c13d7bf10022d4683ed54c9f66cc91007d7a3",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "best_practice": true,
+      "counts": {
+        "landmark-no-duplicate-main": 1,
+        "landmark-unique": 1
+      },
+      "review_counts": {
+        "th-has-data-cells": 1
+      },
+      "proposals": 3,
+      "input_proposals": 3,
+      "scan_ms": 280,
+      "plan_ms": 1,
+      "prev": "e29ca2d95d480259e66c3c441de46e7ddfb85d6d50d7fbf1100b48f977f005ab",
+      "hash": "799bb56e4017605743f38c1ca2ea67ed0f1d5311159857a98f99d2a454a8a80c"
+    },
+    {
+      "seq": 3,
+      "timestamp_utc": "2026-10-23T04:35:57+00:00",
+      "event": "verified",
+      "detail": "74ef0f4918-0-landmark-no-duplicate-main: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "87aad4e2c55973a4e57714dff349a9cfbb1a2ad11fc082c93877c4e8e63bfc6e",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "74ef0f4918-0-landmark-no-duplicate-main",
+      "rule": "landmark-no-duplicate-main",
+      "announce_before": "(no name), main",
+      "announce_after": "(no name), main",
+      "verify_ms": 322,
+      "mode": "input",
+      "selector": "main",
+      "before": "<main>\n    <h1>Account statement, October 2026</h1>\n    <table>\n      <caption>Savings account ending 4821</caption>\n      <tr><th scope=\"row\">Opening balance</th><td>₹1,24,500</td></tr>\n      <tr><th scope=\"row\">Credits</th><td>₹62,000</td></tr>\n      <tr><th scope=\"row\">Debits</th><td>₹48,350</td></tr>\n      <tr><th scope=\"row\">Closing balance as on 31 October</th></tr>\n    </table>\n  </main>\n  <main>",
+      "after": "<main>\n    <h1>Account statement, October 2026</h1>\n    <table>\n      <caption>Savings account ending 4821</caption>\n      <tr><th scope=\"row\">Opening balance</th><td>₹1,24,500</td></tr>\n      <tr><th scope=\"row\">Credits</th><td>₹62,000</td></tr>\n      <tr><th scope=\"row\">Debits</th><td>₹48,350</td></tr>\n      <tr><th scope=\"row\">Closing balance as on 31 October</th></tr>\n    </table>\n  </main>\n  <section aria-label=\"Offers for you\">",
+      "reviewer_text": {
+        "keep": "7",
+        "name": "Offers for you"
+      },
+      "backup": "0002_74ef0f491814.html",
+      "prev": "799bb56e4017605743f38c1ca2ea67ed0f1d5311159857a98f99d2a454a8a80c",
+      "hash": "ae9f63c06cc58d4eb92cfaa75ab17c65a590bb01f0ed6c837e7ecdb3d1c213d6"
+    },
+    {
+      "seq": 4,
+      "timestamp_utc": "2026-10-23T04:35:58+00:00",
+      "event": "verified",
+      "detail": "87aad4e2c5-0-th-has-data-cells: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "cb22c9fad0be7610dcd9176fc7e0e981c1cac2e0065e3fdfebe51fd3b9b18bad",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "87aad4e2c5-0-th-has-data-cells",
+      "rule": "th-has-data-cells",
+      "announce_before": "“Savings account ending 4821”, table",
+      "announce_after": "“Savings account ending 4821”, table",
+      "verify_ms": 278,
+      "mode": "input",
+      "selector": "table",
+      "before": "<th scope=\"row\">Closing balance as on 31 October</th>",
+      "after": "<td>Closing balance as on 31 October</td>",
+      "reviewer_text": {
+        "choice": "td"
+      },
+      "backup": "0003_87aad4e2c559.html",
+      "prev": "ae9f63c06cc58d4eb92cfaa75ab17c65a590bb01f0ed6c837e7ecdb3d1c213d6",
+      "hash": "0065312a3c8796e67b3a254511765213e49d1149be2f5b6bf5153b55af48809c"
+    }
+  ],
+  "audit_log": {
+    "file": "audit.jsonl",
+    "entries": 4,
+    "verified": true,
+    "message": "All 4 entries verified; head 0065312a3c8796e6…",
+    "head_sha256": "0065312a3c8796e67b3a254511765213e49d1149be2f5b6bf5153b55af48809c"
+  }
+}

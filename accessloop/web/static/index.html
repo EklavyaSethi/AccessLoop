@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AccessLoop · Reviewed accessibility repair</title>
+<meta name="description" content="Scan, review, repair and verify accessibility fixes on static HTML with human approval and an evidence trail.">
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <svg class="logo" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true" focusable="false">
+        <circle cx="17" cy="17" r="14" fill="none" stroke="#7fa6ff" stroke-width="3"/>
+        <path d="M9.5 17.5l5 5 10-11" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div class="brand-name">Access<span>Loop</span></div>
+        <div class="brand-sub">Reviewed accessibility repair</div>
+      </div>
+    </div>
+    <div class="topbar-meta">
+      <span class="pill pill-local">Runs locally · page code never leaves this machine</span>
+      <span id="file-pill" class="pill" hidden></span>
+    </div>
+  </div>
+</header>
+
+<nav class="stepper-wrap" aria-label="Workflow progress">
+  <ol class="stepper" id="stepper"></ol>
+</nav>
+
+<main id="main" tabindex="-1">
+  <h1 class="sr-only">AccessLoop workspace</h1>
+  <div id="alert" class="alert" role="alert" hidden></div>
+  <div id="live" class="sr-only" role="status" aria-live="polite"></div>
+
+  <section id="signin" class="card" aria-labelledby="h-signin" hidden>
+    <h2 id="h-signin">Sign in</h2>
+    <p class="hint">Accounts are switched on. Every decision you make is signed with your personal key.</p>
+    <div class="grid-form">
+      <div class="field"><label for="login-user">User name</label><input id="login-user" autocomplete="username"></div>
+      <div class="field"><label for="login-pass">Password</label><input id="login-pass" type="password" autocomplete="current-password"></div>
+      <div class="field field-btn"><button type="button" class="btn btn-primary" id="login-btn">Sign in</button></div>
+    </div>
+  </section>
+  <p id="whoami" class="hint" hidden></p>
+
+  <div class="tabs" role="tablist" aria-label="Sections" id="tablist">
+    <button role="tab" id="tab-workspace" aria-controls="panel-workspace" aria-selected="true" tabindex="0">Workspace</button>
+    <button role="tab" id="tab-preview" aria-controls="panel-preview" aria-selected="false" tabindex="-1">Page preview</button>
+    <button role="tab" id="tab-audit" aria-controls="panel-audit" aria-selected="false" tabindex="-1">Audit trail</button>
+    <button role="tab" id="tab-coverage" aria-controls="panel-coverage" aria-selected="false" tabindex="-1">Coverage</button>
+    <button role="tab" id="tab-reports" aria-controls="panel-reports" aria-selected="false" tabindex="-1">Reports</button>
+  </div>
+
+  <!-- WORKSPACE -->
+  <section id="panel-workspace" role="tabpanel" aria-labelledby="tab-workspace" tabindex="0">
+    <div class="card">
+      <h2>1. Load a page</h2>
+      <p class="hint">HTML files under 2 MB are accepted. Your original is always kept untouched.</p>
+      <div class="grid-form">
+        <div class="field">
+          <label for="sample-select">Sample page</label>
+          <select id="sample-select"></select>
+        </div>
+        <div class="field field-btn"><button type="button" class="btn" id="load-sample">Load sample</button></div>
+        <div class="field">
+          <label for="file-input">Or choose an HTML file</label>
+          <input type="file" id="file-input" accept=".html,.htm,text/html">
+        </div>
+        <div class="field field-check">
+          <input type="checkbox" id="allow-scripts" aria-describedby="allow-scripts-help">
+          <label for="allow-scripts">Allow pages that contain scripts</label>
+          <span class="help" id="allow-scripts-help">Scripts are never run, so content they would build is not checked.</span>
+        </div>
+      </div>
+      <div class="grid-form second">
+        <div class="field">
+          <label for="language">Page language (chosen by reviewer)</label>
+          <select id="language"></select>
+          <span class="help" id="language-help">Never guessed from the scan. Used only if the page has no language set.</span>
+        </div>
+        <div class="field">
+          <label for="reviewer">Reviewer name (recorded in the report)</label>
+          <input type="text" id="reviewer" maxlength="80" autocomplete="name" aria-describedby="reviewer-help">
+          <span class="help" id="reviewer-help">Recorded as typed. It is not a verified identity.</span>
+        </div>
+        <div class="field field-check">
+          <input type="checkbox" id="best-practice" aria-describedby="bp-help" checked>
+          <label for="best-practice">Include best-practice checks</label>
+          <span class="help" id="bp-help">Headings, landmarks, lists and tables. Not WCAG failures, but auditors report them.</span>
+        </div>
+        <div class="field field-check">
+          <input type="checkbox" id="extended" checked aria-describedby="ext-help">
+          <label for="extended">Include AccessLoop browser checks</label>
+          <span class="help" id="ext-help">320 px reflow, text spacing, visible keyboard focus, forced colours, open menus and dialogs.</span>
+        </div>
+        <div class="field field-btn">
+          <button type="button" class="btn btn-primary" id="scan-btn" disabled>Run accessibility scan</button>
+          <button type="button" class="btn btn-quiet" id="reset-btn" disabled>Reset to original</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="preload" class="card" hidden>
+      <h2>Source preview</h2>
+      <p class="hint">Loaded and ready. Run the scan to find issues.</p>
+      <pre class="code" id="source-preview" tabindex="0" role="region" aria-label="Source code preview"></pre>
+    </div>
+
+    <div id="results" hidden>
+      <div id="outcome" class="outcome" tabindex="-1" hidden></div>
+
+      <section aria-labelledby="h-summary" class="card">
+        <h2 id="h-summary">2. Results</h2>
+        <div class="metrics" id="metrics"></div>
+        <div class="sev-wrap">
+          <h3>Severity</h3>
+          <table class="sev" id="sev-table">
+            <caption class="sr-only">Violation nodes by severity</caption>
+            <thead><tr><th scope="col">Severity</th><th scope="col">At first scan</th><th scope="col">Now</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="h-review" class="card">
+        <div class="card-head">
+          <div>
+            <h2 id="h-review">3. Review repair proposals</h2>
+            <p class="hint">Nothing is written until you approve. Every fix comes from a fixed template, then the page is re-scanned and the change is undone automatically if anything gets worse.</p>
+          </div>
+          <button type="button" class="btn" id="ai-btn" aria-describedby="ai-help">Ask AI to review</button>
+        </div>
+        <p class="hint" id="ai-help">Optional and off by default. The AI only recommends or escalates; it never writes code or decides the result.</p>
+        <p class="field-check"><input type="checkbox" id="ai-consent"><label for="ai-consent">I agree to send redacted snippets of these proposed changes for this one review</label></p>
+        <p class="hint" id="ai-status" hidden></p>
+        <p class="field-check"><input type="checkbox" id="four-eyes"><label for="four-eyes">Four-eyes approval: a second person must confirm every fix</label></p>
+        <div id="pending" class="stack"></div>
+        <div id="proposals" class="stack"></div>
+      </section>
+
+      <section aria-labelledby="h-manual" class="card">
+        <h2 id="h-manual">4. Manual review queue</h2>
+        <p class="hint">Issues AccessLoop will not edit automatically: either unsupported, or too ambiguous to fix without guessing.</p>
+        <div id="manual"></div>
+        <p id="incomplete" class="hint" hidden></p>
+      </section>
+    </div>
+  </section>
+
+  <!-- PREVIEW -->
+  <section id="panel-preview" role="tabpanel" aria-labelledby="tab-preview" tabindex="0" hidden>
+    <div class="card">
+      <h2>Original and current page</h2>
+      <p class="hint">Shown in a locked sandbox: scripts are off and nothing can load from the internet.</p>
+      <p id="preview-empty" class="empty">Load a page to see it here.</p>
+      <div class="preview-grid" id="preview-grid" hidden>
+        <figure><figcaption>Original</figcaption><iframe id="frame-original" title="Original page preview" sandbox src="about:blank"></iframe></figure>
+        <figure><figcaption>Current working copy</figcaption><iframe id="frame-working" title="Current working copy preview" sandbox src="about:blank"></iframe></figure>
+      </div>
+      <h3>Visual comparison</h3>
+      <p class="hint">Rendered in the sandboxed browser; elements changed by fixes still in place are outlined in red.</p>
+      <button type="button" class="btn" id="shots-btn">Render both versions</button>
+      <div class="preview-grid" id="shots" hidden>
+        <figure><figcaption>Original</figcaption><img id="shot-original" alt="Screenshot of the original page"></figure>
+        <figure><figcaption>Repaired, changes outlined</figcaption><img id="shot-working" alt="Screenshot of the repaired page with changed elements outlined"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIT -->
+  <section id="panel-audit" role="tabpanel" aria-labelledby="tab-audit" tabindex="0" hidden>
+    <div class="card">
+      <h2>Audit trail</h2>
+      <p class="hint">Every action is recorded with a time and the fingerprint (SHA-256) of the working file.</p>
+      <div id="audit"></div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section id="panel-coverage" role="tabpanel" aria-labelledby="tab-coverage" tabindex="0" hidden>
+    <div class="card">
+      <h2>What AccessLoop covers</h2>
+      <p class="hint">Built from the real axe engine and all 55 WCAG 2.2 Level A and AA criteria. This is an honest map of what is fixed, what is only reported, and what no tool can test.</p>
+      <div class="metrics" id="cov-metrics"></div>
+      <div class="filters">
+        <div class="field">
+          <label for="cov-search">Search rules</label>
+          <input type="search" id="cov-search" placeholder="e.g. label, contrast, 1.4.3">
+        </div>
+        <div class="field">
+          <label for="cov-filter">Show</label>
+          <select id="cov-filter">
+            <option value="">All rules</option>
+            <option value="live">Fix available now (human-approved)</option>
+            <option value="auto">Planned: deterministic fix</option>
+            <option value="assisted">Planned: fix with reviewer input</option>
+            <option value="guided">Guidance only</option>
+            <option value="excluded">Not scanned</option>
+          </select>
+        </div>
+      </div>
+      <p id="cov-count" class="hint" role="status"></p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Rule catalogue">
+        <table class="data" id="cov-table">
+          <thead><tr><th scope="col">Rule</th><th scope="col">WCAG</th><th scope="col">Level</th><th scope="col">Handling</th><th scope="col">Priority</th><th scope="col">Scanned today</th><th scope="col">What AccessLoop does</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h2>WCAG 2.2 A and AA criteria</h2>
+      <p class="hint">Criteria marked "none" cannot be tested by axe at all and always need a human check.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Criteria catalogue">
+        <table class="data" id="crit-table">
+          <thead><tr><th scope="col">Criterion</th><th scope="col">Name</th><th scope="col">Level</th><th scope="col">axe rules</th><th scope="col">Next step</th><th scope="col">Why it matters for banking and finance</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPORTS -->
+  <section id="panel-reports" role="tabpanel" aria-labelledby="tab-reports" tabindex="0" hidden>
+    <div class="card">
+      <h2>Reports and downloads</h2>
+      <p class="hint" id="reports-note">Run a scan to enable the session reports.</p>
+      <div class="dl-grid" id="dl-grid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>AccessLoop is a proof of concept. It does not certify WCAG conformance. Automated tools find only part of the barriers real people face, so keyboard, screen-reader and human usability testing remain necessary.</p>
+</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "accessloop-hackathon",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local axe-core scanner dependency for AccessLoop",
+  "dependencies": { "axe-core": "4.14.0" }
+}

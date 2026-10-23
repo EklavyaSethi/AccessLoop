@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Pay your bill</title></head>
+<body>
+<main>
+  <h1>Pay your credit card bill</h1>
+  <label>Card number</label>
+  <input id="card" type="text">
+  <button id="pay" type="button" onclick="track()"><span aria-hidden="true">Pay</span></button>
+  <script>function track(){ fetch('https://tracker.example/collect'); }</script>
+</main>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "product": "AccessLoop",
+  "scope": "Static HTML; automated WCAG rule checks; not a conformance certificate",
+  "original_sha256": "275d276d1c95e2f2e6a4fe92857f603d23c53941d911c29ee0568ede28c0264c",
+  "current_sha256": "275d276d1c95e2f2e6a4fe92857f603d23c53941d911c29ee0568ede28c0264c",
+  "baseline_counts": {},
+  "current_counts": {},
+  "unresolved": [],
+  "audit_events": [
+    {
+      "seq": 1,
+      "timestamp_utc": "2026-10-23T04:36:00+00:00",
+      "event": "loaded",
+      "detail": "Original saved as a separate copy; it is never modified.",
+      "working_sha256": "275d276d1c95e2f2e6a4fe92857f603d23c53941d911c29ee0568ede28c0264c",
+      "versions": {
+        "accessloop": "0.9.0"
+      },
+      "original_sha256": "275d276d1c95e2f2e6a4fe92857f603d23c53941d911c29ee0568ede28c0264c",
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "08bd76650620a2a59a76bc02ba7eea378ff8971873257b5c7995da283967e700"
+    },
+    {
+      "seq": 2,
+      "timestamp_utc": "2026-10-23T04:36:00+00:00",
+      "event": "scanned",
+      "detail": "0 violation nodes, 0 needs-review nodes; 0 fix proposals.",
+      "working_sha256": "275d276d1c95e2f2e6a4fe92857f603d23c53941d911c29ee0568ede28c0264c",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "best_practice": false,
+      "counts": {},
+      "proposals": 0,
+      "input_proposals": 0,
+      "scan_ms": 308,
+      "plan_ms": 2,
+      "prev": "08bd76650620a2a59a76bc02ba7eea378ff8971873257b5c7995da283967e700",
+      "hash": "da5b36edbc57b019dac26db8e0879b0ad8d2788095cd1876d1b34ae84d095c50"
+    }
+  ],
+  "audit_log": {
+    "file": "audit.jsonl",
+    "entries": 2,
+    "verified": true,
+    "message": "All 2 entries verified; head da5b36edbc57b019…",
+    "head_sha256": "da5b36edbc57b019dac26db8e0879b0ad8d2788095cd1876d1b34ae84d095c50"
+  }
+}

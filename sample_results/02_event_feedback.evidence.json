@@ -1,0 +1,60 @@
+{
+  "product": "AccessLoop",
+  "scope": "Static HTML; automated WCAG rule checks; not a conformance certificate",
+  "original_sha256": "626c98e10c88476d3e3e96d8e3cf7d6c74c2acf52bb10722312595a8a91a9a96",
+  "current_sha256": "94677419e1912f19e6141edb7bab72582fbbc6d647738c4e1588049d4d0d8bc8",
+  "baseline_counts": {
+    "image-alt": 1,
+    "label": 1,
+    "link-name": 1,
+    "select-name": 1
+  },
+  "current_counts": {
+    "image-alt": 1,
+    "link-name": 1,
+    "select-name": 1
+  },
+  "unresolved": [
+    {
+      "rule_id": "image-alt",
+      "selector": "img",
+      "impact": "critical",
+      "help": "Images must have alternative text",
+      "description": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+    },
+    {
+      "rule_id": "link-name",
+      "selector": "a",
+      "impact": "serious",
+      "help": "Links must have discernible text",
+      "description": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+    },
+    {
+      "rule_id": "select-name",
+      "selector": "#rating",
+      "impact": "critical",
+      "help": "Select element must have an accessible name",
+      "description": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+    }
+  ],
+  "audit_events": [
+    {
+      "timestamp_utc": "2026-10-22T13:55:37+00:00",
+      "event": "loaded",
+      "detail": "Original saved as a separate immutable-for-session copy.",
+      "working_sha256": "626c98e10c88476d3e3e96d8e3cf7d6c74c2acf52bb10722312595a8a91a9a96"
+    },
+    {
+      "timestamp_utc": "2026-10-22T13:55:38+00:00",
+      "event": "scanned",
+      "detail": "4 detected violation nodes; 1 patch proposals.",
+      "working_sha256": "626c98e10c88476d3e3e96d8e3cf7d6c74c2acf52bb10722312595a8a91a9a96"
+    },
+    {
+      "timestamp_utc": "2026-10-22T13:55:39+00:00",
+      "event": "verified",
+      "detail": "626c98e10c-1-label: Target rule improved (1 → 0); no increase in detected rule counts.",
+      "working_sha256": "94677419e1912f19e6141edb7bab72582fbbc6d647738c4e1588049d4d0d8bc8"
+    }
+  ]
+}

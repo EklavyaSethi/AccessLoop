@@ -1,0 +1,129 @@
+{
+  "product": "AccessLoop",
+  "scope": "Static HTML; automated WCAG rule checks; not a conformance certificate",
+  "original_sha256": "32af041baa0bd33acfe30db04189a76c8790896dc7b31aa456a2ba3271c952ff",
+  "current_sha256": "db469c392cca728a7dfb37cc533908346316b0acf57ea1e605e4aab99ce49910",
+  "baseline_counts": {
+    "button-name": 1,
+    "html-has-lang": 1,
+    "label": 1
+  },
+  "current_counts": {},
+  "unresolved": [],
+  "audit_events": [
+    {
+      "seq": 1,
+      "timestamp_utc": "2026-10-23T04:34:59+00:00",
+      "event": "loaded",
+      "detail": "Original saved as a separate copy; it is never modified.",
+      "working_sha256": "32af041baa0bd33acfe30db04189a76c8790896dc7b31aa456a2ba3271c952ff",
+      "versions": {
+        "accessloop": "0.9.0"
+      },
+      "original_sha256": "32af041baa0bd33acfe30db04189a76c8790896dc7b31aa456a2ba3271c952ff",
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "952daf8475a636da01bbe509726002c371ed23393a9fa74c17a7d6414466e8dd"
+    },
+    {
+      "seq": 2,
+      "timestamp_utc": "2026-10-23T04:35:00+00:00",
+      "event": "scanned",
+      "detail": "3 violation nodes, 0 needs-review nodes; 3 fix proposals.",
+      "working_sha256": "32af041baa0bd33acfe30db04189a76c8790896dc7b31aa456a2ba3271c952ff",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "best_practice": false,
+      "counts": {
+        "button-name": 1,
+        "html-has-lang": 1,
+        "label": 1
+      },
+      "proposals": 3,
+      "input_proposals": 0,
+      "scan_ms": 738,
+      "plan_ms": 1,
+      "prev": "952daf8475a636da01bbe509726002c371ed23393a9fa74c17a7d6414466e8dd",
+      "hash": "7dea3d4ed104112f68d71740a892f29ede31cf2eba398aad8916625bb3d9bd8b"
+    },
+    {
+      "seq": 3,
+      "timestamp_utc": "2026-10-23T04:35:00+00:00",
+      "event": "verified",
+      "detail": "32af041baa-0-button-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "16c7f034d7015f0981915c71fef06c20f00dcf5956bbfa97adc39d450bbf6236",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "32af041baa-0-button-name",
+      "rule": "button-name",
+      "announce_before": "(no name), button",
+      "announce_after": "“Submit registration”, button",
+      "verify_ms": 284,
+      "mode": "auto",
+      "selector": "#submit-registration",
+      "before": "<span aria-hidden=\"true\">Submit registration</span>",
+      "after": "<span>Submit registration</span>",
+      "backup": "0002_32af041baa0b.html",
+      "prev": "7dea3d4ed104112f68d71740a892f29ede31cf2eba398aad8916625bb3d9bd8b",
+      "hash": "81a54381a0951c9912b033d757fd57fabe7553c75f4a06b827532bc8cfa88193"
+    },
+    {
+      "seq": 4,
+      "timestamp_utc": "2026-10-23T04:35:00+00:00",
+      "event": "verified",
+      "detail": "16c7f034d7-0-html-has-lang: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "9991b584a3c32968baf8f0b6f8388a6e5b9fee54a7f5ff26d416fa47be903439",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "16c7f034d7-0-html-has-lang",
+      "rule": "html-has-lang",
+      "verify_ms": 298,
+      "mode": "auto",
+      "selector": "html",
+      "before": "<html>",
+      "after": "<html lang=\"en\">",
+      "backup": "0003_16c7f034d701.html",
+      "prev": "81a54381a0951c9912b033d757fd57fabe7553c75f4a06b827532bc8cfa88193",
+      "hash": "7963aa1673a8e867a1df14f637a8245f1f466d59e6827f49a4ea8e99b8f1b9e7"
+    },
+    {
+      "seq": 5,
+      "timestamp_utc": "2026-10-23T04:35:01+00:00",
+      "event": "verified",
+      "detail": "9991b584a3-0-label: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "db469c392cca728a7dfb37cc533908346316b0acf57ea1e605e4aab99ce49910",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "9991b584a3-0-label",
+      "rule": "label",
+      "announce_before": "(no name), edit text, required",
+      "announce_after": "“University email”, edit text, required",
+      "verify_ms": 262,
+      "mode": "auto",
+      "selector": "#email",
+      "before": "<label>University email</label>\n    <input id=\"email\" name=\"email\" type=\"email\" required>",
+      "after": "<label for=\"email\">University email</label>\n    <input id=\"email\" name=\"email\" type=\"email\" required>",
+      "backup": "0004_9991b584a3c3.html",
+      "prev": "7963aa1673a8e867a1df14f637a8245f1f466d59e6827f49a4ea8e99b8f1b9e7",
+      "hash": "fe1c47016d4d54e2bb7c5710ed6d68580b9a08dbb727d46f46fdfbc1c22f4fad"
+    }
+  ],
+  "audit_log": {
+    "file": "audit.jsonl",
+    "entries": 5,
+    "verified": true,
+    "message": "All 5 entries verified; head fe1c47016d4d54e2…",
+    "head_sha256": "fe1c47016d4d54e2bb7c5710ed6d68580b9a08dbb727d46f46fdfbc1c22f4fad"
+  }
+}

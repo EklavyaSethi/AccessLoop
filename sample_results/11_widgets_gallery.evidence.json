@@ -1,0 +1,622 @@
+{
+  "product": "AccessLoop",
+  "scope": "Static HTML; automated WCAG rule checks; not a conformance certificate",
+  "original_sha256": "e77789301659671fb5991cf345db9e08280583c6564f88cacca9c07c5f1f5504",
+  "current_sha256": "de067d3a5313fbbe5c1d56b2352cd2ce8f41e0fc0b29eb254fbb4cf7b3d2dc44",
+  "baseline_counts": {
+    "area-alt": 1,
+    "aria-allowed-attr": 1,
+    "aria-command-name": 1,
+    "aria-dialog-name": 1,
+    "aria-input-field-name": 1,
+    "aria-meter-name": 1,
+    "aria-progressbar-name": 1,
+    "aria-tab-name": 1,
+    "aria-toggle-field-name": 1,
+    "aria-tooltip-name": 1,
+    "aria-treeitem-name": 1,
+    "blink": 1,
+    "frame-title": 1,
+    "landmark-contentinfo-is-top-level": 1,
+    "landmark-no-duplicate-banner": 1,
+    "landmark-no-duplicate-contentinfo": 1,
+    "landmark-unique": 2,
+    "region": 1,
+    "role-img-alt": 2,
+    "skip-link": 1,
+    "tabindex": 1
+  },
+  "current_counts": {},
+  "unresolved": [],
+  "audit_events": [
+    {
+      "seq": 1,
+      "timestamp_utc": "2026-10-23T04:35:43+00:00",
+      "event": "loaded",
+      "detail": "Original saved as a separate copy; it is never modified.",
+      "working_sha256": "e77789301659671fb5991cf345db9e08280583c6564f88cacca9c07c5f1f5504",
+      "versions": {
+        "accessloop": "0.9.0"
+      },
+      "original_sha256": "e77789301659671fb5991cf345db9e08280583c6564f88cacca9c07c5f1f5504",
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "2cd14623876dfc4f811d6808e859ba0b8c6d9ebae78bb10ca4fb801145955dfb"
+    },
+    {
+      "seq": 2,
+      "timestamp_utc": "2026-10-23T04:35:43+00:00",
+      "event": "scanned",
+      "detail": "23 violation nodes, 2 needs-review nodes; 23 fix proposals.",
+      "working_sha256": "e77789301659671fb5991cf345db9e08280583c6564f88cacca9c07c5f1f5504",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "best_practice": true,
+      "counts": {
+        "area-alt": 1,
+        "aria-allowed-attr": 1,
+        "aria-command-name": 1,
+        "aria-dialog-name": 1,
+        "aria-input-field-name": 1,
+        "aria-meter-name": 1,
+        "aria-progressbar-name": 1,
+        "aria-tab-name": 1,
+        "aria-toggle-field-name": 1,
+        "aria-tooltip-name": 1,
+        "aria-treeitem-name": 1,
+        "blink": 1,
+        "frame-title": 1,
+        "landmark-contentinfo-is-top-level": 1,
+        "landmark-no-duplicate-banner": 1,
+        "landmark-no-duplicate-contentinfo": 1,
+        "landmark-unique": 2,
+        "region": 1,
+        "role-img-alt": 2,
+        "skip-link": 1,
+        "tabindex": 1
+      },
+      "review_counts": {
+        "aria-braille-equivalent": 1,
+        "server-side-image-map": 1
+      },
+      "proposals": 23,
+      "input_proposals": 16,
+      "scan_ms": 387,
+      "plan_ms": 1,
+      "prev": "2cd14623876dfc4f811d6808e859ba0b8c6d9ebae78bb10ca4fb801145955dfb",
+      "hash": "879f5650dfec2f7c013d5b1a59ba57f5473b3849b33b9187bd5b7d3366e89d6c"
+    },
+    {
+      "seq": 3,
+      "timestamp_utc": "2026-10-23T04:35:44+00:00",
+      "event": "verified",
+      "detail": "e777893016-0-area-alt: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "9b5b3f9a5b41e8bec69f6a973ad67b0b46b0c6db8e43d78f1240dd2ef1a9cbe5",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "e777893016-0-area-alt",
+      "rule": "area-alt",
+      "announce_before": "(no name), link",
+      "announce_after": "“Reviewer typed description”, link",
+      "verify_ms": 387,
+      "mode": "input",
+      "selector": "area",
+      "before": "<area href=\"/equity\" shape=\"rect\" coords=\"0,0,50,50\">",
+      "after": "<area href=\"/equity\" shape=\"rect\" coords=\"0,0,50,50\" alt=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0002_e77789301659.html",
+      "prev": "879f5650dfec2f7c013d5b1a59ba57f5473b3849b33b9187bd5b7d3366e89d6c",
+      "hash": "2c4eb1dd6b6ef46efb16dbcfbb69116011320c679dcadb2c0eedc4f8cae5958b"
+    },
+    {
+      "seq": 4,
+      "timestamp_utc": "2026-10-23T04:35:44+00:00",
+      "event": "verified",
+      "detail": "9b5b3f9a5b-0-aria-allowed-attr: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "5375195ba07f3a4ac57b81053f6e67805365f3edd7c7a1226fa009fd0148171d",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "9b5b3f9a5b-0-aria-allowed-attr",
+      "rule": "aria-allowed-attr",
+      "announce_before": "“Refresh”, button, checked",
+      "announce_after": "“Refresh”, button",
+      "verify_ms": 387,
+      "mode": "auto",
+      "selector": "div",
+      "before": "<div role=\"button\" tabindex=\"0\" aria-checked=\"true\">",
+      "after": "<div role=\"button\" tabindex=\"0\">",
+      "backup": "0003_9b5b3f9a5b41.html",
+      "prev": "2c4eb1dd6b6ef46efb16dbcfbb69116011320c679dcadb2c0eedc4f8cae5958b",
+      "hash": "d44d17b239176f7ca60a1423aaeade6a110595105046df41daf78e896abb138d"
+    },
+    {
+      "seq": 5,
+      "timestamp_utc": "2026-10-23T04:35:44+00:00",
+      "event": "verified",
+      "detail": "5375195ba0-0-aria-command-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "c033d49d12c590d58c9351a0db9c31de99a4584bd6cb09ead72632b0ed036681",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "5375195ba0-0-aria-command-name",
+      "rule": "aria-command-name",
+      "announce_before": "(no name), button",
+      "announce_after": "“Reviewer typed description”, button",
+      "verify_ms": 362,
+      "mode": "input",
+      "selector": "div",
+      "before": "<div role=\"button\" tabindex=\"0\">",
+      "after": "<div role=\"button\" tabindex=\"0\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0004_5375195ba07f.html",
+      "prev": "d44d17b239176f7ca60a1423aaeade6a110595105046df41daf78e896abb138d",
+      "hash": "6a8048a509ebd28dae79da60e3b5441f028de4d4d1ca2b14c916f3e8d7fdf57e"
+    },
+    {
+      "seq": 6,
+      "timestamp_utc": "2026-10-23T04:35:45+00:00",
+      "event": "verified",
+      "detail": "c033d49d12-0-aria-dialog-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "814a370a8a74fb3d0c5b9a7b8e933f0b51375dd5b4238d4bb8504a6f6826d40e",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "c033d49d12-0-aria-dialog-name",
+      "rule": "aria-dialog-name",
+      "announce_before": "(no name), dialog",
+      "announce_after": "“Reviewer typed description”, dialog",
+      "verify_ms": 351,
+      "mode": "input",
+      "selector": "div",
+      "before": "<div role=\"dialog\">",
+      "after": "<div role=\"dialog\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0005_c033d49d12c5.html",
+      "prev": "6a8048a509ebd28dae79da60e3b5441f028de4d4d1ca2b14c916f3e8d7fdf57e",
+      "hash": "441c8298fd1a55a17843bec8b22f096191a16336ca2dc871987a679338a33d22"
+    },
+    {
+      "seq": 7,
+      "timestamp_utc": "2026-10-23T04:35:45+00:00",
+      "event": "verified",
+      "detail": "814a370a8a-0-aria-input-field-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "8a83eb6e06fcaa3e951022d3b0bec33f13f4ea796f77a82444dc219b608a19d4",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "814a370a8a-0-aria-input-field-name",
+      "rule": "aria-input-field-name",
+      "announce_before": "(no name), edit text",
+      "announce_after": "“Reviewer typed description”, edit text",
+      "verify_ms": 374,
+      "mode": "input",
+      "selector": "div",
+      "before": "<div role=\"textbox\" contenteditable=\"true\">",
+      "after": "<div role=\"textbox\" contenteditable=\"true\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0006_814a370a8a74.html",
+      "prev": "441c8298fd1a55a17843bec8b22f096191a16336ca2dc871987a679338a33d22",
+      "hash": "16b66ea173caa552a7443c871430a235dd2a42f274d67812c743005f93449ebd"
+    },
+    {
+      "seq": 8,
+      "timestamp_utc": "2026-10-23T04:35:46+00:00",
+      "event": "verified",
+      "detail": "8a83eb6e06-0-aria-meter-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "49ea04832d7c28a521f6067e965a24fa29cb1b2e3d07e78a8b95d9f050bd6c6d",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "8a83eb6e06-0-aria-meter-name",
+      "rule": "aria-meter-name",
+      "announce_before": "(no name), meter",
+      "announce_after": "“Reviewer typed description”, meter",
+      "verify_ms": 396,
+      "mode": "input",
+      "selector": "div",
+      "before": "<div role=\"meter\" aria-valuenow=\"7\" aria-valuemin=\"0\" aria-valuemax=\"10\">",
+      "after": "<div role=\"meter\" aria-valuenow=\"7\" aria-valuemin=\"0\" aria-valuemax=\"10\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0007_8a83eb6e06fc.html",
+      "prev": "16b66ea173caa552a7443c871430a235dd2a42f274d67812c743005f93449ebd",
+      "hash": "abbe2b965cc06b6d8eb43a8c87f49420383828f415abdc295a3ea43695589b8d"
+    },
+    {
+      "seq": 9,
+      "timestamp_utc": "2026-10-23T04:35:46+00:00",
+      "event": "verified",
+      "detail": "49ea04832d-0-aria-progressbar-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "11538da33fe7947f6ff4ec84c15b76d73137e4bd070710aa13200c096c19263c",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "49ea04832d-0-aria-progressbar-name",
+      "rule": "aria-progressbar-name",
+      "announce_before": "(no name), progressbar",
+      "announce_after": "“Reviewer typed description”, progressbar",
+      "verify_ms": 368,
+      "mode": "input",
+      "selector": "div",
+      "before": "<div role=\"progressbar\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
+      "after": "<div role=\"progressbar\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0008_49ea04832d7c.html",
+      "prev": "abbe2b965cc06b6d8eb43a8c87f49420383828f415abdc295a3ea43695589b8d",
+      "hash": "5c6a93d9caa09091511d1838d722eb915fb90d0fc25483345c0cf6a982a0d25d"
+    },
+    {
+      "seq": 10,
+      "timestamp_utc": "2026-10-23T04:35:46+00:00",
+      "event": "verified",
+      "detail": "11538da33f-0-aria-tab-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "4877ee9f672ab786438ad1d2e251738f5ef524e25549e1a40119ec5c903632a9",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "11538da33f-0-aria-tab-name",
+      "rule": "aria-tab-name",
+      "announce_before": "(no name), tab",
+      "announce_after": "“Reviewer typed description”, tab",
+      "verify_ms": 360,
+      "mode": "input",
+      "selector": "div",
+      "before": "<div role=\"tab\" tabindex=\"0\" aria-selected=\"true\">",
+      "after": "<div role=\"tab\" tabindex=\"0\" aria-selected=\"true\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0009_11538da33fe7.html",
+      "prev": "5c6a93d9caa09091511d1838d722eb915fb90d0fc25483345c0cf6a982a0d25d",
+      "hash": "6cbfc047d0725278a4399b6bc29f7d83b0ef163caa10ab5a5e87911210193aaf"
+    },
+    {
+      "seq": 11,
+      "timestamp_utc": "2026-10-23T04:35:47+00:00",
+      "event": "verified",
+      "detail": "4877ee9f67-0-aria-toggle-field-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "75ed7f9ad30055f7643ff9db5be129a00f31476d256eaf2b96547f27f7c1d43b",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "4877ee9f67-0-aria-toggle-field-name",
+      "rule": "aria-toggle-field-name",
+      "announce_before": "(no name), switch, not checked",
+      "announce_after": "“Reviewer typed description”, switch, not checked",
+      "verify_ms": 392,
+      "mode": "input",
+      "selector": "div",
+      "before": "<div role=\"switch\" aria-checked=\"false\" tabindex=\"0\">",
+      "after": "<div role=\"switch\" aria-checked=\"false\" tabindex=\"0\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0010_4877ee9f672a.html",
+      "prev": "6cbfc047d0725278a4399b6bc29f7d83b0ef163caa10ab5a5e87911210193aaf",
+      "hash": "f74a4e9f036343e1c49e64c801b6426b6bd91ecec574716b7807cbdaae231bd0"
+    },
+    {
+      "seq": 12,
+      "timestamp_utc": "2026-10-23T04:35:47+00:00",
+      "event": "verified",
+      "detail": "75ed7f9ad3-0-aria-tooltip-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "402b779929db1213c251af7e4a2a4b7b084aa1f92a5ddea328d51b27395fae70",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "75ed7f9ad3-0-aria-tooltip-name",
+      "rule": "aria-tooltip-name",
+      "announce_before": "(no name), tooltip",
+      "announce_after": "“Reviewer typed description”, tooltip",
+      "verify_ms": 377,
+      "mode": "input",
+      "selector": "div",
+      "before": "<div role=\"tooltip\">",
+      "after": "<div role=\"tooltip\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0011_75ed7f9ad300.html",
+      "prev": "f74a4e9f036343e1c49e64c801b6426b6bd91ecec574716b7807cbdaae231bd0",
+      "hash": "e2ed0a93e2f4f6cb8b263e948a59106e7b02f9c9164f5a2d6517f927e513b058"
+    },
+    {
+      "seq": 13,
+      "timestamp_utc": "2026-10-23T04:35:48+00:00",
+      "event": "verified",
+      "detail": "402b779929-0-aria-treeitem-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "97c5b2dc726f2c834b64aaee26a012ef8dc0da622d9787598c8a6e6a0d3b4e2c",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "402b779929-0-aria-treeitem-name",
+      "rule": "aria-treeitem-name",
+      "announce_before": "(no name), treeitem",
+      "announce_after": "“Reviewer typed description”, treeitem",
+      "verify_ms": 415,
+      "mode": "input",
+      "selector": "div",
+      "before": "<div role=\"treeitem\">",
+      "after": "<div role=\"treeitem\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0012_402b779929db.html",
+      "prev": "e2ed0a93e2f4f6cb8b263e948a59106e7b02f9c9164f5a2d6517f927e513b058",
+      "hash": "aee3916f74c044b112ea633f1df8acdef537f83a648dd28ca2a631e3f6f87c58"
+    },
+    {
+      "seq": 14,
+      "timestamp_utc": "2026-10-23T04:35:48+00:00",
+      "event": "verified",
+      "detail": "97c5b2dc72-0-blink: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "889537873d004a70abe56a6ab688ec598dd6d63a94157b3bd6c810aec4185898",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "97c5b2dc72-0-blink",
+      "rule": "blink",
+      "announce_before": "“New”",
+      "announce_after": "“New”",
+      "verify_ms": 395,
+      "mode": "auto",
+      "selector": "blink",
+      "before": "<blink>",
+      "after": "<span>",
+      "backup": "0013_97c5b2dc726f.html",
+      "prev": "aee3916f74c044b112ea633f1df8acdef537f83a648dd28ca2a631e3f6f87c58",
+      "hash": "52c774064bb12c27a6f7a8533066d4fa20801f80983b62f622dc5f2ef37aceb9"
+    },
+    {
+      "seq": 15,
+      "timestamp_utc": "2026-10-23T04:35:48+00:00",
+      "event": "verified",
+      "detail": "889537873d-0-frame-title: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "6415f0bb0d0d17cd974dba8810c6f3f1e3ea015865c5f7d2d92d684a9d39f01c",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "889537873d-0-frame-title",
+      "rule": "frame-title",
+      "announce_before": "(no name)",
+      "announce_after": "“Reviewer typed description”",
+      "verify_ms": 466,
+      "mode": "input",
+      "selector": "iframe",
+      "before": "<iframe src=\"nav-chart.html\" width=\"300\" height=\"60\">",
+      "after": "<iframe src=\"nav-chart.html\" width=\"300\" height=\"60\" title=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0014_889537873d00.html",
+      "prev": "52c774064bb12c27a6f7a8533066d4fa20801f80983b62f622dc5f2ef37aceb9",
+      "hash": "6be8210c4635d0545f0a0fa3d6556bb68b463b0e92b4439fbcf040bacafc17dd"
+    },
+    {
+      "seq": 16,
+      "timestamp_utc": "2026-10-23T04:35:49+00:00",
+      "event": "verified",
+      "detail": "6415f0bb0d-0-landmark-contentinfo-is-top-level: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "7d0cf93fad8458de36c833a342efb89035e253a3c75fa1ad19fe4709e21e1128",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "6415f0bb0d-0-landmark-contentinfo-is-top-level",
+      "rule": "landmark-contentinfo-is-top-level",
+      "announce_before": "(no name), contentinfo",
+      "announce_after": "“Prices delayed by 15 minutes.”",
+      "verify_ms": 396,
+      "mode": "auto",
+      "selector": "div",
+      "before": "<div role=\"contentinfo\">",
+      "after": "<div>",
+      "backup": "0015_6415f0bb0d0d.html",
+      "prev": "6be8210c4635d0545f0a0fa3d6556bb68b463b0e92b4439fbcf040bacafc17dd",
+      "hash": "cbc8cbbb873b740463c0a76664cdc4cf791bef2f710588d999e2ce4026e2639b"
+    },
+    {
+      "seq": 17,
+      "timestamp_utc": "2026-10-23T04:35:49+00:00",
+      "event": "verified",
+      "detail": "7d0cf93fad-0-landmark-no-duplicate-banner: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "a1ce2dd08c1396ded560d98cec0b4a25c19e59ef1a911e3b2bc29ec7046b7f92",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "7d0cf93fad-0-landmark-no-duplicate-banner",
+      "rule": "landmark-no-duplicate-banner",
+      "announce_before": "(no name), banner",
+      "announce_after": "(no name), banner",
+      "verify_ms": 420,
+      "mode": "input",
+      "selector": "header",
+      "before": "<header><span>Meridian Bank</span></header>\n  <header>",
+      "after": "<header><span>Meridian Bank</span></header>\n  <section aria-label=\"Market status\">",
+      "reviewer_text": {
+        "keep": "8",
+        "name": "Market status"
+      },
+      "backup": "0016_7d0cf93fad84.html",
+      "prev": "cbc8cbbb873b740463c0a76664cdc4cf791bef2f710588d999e2ce4026e2639b",
+      "hash": "ffb02b19c50134a6664847c0c243397a5299e48fcb56dd17e8d31f11ea16ae66"
+    },
+    {
+      "seq": 18,
+      "timestamp_utc": "2026-10-23T04:35:50+00:00",
+      "event": "verified",
+      "detail": "a1ce2dd08c-1-role-img-alt: Target rule improved (2 → 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "81d0aecfd2f63dbeaeb42266234ed8d66d53fdf62aeeab44c53917d553f5512d",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "a1ce2dd08c-1-role-img-alt",
+      "rule": "role-img-alt",
+      "announce_before": "(no name), image",
+      "announce_after": "“Reviewer typed description”, image",
+      "verify_ms": 394,
+      "mode": "input",
+      "selector": "div",
+      "before": "<div role=\"img\">",
+      "after": "<div role=\"img\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0017_a1ce2dd08c13.html",
+      "prev": "ffb02b19c50134a6664847c0c243397a5299e48fcb56dd17e8d31f11ea16ae66",
+      "hash": "d126b9b03174b4f40322ebab9d4fd05fdf5dca6783e57fa0d60e361b28ba1ad1"
+    },
+    {
+      "seq": 19,
+      "timestamp_utc": "2026-10-23T04:35:50+00:00",
+      "event": "verified",
+      "detail": "81d0aecfd2-1-role-img-alt: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "a5748d13d85d59d00f9829c9be3a58af93ffdd5bdfea7f3f1d443f61f2c9a7b4",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "81d0aecfd2-1-role-img-alt",
+      "rule": "role-img-alt",
+      "announce_before": "(no name), image",
+      "announce_after": "“Reviewer typed description”, image",
+      "verify_ms": 391,
+      "mode": "input",
+      "selector": "div",
+      "before": "<div role=\"img\" aria-braillelabel=\"Fund chart\">",
+      "after": "<div role=\"img\" aria-braillelabel=\"Fund chart\" aria-label=\"Reviewer typed description\">",
+      "reviewer_text": {
+        "text": "Reviewer typed description"
+      },
+      "backup": "0018_81d0aecfd2f6.html",
+      "prev": "d126b9b03174b4f40322ebab9d4fd05fdf5dca6783e57fa0d60e361b28ba1ad1",
+      "hash": "6865ea0c88a888dce6efc7e3e9e39b587b9ff1b3015d05560069470ba47e9a6a"
+    },
+    {
+      "seq": 20,
+      "timestamp_utc": "2026-10-23T04:35:50+00:00",
+      "event": "verified",
+      "detail": "a5748d13d8-1-skip-link: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "fbe111436a3859ce0f898c7a4b7cff1b1915a336e606c3e631c1c909932c97e4",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "a5748d13d8-1-skip-link",
+      "rule": "skip-link",
+      "announce_before": "“Skip to main content”, link",
+      "announce_after": "“Skip to main content”, link",
+      "verify_ms": 392,
+      "mode": "auto",
+      "selector": ".skip",
+      "before": "<a href=\"#portfolio-start\" class=\"skip\">",
+      "after": "<a href=\"#main-content\" class=\"skip\">",
+      "backup": "0019_a5748d13d85d.html",
+      "prev": "6865ea0c88a888dce6efc7e3e9e39b587b9ff1b3015d05560069470ba47e9a6a",
+      "hash": "e71f17601196c39d6279913034f688a74acf9186448d3c4fd3dc5534f0ac0a3a"
+    },
+    {
+      "seq": 21,
+      "timestamp_utc": "2026-10-23T04:35:51+00:00",
+      "event": "verified",
+      "detail": "fbe111436a-0-tabindex: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "044c891092aa672c6557203ffdb5aef6fe843fb3e8ccf6240155eca732eea08f",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "fbe111436a-0-tabindex",
+      "rule": "tabindex",
+      "announce_before": "“Browse funds”, link",
+      "announce_after": "“Browse funds”, link",
+      "verify_ms": 419,
+      "mode": "auto",
+      "selector": "a",
+      "before": "<a href=\"/funds\" tabindex=\"3\">",
+      "after": "<a href=\"/funds\" tabindex=\"0\">",
+      "backup": "0020_fbe111436a38.html",
+      "prev": "e71f17601196c39d6279913034f688a74acf9186448d3c4fd3dc5534f0ac0a3a",
+      "hash": "19f42d6bebbbf903796906c869a1e78f5c3c5c9bf64d70615165e0f35dedf3b7"
+    },
+    {
+      "seq": 22,
+      "timestamp_utc": "2026-10-23T04:35:51+00:00",
+      "event": "verified",
+      "detail": "044c891092-0-server-side-image-map: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "de067d3a5313fbbe5c1d56b2352cd2ce8f41e0fc0b29eb254fbb4cf7b3d2dc44",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "044c891092-0-server-side-image-map",
+      "rule": "server-side-image-map",
+      "announce_before": "“Branch map”, image",
+      "announce_after": "“Branch map”, image",
+      "verify_ms": 426,
+      "mode": "auto",
+      "selector": "img",
+      "before": "<img src=\"map.png\" alt=\"Branch map\" ismap>",
+      "after": "<img src=\"map.png\" alt=\"Branch map\">",
+      "backup": "0021_044c891092aa.html",
+      "prev": "19f42d6bebbbf903796906c869a1e78f5c3c5c9bf64d70615165e0f35dedf3b7",
+      "hash": "0909a307b6e2b244d943173970a725c49506f61bfed362e8644af0c6682c733f"
+    }
+  ],
+  "audit_log": {
+    "file": "audit.jsonl",
+    "entries": 22,
+    "verified": true,
+    "message": "All 22 entries verified; head 0909a307b6e2b244…",
+    "head_sha256": "0909a307b6e2b244d943173970a725c49506f61bfed362e8644af0c6682c733f"
+  }
+}

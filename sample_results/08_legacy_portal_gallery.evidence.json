@@ -1,0 +1,604 @@
+{
+  "product": "AccessLoop",
+  "scope": "Static HTML; automated WCAG rule checks; not a conformance certificate",
+  "original_sha256": "7eb92dd04b0db8588d3f16b943000ba4ca139f9a92d78eaca3d89a57b1702b50",
+  "current_sha256": "704fcf7e83d905e0412afbb1dda548027a28c94787d5b3c495d79fb852c2e0d1",
+  "baseline_counts": {
+    "aria-roles": 1,
+    "aria-valid-attr": 1,
+    "autocomplete-valid": 1,
+    "button-name": 2,
+    "color-contrast": 1,
+    "document-title": 1,
+    "html-has-lang": 1,
+    "image-alt": 1,
+    "input-button-name": 1,
+    "input-image-alt": 1,
+    "label": 3,
+    "link-name": 1,
+    "marquee": 1,
+    "meta-viewport": 1,
+    "scrollable-region-focusable": 1,
+    "select-name": 1,
+    "summary-name": 1,
+    "svg-img-alt": 1,
+    "valid-lang": 1
+  },
+  "current_counts": {
+    "aria-roles": 1,
+    "aria-valid-attr": 1,
+    "autocomplete-valid": 1,
+    "button-name": 1,
+    "color-contrast": 1,
+    "document-title": 1,
+    "image-alt": 1,
+    "input-button-name": 1,
+    "input-image-alt": 1,
+    "label": 1,
+    "link-name": 1,
+    "marquee": 1,
+    "summary-name": 1,
+    "svg-img-alt": 1,
+    "valid-lang": 1
+  },
+  "unresolved": [
+    {
+      "rule_id": "aria-roles",
+      "selector": "#fake-role",
+      "impact": "critical",
+      "help": "ARIA roles used must conform to valid values",
+      "description": "Fix all of the following:\n  Role must be one of the valid ARIA roles: buton",
+      "uid": 39,
+      "html": "<div role=\"buton\" id=\"fake-role\">Pay</div>",
+      "data": {
+        "invalidrole": [
+          "buton"
+        ]
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "Pay",
+        "role": null,
+        "states": []
+      }
+    },
+    {
+      "rule_id": "aria-valid-attr",
+      "selector": "#typo-attr",
+      "impact": "critical",
+      "help": "ARIA attributes must conform to valid names",
+      "description": "Fix any of the following:\n  Invalid ARIA attribute name: aria-lable",
+      "uid": 40,
+      "html": "<div aria-lable=\"Balance\" id=\"typo-attr\">Balance</div>",
+      "data": {
+        "aria-valid-attr": [
+          "aria-lable"
+        ]
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "Balance",
+        "role": null,
+        "states": []
+      }
+    },
+    {
+      "rule_id": "autocomplete-valid",
+      "selector": "#reg-email",
+      "impact": "serious",
+      "help": "autocomplete attribute must be used correctly",
+      "description": "Fix all of the following:\n  the autocomplete attribute is incorrectly formatted",
+      "uid": 20,
+      "html": "<input id=\"reg-email\" name=\"email\" type=\"email\" autocomplete=\"fullname\">",
+      "data": null,
+      "kind": "violation",
+      "announce": {
+        "name": "Registered email",
+        "role": "textbox",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "button-name",
+      "selector": "#icon-only",
+      "impact": "critical",
+      "help": "Buttons must have discernible text",
+      "description": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+      "uid": 29,
+      "html": "<button id=\"icon-only\" type=\"button\"><svg aria-hidden=\"true\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"6\"></circle></svg></button>",
+      "data": {
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "button",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "color-contrast",
+      "selector": ".muted",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "description": "Fix any of the following:\n  Element has insufficient color contrast of 2.84 (foreground color: #999999, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+      "uid": 10,
+      "html": "<p class=\"muted\">Rates and charges are reviewed every quarter.</p>",
+      "data": {
+        "color-contrast": {
+          "fgColor": "#999999",
+          "bgColor": "#ffffff",
+          "contrastRatio": 2.84,
+          "fontSize": "12.0pt (16px)",
+          "fontWeight": "normal",
+          "messageKey": null,
+          "expectedContrastRatio": "4.5:1",
+          "shadowColor": null,
+          "colorParse": null
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "Rates and charges are reviewed every quarter.",
+        "role": null,
+        "states": []
+      }
+    },
+    {
+      "rule_id": "document-title",
+      "selector": "html",
+      "impact": "serious",
+      "help": "Documents must have <title> element to aid in navigation",
+      "description": "Fix any of the following:\n  Document does not have a non-empty <title> element",
+      "uid": 0,
+      "html": "<html lang=\"en\">",
+      "data": null,
+      "kind": "violation",
+      "announce": null
+    },
+    {
+      "rule_id": "image-alt",
+      "selector": "img",
+      "impact": "critical",
+      "help": "Images must have alternative text",
+      "description": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+      "uid": 9,
+      "html": "<img src=\"rates-banner.png\" width=\"400\" height=\"80\">",
+      "data": {
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "img",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "input-button-name",
+      "selector": "#clear",
+      "impact": "critical",
+      "help": "Input buttons must have discernible text",
+      "description": "Fix any of the following:\n  Element has a value attribute and the value attribute is empty\n  Element has no value attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+      "uid": 28,
+      "html": "<input type=\"button\" id=\"clear\">",
+      "data": {
+        "non-empty-value": {
+          "messageKey": "noAttr"
+        },
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "button",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "input-image-alt",
+      "selector": "input",
+      "impact": "critical",
+      "help": "Image buttons must have alternative text",
+      "description": "Fix any of the following:\n  Element has no alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>",
+      "uid": 27,
+      "html": "<input type=\"image\" src=\"go.png\" width=\"24\" height=\"24\">",
+      "data": {
+        "non-empty-alt": {
+          "messageKey": "noAttr"
+        },
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "Submit",
+        "role": "button",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "label",
+      "selector": "#wrapped",
+      "impact": "critical",
+      "help": "Form elements must have labels",
+      "description": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+      "uid": 26,
+      "html": "<input id=\"wrapped\" name=\"wrapped\" type=\"text\">",
+      "data": {
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        },
+        "non-empty-placeholder": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "textbox",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "link-name",
+      "selector": "a",
+      "impact": "serious",
+      "help": "Links must have discernible text",
+      "description": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+      "uid": 13,
+      "html": "<a href=\"#statements\"><svg aria-hidden=\"true\" width=\"16\" height=\"16\"><rect width=\"16\" height=\"16\"></rect></svg></a>",
+      "data": {
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "link",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "marquee",
+      "selector": "marquee",
+      "impact": "serious",
+      "help": "<marquee> elements are deprecated and must not be used",
+      "description": "Fix all of the following:\n  Element is visible",
+      "uid": 11,
+      "html": "<marquee>Savings rate updated this week</marquee>",
+      "data": null,
+      "kind": "violation",
+      "announce": {
+        "name": "Savings rate updated this week",
+        "role": null,
+        "states": []
+      }
+    },
+    {
+      "rule_id": "summary-name",
+      "selector": "summary",
+      "impact": "serious",
+      "help": "Summary elements must have discernible text",
+      "description": "Fix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+      "uid": 44,
+      "html": "<summary></summary>",
+      "data": {
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "button",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "svg-img-alt",
+      "selector": "svg",
+      "impact": "serious",
+      "help": "<svg> elements with an img or image role must have alternative text",
+      "description": "Fix any of the following:\n  Element has no child that is a title\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute",
+      "uid": 41,
+      "html": "<svg role=\"img\" width=\"16\" height=\"16\"><rect width=\"16\" height=\"16\"></rect></svg>",
+      "data": {
+        "svg-non-empty-title": {
+          "messageKey": "noTitle"
+        },
+        "non-empty-title": {
+          "messageKey": "noAttr"
+        }
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "",
+        "role": "img",
+        "states": []
+      }
+    },
+    {
+      "rule_id": "valid-lang",
+      "selector": "span",
+      "impact": "serious",
+      "help": "lang attribute must have a valid value",
+      "description": "Fix all of the following:\n  Value of lang attribute not included in the list of valid languages",
+      "uid": 47,
+      "html": "<span lang=\"english\">Namaste</span>",
+      "data": {
+        "valid-lang": [
+          "lang=\"english\""
+        ]
+      },
+      "kind": "violation",
+      "announce": {
+        "name": "Namaste",
+        "role": null,
+        "states": []
+      }
+    }
+  ],
+  "audit_events": [
+    {
+      "seq": 1,
+      "timestamp_utc": "2026-10-23T04:35:58+00:00",
+      "event": "loaded",
+      "detail": "Original saved as a separate copy; it is never modified.",
+      "working_sha256": "7eb92dd04b0db8588d3f16b943000ba4ca139f9a92d78eaca3d89a57b1702b50",
+      "versions": {
+        "accessloop": "0.9.0"
+      },
+      "original_sha256": "7eb92dd04b0db8588d3f16b943000ba4ca139f9a92d78eaca3d89a57b1702b50",
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "6cc6e76202511c33ded7b97f791998b356c2e2853bcb73ea15a1667055e80811"
+    },
+    {
+      "seq": 2,
+      "timestamp_utc": "2026-10-23T04:35:58+00:00",
+      "event": "scanned",
+      "detail": "22 violation nodes, 0 needs-review nodes; 22 fix proposals.",
+      "working_sha256": "7eb92dd04b0db8588d3f16b943000ba4ca139f9a92d78eaca3d89a57b1702b50",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "best_practice": true,
+      "counts": {
+        "aria-roles": 1,
+        "aria-valid-attr": 1,
+        "autocomplete-valid": 1,
+        "button-name": 2,
+        "color-contrast": 1,
+        "document-title": 1,
+        "html-has-lang": 1,
+        "image-alt": 1,
+        "input-button-name": 1,
+        "input-image-alt": 1,
+        "label": 3,
+        "link-name": 1,
+        "marquee": 1,
+        "meta-viewport": 1,
+        "scrollable-region-focusable": 1,
+        "select-name": 1,
+        "summary-name": 1,
+        "svg-img-alt": 1,
+        "valid-lang": 1
+      },
+      "proposals": 22,
+      "input_proposals": 11,
+      "scan_ms": 346,
+      "plan_ms": 1,
+      "prev": "6cc6e76202511c33ded7b97f791998b356c2e2853bcb73ea15a1667055e80811",
+      "hash": "1cf84d60592de0f1cca8aa06bb6248ba7c50b86cb0b6c02ab0d8a4f2e077b4fb"
+    },
+    {
+      "seq": 3,
+      "timestamp_utc": "2026-10-23T04:35:58+00:00",
+      "event": "agent_started",
+      "detail": "Agent run started. Policy: applies low-risk automatic fixes; at most 200 changes; stops after 6 rollbacks in a row; never types text for you.",
+      "working_sha256": "7eb92dd04b0db8588d3f16b943000ba4ca139f9a92d78eaca3d89a57b1702b50",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "reviewer": "Agent (policy approved by suite)",
+      "policy": {
+        "risks": [
+          "low"
+        ],
+        "deny_rules": [],
+        "max_changes": 200,
+        "stop_after_rollbacks": 6,
+        "batch": true
+      },
+      "prev": "1cf84d60592de0f1cca8aa06bb6248ba7c50b86cb0b6c02ab0d8a4f2e077b4fb",
+      "hash": "a7ae7592e3b19e3b738a410934c8550f9cda377f733ecc21bb7623283b06e3f0"
+    },
+    {
+      "seq": 4,
+      "timestamp_utc": "2026-10-23T04:35:58+00:00",
+      "event": "verified",
+      "detail": "Batch of 2 label fixes: Target rule improved (3 → 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "49badecbf8445add9523cb22694a9a009d4a96b6bcd750009b0b25b5fca10207",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "rule": "label",
+      "batch": [
+        "7eb92dd04b-11-label",
+        "7eb92dd04b-12-label"
+      ],
+      "reviewer": "Agent (policy approved by suite)",
+      "verify_ms": 395,
+      "backup": "0003_7eb92dd04b0d.html",
+      "mode": "batch",
+      "prev": "a7ae7592e3b19e3b738a410934c8550f9cda377f733ecc21bb7623283b06e3f0",
+      "hash": "d27ac588c2c21c70d7bceb7ce02f37d636f3e9abed2d29b6502eed670d610ab0"
+    },
+    {
+      "seq": 5,
+      "timestamp_utc": "2026-10-23T04:35:59+00:00",
+      "event": "verified",
+      "detail": "49badecbf8-4-button-name: Target rule improved (2 → 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "032186467576b5cb1a0ed40bd4e0af845b7a05d7f03c28931bfa78edba92813d",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "49badecbf8-4-button-name",
+      "rule": "button-name",
+      "announce_before": "(no name), button",
+      "announce_after": "“Continue”, button",
+      "verify_ms": 337,
+      "mode": "auto",
+      "selector": "#go",
+      "reviewer": "Agent (policy approved by suite)",
+      "before": "<span aria-hidden=\"true\">Continue</span>",
+      "after": "<span>Continue</span>",
+      "backup": "0004_49badecbf844.html",
+      "prev": "d27ac588c2c21c70d7bceb7ce02f37d636f3e9abed2d29b6502eed670d610ab0",
+      "hash": "d3972af2655917ad803d25441e25fc16d1946e669b1dff913880d866dcd841b9"
+    },
+    {
+      "seq": 6,
+      "timestamp_utc": "2026-10-23T04:35:59+00:00",
+      "event": "verified",
+      "detail": "0321864675-6-html-has-lang: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "9dd12334499296d6a9d6dad42b869a2748d473f0c795339a56d2be54e5652eb2",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "0321864675-6-html-has-lang",
+      "rule": "html-has-lang",
+      "verify_ms": 340,
+      "mode": "auto",
+      "selector": "html",
+      "reviewer": "Agent (policy approved by suite)",
+      "before": "<html>",
+      "after": "<html lang=\"en\">",
+      "backup": "0005_032186467576.html",
+      "prev": "d3972af2655917ad803d25441e25fc16d1946e669b1dff913880d866dcd841b9",
+      "hash": "7cd27d94d3904ec9a44f784cee63db64843dc0463da7bab7ae136e7aed4db17d"
+    },
+    {
+      "seq": 7,
+      "timestamp_utc": "2026-10-23T04:35:59+00:00",
+      "event": "verified",
+      "detail": "9dd1233449-12-meta-viewport: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "8999086d48b5b4dc9b6a6fd19859b21ab599c8d4f2081799bb3af8841a1c7730",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "9dd1233449-12-meta-viewport",
+      "rule": "meta-viewport",
+      "announce_before": "(no name)",
+      "announce_after": "(no name)",
+      "verify_ms": 337,
+      "mode": "auto",
+      "selector": "meta",
+      "reviewer": "Agent (policy approved by suite)",
+      "before": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">",
+      "after": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "backup": "0006_9dd123344992.html",
+      "prev": "7cd27d94d3904ec9a44f784cee63db64843dc0463da7bab7ae136e7aed4db17d",
+      "hash": "f3c9e6a455d2d3b8f2402f768035377bb91a31b935ac728cc493dad5afbf26b3"
+    },
+    {
+      "seq": 8,
+      "timestamp_utc": "2026-10-23T04:36:00+00:00",
+      "event": "verified",
+      "detail": "8999086d48-12-scrollable-region-focusable: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "5780d411c57cf1ef3f0dea381e8fa8eb03e17ab25df5ae220cdfb1491acb114e",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "8999086d48-12-scrollable-region-focusable",
+      "rule": "scrollable-region-focusable",
+      "announce_before": "“Line one of terms. Line two of terms. Line three of terms. Line four.”",
+      "announce_after": "“Line one of terms. Line two of terms. Line three of terms. Line four.”",
+      "verify_ms": 345,
+      "mode": "auto",
+      "selector": ".scroll",
+      "reviewer": "Agent (policy approved by suite)",
+      "before": "<div class=\"scroll\">",
+      "after": "<div class=\"scroll\" tabindex=\"0\">",
+      "backup": "0007_8999086d48b5.html",
+      "prev": "f3c9e6a455d2d3b8f2402f768035377bb91a31b935ac728cc493dad5afbf26b3",
+      "hash": "2c6f3f2bb6783833432ab0ae301288800469b873aab6c79fbffd3cb892b0c964"
+    },
+    {
+      "seq": 9,
+      "timestamp_utc": "2026-10-23T04:36:00+00:00",
+      "event": "verified",
+      "detail": "5780d411c5-12-select-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
+      "working_sha256": "704fcf7e83d905e0412afbb1dda548027a28c94787d5b3c495d79fb852c2e0d1",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "proposal_id": "5780d411c5-12-select-name",
+      "rule": "select-name",
+      "announce_before": "(no name), combo box",
+      "announce_after": "“Account type”, combo box",
+      "verify_ms": 381,
+      "mode": "auto",
+      "selector": "#acct-type",
+      "reviewer": "Agent (policy approved by suite)",
+      "before": "<label>Account type</label>\n    <select id=\"acct-type\" name=\"type\">",
+      "after": "<label for=\"acct-type\">Account type</label>\n    <select id=\"acct-type\" name=\"type\">",
+      "backup": "0008_5780d411c57c.html",
+      "prev": "2c6f3f2bb6783833432ab0ae301288800469b873aab6c79fbffd3cb892b0c964",
+      "hash": "10845155b51c191bbe8903886975fee1ecab239023c0034c482db9a9c0c95bca"
+    },
+    {
+      "seq": 10,
+      "timestamp_utc": "2026-10-23T04:36:00+00:00",
+      "event": "agent_finished",
+      "detail": "Agent run finished: 22 → 15 violations; 7 fixes kept in 6 writes; 0 rolled back; 11 questions and 4 held fixes handed to a person.",
+      "working_sha256": "704fcf7e83d905e0412afbb1dda548027a28c94787d5b3c495d79fb852c2e0d1",
+      "versions": {
+        "accessloop": "0.9.0",
+        "axe": "4.14.0",
+        "browser": "Chromium 141.0.7390.37"
+      },
+      "reviewer": "Agent (policy approved by suite)",
+      "violations_before": 22,
+      "violations_after": 15,
+      "applied": 7,
+      "rolled_back": 0,
+      "questions": 11,
+      "held": 4,
+      "seconds": 2.15,
+      "prev": "10845155b51c191bbe8903886975fee1ecab239023c0034c482db9a9c0c95bca",
+      "hash": "b7ef6f3d713cf28b0103f76b282f08658a7e8177f2800610c99d73434a4e03f8"
+    }
+  ],
+  "audit_log": {
+    "file": "audit.jsonl",
+    "entries": 10,
+    "verified": true,
+    "message": "All 10 entries verified; head b7ef6f3d713cf28b…",
+    "head_sha256": "b7ef6f3d713cf28b0103f76b282f08658a7e8177f2800610c99d73434a4e03f8"
+  }
+}

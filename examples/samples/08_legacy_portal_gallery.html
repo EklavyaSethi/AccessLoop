@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; color: #1b2433; background: #ffffff; }
+    header { background: #0b2a4a; color: #ffffff; padding: 16px 24px; font-weight: 700; }
+    main { max-width: 640px; margin: 24px auto; padding: 0 24px; }
+    label, input, select { display: block; box-sizing: border-box; }
+    input, select { width: 100%; border: 1px solid #5c6878; border-radius: 6px; padding: 8px; font: inherit; }
+    .scroll { height: 48px; overflow: auto; border: 1px solid #5c6878; }
+    .muted { color: #999999; }
+  </style>
+</head>
+<body>
+<!-- Gallery of legacy-portal defects: every fix type the agent supports appears at least once. -->
+<header>Meridian Bank · Customer Portal</header>
+<main>
+  <h1>Account services</h1>
+  <img src="rates-banner.png" width="400" height="80">
+  <p class="muted">Rates and charges are reviewed every quarter.</p>
+  <marquee>Savings rate updated this week</marquee>
+  <p><a href="#statements"><svg aria-hidden="true" width="16" height="16"><rect width="16" height="16"/></svg></a></p>
+  <form action="#" method="get">
+    <label>Customer name</label>
+    <input name="cust" type="text">
+    <label>Registered email</label>
+    <input id="reg-email" name="email" type="email" autocomplete="fullname">
+    <label>Account type</label>
+    <select id="acct-type" name="type"><option>Savings</option><option>Current</option></select>
+    <div><input id="wrapped" name="wrapped" type="text"></div>
+    <input type="image" src="go.png" width="24" height="24">
+    <input type="button" id="clear">
+    <button id="icon-only" type="button"><svg aria-hidden="true" width="16" height="16"><circle cx="8" cy="8" r="6"/></svg></button>
+    <button id="go" type="submit"><span aria-hidden="true">Continue</span></button>
+  </form>
+  <div class="scroll"><p>Line one of terms.</p><p>Line two of terms.</p><p>Line three of terms.</p><p>Line four.</p></div>
+  <div role="buton" id="fake-role">Pay</div>
+  <div aria-lable="Balance" id="typo-attr">Balance</div>
+  <svg role="img" width="16" height="16"><rect width="16" height="16"/></svg>
+  <details><summary></summary><p>More</p></details>
+  <p><span lang="english">Namaste</span></p>
+</main>
+</body>
+</html>

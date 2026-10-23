@@ -1,0 +1,2384 @@
+{
+ "pages": [
+  {
+   "status": "ok",
+   "scan_seconds": 0.98,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 6
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.97
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/aria/form-validation-checkbox-disabled.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.88,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 4
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.87
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/aria/form-validation-updated.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.26,
+   "violations": {
+    "color-contrast": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "color-contrast": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.14
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/assessment-finished/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.85,
+   "violations": {
+    "color-contrast": 1,
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "color-contrast": 1,
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.81
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.99
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/assessment-finished/transcript.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.26,
+   "violations": {
+    "color-contrast": 19,
+    "image-alt": 2,
+    "page-has-heading-one": 1,
+    "region": 3
+   },
+   "reviews": {},
+   "proposals": {
+    "color-contrast": 19,
+    "image-alt": 2,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 20,
+    "auto": 2
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (19 \u2192 17); no increase in detected rule counts.",
+     "seconds": 1.15
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (17 \u2192 16); no increase in detected rule counts.",
+     "seconds": 1.29
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (16 \u2192 15); no increase in detected rule counts.",
+     "seconds": 1.19
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (15 \u2192 14); no increase in detected rule counts.",
+     "seconds": 1.39
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (14 \u2192 13); no increase in detected rule counts.",
+     "seconds": 1.15
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (13 \u2192 12); no increase in detected rule counts.",
+     "seconds": 1.2
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (12 \u2192 10); no increase in detected rule counts.",
+     "seconds": 1.14
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 4,
+     "status": "verified",
+     "detail": "4 fixes applied together. Target rule improved (10 \u2192 6); no increase in detected rule counts.",
+     "seconds": 1.35
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (6 \u2192 5); no increase in detected rule counts.",
+     "seconds": 1.4
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (5 \u2192 4); no increase in detected rule counts.",
+     "seconds": 1.33
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (4 \u2192 3); no increase in detected rule counts.",
+     "seconds": 1.2
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.26
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.18
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.27
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.3
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.36
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.4
+    }
+   ],
+   "final_violations": {
+    "region": 3
+   },
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/assessment-start/assessment-files/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.09,
+   "violations": {
+    "color-contrast": 19,
+    "image-alt": 2,
+    "page-has-heading-one": 1,
+    "region": 3
+   },
+   "reviews": {},
+   "proposals": {
+    "color-contrast": 19,
+    "image-alt": 2,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 20,
+    "auto": 2
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (19 \u2192 17); no increase in detected rule counts.",
+     "seconds": 1.17
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (17 \u2192 16); no increase in detected rule counts.",
+     "seconds": 1.15
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (16 \u2192 15); no increase in detected rule counts.",
+     "seconds": 1.12
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (15 \u2192 14); no increase in detected rule counts.",
+     "seconds": 1.1
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (14 \u2192 13); no increase in detected rule counts.",
+     "seconds": 1.15
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (13 \u2192 12); no increase in detected rule counts.",
+     "seconds": 1.12
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (12 \u2192 10); no increase in detected rule counts.",
+     "seconds": 1.09
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 4,
+     "status": "verified",
+     "detail": "4 fixes applied together. Target rule improved (10 \u2192 6); no increase in detected rule counts.",
+     "seconds": 1.29
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (6 \u2192 5); no increase in detected rule counts.",
+     "seconds": 1.24
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (5 \u2192 4); no increase in detected rule counts.",
+     "seconds": 1.16
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (4 \u2192 3); no increase in detected rule counts.",
+     "seconds": 1.11
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (3 \u2192 2); no increase in detected rule counts.",
+     "seconds": 1.18
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.09
+    },
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.36
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 1.2
+    },
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.11
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.23
+    }
+   ],
+   "final_violations": {
+    "region": 3
+   },
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/assessment-start/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.82,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.78
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/css/form-css.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.83,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 3
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.87
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/css/form-validation.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.92,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.89
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/css/mouse-and-keyboard-events.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.94,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.81
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/css/table-css.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.88,
+   "violations": {
+    "image-alt": 1,
+    "landmark-one-main": 1,
+    "region": 6
+   },
+   "reviews": {},
+   "proposals": {
+    "image-alt": 1,
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "image-alt",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.92
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.86
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/html/accessible-image.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.75,
+   "violations": {
+    "label": 2,
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "label": 2,
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 3
+   },
+   "outcomes": [
+    {
+     "rule": "label",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (2 \u2192 1); no increase in detected rule counts.",
+     "seconds": 0.9
+    },
+    {
+     "rule": "label",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.84
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.91
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/html/bad-form.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.91,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 3
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.94
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/html/bad-links.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.97,
+   "violations": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 3
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.87
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.92
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/html/bad-semantics.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.87,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.82
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/html/bad-table.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.8,
+   "violations": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.87
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.79
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/html/dino-info.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.84,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.86
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/html/good-form.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.87,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 3
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.88
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/html/good-links.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.85,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 7
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.85
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/html/good-semantics.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.97,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 4,
+    "scrollable-region-focusable": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "scrollable-region-focusable": 1
+   },
+   "proposal_modes": {
+    "input": 1,
+    "auto": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.13
+    },
+    {
+     "rule": "scrollable-region-focusable",
+     "mode": "auto",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.94
+    }
+   ],
+   "final_violations": {
+    "region": 2
+   },
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/multimedia/audio-transcript-ui/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.98,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 5
+   },
+   "reviews": {
+    "video-caption": 1
+   },
+   "proposals": {
+    "landmark-one-main": 1,
+    "video-caption": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.92
+    },
+    {
+     "rule": "video-caption",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.96
+    }
+   ],
+   "final_violations": {
+    "region": 4
+   },
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/multimedia/custom-controls-OOJS/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.95,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 3
+   },
+   "reviews": {
+    "video-caption": 1
+   },
+   "proposals": {
+    "landmark-one-main": 1,
+    "video-caption": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.99
+    },
+    {
+     "rule": "video-caption",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.95
+    }
+   ],
+   "final_violations": {
+    "region": 1
+   },
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/multimedia/custom-controls-start.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.89,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 3
+   },
+   "reviews": {
+    "video-caption": 1
+   },
+   "proposals": {
+    "landmark-one-main": 1,
+    "video-caption": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.94
+    },
+    {
+     "rule": "video-caption",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.96
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "accessibility/multimedia/native-controls.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.87,
+   "violations": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.81
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.89
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/forms/custom-radio-styles/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.79,
+   "violations": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.9
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.88
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/forms/image-type-xy-coords/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.88,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 4
+   },
+   "reviews": {
+    "color-contrast": 8
+   },
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.89
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 8
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/forms/postcard-example/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.84,
+   "violations": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Note: region 0 \u2192 1 (page has no main landmark yet; fix that to clear all region items).",
+     "seconds": 0.78
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.72
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/forms/postcard-example/postcard-start.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.88,
+   "violations": {
+    "label": 1,
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "label": 1,
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 3
+   },
+   "outcomes": [
+    {
+     "rule": "label",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.82
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.87
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.94
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/forms/sending-form-data/get-method.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.95,
+   "violations": {
+    "label": 1,
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "label": 1,
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 3
+   },
+   "outcomes": [
+    {
+     "rule": "label",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.95
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.0
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.86
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/forms/sending-form-data/php-example.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.87,
+   "violations": {
+    "label": 1,
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "label": 1,
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 3
+   },
+   "outcomes": [
+    {
+     "rule": "label",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.82
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.85
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.84
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/forms/sending-form-data/post-method.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.84,
+   "violations": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.84
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.8
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/forms/sending-form-data/templates/form.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.78,
+   "violations": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.91
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.85
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/forms/sending-form-data/templates/greeting.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.86,
+   "violations": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.86
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.82
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/forms/toggle-switch-example/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.91,
+   "violations": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 3
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.8
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.85
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/forms/your-first-HTML-form/first-form-styled.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.86,
+   "violations": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 3
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.84
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.99
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/forms/your-first-HTML-form/first-form.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.94,
+   "violations": {
+    "color-contrast": 5
+   },
+   "reviews": {},
+   "proposals": {
+    "color-contrast": 5
+   },
+   "proposal_modes": {
+    "auto": 5
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "batch",
+     "size": 5,
+     "status": "verified",
+     "detail": "5 fixes applied together. Target rule improved (5 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.12
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/document_and_website_structure/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.73,
+   "violations": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1,
+    "region": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.84
+    },
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.95
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/getting-started/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.99,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 11
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.04
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/html-text-formatting/text-complete.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.85,
+   "violations": {
+    "landmark-one-main": 1,
+    "page-has-heading-one": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "page-has-heading-one": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "page-has-heading-one",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Note: region 0 \u2192 1 (page has no main landmark yet; fix that to clear all region items).",
+     "seconds": 0.88
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.96
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/html-text-formatting/text-start.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.97,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 3,
+    "target-size": 3
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "target-size": 3
+   },
+   "proposal_modes": {
+    "input": 1,
+    "auto": 3
+   },
+   "outcomes": [
+    {
+     "rule": "target-size",
+     "mode": "batch",
+     "size": 3,
+     "status": "verified",
+     "detail": "3 fixes applied together. Target rule improved (3 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.03
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.96
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/navigation-menu-marked-up/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.97,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 3,
+    "target-size": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "target-size": 2
+   },
+   "proposal_modes": {
+    "input": 1,
+    "auto": 2
+   },
+   "outcomes": [
+    {
+     "rule": "target-size",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.14
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.88
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/navigation-menu-marked-up/pictures.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.89,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 3,
+    "target-size": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "target-size": 2
+   },
+   "proposal_modes": {
+    "input": 1,
+    "auto": 2
+   },
+   "outcomes": [
+    {
+     "rule": "target-size",
+     "mode": "batch",
+     "size": 2,
+     "status": "verified",
+     "detail": "2 fixes applied together. Target rule improved (2 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.95
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.89
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/navigation-menu-marked-up/projects.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.77,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 3,
+    "target-size": 3
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1,
+    "target-size": 3
+   },
+   "proposal_modes": {
+    "input": 1,
+    "auto": 3
+   },
+   "outcomes": [
+    {
+     "rule": "target-size",
+     "mode": "batch",
+     "size": 3,
+     "status": "verified",
+     "detail": "3 fixes applied together. Target rule improved (3 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.9
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.9
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/navigation-menu-marked-up/social.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.83,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.75
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/navigation-menu-start/index.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.85,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.94
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/navigation-menu-start/pictures.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.9,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.76
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/navigation-menu-start/projects.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.76,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.82
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/navigation-menu-start/social.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.88,
+   "violations": {
+    "color-contrast": 1,
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "color-contrast": 1,
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 2
+   },
+   "outcomes": [
+    {
+     "rule": "color-contrast",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.83
+    },
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.93
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/the-html-head/css-and-js.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.81,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.98
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/the-html-head/meta-example.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.92,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.79
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/introduction-to-html/the-html-head/title-example.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.94,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {
+    "color-contrast": 2
+   },
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.94
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 2
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/tables/advanced/items-sold-headers.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.97,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {
+    "color-contrast": 2
+   },
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.01
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 2
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/tables/advanced/items-sold-scope.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.91,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {
+    "color-contrast": 2
+   },
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.95
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 2
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/tables/advanced/items-sold.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.88,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.02
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/tables/advanced/nested-tables.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.93,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.98
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/tables/advanced/spending-record-finished.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.92,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {
+    "th-has-data-cells": 1
+   },
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.9
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "th-has-data-cells": 1
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/tables/advanced/spending-record.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.87,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.0
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/tables/advanced/timetable-caption.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 0.88,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 1
+   },
+   "reviews": {},
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 0.87
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {},
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/tables/basic/blank-template.html"
+  },
+  {
+   "status": "ok",
+   "scan_seconds": 1.14,
+   "violations": {
+    "landmark-one-main": 1,
+    "region": 2
+   },
+   "reviews": {
+    "color-contrast": 4
+   },
+   "proposals": {
+    "landmark-one-main": 1
+   },
+   "proposal_modes": {
+    "input": 1
+   },
+   "outcomes": [
+    {
+     "rule": "landmark-one-main",
+     "mode": "input",
+     "size": 1,
+     "status": "verified",
+     "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts.",
+     "seconds": 1.16
+    }
+   ],
+   "final_violations": {},
+   "final_reviews": {
+    "color-contrast": 4
+   },
+   "audit_ok": true,
+   "original_untouched": true,
+   "file": "html/tables/planets-data/index.html"
+  }
+ ]
+}
