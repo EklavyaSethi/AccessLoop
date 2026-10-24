@@ -37,6 +37,8 @@ def _axe(page) -> list[dict]:
     res = page.evaluate("async (tags) => (await axe.run(document, {runOnly: {type: 'tag', values: tags}})).violations",
                         BEST_PRACTICE_TAGS)
     return [{'rule': v['id'], 'impact': v.get('impact'), 'help': v['help'], 'nodes': [n['target'][0] for n in v['nodes']][:5],
+             'detail': ' | '.join(f"{n.get('html', '')[:90]} -> {(n.get('failureSummary') or '').splitlines()[-1][:160]}"
+                                  for n in v['nodes'][:2]),
              'wcag': [t for t in v['tags'] if t.startswith('wcag')]} for v in res]
 
 
@@ -154,6 +156,8 @@ def main() -> int:
     serious = [r for r in rows if r['impact'] in ('serious', 'critical')]
     for r in rows:
         print(f'{r["ui"]:<9} {r["screen"]:<24} {str(r["impact"]):<9} {r["rule"]:<28} {r["help"]} {r["nodes"][:2]}')
+        if r.get('detail'):
+            print(f'          {r["detail"]}')
     print(f'\n{len(rows)} finding(s); {len(serious)} serious or critical.' if rows else 'No accessibility violations found.')
     return 1 if serious else 0
 

@@ -3,7 +3,7 @@ base = "light"
 primaryColor = "#132843"
 backgroundColor = "#f6f7f9"
 secondaryBackgroundColor = "#ffffff"
-textColor = "#18202b"
+textColor = "#0b1320"
 font = "sans serif"
 
 [browser]
