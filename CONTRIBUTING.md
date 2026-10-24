@@ -4,7 +4,7 @@
 ```bash
 git clone https://github.com/<owner>/AccessLoop.git
 cd AccessLoop
-bash setup_mac.sh            # venv, pip, Chromium, axe-core, unit tests, smoke test
+bash setup_mac.sh            # or setup_linux.sh / setup_windows.cmd: venv, pinned packages, Chromium, axe-core, tests, smoke
 ```
 
 ## Daily loop
@@ -28,3 +28,7 @@ Teammate reviews the PR, CI must be green, then **Squash and merge**. Delete the
 - Pull `main` into your branch before opening a PR if it's more than a few hours old: `git pull origin main`.
 - Every new fix template needs: a sample page in `examples/samples/`, a case in `accessloop/sample_suite.py`, and a unit test.
 - Never commit `.env`, API keys, `.venv/`, `node_modules/` or `sample_results/` (already in `.gitignore`).
+
+## Licence of contributions
+By contributing you agree that your contribution is licensed under the Apache License 2.0, like the rest of AccessLoop.
+New dependencies must not be GPL/AGPL/SSPL; `python -m accessloop.licenses` (run in CI) checks this.

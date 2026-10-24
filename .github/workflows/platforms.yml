@@ -1,0 +1,61 @@
+name: Install on every platform
+# Proves the one-command setups work on clean machines: the Linux and Windows setup scripts (which run the full test
+# suite and the real-browser smoke test), and the Docker image (built, smoke-tested inside, then served and probed).
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  linux-setup-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: bash setup_linux.sh --deps
+        run: bash setup_linux.sh --deps
+
+  windows-setup-script:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: setup_windows.cmd
+        shell: cmd
+        run: setup_windows.cmd
+      - name: Command line works on Windows (scan + agent fix with a named reviewer)
+        shell: pwsh
+        run: |
+          $env:PYTHONUTF8 = '1'
+          .\.venv\Scripts\python.exe -m accessloop fix examples\samples\02_sip_signup.html --out $env:RUNNER_TEMP\fixed.html --agent --reviewer "CI Windows"
+          if ($LASTEXITCODE -gt 1) { exit $LASTEXITCODE }
+          if (-not (Test-Path "$env:RUNNER_TEMP\fixed.html")) { throw 'no output written' }
+          exit 0
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the image
+        run: docker build -t accessloop:ci .
+      - name: Smoke test inside the container (scan, approve, patch, re-scan, as the unprivileged user)
+        run: docker run --rm --shm-size=1g accessloop:ci python -m accessloop.smoke
+      - name: Serve the app and check it answers
+        run: |
+          docker run -d --name al -p 127.0.0.1:8501:8501 --shm-size=1g accessloop:ci
+          for i in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:8501/_stcore/health; then echo; echo "Streamlit is up"; break; fi
+            sleep 2
+          done
+          curl -fsS http://127.0.0.1:8501/_stcore/health
+          docker exec al whoami | grep -x accessloop
+          docker logs al | tail -20
+      - name: docker compose config is valid
+        run: docker compose config -q

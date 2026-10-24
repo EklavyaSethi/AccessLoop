@@ -1,0 +1,25 @@
+# AccessLoop with Docker Compose:   docker compose up --build      then open http://localhost:8501
+#
+# The port is bound to this computer only (127.0.0.1). To share it on a network, put it behind a reverse proxy with
+# HTTPS and sign-in, and change the mapping deliberately.
+#
+# Optional AI drafting: set these in your shell before `docker compose up` (never write the key into this file):
+#   export ACCESSLOOP_AI=gemini GEMINI_API_KEY=...
+services:
+  accessloop:
+    build: .
+    image: accessloop:latest
+    ports:
+      - "127.0.0.1:8501:8501"
+    volumes:
+      - accessloop-data:/data
+    environment:
+      ACCESSLOOP_AI: ${ACCESSLOOP_AI:-off}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-}
+      ACCESSLOOP_FOUR_EYES: ${ACCESSLOOP_FOUR_EYES:-}
+    shm_size: "1gb"          # Chromium uses shared memory; the Docker default (64 MB) can crash large pages
+    restart: unless-stopped
+
+volumes:
+  accessloop-data:

@@ -348,7 +348,7 @@ def cmd_fix(args) -> int:
         from .exports import git_patch
         patch = git_patch(read_source(src), engine.current_html, src.name, reviewer or '')
         if patch:
-            out.with_suffix('.patch').write_text(patch, encoding='utf-8')
+            out.with_suffix('.patch').write_text(patch, encoding='utf-8', newline='')
             print(f'Patch for your repository: {out.with_suffix(".patch")} (apply with git am or git apply).')
         final = engine.current_scan
         print(f'\nWrote {out} and its audit log {log}.')
@@ -420,12 +420,12 @@ def cmd_template(args) -> int:
     if out.resolve() == src.resolve():
         print('Write the fixed template to a new file (--out).', file=sys.stderr)
         return EXIT_USAGE
-    out.write_text(result['template'], encoding='utf-8')
-    out.with_suffix(out.suffix + '.audit.jsonl').write_text(result['audit'], encoding='utf-8')
+    out.write_text(result['template'], encoding='utf-8', newline='')
+    out.with_suffix(out.suffix + '.audit.jsonl').write_text(result['audit'], encoding='utf-8', newline='')
     from .exports import git_patch
     patch = git_patch(read_source(src), result['template'], src.name, args.reviewer)
     if patch:
-        out.with_suffix(out.suffix + '.patch').write_text(patch, encoding='utf-8')
+        out.with_suffix(out.suffix + '.patch').write_text(patch, encoding='utf-8', newline='')
     print(f'Rendered page: {result["violations_before"]} → {result["violations_after_rendered"]} violation node(s).')
     for c in result['carried']:
         print(f'  carried into the template: {c["rule"]} ({c["edits"]} edit(s))')

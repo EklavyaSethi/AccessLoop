@@ -1,0 +1,11 @@
+AccessLoop
+Copyright 2026 Team OracleZero (AccessLoop contributors)
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It uses, without modification, third-party software under its own licences, including:
+  - axe-core (Deque Systems, Inc.), Mozilla Public License 2.0 - https://github.com/dequelabs/axe-core
+  - Playwright (Microsoft Corporation), Apache License 2.0 - https://github.com/microsoft/playwright-python
+  - Chromium (The Chromium Authors), BSD-3-Clause and others - https://www.chromium.org
+  - Streamlit (Snowflake Inc.), Apache License 2.0 - https://github.com/streamlit/streamlit
+See THIRD_PARTY_NOTICES.md for the full list, and run `python -m accessloop.licenses` for the installed versions.

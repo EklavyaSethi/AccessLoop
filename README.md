@@ -17,27 +17,29 @@ A bounded, auditable tool that scans static HTML in a sandboxed Chromium with ax
 5. Fix the remaining supported findings and inspect **verified** events, evidence JSON, and corrected HTML.
 6. Load `examples/samples/05_banking_edge_cases.html` and type a link name that contradicts the visible text: the re-scan catches it and rolls it back.
 
-## Setup (macOS)
+## Setup (macOS, Linux, Windows or Docker)
 
-You need **Python 3.11+**, **Node.js with npm**, and an internet connection during setup to install browser + packages.
+You need **Python 3.11+**, **Node.js with npm**, and an internet connection during setup (Docker needs only Docker).
+Each setup script installs the exact tested versions, the sandboxed Chromium and axe-core, then runs the tests and a
+real-browser smoke test. All four are tested on clean machines in CI.
 
-```bash
-cd AccessLoop_Hackathon_Starter
-bash setup_mac.sh
-source .venv/bin/activate
-streamlit run app.py
-```
+| System | Set up | Start |
+|---|---|---|
+| macOS | `bash setup_mac.sh` | `bash start.sh` |
+| Linux | `bash setup_linux.sh --deps` | `bash start.sh` |
+| Windows 10/11 | `setup_windows.cmd` | `start_windows.cmd` |
+| Docker | `docker compose up --build` | (same command) |
 
-Open the local Streamlit address printed in the terminal (normally http://localhost:8501).
+Open http://localhost:8501. Details, options, configuration and server deployment: [docs/DEPLOY.md](docs/DEPLOY.md).
 
 ### Manual setup (macOS / Linux)
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install -r requirements.lock
 python -m playwright install chromium
-npm install --no-audit --no-fund
+npm ci --no-audit --no-fund
 python -m pytest -q
 python -m accessloop.smoke
 streamlit run app.py
@@ -173,3 +175,9 @@ Verify whether the event permits bringing prewritten starter code. If not, treat
 - [Playwright for Python](https://playwright.dev/python/docs/intro)
 - [Streamlit Session State](https://docs.streamlit.io/develop/concepts/architecture/session-state)
 - [Gemini structured output](https://ai.google.dev/gemini-api/docs/structured-output)
+
+## Licence
+
+Apache License 2.0: see [LICENSE](LICENSE) and [NOTICE](NOTICE). AccessLoop uses axe-core (MPL-2.0), Playwright,
+Chromium, Streamlit and other open-source components unmodified; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+`python -m accessloop.licenses` lists every dependency's licence, and CI fails on any strong copyleft licence.

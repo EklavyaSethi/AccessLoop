@@ -55,7 +55,7 @@ def _busy(error: Exception) -> bool:
     return any(code in text for code in ('503', 'UNAVAILABLE', '429', 'RESOURCE_EXHAUSTED', 'overloaded', 'high demand'))
 
 
-AI_BUDGET_SECONDS = float(os.getenv('ACCESSLOOP_AI_TIMEOUT', '25'))   # whole AI step, retries included
+AI_BUDGET_SECONDS = float(os.getenv('ACCESSLOOP_AI_TIMEOUT') or '25')   # whole AI step, retries included
 
 
 def make_client(key: str):
@@ -114,9 +114,9 @@ def list_models() -> list[str]:
 def model_name() -> str:
     p = provider()
     if p == 'gemini':
-        return os.getenv('GEMINI_MODEL', _GEMINI_DEFAULT[0])
+        return os.getenv('GEMINI_MODEL', '').strip() or _GEMINI_DEFAULT[0]
     if p == 'local':
-        return os.getenv('OLLAMA_MODEL', 'llama3.1')
+        return os.getenv('OLLAMA_MODEL', '').strip() or 'llama3.1'
     return ''
 
 

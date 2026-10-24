@@ -2,6 +2,25 @@
 
 All notable changes to AccessLoop. Versions follow semantic versioning; dates are UTC.
 
+## 0.12.0 – 2026-10-24
+- **Runs on Linux, Windows and Docker, not just macOS.** `setup_linux.sh` (with `--deps` for Chromium's system
+  libraries), `setup_windows.cmd`/`setup_windows.ps1` (no execution-policy change, UTF-8 forced for the Hindi interface)
+  and `start.sh`/`start_windows.cmd`. Every script installs the exact tested versions (`requirements.lock`,
+  `package-lock.json`), then runs the tests and the real-browser smoke test.
+- **Docker image** (`Dockerfile`, `docker-compose.yml`): two-stage build (axe-core via integrity-checked `npm ci`, no
+  Node in the final image), runs as an unprivileged user, accounts/keys/workspaces on a `/data` volume, health check,
+  port bound to localhost by default, AI optional (`--build-arg WITH_AI=0`), API key only from the shell.
+- **New CI workflow "Install on every platform"**: runs the Linux and Windows setup scripts on clean GitHub machines
+  (full tests + smoke test + an agent run from the command line on Windows), and builds the Docker image, smoke-tests
+  inside it as the unprivileged user and checks the served app answers.
+- **Licence: Apache-2.0** (`LICENSE`, `NOTICE`, `THIRD_PARTY_NOTICES.md`). New `python -m accessloop.licenses` reads
+  every pinned dependency's licence from its metadata; CI fails on GPL/AGPL/SSPL. axe-core and certifi (MPL-2.0) are
+  used unmodified.
+- Windows safety: `.gitattributes` keeps HTML, patches, captions and audit logs byte-exact on checkout; command-line
+  outputs (templates, patches, audit logs) are written without newline translation. Empty AI settings (as Docker
+  Compose passes them) now fall back to the defaults.
+- `docs/DEPLOY.md`: every way to install and deploy, configuration variables, updating.
+
 ## 0.11.0 – 2026-10-24
 - Fix (found by our own CI self-check): the "enter your name" notice used Streamlit's yellow warning box, whose text
   falls below the 4.5:1 contrast minimum. All warnings now use AccessLoop's own notice style (about 13:1).

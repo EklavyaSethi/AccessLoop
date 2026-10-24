@@ -25,7 +25,7 @@ PROVIDERS = {'off', 'gemini', 'local'}
 
 
 def provider() -> str:
-    p = os.getenv('ACCESSLOOP_AI', 'off').strip().lower()
+    p = (os.getenv('ACCESSLOOP_AI') or 'off').strip().lower()
     return p if p in PROVIDERS else 'off'
 
 
@@ -35,7 +35,7 @@ def describe() -> str:
         return ('AI review is switched off (default). Set ACCESSLOOP_AI=local to use a model on this computer, or '
                 'ACCESSLOOP_AI=gemini to use Google Gemini. Nothing is ever sent without your consent per request.')
     if p == 'local':
-        return f'AI review uses a local model at {os.getenv("OLLAMA_URL", "http://127.0.0.1:11434")}; nothing leaves this computer.'
+        return f'AI review uses a local model at {(os.getenv("OLLAMA_URL") or "http://127.0.0.1:11434")}; nothing leaves this computer.'
     return ('AI review uses Google Gemini. Redacted snippets of the proposed changes (no field values, no long numbers) '
             'are sent to Google when you confirm.')
 
@@ -94,13 +94,13 @@ def review_proposals(proposals: tuple[Proposal, ...], consent: bool = False) -> 
 
 
 def _ask_local(prompt: str) -> dict:
-    url = os.getenv('OLLAMA_URL', 'http://127.0.0.1:11434').rstrip('/')
+    url = (os.getenv('OLLAMA_URL') or 'http://127.0.0.1:11434').rstrip('/')
     if not re.match(r'^http://(127\.0\.0\.1|localhost)(:\d+)?$', url):
         raise AIUnavailable('OLLAMA_URL must point at this computer (http://127.0.0.1:<port>).')
-    body = json.dumps({'model': os.getenv('OLLAMA_MODEL', 'llama3.1'), 'prompt': prompt, 'format': 'json',
+    body = json.dumps({'model': os.getenv('OLLAMA_MODEL', '').strip() or 'llama3.1', 'prompt': prompt, 'format': 'json',
                        'stream': False, 'options': {'temperature': 0}}).encode()
     req = urllib.request.Request(url + '/api/generate', data=body, headers={'Content-Type': 'application/json'})
-    with urllib.request.urlopen(req, timeout=float(os.getenv('ACCESSLOOP_AI_TIMEOUT', '25'))) as resp:   # noqa: S310 - localhost only, checked above
+    with urllib.request.urlopen(req, timeout=float(os.getenv('ACCESSLOOP_AI_TIMEOUT') or '25')) as resp:   # noqa: S310 - localhost only, checked above
         return json.loads(json.loads(resp.read().decode())['response'])
 
 

@@ -1,0 +1,12 @@
+# Keep line endings exactly as committed for files whose bytes matter (hashes, offsets, patches), on every OS.
+*.html -text
+*.htm -text
+*.jinja -text
+*.j2 -text
+*.jsonl -text
+*.patch -text
+*.vtt -text
+# Scripts: Unix scripts need LF, Windows scripts need CRLF.
+*.sh text eol=lf
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
