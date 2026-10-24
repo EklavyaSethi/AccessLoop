@@ -31,6 +31,8 @@ real-browser smoke test. All four are tested on clean machines in CI.
 | Docker | `docker compose up --build` | (same command) |
 
 Open http://localhost:8501. Details, options, configuration and server deployment: [docs/DEPLOY.md](docs/DEPLOY.md).
+Drive it from other tools: [docs/API.md](docs/API.md). Add a fix type: [docs/ADDING_A_FIX.md](docs/ADDING_A_FIX.md).
+Speed and draft-quality numbers: [docs/MEASUREMENTS.md](docs/MEASUREMENTS.md) (`python -m accessloop.measure`).
 
 ### Manual setup (macOS / Linux)
 

@@ -1,4 +1,4 @@
-# Test matrix and release checklist (v0.10)
+# Test matrix and release checklist (v0.13)
 
 | ID | Scenario | Expected | Automation |
 |---|---|---|---|
@@ -21,17 +21,26 @@
 | T17 | AccessLoop's own UIs | No serious/critical violations in any state | `test_selfcheck`, `python -m accessloop.selfcheck` |
 | T18 | Streamlit app (real runtime) | Every page runs under AppTest; Hindi interface renders | `test_streamlit_ui` |
 | T20 | Agent mode | Applies only what its policy allows, verifies each change, never types text, stops at limit/circuit breaker, approver-only in four-eyes | `test_agent`, sample suite B15 |
+| T21 | AI drafts | Consent per run, redacted context, invalid output dropped, labelled rule-based fallback, accepted/edited logged, key never leaked | `test_ai_drafts` |
+| T22 | "Where is this on the page?" | Sentence, breadcrumb and source lines for the exact element | `test_context` |
+| T23 | Captions written in the app; Reject | Valid WebVTT file created and linked; rejected fixes never re-offered or applied by the agent | `test_captions`, `test_reject` |
+| T24 | Value of a run (ROI) | Measured vs assumed figures, assumptions validated, no saving claimed when nothing was fixed | `test_roi` |
+| T25 | Licences, setup and container files | Apache-2.0 present, no GPL/AGPL dependency, setup scripts and Docker files present, port local-only | `test_licenses`, `python -m accessloop.licenses` |
+| T26 | Clean install on Linux, Windows and Docker | Setup script runs the full tests and smoke test; Docker image smoke-tested as non-root and served | `.github/workflows/platforms.yml` |
+| T27 | Speed and draft quality on the samples | Throughput, time per fix, drafts verified when applied as-is | `python -m accessloop.measure` (see `docs/MEASUREMENTS.md`) |
 | T19 | Keyboard-only use, 200% zoom, screen reader pass | Manual | Before every demo |
 
 ## Run before showing judges
 
 ```bash
 source .venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install -r requirements.lock
 python -m pytest -q
 python -m accessloop.smoke
 python -m accessloop.selfcheck
 python -m accessloop.sample_suite
+python -m accessloop.licenses
+python -m accessloop.measure          # optional: speed and draft numbers for the deck
 streamlit run app.py
 ```
 

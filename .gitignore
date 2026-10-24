@@ -10,3 +10,4 @@ _to_delete/
 *.zip
 .selfcheck_home/
 sbom.cdx.json
+_deck/

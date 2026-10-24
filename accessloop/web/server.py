@@ -24,6 +24,7 @@ from urllib.parse import urlparse
 
 from .. import __version__
 from .. import catalog as catalog_mod
+from .. import roi as roi_mod
 from ..ai_advisor import AIUnavailable, describe as ai_describe, payload_for, provider as ai_provider, review_proposals
 from ..planner import sha256
 from ..workflow import Workflow, WorkflowError, read_source
@@ -185,6 +186,7 @@ class Session:
         self.agent_run: dict | None = None
         self.ai_drafts: dict = {}           # 'rule|selector|line' -> draft (AI or rule-based) waiting for a person
         self.rejected: dict = {}            # (rule, selector, before) -> who rejected it and when: never offered again
+        self.roi: dict = {}                 # the organisation's own figures for the value estimate (see roi.py)
 
     # ---- samples ------------------------------------------------------------------------------
     def samples(self) -> list[dict]:
@@ -614,6 +616,12 @@ class Session:
             return {'available': True, 'message': 'AI review completed. Its advice is non-binding.', 'advice': self.ai_review}
 
     # ---- views --------------------------------------------------------------------------------
+    def set_roi(self, values: dict) -> dict:
+        """Replace the assumed figures of the value estimate (minutes, cost per hour, pages per year)."""
+        with self.lock:
+            self.roi = {k: v for k, v in roi_mod.assumptions(values).items() if roi_mod.DEFAULTS.get(k) != v}
+            return roi_mod.assumptions(self.roi)
+
     def state(self) -> dict:
         with self.lock:
             live = {p.proposal_id for p in self.engine.proposals} if self.engine is not None else set()
@@ -637,6 +645,7 @@ class Session:
                          'events': list(reversed(engine.events)), 'fix_log': list(self.fix_log),
                          'audit': engine.audit_status(), 'manual_results': dict(self.manual), 'agent': self.agent_run,
                          'ai_drafts': dict(self.ai_drafts), 'ai_provider': ai_provider(),
+                         'roi': roi_mod.estimate(self.agent_run, self.roi) if self.agent_run else None,
                          'changes': [{k: c[k] for k in ('n', 'kind', 'rule', 'label', 'selector', 'status', 'reverts')}
                                      for c in engine.changes()]})
             scan = engine.current_scan
@@ -980,6 +989,8 @@ class Handler(BaseHTTPRequestHandler):
                 s.run_agent(data.get('risks') or ['low'], data.get('max_changes', 200), data.get('reviewer'),
                             data.get('language', 'en'), data.get('deny_rules') or [], ai_drafts=data.get('ai_drafts') is True,
                             ai_consent=data.get('ai_consent') is True)
+            elif path == '/api/roi':
+                s.set_roi(data.get('assumptions') or {})
             elif path == '/api/draft':
                 s.draft_answers(data.get('consent') is True, data.get('reviewer'))
             elif path == '/api/answer':

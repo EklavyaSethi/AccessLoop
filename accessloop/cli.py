@@ -300,6 +300,8 @@ def cmd_fix(args) -> int:
             out.with_suffix('.agent-report.html').write_text(agent_report.to_html(report), encoding='utf-8')
             out.with_suffix('.agent-run.json').write_text(agent_report.to_json(report), encoding='utf-8')
             print(f'Agent run report: {out.with_suffix(".agent-report.html")} (+ .agent-run.json)')
+            from . import roi as _roi
+            print('Value (estimate, default assumptions): ' + _roi.summary(report['value']))
             stats['fixes kept'] += run.applied
             stats['rolled back'] += run.rolled_back
             stats['questions for you'] += len(run.questions)

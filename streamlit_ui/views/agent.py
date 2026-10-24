@@ -34,6 +34,43 @@ def _timeline(steps: list[dict]) -> str:
     return f'<ol class="al-tl" aria-label="Agent steps">{rows}</ol>'
 
 
+def _value(s, state) -> None:
+    """Measured agent time next to the same work by hand, with every assumption visible and editable."""
+    from accessloop import roi
+    value = state.get('roi')
+    if not value:
+        return
+    e, a = value['estimate'], value['assumptions']
+    c = a['currency']
+    st.markdown('**Value of this run** ' + ui.badge('estimate', 'info'), unsafe_allow_html=True)
+    ui.metrics([('Work by hand (estimate)', f'{e["minutes_by_hand"]:g} min', ''),
+                ('Person\'s time with AccessLoop', f'{e["minutes_with_accessloop"]:g} min', 'good'),
+                ('Saved on this page', f'{e["percent_saved"]}% · {roi.money(e["cost_saved"], c)}', 'good'),
+                (f'Per year, {a["pages_per_year"]} pages like this', f'{e["hours_saved_per_year"]:,} h · {roi.money(e["cost_saved_per_year"], c)}', 'good')])
+    st.caption(roi.summary(value) + ' ' + value['basis'])
+    with st.expander('Change the assumptions (use your organisation\'s own figures)', icon=':material/tune:'):
+        cols = st.columns(5)
+        new = {}
+        for col, key, step in zip(cols, ('minutes_by_hand', 'minutes_to_check', 'minutes_to_answer', 'cost_per_hour',
+                                         'pages_per_year'), (1.0, 0.5, 0.5, 100.0, 10)):
+            label = roi.LABELS[key] + (f' ({c})' if key == 'cost_per_hour' else '')
+            if key == 'pages_per_year':
+                new[key] = col.number_input(label, min_value=1, max_value=100000, value=int(a[key]), step=int(step), key=f'roi_{key}')
+            else:
+                new[key] = col.number_input(label, min_value=0.0, max_value=100000.0, value=float(a[key]), step=step, key=f'roi_{key}')
+        b1, b2, _ = st.columns([2, 2, 4])
+        if b1.button('Recalculate', key='roi_apply'):
+            s.set_roi(new)
+            st.rerun()
+        if b2.button('Back to the defaults', key='roi_reset'):
+            s.set_roi({})
+            for key in roi.LABELS:
+                st.session_state.pop(f'roi_{key}', None)
+            st.rerun()
+        st.caption('Measured figures come from this run. The minutes and cost are assumptions: replace them with your '
+                   'own. The run report shows the same figures, labelled as measured, assumed or estimated.')
+
+
 def render() -> None:
     s = ui.session()
     state = s.state()
@@ -108,6 +145,7 @@ def render() -> None:
                 ('Fixes kept', run['applied'], 'good'), ('Rolled back', run['rolled_back'], 'bad' if run['rolled_back'] else ''),
                 ('Waiting for you', len(run['questions']) + len(run['held']), '')])
     st.caption(f'Policy: {run["policy_text"]} Took {run["seconds"]} s.' + (f' {run["stopped"]}' if run.get('stopped') else ''))
+    _value(s, state)
     d1, d2, _ = st.columns([2, 2, 3])
     for col, kind, label in ((d1, 'agent-html', 'Download agent run report'), (d2, 'agent-json', 'Download run record (JSON)')):
         try:

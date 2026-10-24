@@ -2,6 +2,24 @@
 
 All notable changes to AccessLoop. Versions follow semantic versioning; dates are UTC.
 
+## 0.13.1 – 2026-10-24
+- `python -m accessloop.measure`: speed and draft quality on the sample pages (load, scan, agent, drafts applied exactly
+  as drafted). Results in `docs/MEASUREMENTS.md`: 12 pages, 155 → 100 violations, 35 fixes kept and 0 rolled back,
+  about 47 pages per minute, 0.3 s of agent time per verified fix; the deliberately unsafe sample is refused by design.
+  `--ai` measures AI drafts (needs the AI key).
+- New docs: `docs/API.md` (every HTTP endpoint, with an example), `docs/ADDING_A_FIX.md` (how to add a fix template).
+  Updated: demo script, test matrix (T21–T27), architecture, how-it-works (85 templates, agent mode, AI drafts, SEBI
+  deadline extended to 31 Oct 2026).
+
+## 0.13.0 – 2026-10-24
+- **Value of this run.** After every agent run, the agent page and the run report show the measured agent time and fixes
+  next to an estimate of the same work done by hand: person-minutes and cost on this page, and per year for a chosen
+  number of pages. Every figure is labelled **measured**, **assumption** or **estimate**; the assumptions (minutes to
+  fix one issue by hand, to check one agent fix, to type one answer; developer cost per hour; pages per year) are modest
+  defaults that anyone can replace with their organisation's own figures in the app ("Change the assumptions") or via
+  `POST /api/roi`. Nothing fixed means no saving is claimed. The command line prints the same one-line summary.
+  Rupee amounts use Indian digit grouping (₹4,41,740).
+
 ## 0.12.0 – 2026-10-24
 - **Runs on Linux, Windows and Docker, not just macOS.** `setup_linux.sh` (with `--deps` for Chromium's system
   libraries), `setup_windows.cmd`/`setup_windows.ps1` (no execution-policy change, UTF-8 forced for the Hindi interface)

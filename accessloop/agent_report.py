@@ -11,6 +11,7 @@ import hashlib
 import json
 from html import escape as e
 
+from . import roi
 from .web.report import CSS, _table
 
 RUN_EVENTS = ('agent_started', 'verified', 'rolled_back', 'refused', 'agent_finished', 'ai_drafted', 'ai_draft_decision',
@@ -45,6 +46,7 @@ def build(state: dict) -> dict:
                   'run_entries': [{k: ev.get(k) for k in ('timestamp_utc', 'event', 'detail', 'reviewer', 'working_sha256',
                                                          'hash', 'prev_hash', 'signer') if ev.get(k) is not None}
                                   | ({'signed': True} if ev.get('sig') else {}) for ev in run_events]},
+        'value': state.get('roi') or roi.estimate(run),
         'limits': 'Automated checks cover part of WCAG. A clean scan is not a conformance claim; see the manual checklist.',
     }
     return doc
@@ -98,9 +100,13 @@ def to_html(doc: dict) -> str:
                e(r.get('reviewer') or ''), f'<code class="hash">{e((r.get("hash") or "")[:16])}…</code>'
                + (' <span class="tag ok">signed</span>' if r.get('signed') else '')] for r in audit.get('run_entries', [])]
     chain = 'verified' if audit.get('verified') else 'FAILED'
+    kinds = {'measured': ('ok', 'measured'), 'assumed': ('warn', 'assumption'), 'estimate': ('info', 'estimate')}
+    value_rows = [[e(what), f'<strong>{e(fig)}</strong>', f'<span class="tag {kinds[k][0]}">{kinds[k][1]}</span>']
+                  for what, fig, k in roi.table_rows(doc['value'])]
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AccessLoop agent run report</title><style>{CSS}
+.tag.warn{{color:#6b4100;background:#fff4dc}}.tag.info{{color:#1747b8;background:#eaf0fd}}
 pre.console{{background:#0d1117;color:#d6deeb;padding:14px 16px;border-radius:10px;font-size:.78rem;line-height:1.5}}</style></head>
 <body><main>
 <header class="rep"><h1>Agent run report</h1>
@@ -109,6 +115,10 @@ pre.console{{background:#0d1117;color:#d6deeb;padding:14px 16px;border-radius:10
 <div class="note">The agent applied only what the policy below allowed, re-scanned the page after every change, kept a change
 only if its problem was gone and nothing else got worse, and undid it otherwise. It typed no text: fixes that need words were
 handed to a person.</div>
+<h2>Value of this run (estimate)</h2>
+<p><strong>{e(roi.summary(doc['value']))}</strong></p>
+{_table(['Item', 'Figure', 'Kind'], value_rows, '')}
+<p class="muted">{e(doc['value']['basis'])}</p>
 <h2>Policy (approved by {e(doc['approved_by'] or 'not recorded')})</h2>
 <p>{e(pol.get('text') or '')}</p>
 <h2>Page fingerprints (SHA-256)</h2>

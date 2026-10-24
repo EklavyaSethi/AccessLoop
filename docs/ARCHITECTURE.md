@@ -1,4 +1,4 @@
-# Architecture and trust boundaries (v0.10)
+# Architecture and trust boundaries (v0.13)
 
 ## Pipeline
 
@@ -16,7 +16,10 @@ HTML page (2 MB max) · or a .zip of a site · or a server-side template + JSON 
    Findings (violations) + "needs review" items, each tied to the exact source element (data-al-uid)
             |
    85 deterministic fix templates  -> proposal: exact diff, risk, fields a person must type
-            |                         (optional AI advice: off by default, consent + redaction, never writes)
+            |                         (optional AI: drafts the words a person must approve -- alt text, names,
+            |                          titles -- off by default, consent per run, redacted, output validated, never writes)
+   AGENT MODE (optional): the same steps run in a loop inside a policy a named person approved
+            |                         (risk levels, rules off limits, change limit, stop after 6 rollbacks in a row)
    PREVIEW (dry run: what a screen reader will hear before/after, nothing written)
             |
    EXPLICIT APPROVAL  (single, batch of identical fixes, or four-eyes: maker != checker)
@@ -42,7 +45,11 @@ HTML page (2 MB max) · or a .zip of a site · or a server-side template + JSON 
 | `scanner.py` | Persistent browser per thread, new isolated context per scan, axe injection, AccessLoop browser checks, screenshots |
 | `htmlsource.py` | Tolerant HTML tokenizer with exact source offsets; edits never re-serialise the page |
 | `fixers.py`, `fixers_extra.py` | 85 fix templates (auto, needs typed text, or mixed) |
-| `agent.py` | Agent mode: perceive → plan → policy gate → act → verify → commit/rollback → re-plan → hand over |
+| `agent.py`, `agent_report.py` | Agent mode: perceive → plan → policy gate → act → verify → commit/rollback → re-plan → hand over; one run report per run |
+| `ai_drafts.py`, `ai_advisor.py` | AI drafts of the words a person must supply (Gemini or a local Ollama model), redaction, validation, fallback; optional AI review |
+| `context.py` | "Where is this on the page?": sentence, breadcrumb, source lines, element picture |
+| `roi.py` | Value of a run: measured agent work next to an editable estimate of the same work by hand |
+| `licenses.py`, `measure.py` | Dependency licence check (CI fails on GPL/AGPL/SSPL); speed and draft-quality measurements |
 | `verification.py` | Count gate + element-level gate + screen-reader announcement |
 | `workflow.py` | State machine: load, scan, preview, approve, batch, revert, changes |
 | `ledger.py`, `accounts.py` | Append-only hash chain; local accounts (scrypt passwords, encrypted Ed25519 keys), roles reviewer/approver/admin |
@@ -70,6 +77,8 @@ language model writes files or decides verification; optional AI advice is advis
 
 - Page scripts never run in the scanner or preview. All network access from the page is blocked and listed.
 - Per-user workspaces, deleted after 24 h (`ACCESSLOOP_WORKSPACE_TTL_HOURS`). Original files are never modified.
+- Runs on macOS, Linux, Windows and Docker (non-root, data on a volume, port bound to localhost); see `docs/DEPLOY.md`.
+- Apache-2.0; third-party licences in `THIRD_PARTY_NOTICES.md`, checked in CI.
 - Local accounts are SSO-ready (identity is a pluggable object) but SSO itself is not implemented or tested.
 - Supported inputs: static HTML, rendered pages of server-side templates, and template sources (Jinja rendered by
   AccessLoop; other engines with a rendered sample). React/Angular/Vue component sources are on the roadmap.

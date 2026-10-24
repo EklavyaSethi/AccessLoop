@@ -1,4 +1,4 @@
-# 3-minute live demo (v0.10)
+# 3-minute live demo (v0.13)
 
 Before you start: `streamlit run app.py`, sign in, interface language English, browser zoom 100%.
 
@@ -19,7 +19,10 @@ Open **★ Agent mode**. Point at the policy: low-risk fixes only, never types t
 falls) → repeat. It ends by handing back questions: "these need words only a person knows", and the AI drafts them
 (console lines marked `ai`; each answer box shows the model, confidence and reason). Accept one draft, edit another,
 **Apply my answers**: verified, and the audit log records which draft was accepted and which was edited. Then
-**Download agent run report**: one file with the policy, every step, every change and the audit hashes.
+**Download agent run report**: one file with the policy, every step, every change and the audit hashes. Point at
+**Value of this run**: measured agent time next to the same work by hand ("3 verified fixes in 0.7 s; about 1.2 h by
+hand becomes 8 min of a person's time"). Say plainly that the minutes and rupee rate are adjustable assumptions; if a
+judge offers their own figures, type them into "Change the assumptions" and press Recalculate.
 
 ## 1:25–1:50 — Human control and safety
 
@@ -34,8 +37,9 @@ four-eyes mode only an approver can start the agent.
 
 ## 2:20–2:45 — Scale
 
-**Site scan**: upload a .zip; identical problems grouped by shared template. Mention template mapping (Jinja etc.) and
-the CLI/CI with SARIF.
+**Site scan**: upload a .zip; identical problems grouped by shared template. Mention template mapping (Jinja etc.),
+the CLI/CI with SARIF, the HTTP API, and that it installs with one command on Mac, Linux, Windows or Docker (all tested
+on clean machines in CI). Apache-2.0.
 
 ## 2:45–3:00 — Proof and limits
 
@@ -54,5 +58,12 @@ It does not certify WCAG conformance; the manual checklist covers what tools can
   optional, advisory, consented and redacted.
 - **How many issue types?** 85 axe rules fixed live, 4 guided, all 55 WCAG 2.2 A/AA criteria in the manual checklist.
 - **Frameworks?** Static HTML, rendered pages, and server-side templates today; React/Angular/Vue sources on the roadmap.
+- **Why now?** SEBI's 31 July 2025 circular requires regulated entities to audit and fix their digital platforms against
+  IS 17802 / WCAG; the audit-and-remediation deadline was extended to 31 October 2026, a week after this event.
+- **ROI numbers real?** Fixes, hand-overs and agent time are measured; minutes per manual fix and cost per hour are
+  labelled, editable assumptions. On our 12 sample pages: 35 fixes kept, 0 rolled back, ~47 pages per minute
+  (`docs/MEASUREMENTS.md`).
+- **Same tool finds and checks?** Partly, and we say so: on top of axe we require the element itself to pass and show
+  the screen-reader announcement; what tools cannot judge is the manual checklist and the approver's job.
 - **Enterprise?** Local accounts with signed decisions, four-eyes, per-user workspaces, SBOM and dependency audit in CI.
   SSO is designed for, not yet built.
