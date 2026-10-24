@@ -3,6 +3,8 @@
 All notable changes to AccessLoop. Versions follow semantic versioning; dates are UTC.
 
 ## 0.11.0 – 2026-10-24
+- Fix (found by our own CI self-check): the "enter your name" notice used Streamlit's yellow warning box, whose text
+  falls below the 4.5:1 contrast minimum. All warnings now use AccessLoop's own notice style (about 13:1).
 - **Captions written in AccessLoop.** For a video without captions the reviewer can now type the captions in the app
   (one line per caption with its time, or paste a whole WebVTT/SRT file); AccessLoop validates them, creates a real
   WebVTT file next to the page (named after the video, e.g. `how-to-upi.en.vtt`), links it with `<track>`, and verifies

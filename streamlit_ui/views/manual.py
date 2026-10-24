@@ -38,5 +38,5 @@ def render() -> None:
                     ui.flash('success', 'The fix is back on the Review page.')
                     st.rerun()
     if state['metrics']['incomplete']:
-        st.warning(f'{state["metrics"]["incomplete"]} axe check(s) were inconclusive and need a manual check.')
+        ui.notice(f'{state["metrics"]["incomplete"]} axe check(s) were inconclusive and need a manual check.')
     ui.footer()

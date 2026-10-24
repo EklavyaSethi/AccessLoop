@@ -49,12 +49,18 @@ def has_name(state: dict | None = None) -> bool:
     return len(name) >= 2 and any(ch.isalpha() for ch in name)
 
 
+def notice(text: str, kind: str = 'warn') -> None:
+    """A notice with guaranteed text contrast (Streamlit's own yellow warning box falls below 4.5:1)."""
+    st.markdown(f'<div class="al-notice {esc(kind)}" role="note"><b>{"Note" if kind == "warn" else "Info"}:</b> {esc(text)}</div>',
+                unsafe_allow_html=True)
+
+
 def require_name(state: dict | None = None, action: str = 'make decisions') -> bool:
     """Show why actions are locked when nobody is on record. Returns True when a name is on record."""
     if has_name(state):
         return True
-    st.warning(f'Enter your name in the sidebar to {action}. Every decision and every agent run is recorded against '
-               'the person who made it.', icon=':material/badge:')
+    notice(f'Enter your name in the sidebar to {action}. Every decision and every agent run is recorded against '
+           'the person who made it.')
     return False
 
 
@@ -79,7 +85,7 @@ def flash(kind: str, message: str) -> None:
 def show_flash() -> None:
     item = st.session_state.pop('al_flash', None)
     if item:
-        {'success': st.success, 'error': st.error, 'info': st.info, 'warning': st.warning}[item[0]](item[1])
+        {'success': st.success, 'error': st.error, 'info': st.info, 'warning': notice}[item[0]](item[1])
 
 
 def badge(text: str, kind: str = 'neutral') -> str:

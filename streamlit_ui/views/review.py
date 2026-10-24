@@ -77,7 +77,7 @@ def render() -> None:
                 result = s.ai(consent)
             except Exception as error:  # noqa: BLE001
                 result = {'available': False, 'message': str(error)}
-            (st.success if result['available'] else st.warning)(result['message'])
+            (st.success if result['available'] else ui.notice)(result['message'])
             if result['available']:
                 st.rerun()
 
@@ -141,7 +141,7 @@ def render() -> None:
             if st.button(ui.t('Preview what a screen reader will hear'), key='preview_' + p['id']):
                 try:
                     pv = s.preview(p['id'], ui.language(), values)
-                    (st.success if pv['would_pass'] else st.warning)(
+                    (st.success if pv['would_pass'] else ui.notice)(
                         f'Before: {pv["announce_before"] or "–"}  →  After: {pv["announce_after"] or "–"}. '
                         + ('This change would pass verification.' if pv['would_pass'] else f'This change would be rolled back: {pv["detail"]}'))
                 except Exception as error:  # noqa: BLE001
