@@ -1216,7 +1216,7 @@
         "selector": "video",
         "status": "verified",
         "before": "<video src=\"how-to-upi.mp4\" controls width=\"320\">",
-        "after": "<track kind=\"captions\" src=\"\u2026\">",
+        "after": "<track kind=\"captions\" src=\"how-to-upi.en.vtt\" srclang=\"en\" label=\"Captions\" default>",
         "detail": "Target rule improved (1 \u2192 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem."
       }
     ],

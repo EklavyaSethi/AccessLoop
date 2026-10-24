@@ -8,6 +8,7 @@ def render() -> None:
     state = s.state()
     ui.page_header('Manual review queue', 'Issues AccessLoop will not edit automatically: either unsupported yet, or too ambiguous to fix without guessing.', None, None)
     ui.need_scanned(state)
+    ui.show_flash()
     items = state['unresolved']
     ui.metrics([('Items in the queue', len(items), 'bad' if items else 'good'), ('Inconclusive axe checks', state['metrics']['incomplete'], '')])
     if not items:
@@ -32,6 +33,10 @@ def render() -> None:
                 st.write(i['note'])
             if i['help_url']:
                 st.markdown(f'[Open axe guidance for {i["rule"]}]({i["help_url"]})')
+            if i.get('rejected') and st.button('Offer the fix again', key=f'unreject_{i["rule"]}_{i["selector"]}'):
+                if ui.run(s.unreject, i['rule'], i['selector'], ui.reviewer()):
+                    ui.flash('success', 'The fix is back on the Review page.')
+                    st.rerun()
     if state['metrics']['incomplete']:
         st.warning(f'{state["metrics"]["incomplete"]} axe check(s) were inconclusive and need a manual check.')
     ui.footer()

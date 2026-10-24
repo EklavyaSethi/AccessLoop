@@ -13,25 +13,25 @@
   "audit_events": [
     {
       "seq": 1,
-      "timestamp_utc": "2026-10-23T04:35:09+00:00",
+      "timestamp_utc": "2026-10-24T05:18:02+00:00",
       "event": "loaded",
       "detail": "Original saved as a separate copy; it is never modified.",
       "working_sha256": "a5739dfcebd618ba2626a96c6d6d37960ed0018144ffced1c10394c8a59ddbaf",
       "versions": {
-        "accessloop": "0.9.0"
+        "accessloop": "0.11.0"
       },
       "original_sha256": "a5739dfcebd618ba2626a96c6d6d37960ed0018144ffced1c10394c8a59ddbaf",
       "prev": "0000000000000000000000000000000000000000000000000000000000000000",
-      "hash": "cfeb1d913f27fe2e33eff74a0c400ea856b4d637c96dcb20d4e859c9cb05a289"
+      "hash": "8e29ef14958d277ebc869b45961ec10865d323d2e8a00ad8ff3b1fac5b408d0e"
     },
     {
       "seq": 2,
-      "timestamp_utc": "2026-10-23T04:35:10+00:00",
+      "timestamp_utc": "2026-10-24T05:18:02+00:00",
       "event": "scanned",
       "detail": "8 violation nodes, 0 needs-review nodes; 8 fix proposals.",
       "working_sha256": "a5739dfcebd618ba2626a96c6d6d37960ed0018144ffced1c10394c8a59ddbaf",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -43,19 +43,19 @@
       },
       "proposals": 8,
       "input_proposals": 5,
-      "scan_ms": 324,
+      "scan_ms": 276,
       "plan_ms": 1,
-      "prev": "cfeb1d913f27fe2e33eff74a0c400ea856b4d637c96dcb20d4e859c9cb05a289",
-      "hash": "33ce54441eb56d18bcc700f7a7d0c78f64e88aa7f45b61cfec6a9a353190b029"
+      "prev": "8e29ef14958d277ebc869b45961ec10865d323d2e8a00ad8ff3b1fac5b408d0e",
+      "hash": "43e5de88484623432f3c4b8573f06669952df118a91ba144b5a3e515f0c9228c"
     },
     {
       "seq": 3,
-      "timestamp_utc": "2026-10-23T04:35:10+00:00",
+      "timestamp_utc": "2026-10-24T05:18:03+00:00",
       "event": "rolled_back",
       "detail": "a5739dfceb-7-link-name: Automated regression: label-content-name-mismatch increased (0 → 1).",
       "working_sha256": "a5739dfcebd618ba2626a96c6d6d37960ed0018144ffced1c10394c8a59ddbaf",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -63,7 +63,7 @@
       "rule": "link-name",
       "announce_before": "(no name), link",
       "announce_after": "“Download”, link",
-      "verify_ms": 323,
+      "verify_ms": 278,
       "guardrail": "verification gate",
       "selector": "#stmt-link",
       "before": "<a href=\"/statements\" id=\"stmt-link\">",
@@ -71,17 +71,17 @@
       "reviewer_text": {
         "text": "Download"
       },
-      "prev": "33ce54441eb56d18bcc700f7a7d0c78f64e88aa7f45b61cfec6a9a353190b029",
-      "hash": "1665c0380077b4b16c486bf8268ff79b2fd32f5252d30d0a813c9da317dc365f"
+      "prev": "43e5de88484623432f3c4b8573f06669952df118a91ba144b5a3e515f0c9228c",
+      "hash": "7f9cdff5e0095030a7ece0dd1744d15fb6c4f9d4356c92307511021b2b0e4266"
     },
     {
       "seq": 4,
-      "timestamp_utc": "2026-10-23T04:35:10+00:00",
+      "timestamp_utc": "2026-10-24T05:18:03+00:00",
       "event": "verified",
       "detail": "a5739dfceb-7-link-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "79e4eba0a29254fd25925fdd7296b3df942bc01f9c4c181f9e275f520bd9bca0",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -89,7 +89,7 @@
       "rule": "link-name",
       "announce_before": "(no name), link",
       "announce_after": "“Statements”, link",
-      "verify_ms": 294,
+      "verify_ms": 354,
       "mode": "input",
       "selector": "#stmt-link",
       "before": "<a href=\"/statements\" id=\"stmt-link\">",
@@ -98,17 +98,17 @@
         "text": "Statements"
       },
       "backup": "0003_a5739dfcebd6.html",
-      "prev": "1665c0380077b4b16c486bf8268ff79b2fd32f5252d30d0a813c9da317dc365f",
-      "hash": "19c4398e927133e7b50cb4d83a49449fd827a38b96f5caaca0bd4031f497b65f"
+      "prev": "7f9cdff5e0095030a7ece0dd1744d15fb6c4f9d4356c92307511021b2b0e4266",
+      "hash": "213657147fd204693b4c68e3fdab834d14a270fb7c55981c3e74085de4d33fdd"
     },
     {
       "seq": 5,
-      "timestamp_utc": "2026-10-23T04:35:10+00:00",
+      "timestamp_utc": "2026-10-24T05:18:03+00:00",
       "event": "verified",
       "detail": "79e4eba0a2-0-button-name: Target rule improved (3 → 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "ed9c853528dce1949754731726b28e2cd456f55be4bea98e1f389d737b8ad1c5",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -116,7 +116,7 @@
       "rule": "button-name",
       "announce_before": "(no name), button",
       "announce_after": "“Reviewer typed description”, button",
-      "verify_ms": 302,
+      "verify_ms": 287,
       "mode": "input",
       "selector": "#mystery",
       "before": "<button id=\"mystery\" type=\"button\">",
@@ -125,17 +125,17 @@
         "text": "Reviewer typed description"
       },
       "backup": "0004_79e4eba0a292.html",
-      "prev": "19c4398e927133e7b50cb4d83a49449fd827a38b96f5caaca0bd4031f497b65f",
-      "hash": "3796d2a1e68d320ba5a9d29707811ce3508b7d04e2e5f9a8f573bc0ad76ee79f"
+      "prev": "213657147fd204693b4c68e3fdab834d14a270fb7c55981c3e74085de4d33fdd",
+      "hash": "eb980979d1efc2a44e216a95d3136dd50cf764c0ecff54840a47f38709e76ee8"
     },
     {
       "seq": 6,
-      "timestamp_utc": "2026-10-23T04:35:11+00:00",
+      "timestamp_utc": "2026-10-24T05:18:04+00:00",
       "event": "verified",
       "detail": "ed9c853528-0-button-name: Target rule improved (2 → 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "dab22f5c3ceb53d6081c72d5af45e20b55a2beb9832532e25b1a77d00df6dd81",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -143,23 +143,23 @@
       "rule": "button-name",
       "announce_before": "(no name), button",
       "announce_after": "“Pay now”, button",
-      "verify_ms": 318,
+      "verify_ms": 339,
       "mode": "auto",
       "selector": "button",
       "before": "<span aria-hidden=\"true\">Pay now</span>",
       "after": "<span>Pay now</span>",
       "backup": "0005_ed9c853528dc.html",
-      "prev": "3796d2a1e68d320ba5a9d29707811ce3508b7d04e2e5f9a8f573bc0ad76ee79f",
-      "hash": "0f205b3365a303e053bda273630052a38a0594a2015ed7c68df6c8e21d3533c1"
+      "prev": "eb980979d1efc2a44e216a95d3136dd50cf764c0ecff54840a47f38709e76ee8",
+      "hash": "6bab336ee34c3346296b7f6b60d1bef3e6ab7d9987b3059b7c97e2be8b03622b"
     },
     {
       "seq": 7,
-      "timestamp_utc": "2026-10-23T04:35:11+00:00",
+      "timestamp_utc": "2026-10-24T05:18:04+00:00",
       "event": "verified",
       "detail": "dab22f5c3c-0-button-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "d1387126fc49349d4326380cfdfcd3d39e18e81d443a051fe3c53cec69885d78",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -167,23 +167,23 @@
       "rule": "button-name",
       "announce_before": "(no name), button",
       "announce_after": "“Confirmtransfer”, button",
-      "verify_ms": 297,
+      "verify_ms": 291,
       "mode": "auto",
       "selector": "#two-spans",
       "before": "<span aria-hidden=\"true\">Confirm</span><span aria-hidden=\"true\">transfer</span>",
       "after": "<span>Confirm</span><span>transfer</span>",
       "backup": "0006_dab22f5c3ceb.html",
-      "prev": "0f205b3365a303e053bda273630052a38a0594a2015ed7c68df6c8e21d3533c1",
-      "hash": "5df2f1ce958074beb9bb47c3ec30bb903e33bc1d57f57a2dc1ebfdd249913e95"
+      "prev": "6bab336ee34c3346296b7f6b60d1bef3e6ab7d9987b3059b7c97e2be8b03622b",
+      "hash": "3f26d759485af9540f13af476329bdb0f84d6021901c027c50f52489e1029639"
     },
     {
       "seq": 8,
-      "timestamp_utc": "2026-10-23T04:35:11+00:00",
+      "timestamp_utc": "2026-10-24T05:18:04+00:00",
       "event": "verified",
       "detail": "d1387126fc-0-label: Target rule improved (4 → 3); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "97a2b4a6246020084979056914e3b375de199f0c0334354ba758305ff720086b",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -191,7 +191,7 @@
       "rule": "label",
       "announce_before": "(no name), edit text",
       "announce_after": "“Reviewer typed description”, edit text",
-      "verify_ms": 298,
+      "verify_ms": 312,
       "mode": "input",
       "selector": "#acct",
       "before": "<input id=\"acct\" name=\"account\" type=\"text\">",
@@ -200,17 +200,17 @@
         "text": "Reviewer typed description"
       },
       "backup": "0007_d1387126fc49.html",
-      "prev": "5df2f1ce958074beb9bb47c3ec30bb903e33bc1d57f57a2dc1ebfdd249913e95",
-      "hash": "7a4e1e9326124ce8f0e845fa753cdf4adb2d0f7377a1fbf8a0cc9dc4d52e7361"
+      "prev": "3f26d759485af9540f13af476329bdb0f84d6021901c027c50f52489e1029639",
+      "hash": "6a94f9eccfd62bd49d61fea1ccfb301506d32b7c7301c65585120c575f4c6e63"
     },
     {
       "seq": 9,
-      "timestamp_utc": "2026-10-23T04:35:12+00:00",
+      "timestamp_utc": "2026-10-24T05:18:05+00:00",
       "event": "verified",
       "detail": "97a2b4a624-0-label: Target rule improved (3 → 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "2033796dc1734b475e2265eb2a0e2c7ba4d563bf93c7fd2f6ee3ff304bd1933c",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -218,23 +218,23 @@
       "rule": "label",
       "announce_before": "(no name), edit text",
       "announce_after": "“IFSC code”, edit text",
-      "verify_ms": 281,
+      "verify_ms": 301,
       "mode": "auto",
       "selector": "input",
       "before": "<label>IFSC code</label>\n    <input name=\"ifsc\" type=\"text\">",
       "after": "<label for=\"al-ifsc-code\">IFSC code</label>\n    <input name=\"ifsc\" type=\"text\" id=\"al-ifsc-code\">",
       "backup": "0008_97a2b4a62460.html",
-      "prev": "7a4e1e9326124ce8f0e845fa753cdf4adb2d0f7377a1fbf8a0cc9dc4d52e7361",
-      "hash": "12b5001a3bf1912e8407f3d0c63527f5d8631b7a01e3b505d7bf8dc5ba62f507"
+      "prev": "6a94f9eccfd62bd49d61fea1ccfb301506d32b7c7301c65585120c575f4c6e63",
+      "hash": "009b9e4bb509ecfdd9aefe408ac786ae136881d385279b6ac8d6203bc7cd3952"
     },
     {
       "seq": 10,
-      "timestamp_utc": "2026-10-23T04:35:12+00:00",
+      "timestamp_utc": "2026-10-24T05:18:05+00:00",
       "event": "verified",
       "detail": "2033796dc1-0-label: Target rule improved (2 → 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "013ad47fb9d52f14bbed2023c5213cd29f900557c7219c20be15ab98aa3dbd01",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -242,7 +242,7 @@
       "rule": "label",
       "announce_before": "(no name), spin button",
       "announce_after": "“Reviewer typed description”, spin button",
-      "verify_ms": 320,
+      "verify_ms": 322,
       "mode": "input",
       "selector": "input",
       "before": "<input id=\"dup\" name=\"amount\" type=\"number\">",
@@ -251,17 +251,17 @@
         "text": "Reviewer typed description"
       },
       "backup": "0009_2033796dc173.html",
-      "prev": "12b5001a3bf1912e8407f3d0c63527f5d8631b7a01e3b505d7bf8dc5ba62f507",
-      "hash": "1730a5a1ab46b4be69287a4e84c3b910b82a907bf86d364c54d21e08db334486"
+      "prev": "009b9e4bb509ecfdd9aefe408ac786ae136881d385279b6ac8d6203bc7cd3952",
+      "hash": "2cb02b8b324c7ecf4a649450111743f8d3c1a84d883bdce0f3e12597171f5b79"
     },
     {
       "seq": 11,
-      "timestamp_utc": "2026-10-23T04:35:12+00:00",
+      "timestamp_utc": "2026-10-24T05:18:05+00:00",
       "event": "verified",
       "detail": "013ad47fb9-0-label: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "877e35e92f23f5e23115a37beafb79084428e75c9b7b344f4c7416b33c525313",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -269,7 +269,7 @@
       "rule": "label",
       "announce_before": "(no name), spin button",
       "announce_after": "“Reviewer typed description”, spin button",
-      "verify_ms": 325,
+      "verify_ms": 319,
       "mode": "input",
       "selector": "input",
       "before": "<input id=\"dup\" name=\"confirm_amount\" type=\"number\">",
@@ -278,15 +278,15 @@
         "text": "Reviewer typed description"
       },
       "backup": "0010_013ad47fb9d5.html",
-      "prev": "1730a5a1ab46b4be69287a4e84c3b910b82a907bf86d364c54d21e08db334486",
-      "hash": "20c81c66261f66631b0e34c34e0dffca0b6e2b9f2a2aed339cc8927aafea9547"
+      "prev": "2cb02b8b324c7ecf4a649450111743f8d3c1a84d883bdce0f3e12597171f5b79",
+      "hash": "e0201250908d9b98f920d3ff29c82c0b84b921d4443166b4ade1da2bdecdc664"
     }
   ],
   "audit_log": {
     "file": "audit.jsonl",
     "entries": 11,
     "verified": true,
-    "message": "All 11 entries verified; head 20c81c66261f6663…",
-    "head_sha256": "20c81c66261f66631b0e34c34e0dffca0b6e2b9f2a2aed339cc8927aafea9547"
+    "message": "All 11 entries verified; head e0201250908d9b98…",
+    "head_sha256": "e0201250908d9b98f920d3ff29c82c0b84b921d4443166b4ade1da2bdecdc664"
   }
 }

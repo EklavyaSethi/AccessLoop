@@ -50,7 +50,7 @@ streamlit run app.py
 ```bash
 python -m pip install -r requirements-ai.txt
 export GEMINI_API_KEY='your_key_here'
-# optional: export GEMINI_MODEL='gemini-2.5-flash'
+# optional: export GEMINI_MODEL='gemini-3.8-flash'
 streamlit run app.py
 ```
 
@@ -71,6 +71,8 @@ Every applied fix is re-verified: the target rule must improve (violations plus 
 - **Batch approval:** similar automatic fixes (for example 37 low-contrast labels) can be approved together. One write, one re-scan; the batch is kept only if every one of its fixes worked, otherwise it is rolled back and the fixes can be approved one by one.
 - **Pages with scripts:** tick *Allow pages that contain scripts* (or `--allow-scripts`). Scripts, event handlers and active URLs are removed from the copy the browser scans and blocked by a Content-Security-Policy, so they never run; content that JavaScript would build is therefore not checked. The page's own style sheets, images and fonts are loaded from its folder (never from the internet).
 - **Agent trace** (Streamlit sidebar → Evidence): the perceive → plan → human gate → act → verify → commit/rollback loop with counts, timings, every guardrail that acted, and the hash of every audit entry.
+- **Where the AI is:** the agent's actions are deterministic and verified, because a plausible but wrong accessibility fix harms real users. A language model does the part only language can do: it **drafts the words** the agent needs from a person (alt text, names, titles) from redacted page context. A named person accepts or edits each draft, and the engine verifies the result. Switch on with `export ACCESSLOOP_AI=gemini GEMINI_API_KEY=…` (free key from Google AI Studio, `pip install -r requirements-ai.txt`) or `ACCESSLOOP_AI=local` for an Ollama model; check with `python -m accessloop.ai_drafts`. Without AI the agent offers rule-based suggestions, labelled "no AI".
+- **Agent run report:** one HTML/JSON file per run with the policy, every step, every exact change, hand-overs and audit hashes.
 - **A name on every decision (mandatory):** nothing can be approved, rejected, undone or run by the agent until the user is signed in or has entered their name; it is recorded with every audit entry and in the evidence report.
 - **Agent mode** (sidebar → ★ Agent mode, or `python -m accessloop fix page.html --out fixed.html --agent --reviewer NAME`): the agent repairs the page within a policy you set (risk levels, rules off limits, change limit, circuit breaker), verifies every change, never guesses text, and hands back questions and held fixes. The run and its policy go into the audit log.
 - **Preview before approval:** see the exact diff and what a screen reader will announce before and after, with nothing written.

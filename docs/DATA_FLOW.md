@@ -11,3 +11,13 @@
 AI advice is never executed: it can only label a proposal "recommend" or "escalate". It cannot change the file, the patch, or the verification result.
 
 For banks: keep `ACCESSLOOP_AI` unset (off) or use `local`. Workspace folders (`.accessloop_workspaces/`) can be deleted at any time; they are also cleaned up automatically after the retention period (see `ACCESSLOOP_WORKSPACE_TTL_HOURS`).
+
+
+## AI-drafted answers (agent mode)
+
+Sent only when AI is switched on (ACCESSLOOP_AI=gemini or local) **and** the person ticks the consent box for that run.
+For each fix that needs words, the model receives: the rule and what is missing, the element's markup and a few
+attributes (file names only, no query strings), up to 300 characters of nearby text and the page heading, all passed
+through the same redaction as AI review (field values, data-* attributes, long numbers and e-mail addresses removed).
+Nothing else about the page is sent. The audit log records the provider, model and the SHA-256 of what was sent.
+The answer is treated as untrusted data and validated; nothing is applied until a named person accepts or edits it.

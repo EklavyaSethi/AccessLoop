@@ -188,3 +188,52 @@ def test_agent_page_runs_the_agent_and_shows_questions():
     text = ' '.join(str(a[0]) for kind, a, _ in st.rendered if kind in ('markdown', 'subheader') and a)
     assert 'What happened' in text and 'needs your words' in text and 'al-tl' in text
     assert 'role="log"' in text and 'audit entry' in text     # the agent console shows the real run
+
+
+def test_ai_panel_shows_status_and_never_leaks_the_key():
+    import os
+    st = fake.install()
+    st.session_state.clear()
+    from streamlit_ui import ui
+    old = {k: os.environ.get(k) for k in ('ACCESSLOOP_AI', 'GEMINI_API_KEY')}
+    try:
+        os.environ['ACCESSLOOP_AI'] = 'off'
+        assert 'AI off' in ui.ai_status_html()
+        ui.ai_panel()
+        os.environ['ACCESSLOOP_AI'] = 'gemini'
+        os.environ['GEMINI_API_KEY'] = 'SECRET-test-key-123'
+        assert 'not tested yet' in ui.ai_status_html()
+        st.session_state['al_ai_probe'] = {'ok': True, 'provider': 'gemini', 'checked_at': '10:20:00', 'seconds': 3.1,
+                                           'sample': 'Rates chart'}
+        html = ui.ai_status_html()
+        assert 'connected' in html and 'Google Gemini' in html
+        st.rendered.clear()
+        ui.ai_panel()
+        shown = ' '.join(str(a) + str(k) for _, a, k in st.rendered)
+        assert 'SECRET-test-key-123' not in shown and 'SECRET' not in html
+    finally:
+        for k, v in old.items():
+            if v is None:
+                os.environ.pop(k, None)
+            else:
+                os.environ[k] = v
+
+
+@needs_axe
+def test_review_page_shows_where_each_fix_is():
+    st = fake.install()
+    st.session_state.clear()
+    from streamlit_ui import ui
+    s = ui.session()
+    s.load(None, '', 'examples/samples/02_sip_signup.html')
+    s.scan('en')
+    pid = s.state()['proposals'][0]['id']
+    st = fake.install(clicks={f'pic_{pid}'})
+    st.session_state['al_session'] = s
+    st.session_state['al_reviewer'] = 'Yanis Singla'
+    render(st, 'review')
+    assert not st.errors
+    html = ' '.join(str(a[0]) for kind, a, _ in st.rendered if kind == 'markdown' and a)
+    assert 'Where:' in html and 'al-code' in html and '▶' in html
+    kinds = [kind for kind, *_ in st.rendered]
+    assert 'image' in kinds or any('nothing to picture' in str(a) or 'page setting' in str(a) for _, a, _ in st.rendered)

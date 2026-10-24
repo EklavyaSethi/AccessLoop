@@ -13,25 +13,25 @@
   "audit_events": [
     {
       "seq": 1,
-      "timestamp_utc": "2026-10-23T04:35:55+00:00",
+      "timestamp_utc": "2026-10-24T05:18:47+00:00",
       "event": "loaded",
       "detail": "Original saved as a separate copy; it is never modified.",
       "working_sha256": "b43b3cc394eb299c043d55e1aa0e0534dbc000f05838664764b9a55fbe3f7607",
       "versions": {
-        "accessloop": "0.9.0"
+        "accessloop": "0.11.0"
       },
       "original_sha256": "b43b3cc394eb299c043d55e1aa0e0534dbc000f05838664764b9a55fbe3f7607",
       "prev": "0000000000000000000000000000000000000000000000000000000000000000",
-      "hash": "dc7bda13d622246a31d69bc344cbc06f96b9dd3f4ccbd763ac9e602c2a072e15"
+      "hash": "4ddab218912ec42e0b9c5e78ef6861c5767275dfb78c13d48d8986dc63118df0"
     },
     {
       "seq": 2,
-      "timestamp_utc": "2026-10-23T04:35:55+00:00",
+      "timestamp_utc": "2026-10-24T05:18:47+00:00",
       "event": "scanned",
       "detail": "5 violation nodes, 1 needs-review nodes; 6 fix proposals.",
       "working_sha256": "b43b3cc394eb299c043d55e1aa0e0534dbc000f05838664764b9a55fbe3f7607",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -46,19 +46,19 @@
       },
       "proposals": 6,
       "input_proposals": 1,
-      "scan_ms": 344,
-      "plan_ms": 1,
-      "prev": "dc7bda13d622246a31d69bc344cbc06f96b9dd3f4ccbd763ac9e602c2a072e15",
-      "hash": "549fa5cd0002a994e1b31adbdc6dd252ca0f70a31038d2906c77a532cd26cae8"
+      "scan_ms": 348,
+      "plan_ms": 0,
+      "prev": "4ddab218912ec42e0b9c5e78ef6861c5767275dfb78c13d48d8986dc63118df0",
+      "hash": "ada06ff44c104f7143629338ea953f1b69a720af25d68d562e9855345b56f707"
     },
     {
       "seq": 3,
-      "timestamp_utc": "2026-10-23T04:35:56+00:00",
+      "timestamp_utc": "2026-10-24T05:18:47+00:00",
       "event": "verified",
       "detail": "b43b3cc394-0-image-alt: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "eff2b04265d8cd78e2d9a4dfe6de9b67e6b307b3e1f21c60c1535172608d28ba",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -66,7 +66,7 @@
       "rule": "image-alt",
       "announce_before": "(no name), image",
       "announce_after": "“Reviewer typed description”, image",
-      "verify_ms": 430,
+      "verify_ms": 336,
       "mode": "input",
       "selector": "img",
       "before": "<img src=\"fee-table.png\" width=\"300\" height=\"120\">",
@@ -76,84 +76,84 @@
         "decorative": false
       },
       "backup": "0002_b43b3cc394eb.html",
-      "prev": "549fa5cd0002a994e1b31adbdc6dd252ca0f70a31038d2906c77a532cd26cae8",
-      "hash": "27ff4dcf0758dd7838c415a86d816381d14de495ffea2433e8219ff63d57d8e9"
+      "prev": "ada06ff44c104f7143629338ea953f1b69a720af25d68d562e9855345b56f707",
+      "hash": "4fed538e4d0f4e8614ee9723ddbbee5b2e6847c5167fc983b49c7bb676a1f22d"
     },
     {
       "seq": 4,
-      "timestamp_utc": "2026-10-23T04:35:56+00:00",
+      "timestamp_utc": "2026-10-24T05:18:48+00:00",
       "event": "verified",
       "detail": "eff2b04265-0-al-focus-visible: Target rule improved (3 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "fc05ec0a65b295981a9f10b16a0c563c930c383690751c8ddc23e8f4b3446a6d",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
       "proposal_id": "eff2b04265-0-al-focus-visible",
       "rule": "al-focus-visible",
       "announce_after": "“Monthly income (₹)”, spin button",
-      "verify_ms": 357,
+      "verify_ms": 318,
       "mode": "auto",
       "selector": "",
       "before": "<head>",
       "after": "<head>",
       "backup": "0003_eff2b04265d8.html",
-      "prev": "27ff4dcf0758dd7838c415a86d816381d14de495ffea2433e8219ff63d57d8e9",
-      "hash": "37d48490198574144605d580edad591ada2ec8d67a2d1028df9c3cf4d7e66e5b"
+      "prev": "4fed538e4d0f4e8614ee9723ddbbee5b2e6847c5167fc983b49c7bb676a1f22d",
+      "hash": "b118781643b1b84ecfe9453d730c2cb6de3f627dd92b99dbfffd104db35a471d"
     },
     {
       "seq": 5,
-      "timestamp_utc": "2026-10-23T04:35:56+00:00",
+      "timestamp_utc": "2026-10-24T05:18:48+00:00",
       "event": "verified",
       "detail": "fc05ec0a65-0-al-text-spacing: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "e0a7d5f01a8b1bf70ea83d2afac5593fdbdbd951f1385c2857661aedb5f002e3",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
       "proposal_id": "fc05ec0a65-0-al-text-spacing",
       "rule": "al-text-spacing",
       "announce_after": "“Annual fee waived when you spend ₹1.5 lakh or more in a year on this card.”",
-      "verify_ms": 350,
+      "verify_ms": 356,
       "mode": "auto",
       "selector": "",
       "before": "<p class=\"teaser\">",
       "after": "<p class=\"teaser\" style=\"height: auto !important; max-height: none !important; overflow: visible !important\">",
       "backup": "0004_fc05ec0a65b2.html",
-      "prev": "37d48490198574144605d580edad591ada2ec8d67a2d1028df9c3cf4d7e66e5b",
-      "hash": "3e16fd292e32c29b5dab7a4762cfe14848e097d93442a09b38d2cea15656bf37"
+      "prev": "b118781643b1b84ecfe9453d730c2cb6de3f627dd92b99dbfffd104db35a471d",
+      "hash": "f92349d358a3acca2d3aed05255f1d6e0a42ac03947cc11b161b1242b422c061"
     },
     {
       "seq": 6,
-      "timestamp_utc": "2026-10-23T04:35:57+00:00",
+      "timestamp_utc": "2026-10-24T05:18:48+00:00",
       "event": "verified",
       "detail": "e0a7d5f01a-0-al-reflow: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "4dfb02e6ea90f37654476d770dc08b152d39817f9c6b7905c0d7881f66c8ba34",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
       "proposal_id": "e0a7d5f01a-0-al-reflow",
       "rule": "al-reflow",
       "announce_after": "“Platinum card: 5% cashback on groceries, fuel surcharge waiver and airport lounge access every quarter.”",
-      "verify_ms": 325,
+      "verify_ms": 350,
       "mode": "auto",
       "selector": "",
       "before": "<div class=\"offer-strip\">",
       "after": "<div class=\"offer-strip\" style=\"max-width: 100% !important; box-sizing: border-box; overflow-wrap: anywhere\">",
       "backup": "0005_e0a7d5f01a8b.html",
-      "prev": "3e16fd292e32c29b5dab7a4762cfe14848e097d93442a09b38d2cea15656bf37",
-      "hash": "989abfcc4de9c23854cb1d16d538d7f4fa3408690a6ef567ed24675412976325"
+      "prev": "f92349d358a3acca2d3aed05255f1d6e0a42ac03947cc11b161b1242b422c061",
+      "hash": "b462684d0f86add1e20b89b6134ba492dc1789be1721e5ce841b88834e58a33f"
     }
   ],
   "audit_log": {
     "file": "audit.jsonl",
     "entries": 6,
     "verified": true,
-    "message": "All 6 entries verified; head 989abfcc4de9c238…",
-    "head_sha256": "989abfcc4de9c23854cb1d16d538d7f4fa3408690a6ef567ed24675412976325"
+    "message": "All 6 entries verified; head b462684d0f86add1…",
+    "head_sha256": "b462684d0f86add1e20b89b6134ba492dc1789be1721e5ce841b88834e58a33f"
   }
 }

@@ -77,7 +77,7 @@ def install(clicks: set[str] | None = None, uploads: dict | None = None, inputs:
         raise StopScript()
 
     for name in ('markdown', 'write', 'caption', 'code', 'dataframe', 'bar_chart', 'metric', 'info', 'success', 'warning', 'toast',
-                 'subheader', 'header', 'title', 'page_link', 'download_button', 'set_page_config', 'logo', 'divider', 'json', 'text'):
+                 'subheader', 'header', 'title', 'image', 'page_link', 'download_button', 'set_page_config', 'logo', 'divider', 'json', 'text'):
         setattr(mod, name, record(name))
     mod.error = record('error')
     mod.button = button

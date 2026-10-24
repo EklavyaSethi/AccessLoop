@@ -107,8 +107,9 @@ def test_full_flow_reject_approve_reports(server):
     status, _, state = post(server, '/api/reject', {'id': pid, 'reviewer': 'Tester'})
     assert status == 200 and state['metrics']['rejected'] == 1
     assert state['metrics']['current'] == state['metrics']['baseline']
+    assert pid not in {p['id'] for p in state['proposals']}                 # a rejected fix leaves the review list
 
-    pid = state['proposals'][0]['id']
+    pid = next(p['id'] for p in state['proposals'] if not p['needs_input'])
     status, _, state = post(server, '/api/approve', {'id': pid, 'language': 'en-IN', 'reviewer': 'Tester'})
     assert status == 200
     assert state['outcome']['status'] == 'verified'

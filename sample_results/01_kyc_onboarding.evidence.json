@@ -146,25 +146,25 @@
   "audit_events": [
     {
       "seq": 1,
-      "timestamp_utc": "2026-10-23T04:35:03+00:00",
+      "timestamp_utc": "2026-10-24T05:17:57+00:00",
       "event": "loaded",
       "detail": "Original saved as a separate copy; it is never modified.",
       "working_sha256": "fa3c42e9a6c6969df9587d38e4d97137cf81976e8747f9ee923c5a9cb80bea7d",
       "versions": {
-        "accessloop": "0.9.0"
+        "accessloop": "0.11.0"
       },
       "original_sha256": "fa3c42e9a6c6969df9587d38e4d97137cf81976e8747f9ee923c5a9cb80bea7d",
       "prev": "0000000000000000000000000000000000000000000000000000000000000000",
-      "hash": "b723b3c55a026c5ceab322baabb5fd951999690d4c1f194f9dbb5ae3d5be5614"
+      "hash": "713eb62bea7420d052eeac2b25455d6b608ebbd7f6fff628bd931a936c88ab78"
     },
     {
       "seq": 2,
-      "timestamp_utc": "2026-10-23T04:35:04+00:00",
+      "timestamp_utc": "2026-10-24T05:17:57+00:00",
       "event": "scanned",
       "detail": "6 violation nodes, 0 needs-review nodes; 5 fix proposals.",
       "working_sha256": "fa3c42e9a6c6969df9587d38e4d97137cf81976e8747f9ee923c5a9cb80bea7d",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -176,17 +176,17 @@
       },
       "proposals": 5,
       "input_proposals": 0,
-      "scan_ms": 279,
-      "plan_ms": 1,
-      "prev": "b723b3c55a026c5ceab322baabb5fd951999690d4c1f194f9dbb5ae3d5be5614",
-      "hash": "6a2ac1359dcaf52a7c66d08de330aa2bff5892dd0fc098c22e6ea76b6979bc93"
+      "scan_ms": 290,
+      "plan_ms": 0,
+      "prev": "713eb62bea7420d052eeac2b25455d6b608ebbd7f6fff628bd931a936c88ab78",
+      "hash": "77086083a3c7fcff8d083f569d72b57e6c561189df0c0a03c3047f5c90e5fd36"
     }
   ],
   "audit_log": {
     "file": "audit.jsonl",
     "entries": 2,
     "verified": true,
-    "message": "All 2 entries verified; head 6a2ac1359dcaf52a…",
-    "head_sha256": "6a2ac1359dcaf52a7c66d08de330aa2bff5892dd0fc098c22e6ea76b6979bc93"
+    "message": "All 2 entries verified; head 77086083a3c7fcff…",
+    "head_sha256": "77086083a3c7fcff8d083f569d72b57e6c561189df0c0a03c3047f5c90e5fd36"
   }
 }

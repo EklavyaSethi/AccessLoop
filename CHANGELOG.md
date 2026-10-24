@@ -2,6 +2,44 @@
 
 All notable changes to AccessLoop. Versions follow semantic versioning; dates are UTC.
 
+## 0.11.0 – 2026-10-24
+- **Captions written in AccessLoop.** For a video without captions the reviewer can now type the captions in the app
+  (one line per caption with its time, or paste a whole WebVTT/SRT file); AccessLoop validates them, creates a real
+  WebVTT file next to the page (named after the video, e.g. `how-to-upi.en.vtt`), links it with `<track>`, and verifies
+  the fix. New files a fix creates are recorded with their SHA-256 in the audit log, included in the git patch as new
+  files, and downloadable with the repaired page as one zip. Pointing to an existing captions file still works.
+- **Reject now visibly does something.** A rejected fix leaves the review list at once (nothing is written), is
+  recorded in the audit log, appears in the Manual review queue as "Fix rejected by <name>", is never applied by the
+  agent or a batch, and can be offered again from the queue.
+- **"Where is this on the page?"** for every proposed fix, every agent question and every recorded decision: a plain
+  sentence (what the element is, its label or text, the form, group or landmark it sits in and the section heading
+  above it), a breadcrumb of its containers, the source code around it with line numbers and the changed lines marked,
+  and on request a cropped picture of the element on the rendered page outlined in red. The sentence is also stored with
+  each decision in the audit trail, evidence report and agent run report. Built for 1,000+ line files: the page is parsed
+  once per version and only the neighbourhood of each fix is shown.
+- **AI-drafted answers.** When the agent hands back fixes that need words (alt text, field and button names, link text,
+  page titles), a language model (Google Gemini, or a local Ollama model) drafts them from redacted page context. Each
+  draft fills the answer box with a badge (model, confidence, reason); a named person accepts or edits it; the fix is then
+  verified or rolled back like any other. Model output is untrusted: drafts with markup, links, a wrong option or the
+  wrong length are dropped. Consent is required per run; with AI off, unreachable or not consented, the agent offers
+  rule-based suggestions from the page, labelled "no AI". The audit log records who drafted what (provider, model,
+  redacted payload hash) and whether the person accepted, edited or skipped it. `python -m accessloop.ai_drafts` checks
+  whether AI drafting works on this computer. Default Gemini model `gemini-3.8-flash`; if Google retires a model and
+  names its replacement (HTTP 404), AccessLoop switches to the named model once and carries on. A busy model (503/429)
+  is retried twice after short waits, then `GEMINI_FALLBACK_MODEL` is tried; the check command lists the models a key
+  can use.
+- **AI assistant panel** in the app sidebar: shows which AI drafts the answers (Gemini / local / off) and whether it is
+  connected; switch provider, paste a Gemini key for this session (kept in memory only, never written to disk, logs or
+  reports), set the model and run a one-click connection test with a sample draft. The agent page shows the same status.
+- Fix: while the AI was drafting (a slow remote call), the agent held the session lock, so opening another page (for
+  example Review fixes) froze the app until the model answered. The AI step now runs without the lock, every AI call
+  has a time limit, and the whole AI step has a 25-second budget (ACCESSLOOP_AI_TIMEOUT), after which the agent falls
+  back to labelled rule-based suggestions.
+- **Agent run report.** One download (HTML that prints to PDF, plus signed JSON when signed in) with the policy and who
+  approved it, page fingerprints before and after, the full console, every change with its exact text, rollbacks, what
+  was handed to a person, how drafts were used, and the run's audit entries with hashes and chain status. On the agent
+  page, the Reports page, `/api/export/agent-html|agent-json`, and written by `fix --agent` next to the output.
+
 ## 0.10.4 – 2026-10-23
 - A named person is now mandatory for every decision and every agent run: approve, reject, batch, confirm, undo,
   manual-check results, answers to the agent and starting the agent are refused (HTTP 400 / CLI usage error) unless the

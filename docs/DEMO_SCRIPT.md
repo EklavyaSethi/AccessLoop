@@ -16,8 +16,10 @@ Point at the metrics: violations, fixes ready, needs a human check.
 
 Open **★ Agent mode**. Point at the policy: low-risk fixes only, never types text, stops after 6 rollbacks. Click
 **Let the agent repair this page** and narrate the live timeline: perceive → policy check → act → verified (count
-falls) → repeat. It ends by handing back questions: "these need words only a person knows". Type one answer
-(for example a field name), **Apply my answers**: verified.
+falls) → repeat. It ends by handing back questions: "these need words only a person knows", and the AI drafts them
+(console lines marked `ai`; each answer box shows the model, confidence and reason). Accept one draft, edit another,
+**Apply my answers**: verified, and the audit log records which draft was accepted and which was edited. Then
+**Download agent run report**: one file with the policy, every step, every change and the audit hashes.
 
 ## 1:25–1:50 — Human control and safety
 
@@ -45,6 +47,9 @@ It does not certify WCAG conformance; the manual checklist covers what tools can
 - **Why agentic?** In agent mode it runs the whole loop itself: perceives (scan), plans, checks its policy, acts with a
   bounded tool, observes an independent re-scan, commits or rolls back, re-plans, and escalates what it must not decide.
   The policy is the human approval, given in advance and recorded.
+- **Where is the AI?** The language model writes the words only a person could otherwise supply (alt text, names,
+  titles); the agent's actions stay deterministic and every result is verified. AI drafts, a person approves, the engine
+  proves. If the model is unreachable the agent says so and falls back to labelled rule-based suggestions.
 - **Why not an LLM rewriting pages?** A plausible wrong label is worse than none. Templates are deterministic; AI is
   optional, advisory, consented and redacted.
 - **How many issue types?** 85 axe rules fixed live, 4 guided, all 55 WCAG 2.2 A/AA criteria in the manual checklist.

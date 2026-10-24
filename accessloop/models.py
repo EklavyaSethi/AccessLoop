@@ -94,6 +94,7 @@ class Proposal:
     needs_input: bool = False
     line: int | None = None           # 1-based source line of the element
     edits: tuple = field(default=(), compare=False, repr=False)   # the offset edits behind new_html (for batch apply)
+    files: tuple = field(default=(), compare=False, repr=False)   # ((relative path, text), ...) new files the fix creates
 
 
 @dataclass(frozen=True)

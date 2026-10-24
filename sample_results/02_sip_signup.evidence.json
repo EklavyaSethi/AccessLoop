@@ -15,25 +15,25 @@
   "audit_events": [
     {
       "seq": 1,
-      "timestamp_utc": "2026-10-23T04:35:04+00:00",
+      "timestamp_utc": "2026-10-24T05:17:57+00:00",
       "event": "loaded",
       "detail": "Original saved as a separate copy; it is never modified.",
       "working_sha256": "9827173a251d42976fd3ffc63ccc124eec2010111052d48f8001b0fe4a43aa89",
       "versions": {
-        "accessloop": "0.9.0"
+        "accessloop": "0.11.0"
       },
       "original_sha256": "9827173a251d42976fd3ffc63ccc124eec2010111052d48f8001b0fe4a43aa89",
       "prev": "0000000000000000000000000000000000000000000000000000000000000000",
-      "hash": "e7af71a15a09ab80011cf4c69f5fd888eff1ceb57c325339c99c1ec7935df037"
+      "hash": "d6277979517bb83e676ce05d199fc3be4164a3dc1ff0efab2b80f2d077708f0c"
     },
     {
       "seq": 2,
-      "timestamp_utc": "2026-10-23T04:35:04+00:00",
+      "timestamp_utc": "2026-10-24T05:17:57+00:00",
       "event": "scanned",
       "detail": "6 violation nodes, 0 needs-review nodes; 6 fix proposals.",
       "working_sha256": "9827173a251d42976fd3ffc63ccc124eec2010111052d48f8001b0fe4a43aa89",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -47,58 +47,58 @@
       },
       "proposals": 6,
       "input_proposals": 3,
-      "scan_ms": 317,
+      "scan_ms": 281,
       "plan_ms": 1,
-      "prev": "e7af71a15a09ab80011cf4c69f5fd888eff1ceb57c325339c99c1ec7935df037",
-      "hash": "c4aeb4e23bfa4233503c906fd7498bf240b064d10d10993f38c7a1a7272ed73d"
+      "prev": "d6277979517bb83e676ce05d199fc3be4164a3dc1ff0efab2b80f2d077708f0c",
+      "hash": "47b5ce98fbb24585bec2b0726d6d71651e2e53ef137520869241ad823ede284b"
     },
     {
       "seq": 3,
-      "timestamp_utc": "2026-10-23T04:35:04+00:00",
+      "timestamp_utc": "2026-10-24T05:17:57+00:00",
       "event": "blocked",
       "detail": "9827173a25-1-image-alt: This fix needs the text only you can provide. Fill in the field before approving.",
       "working_sha256": "9827173a251d42976fd3ffc63ccc124eec2010111052d48f8001b0fe4a43aa89",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
       "proposal_id": "9827173a25-1-image-alt",
       "rule": "image-alt",
       "guardrail": "reviewer-text validation",
-      "prev": "c4aeb4e23bfa4233503c906fd7498bf240b064d10d10993f38c7a1a7272ed73d",
-      "hash": "4f71529c1905701b8b81b7a8f146375701d636a0214d5b1770abf2ab9df9c34f"
+      "prev": "47b5ce98fbb24585bec2b0726d6d71651e2e53ef137520869241ad823ede284b",
+      "hash": "6b5c8da9955c8fcf249f9a7857a5af399253a2eac6fc5dd6e69cc4321e912f3c"
     },
     {
       "seq": 4,
-      "timestamp_utc": "2026-10-23T04:35:04+00:00",
+      "timestamp_utc": "2026-10-24T05:17:58+00:00",
       "event": "verified",
       "detail": "9827173a25-0-html-has-lang: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "a817caf1822d6e69287dca3bd3684fd35557d1e983fe7651dc22bb96c0ef6ee0",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
       "proposal_id": "9827173a25-0-html-has-lang",
       "rule": "html-has-lang",
-      "verify_ms": 307,
+      "verify_ms": 274,
       "mode": "auto",
       "selector": "html",
       "before": "<html>",
       "after": "<html lang=\"en\">",
       "backup": "0003_9827173a251d.html",
-      "prev": "4f71529c1905701b8b81b7a8f146375701d636a0214d5b1770abf2ab9df9c34f",
-      "hash": "fc656799decfb7f943b0f2aacfbfe0642ac041b7c1c7f76e9f0ee815c9041530"
+      "prev": "6b5c8da9955c8fcf249f9a7857a5af399253a2eac6fc5dd6e69cc4321e912f3c",
+      "hash": "ebec6bb6fae27c0f4c0866cc5fa68e815742ba3054caf5b832b807c8ae2d62a9"
     },
     {
       "seq": 5,
-      "timestamp_utc": "2026-10-23T04:35:05+00:00",
+      "timestamp_utc": "2026-10-24T05:17:58+00:00",
       "event": "verified",
       "detail": "a817caf182-0-image-alt: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "ed9dc57958aa94d1c63ed74c057c8a2e386e22aa90e6f5547686ed325bc670f0",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -106,7 +106,7 @@
       "rule": "image-alt",
       "announce_before": "(no name), image",
       "announce_after": "“Reviewer typed description”, image",
-      "verify_ms": 336,
+      "verify_ms": 254,
       "mode": "input",
       "selector": "img",
       "before": "<img src=\"banner-sip.png\" width=\"480\" height=\"100\">",
@@ -116,17 +116,17 @@
         "decorative": false
       },
       "backup": "0004_a817caf1822d.html",
-      "prev": "fc656799decfb7f943b0f2aacfbfe0642ac041b7c1c7f76e9f0ee815c9041530",
-      "hash": "5f8e12a3e98bd4cb5063e31c614fb36e814b9c5e77869a53b1bdf7715a35d746"
+      "prev": "ebec6bb6fae27c0f4c0866cc5fa68e815742ba3054caf5b832b807c8ae2d62a9",
+      "hash": "fea726e83ecf6e174c6f29c78a8300bdc20b939f1a651c47a37104c940ae247b"
     },
     {
       "seq": 6,
-      "timestamp_utc": "2026-10-23T04:35:05+00:00",
+      "timestamp_utc": "2026-10-24T05:17:58+00:00",
       "event": "verified",
       "detail": "ed9dc57958-0-label: Target rule improved (2 → 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "695936ba88a5bb6b14f60a544235402faf3d32157dde998e4ec64909850b95d5",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -134,23 +134,23 @@
       "rule": "label",
       "announce_before": "(no name), edit text",
       "announce_after": "“Investor name”, edit text",
-      "verify_ms": 297,
+      "verify_ms": 295,
       "mode": "auto",
       "selector": "#sip-name",
       "before": "<label>Investor name</label>\n    <input id=\"sip-name\" name=\"investor\" type=\"text\">",
       "after": "<label for=\"sip-name\">Investor name</label>\n    <input id=\"sip-name\" name=\"investor\" type=\"text\">",
       "backup": "0005_ed9dc57958aa.html",
-      "prev": "5f8e12a3e98bd4cb5063e31c614fb36e814b9c5e77869a53b1bdf7715a35d746",
-      "hash": "b2758a8e739766ad038db1d1bbd7c8132f5cb4a26b8c89ee2af58b1045a798a0"
+      "prev": "fea726e83ecf6e174c6f29c78a8300bdc20b939f1a651c47a37104c940ae247b",
+      "hash": "c0276aff93b0fa1674a0978356186d0f728d893f492ccccec4df6755a55c2dfa"
     },
     {
       "seq": 7,
-      "timestamp_utc": "2026-10-23T04:35:05+00:00",
+      "timestamp_utc": "2026-10-24T05:17:59+00:00",
       "event": "verified",
       "detail": "695936ba88-0-label: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "141dd80357e3fcaa78cc8b5b096ba36b915163ae72915972ad9c44542bad6b62",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -158,23 +158,23 @@
       "rule": "label",
       "announce_before": "(no name), spin button",
       "announce_after": "“Monthly amount (₹)”, spin button",
-      "verify_ms": 294,
+      "verify_ms": 276,
       "mode": "auto",
       "selector": "#sip-amount",
       "before": "<label>Monthly amount (₹)</label>\n    <input id=\"sip-amount\" name=\"amount\" type=\"number\" min=\"500\">",
       "after": "<label for=\"sip-amount\">Monthly amount (₹)</label>\n    <input id=\"sip-amount\" name=\"amount\" type=\"number\" min=\"500\">",
       "backup": "0006_695936ba88a5.html",
-      "prev": "b2758a8e739766ad038db1d1bbd7c8132f5cb4a26b8c89ee2af58b1045a798a0",
-      "hash": "45555311850bb871b4bfa45d62b624621ef2ca5d79a3650473fde6a1866cc641"
+      "prev": "c0276aff93b0fa1674a0978356186d0f728d893f492ccccec4df6755a55c2dfa",
+      "hash": "06ce1f4881d13807efc767cc8ed120ddc5f8bceb4aaf5c48d98ca8b7aeb8e60c"
     },
     {
       "seq": 8,
-      "timestamp_utc": "2026-10-23T04:35:05+00:00",
+      "timestamp_utc": "2026-10-24T05:17:59+00:00",
       "event": "verified",
       "detail": "141dd80357-0-link-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "09c98aa0bd9e757f6247cd04c9be5d347b21ce6584a2f07bf4bf81ad793a2896",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -182,7 +182,7 @@
       "rule": "link-name",
       "announce_before": "(no name), link",
       "announce_after": "“Reviewer typed description”, link",
-      "verify_ms": 342,
+      "verify_ms": 266,
       "mode": "input",
       "selector": "a",
       "before": "<a href=\"#risk\">",
@@ -191,17 +191,17 @@
         "text": "Reviewer typed description"
       },
       "backup": "0007_141dd80357e3.html",
-      "prev": "45555311850bb871b4bfa45d62b624621ef2ca5d79a3650473fde6a1866cc641",
-      "hash": "8cd0bfbaae022f9cd4b6050216ce4fb3603111bd1657e90d7d6725cbf999b7c4"
+      "prev": "06ce1f4881d13807efc767cc8ed120ddc5f8bceb4aaf5c48d98ca8b7aeb8e60c",
+      "hash": "54382ff0e1072c04d279c3131c02c6811f8e9fc6486ab6ed17e753386e5ed503"
     },
     {
       "seq": 9,
-      "timestamp_utc": "2026-10-23T04:35:06+00:00",
+      "timestamp_utc": "2026-10-24T05:17:59+00:00",
       "event": "verified",
       "detail": "09c98aa0bd-0-select-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "c325e8cf58aaa44cbe66d17cdd513621641e9e89aaac4752df72d2465c88d83b",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -209,7 +209,7 @@
       "rule": "select-name",
       "announce_before": "(no name), combo box",
       "announce_after": "“Reviewer typed description”, combo box",
-      "verify_ms": 313,
+      "verify_ms": 291,
       "mode": "input",
       "selector": "#sip-fund",
       "before": "<select id=\"sip-fund\" name=\"fund\">",
@@ -218,15 +218,15 @@
         "text": "Reviewer typed description"
       },
       "backup": "0008_09c98aa0bd9e.html",
-      "prev": "8cd0bfbaae022f9cd4b6050216ce4fb3603111bd1657e90d7d6725cbf999b7c4",
-      "hash": "0c6a4ced1ce3494fb12f6b5646027d495f5f53d54877abadfb99b86ece93d1b0"
+      "prev": "54382ff0e1072c04d279c3131c02c6811f8e9fc6486ab6ed17e753386e5ed503",
+      "hash": "534a11138abdadd2f2ed29ea05095e9118680484ddb12f2c175bc02f436da001"
     }
   ],
   "audit_log": {
     "file": "audit.jsonl",
     "entries": 9,
     "verified": true,
-    "message": "All 9 entries verified; head 0c6a4ced1ce3494f…",
-    "head_sha256": "0c6a4ced1ce3494fb12f6b5646027d495f5f53d54877abadfb99b86ece93d1b0"
+    "message": "All 9 entries verified; head 534a11138abdadd2…",
+    "head_sha256": "534a11138abdadd2f2ed29ea05095e9118680484ddb12f2c175bc02f436da001"
   }
 }

@@ -273,13 +273,36 @@ class Workflow:
         self.current_scan = after
         self.proposals = plan(self.current_html, after.items, language=language)
         self._record_op(list(candidate.edits), current, candidate.rule_id, proposal_id, candidate.selector)
+        written = self._write_files(candidate.files)
         self._event('verified', f'{proposal_id}: {detail}', proposal_id=proposal_id, rule=candidate.rule_id,
                     announce_before=ann.get('before') or None, announce_after=ann.get('after') or None,
                     verify_ms=round((time.perf_counter() - t_write) * 1000), mode=proposal.mode,
                     selector=candidate.selector, reviewer=reviewer, before=candidate.before, after=candidate.after,
-                    reviewer_text=_typed(values) if proposal.needs_input else None, backup=backup_file.name)
+                    reviewer_text=_typed(values) if proposal.needs_input else None, backup=backup_file.name,
+                    files=written or None)
         return Outcome('verified', detail, len(previous_scan.findings), len(after.findings), ann.get('before', ''),
                        ann.get('after', ''))
+
+    _SAFE_FILE = re.compile(r'^(?!/)(?!.*\.\.)[A-Za-z0-9_][A-Za-z0-9_./-]{0,150}\.vtt$')
+
+    def _write_files(self, files) -> list[dict]:
+        """Files a verified fix creates next to the page (for example a captions file). Only safe relative .vtt paths."""
+        out = []
+        for path, text in files or ():
+            if not self._SAFE_FILE.match(path) or len(text) > 200_000:
+                raise WorkflowError(f'Refused to create file {path!r}.')
+            target = self.workspace / 'files' / path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            atomic_write(target, text)
+            out.append({'path': path, 'bytes': len(text.encode('utf-8')), 'sha256': sha256(text)})
+        return out
+
+    def extra_files(self) -> dict[str, str]:
+        """Every file fixes have created, by path relative to the page."""
+        root = self.workspace / 'files'
+        if not root.is_dir():
+            return {}
+        return {str(p.relative_to(root)): p.read_text(encoding='utf-8') for p in sorted(root.rglob('*')) if p.is_file()}
 
     def _judge(self, current: str, new_html: str, edits: list, previous: ScanResult, targets: list[tuple[str, int]],
                rule: str) -> tuple[ScanResult, bool, str, dict]:

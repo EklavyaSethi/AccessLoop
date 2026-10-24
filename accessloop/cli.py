@@ -290,8 +290,16 @@ def cmd_fix(args) -> int:
             def show(line, run):
                 t, phase, text = line
                 print(f'  {t:6.2f}s {phase:<9} {text}')
+            from datetime import datetime, timezone
+            from . import agent_report
+            from .planner import sha256 as _sha256
+            started, sha_before = datetime.now(timezone.utc).isoformat(timespec='seconds'), _sha256(engine.current_html)
             run = agent.run(engine, policy, reviewer=f'AccessLoop agent (policy approved by {reviewer})', language=args.language,
                             on_log=show)
+            report = agent_report.build(agent_report.state_from_run(engine, run, src.name, reviewer or '', started, sha_before))
+            out.with_suffix('.agent-report.html').write_text(agent_report.to_html(report), encoding='utf-8')
+            out.with_suffix('.agent-run.json').write_text(agent_report.to_json(report), encoding='utf-8')
+            print(f'Agent run report: {out.with_suffix(".agent-report.html")} (+ .agent-run.json)')
             stats['fixes kept'] += run.applied
             stats['rolled back'] += run.rolled_back
             stats['questions for you'] += len(run.questions)

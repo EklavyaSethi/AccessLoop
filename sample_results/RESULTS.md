@@ -244,7 +244,7 @@
       <p id="acct-help-2">Joint accounts need both holders to sign.</p>`
 - verified: **form-field-multiple-labels** `#pan`  `<input type="text" id="pan" name="pan">` -> `one <label for> kept`
 - verified: **frame-title-unique** `iframe`  `<iframe src="offers-a.html" title="Offers" width="300" height="80">` -> `title="…"`
-- verified: **video-caption** `video`  `<video src="how-to-upi.mp4" controls width="320">` -> `<track kind="captions" src="…">`
+- verified: **video-caption** `video`  `<video src="how-to-upi.mp4" controls width="320">` -> `<track kind="captions" src="how-to-upi.en.vtt" srclang="en" label="Captions" default>`
 - Manual-review queue: `region a`
   - [x] best-practice scan finds 70+ problems across 30+ rule types
   - [x] "needs review" items are found and offered as fixes too

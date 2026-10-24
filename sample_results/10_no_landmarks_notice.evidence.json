@@ -9,25 +9,25 @@
   "audit_events": [
     {
       "seq": 1,
-      "timestamp_utc": "2026-10-23T04:35:42+00:00",
+      "timestamp_utc": "2026-10-24T05:18:34+00:00",
       "event": "loaded",
       "detail": "Original saved as a separate copy; it is never modified.",
       "working_sha256": "e2be9674d4159a834e890f7ae9d666799cce58f25cebc95ca212e3930da574b6",
       "versions": {
-        "accessloop": "0.9.0"
+        "accessloop": "0.11.0"
       },
       "original_sha256": "e2be9674d4159a834e890f7ae9d666799cce58f25cebc95ca212e3930da574b6",
       "prev": "0000000000000000000000000000000000000000000000000000000000000000",
-      "hash": "27cc40e0e67ac0a77568af95453b3afab4166b0fad0490e242f154a0e4c6b18e"
+      "hash": "625691ab4fd957d0a8dac4085b4fd911d231f2849461662cde4217cce589a3ed"
     },
     {
       "seq": 2,
-      "timestamp_utc": "2026-10-23T04:35:43+00:00",
+      "timestamp_utc": "2026-10-24T05:18:35+00:00",
       "event": "scanned",
       "detail": "0 violation nodes, 1 needs-review nodes; 1 fix proposals.",
       "working_sha256": "e2be9674d4159a834e890f7ae9d666799cce58f25cebc95ca212e3930da574b6",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -38,25 +38,25 @@
       },
       "proposals": 1,
       "input_proposals": 1,
-      "scan_ms": 289,
-      "plan_ms": 0,
-      "prev": "27cc40e0e67ac0a77568af95453b3afab4166b0fad0490e242f154a0e4c6b18e",
-      "hash": "1368a7d95cb3e4250b180fac68675e62685742433085f3a6f43786fd3b4e4da2"
+      "scan_ms": 310,
+      "plan_ms": 1,
+      "prev": "625691ab4fd957d0a8dac4085b4fd911d231f2849461662cde4217cce589a3ed",
+      "hash": "c839b900f9327999c2ee675f9583129f24ecee9d15727a95397709c595c4fa35"
     },
     {
       "seq": 3,
-      "timestamp_utc": "2026-10-23T04:35:43+00:00",
+      "timestamp_utc": "2026-10-24T05:18:35+00:00",
       "event": "verified",
       "detail": "e2be9674d4-0-bypass: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "cfbef60720d5761cba6e3c61dd0fd6bf2735f95c41e08f440c38e3272436f5b3",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
       "proposal_id": "e2be9674d4-0-bypass",
       "rule": "bypass",
-      "verify_ms": 290,
+      "verify_ms": 294,
       "mode": "input",
       "selector": "html",
       "before": "<div class=\"notice\">",
@@ -65,15 +65,15 @@
         "main": "10"
       },
       "backup": "0002_e2be9674d415.html",
-      "prev": "1368a7d95cb3e4250b180fac68675e62685742433085f3a6f43786fd3b4e4da2",
-      "hash": "aae40149549a65966e8a8d418df22e66c6cdbac1b3eb74d8aee1a004665fa160"
+      "prev": "c839b900f9327999c2ee675f9583129f24ecee9d15727a95397709c595c4fa35",
+      "hash": "39255d97772d864e3053e9993889bde2b41478f4f5671b99c191b6f3f527345e"
     }
   ],
   "audit_log": {
     "file": "audit.jsonl",
     "entries": 3,
     "verified": true,
-    "message": "All 3 entries verified; head aae40149549a6596…",
-    "head_sha256": "aae40149549a65966e8a8d418df22e66c6cdbac1b3eb74d8aee1a004665fa160"
+    "message": "All 3 entries verified; head 39255d97772d864e…",
+    "head_sha256": "39255d97772d864e3053e9993889bde2b41478f4f5671b99c191b6f3f527345e"
   }
 }

@@ -29,6 +29,8 @@ def render() -> None:
                 st.markdown(ui.badge(f['decision'], 'ok' if f['status'] == 'verified' else 'bad' if f['status'] == 'rolled_back' else 'info')
                             + ui.badge(f['rule'], 'neutral') + ui.badge(f['status'].replace('_', ' '), 'neutral'), unsafe_allow_html=True)
                 st.caption(f'{f["time_utc"]} · {f["selector"]} · reviewer: {f["reviewer"] or "not recorded"}')
+                if f.get('where'):
+                    st.markdown(f'<div class="al-crumbs"><b>Where:</b> {ui.esc(f["where"])}</div>', unsafe_allow_html=True)
                 st.markdown(ui.diff_html([{'kind': 'del', 'text': f['before']}, {'kind': 'add', 'text': f['after']}]), unsafe_allow_html=True)
                 st.caption(f['detail'])
     else:

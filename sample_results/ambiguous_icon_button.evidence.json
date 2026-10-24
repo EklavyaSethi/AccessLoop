@@ -34,25 +34,25 @@
   "audit_events": [
     {
       "seq": 1,
-      "timestamp_utc": "2026-10-23T04:35:01+00:00",
+      "timestamp_utc": "2026-10-24T05:17:55+00:00",
       "event": "loaded",
       "detail": "Original saved as a separate copy; it is never modified.",
       "working_sha256": "8894a065fcd09a778aba7f15c7d769c5a26268bb1a47eb460e290fcb59bc4e69",
       "versions": {
-        "accessloop": "0.9.0"
+        "accessloop": "0.11.0"
       },
       "original_sha256": "8894a065fcd09a778aba7f15c7d769c5a26268bb1a47eb460e290fcb59bc4e69",
       "prev": "0000000000000000000000000000000000000000000000000000000000000000",
-      "hash": "481d92bac5b3c5aa24ae3940a4689b4cf9da590bf841b80d5542915b625727b2"
+      "hash": "4f917c017cc8be90b05a7a5a4a20176d52fc108317ec42bbf03fc9c1a740c3c9"
     },
     {
       "seq": 2,
-      "timestamp_utc": "2026-10-23T04:35:01+00:00",
+      "timestamp_utc": "2026-10-24T05:17:55+00:00",
       "event": "scanned",
       "detail": "1 violation nodes, 0 needs-review nodes; 1 fix proposals.",
       "working_sha256": "8894a065fcd09a778aba7f15c7d769c5a26268bb1a47eb460e290fcb59bc4e69",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -62,17 +62,17 @@
       },
       "proposals": 1,
       "input_proposals": 1,
-      "scan_ms": 294,
+      "scan_ms": 222,
       "plan_ms": 0,
-      "prev": "481d92bac5b3c5aa24ae3940a4689b4cf9da590bf841b80d5542915b625727b2",
-      "hash": "0d18b2bd39f9d34f303be265be7bd6f263719af6e9e5e10348a36129e6419baf"
+      "prev": "4f917c017cc8be90b05a7a5a4a20176d52fc108317ec42bbf03fc9c1a740c3c9",
+      "hash": "037b89367535306cda5a304619063dcf159046dc22f869541cf13a3aee2bb0a7"
     }
   ],
   "audit_log": {
     "file": "audit.jsonl",
     "entries": 2,
     "verified": true,
-    "message": "All 2 entries verified; head 0d18b2bd39f9d34f…",
-    "head_sha256": "0d18b2bd39f9d34f303be265be7bd6f263719af6e9e5e10348a36129e6419baf"
+    "message": "All 2 entries verified; head 037b89367535306c…",
+    "head_sha256": "037b89367535306cda5a304619063dcf159046dc22f869541cf13a3aee2bb0a7"
   }
 }

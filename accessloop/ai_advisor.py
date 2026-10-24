@@ -100,7 +100,7 @@ def _ask_local(prompt: str) -> dict:
     body = json.dumps({'model': os.getenv('OLLAMA_MODEL', 'llama3.1'), 'prompt': prompt, 'format': 'json',
                        'stream': False, 'options': {'temperature': 0}}).encode()
     req = urllib.request.Request(url + '/api/generate', data=body, headers={'Content-Type': 'application/json'})
-    with urllib.request.urlopen(req, timeout=120) as resp:   # noqa: S310 - localhost only, checked above
+    with urllib.request.urlopen(req, timeout=float(os.getenv('ACCESSLOOP_AI_TIMEOUT', '25'))) as resp:   # noqa: S310 - localhost only, checked above
         return json.loads(json.loads(resp.read().decode())['response'])
 
 
@@ -123,8 +123,7 @@ def _ask_gemini(prompt: str) -> dict:
     class Decisions(BaseModel):
         decisions: list[Decision]
 
-    client = genai.Client(api_key=key)
-    response = client.models.generate_content(
-        model=os.getenv('GEMINI_MODEL', 'gemini-2.5-flash'), contents=prompt,
-        config=types.GenerateContentConfig(response_mime_type='application/json', response_schema=Decisions, temperature=0))
-    return json.loads(response.text)
+    from .ai_drafts import gemini_generate, make_client
+    client = make_client(key)
+    config = types.GenerateContentConfig(response_mime_type='application/json', response_schema=Decisions, temperature=0)
+    return json.loads(gemini_generate(client, prompt, config).text)

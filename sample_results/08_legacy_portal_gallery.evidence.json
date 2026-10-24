@@ -350,25 +350,25 @@
   "audit_events": [
     {
       "seq": 1,
-      "timestamp_utc": "2026-10-23T04:35:58+00:00",
+      "timestamp_utc": "2026-10-24T05:18:49+00:00",
       "event": "loaded",
       "detail": "Original saved as a separate copy; it is never modified.",
       "working_sha256": "7eb92dd04b0db8588d3f16b943000ba4ca139f9a92d78eaca3d89a57b1702b50",
       "versions": {
-        "accessloop": "0.9.0"
+        "accessloop": "0.11.0"
       },
       "original_sha256": "7eb92dd04b0db8588d3f16b943000ba4ca139f9a92d78eaca3d89a57b1702b50",
       "prev": "0000000000000000000000000000000000000000000000000000000000000000",
-      "hash": "6cc6e76202511c33ded7b97f791998b356c2e2853bcb73ea15a1667055e80811"
+      "hash": "ea729b60f2fd57cb70b5e24cda78058f1aaab6b0813f97533b7183d85d95d950"
     },
     {
       "seq": 2,
-      "timestamp_utc": "2026-10-23T04:35:58+00:00",
+      "timestamp_utc": "2026-10-24T05:18:50+00:00",
       "event": "scanned",
       "detail": "22 violation nodes, 0 needs-review nodes; 22 fix proposals.",
       "working_sha256": "7eb92dd04b0db8588d3f16b943000ba4ca139f9a92d78eaca3d89a57b1702b50",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -396,19 +396,19 @@
       },
       "proposals": 22,
       "input_proposals": 11,
-      "scan_ms": 346,
+      "scan_ms": 328,
       "plan_ms": 1,
-      "prev": "6cc6e76202511c33ded7b97f791998b356c2e2853bcb73ea15a1667055e80811",
-      "hash": "1cf84d60592de0f1cca8aa06bb6248ba7c50b86cb0b6c02ab0d8a4f2e077b4fb"
+      "prev": "ea729b60f2fd57cb70b5e24cda78058f1aaab6b0813f97533b7183d85d95d950",
+      "hash": "e3e8da8cd275d9745fe8a1565dc251d77373107e110fa9e15772224d0442e0e8"
     },
     {
       "seq": 3,
-      "timestamp_utc": "2026-10-23T04:35:58+00:00",
+      "timestamp_utc": "2026-10-24T05:18:50+00:00",
       "event": "agent_started",
       "detail": "Agent run started. Policy: applies low-risk automatic fixes; at most 200 changes; stops after 6 rollbacks in a row; never types text for you.",
       "working_sha256": "7eb92dd04b0db8588d3f16b943000ba4ca139f9a92d78eaca3d89a57b1702b50",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -420,19 +420,20 @@
         "deny_rules": [],
         "max_changes": 200,
         "stop_after_rollbacks": 6,
-        "batch": true
+        "batch": true,
+        "rejected_by_a_person": 0
       },
-      "prev": "1cf84d60592de0f1cca8aa06bb6248ba7c50b86cb0b6c02ab0d8a4f2e077b4fb",
-      "hash": "a7ae7592e3b19e3b738a410934c8550f9cda377f733ecc21bb7623283b06e3f0"
+      "prev": "e3e8da8cd275d9745fe8a1565dc251d77373107e110fa9e15772224d0442e0e8",
+      "hash": "73192124bc359719fb5947cbc1dd4bac1c0b6bb14f15400c20375a0e22196e0c"
     },
     {
       "seq": 4,
-      "timestamp_utc": "2026-10-23T04:35:58+00:00",
+      "timestamp_utc": "2026-10-24T05:18:50+00:00",
       "event": "verified",
       "detail": "Batch of 2 label fixes: Target rule improved (3 → 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "49badecbf8445add9523cb22694a9a009d4a96b6bcd750009b0b25b5fca10207",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -442,20 +443,20 @@
         "7eb92dd04b-12-label"
       ],
       "reviewer": "Agent (policy approved by suite)",
-      "verify_ms": 395,
+      "verify_ms": 379,
       "backup": "0003_7eb92dd04b0d.html",
       "mode": "batch",
-      "prev": "a7ae7592e3b19e3b738a410934c8550f9cda377f733ecc21bb7623283b06e3f0",
-      "hash": "d27ac588c2c21c70d7bceb7ce02f37d636f3e9abed2d29b6502eed670d610ab0"
+      "prev": "73192124bc359719fb5947cbc1dd4bac1c0b6bb14f15400c20375a0e22196e0c",
+      "hash": "b50e07ac8a86c87f827dd26f615824abd678877ba4aed9d551381ac2f7aacd86"
     },
     {
       "seq": 5,
-      "timestamp_utc": "2026-10-23T04:35:59+00:00",
+      "timestamp_utc": "2026-10-24T05:18:50+00:00",
       "event": "verified",
       "detail": "49badecbf8-4-button-name: Target rule improved (2 → 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "032186467576b5cb1a0ed40bd4e0af845b7a05d7f03c28931bfa78edba92813d",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -463,47 +464,47 @@
       "rule": "button-name",
       "announce_before": "(no name), button",
       "announce_after": "“Continue”, button",
-      "verify_ms": 337,
+      "verify_ms": 305,
       "mode": "auto",
       "selector": "#go",
       "reviewer": "Agent (policy approved by suite)",
       "before": "<span aria-hidden=\"true\">Continue</span>",
       "after": "<span>Continue</span>",
       "backup": "0004_49badecbf844.html",
-      "prev": "d27ac588c2c21c70d7bceb7ce02f37d636f3e9abed2d29b6502eed670d610ab0",
-      "hash": "d3972af2655917ad803d25441e25fc16d1946e669b1dff913880d866dcd841b9"
+      "prev": "b50e07ac8a86c87f827dd26f615824abd678877ba4aed9d551381ac2f7aacd86",
+      "hash": "9f4bd91df629e107a8f92f7502afc1936da2a0bb7fbae02260b5fe051a07a8e5"
     },
     {
       "seq": 6,
-      "timestamp_utc": "2026-10-23T04:35:59+00:00",
+      "timestamp_utc": "2026-10-24T05:18:51+00:00",
       "event": "verified",
       "detail": "0321864675-6-html-has-lang: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "9dd12334499296d6a9d6dad42b869a2748d473f0c795339a56d2be54e5652eb2",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
       "proposal_id": "0321864675-6-html-has-lang",
       "rule": "html-has-lang",
-      "verify_ms": 340,
+      "verify_ms": 316,
       "mode": "auto",
       "selector": "html",
       "reviewer": "Agent (policy approved by suite)",
       "before": "<html>",
       "after": "<html lang=\"en\">",
       "backup": "0005_032186467576.html",
-      "prev": "d3972af2655917ad803d25441e25fc16d1946e669b1dff913880d866dcd841b9",
-      "hash": "7cd27d94d3904ec9a44f784cee63db64843dc0463da7bab7ae136e7aed4db17d"
+      "prev": "9f4bd91df629e107a8f92f7502afc1936da2a0bb7fbae02260b5fe051a07a8e5",
+      "hash": "4e6218cfb27860cbe9199004aed8d7c45ee0ad5c0cb13523e081c73272139799"
     },
     {
       "seq": 7,
-      "timestamp_utc": "2026-10-23T04:35:59+00:00",
+      "timestamp_utc": "2026-10-24T05:18:51+00:00",
       "event": "verified",
       "detail": "9dd1233449-12-meta-viewport: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "8999086d48b5b4dc9b6a6fd19859b21ab599c8d4f2081799bb3af8841a1c7730",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -511,24 +512,24 @@
       "rule": "meta-viewport",
       "announce_before": "(no name)",
       "announce_after": "(no name)",
-      "verify_ms": 337,
+      "verify_ms": 343,
       "mode": "auto",
       "selector": "meta",
       "reviewer": "Agent (policy approved by suite)",
       "before": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">",
       "after": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
       "backup": "0006_9dd123344992.html",
-      "prev": "7cd27d94d3904ec9a44f784cee63db64843dc0463da7bab7ae136e7aed4db17d",
-      "hash": "f3c9e6a455d2d3b8f2402f768035377bb91a31b935ac728cc493dad5afbf26b3"
+      "prev": "4e6218cfb27860cbe9199004aed8d7c45ee0ad5c0cb13523e081c73272139799",
+      "hash": "8826806c67f0754034fe2fcf8c686d3a7e7e65259c46e0ffb13a6923ab399267"
     },
     {
       "seq": 8,
-      "timestamp_utc": "2026-10-23T04:36:00+00:00",
+      "timestamp_utc": "2026-10-24T05:18:51+00:00",
       "event": "verified",
       "detail": "8999086d48-12-scrollable-region-focusable: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "5780d411c57cf1ef3f0dea381e8fa8eb03e17ab25df5ae220cdfb1491acb114e",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -536,24 +537,24 @@
       "rule": "scrollable-region-focusable",
       "announce_before": "“Line one of terms. Line two of terms. Line three of terms. Line four.”",
       "announce_after": "“Line one of terms. Line two of terms. Line three of terms. Line four.”",
-      "verify_ms": 345,
+      "verify_ms": 328,
       "mode": "auto",
       "selector": ".scroll",
       "reviewer": "Agent (policy approved by suite)",
       "before": "<div class=\"scroll\">",
       "after": "<div class=\"scroll\" tabindex=\"0\">",
       "backup": "0007_8999086d48b5.html",
-      "prev": "f3c9e6a455d2d3b8f2402f768035377bb91a31b935ac728cc493dad5afbf26b3",
-      "hash": "2c6f3f2bb6783833432ab0ae301288800469b873aab6c79fbffd3cb892b0c964"
+      "prev": "8826806c67f0754034fe2fcf8c686d3a7e7e65259c46e0ffb13a6923ab399267",
+      "hash": "fae6b18e7bd90d7d3937962c01c9d2a9fc49563c6a1a65da5bbd01d4da978963"
     },
     {
       "seq": 9,
-      "timestamp_utc": "2026-10-23T04:36:00+00:00",
+      "timestamp_utc": "2026-10-24T05:18:52+00:00",
       "event": "verified",
       "detail": "5780d411c5-12-select-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "704fcf7e83d905e0412afbb1dda548027a28c94787d5b3c495d79fb852c2e0d1",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -561,24 +562,24 @@
       "rule": "select-name",
       "announce_before": "(no name), combo box",
       "announce_after": "“Account type”, combo box",
-      "verify_ms": 381,
+      "verify_ms": 338,
       "mode": "auto",
       "selector": "#acct-type",
       "reviewer": "Agent (policy approved by suite)",
       "before": "<label>Account type</label>\n    <select id=\"acct-type\" name=\"type\">",
       "after": "<label for=\"acct-type\">Account type</label>\n    <select id=\"acct-type\" name=\"type\">",
       "backup": "0008_5780d411c57c.html",
-      "prev": "2c6f3f2bb6783833432ab0ae301288800469b873aab6c79fbffd3cb892b0c964",
-      "hash": "10845155b51c191bbe8903886975fee1ecab239023c0034c482db9a9c0c95bca"
+      "prev": "fae6b18e7bd90d7d3937962c01c9d2a9fc49563c6a1a65da5bbd01d4da978963",
+      "hash": "56a9c2c61179d0f19457274561e095bbcd63cfc14cbc5d2e0a7e0db93c17195a"
     },
     {
       "seq": 10,
-      "timestamp_utc": "2026-10-23T04:36:00+00:00",
+      "timestamp_utc": "2026-10-24T05:18:52+00:00",
       "event": "agent_finished",
       "detail": "Agent run finished: 22 → 15 violations; 7 fixes kept in 6 writes; 0 rolled back; 11 questions and 4 held fixes handed to a person.",
       "working_sha256": "704fcf7e83d905e0412afbb1dda548027a28c94787d5b3c495d79fb852c2e0d1",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -589,16 +590,16 @@
       "rolled_back": 0,
       "questions": 11,
       "held": 4,
-      "seconds": 2.15,
-      "prev": "10845155b51c191bbe8903886975fee1ecab239023c0034c482db9a9c0c95bca",
-      "hash": "b7ef6f3d713cf28b0103f76b282f08658a7e8177f2800610c99d73434a4e03f8"
+      "seconds": 2.04,
+      "prev": "56a9c2c61179d0f19457274561e095bbcd63cfc14cbc5d2e0a7e0db93c17195a",
+      "hash": "163fb7a0045ae6554d367723c1e36f2e548e4fb600e6ee6e47b8974ce6d11ce6"
     }
   ],
   "audit_log": {
     "file": "audit.jsonl",
     "entries": 10,
     "verified": true,
-    "message": "All 10 entries verified; head b7ef6f3d713cf28b…",
-    "head_sha256": "b7ef6f3d713cf28b0103f76b282f08658a7e8177f2800610c99d73434a4e03f8"
+    "message": "All 10 entries verified; head 163fb7a0045ae655…",
+    "head_sha256": "163fb7a0045ae6554d367723c1e36f2e548e4fb600e6ee6e47b8974ce6d11ce6"
   }
 }

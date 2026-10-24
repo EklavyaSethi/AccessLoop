@@ -31,6 +31,9 @@ def _inputs(p: dict) -> dict | None:
                                              format_func=dict(options).get, help=f.get('help') or None)
         elif f.get('kind') == 'checkbox':
             values[f['name']] = st.checkbox(f['label'], key=key)
+        elif f.get('kind') == 'textarea':
+            values[f['name']] = st.text_area(f['label'], key=key, max_chars=f.get('max', 20000), height=160,
+                                             placeholder=f.get('help') or None, help='Plain text only.')
         else:
             values[f['name']] = st.text_input(f['label'], key=key, max_chars=f.get('max', 150), help=f.get('help') or None)
     return values
@@ -122,8 +125,16 @@ def render() -> None:
                 tags += ui.badge('WCAG ' + ', '.join(p['wcag']) + (f' · {p["level"]}' if p['level'] else ''), 'info')
             st.markdown(f'<div><b>{ui.esc(p["title"])}</b></div><div>{tags}</div>', unsafe_allow_html=True)
             st.write(p['explanation'])
+            try:
+                where = s.where(p['id'])['sentence']
+            except Exception:  # noqa: BLE001
+                where = ''
+            if where:
+                st.markdown(f'<div class="al-crumbs"><b>Where:</b> {ui.esc(where)}</div>', unsafe_allow_html=True)
             st.caption(f'Element: {p["selector"]}' + (f'  ·  line {p["line"]}' if p.get('line') else '') + f'  ·  Evidence: {p["evidence"]}')
             st.markdown(ui.diff_html(p['diff']), unsafe_allow_html=True)
+            with st.expander('Where is this on the page? Code around it and a picture', icon=':material/my_location:'):
+                ui.where_is_it(s, p['id'], p['id'])
             if p.get('ai'):
                 st.info(f'AI advice: {str(p["ai"].get("verdict", "")).upper()}. {p["ai"].get("reason", "")}')
             values = _inputs(p)
@@ -143,5 +154,7 @@ def render() -> None:
                     st.rerun()
             if b.button(ui.t('Reject (no change)'), key='reject_' + p['id'], disabled=not named):
                 if ui.run(s.reject, p['id'], ui.reviewer()):
+                    ui.flash('info', f'Rejected "{p["title"]}". Nothing was changed. The decision is in the audit log and the '
+                                     'issue is now in the Manual review queue, where you can offer the fix again.')
                     st.rerun()
     ui.footer()

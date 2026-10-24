@@ -349,6 +349,45 @@ def _axe_source() -> str:
     return _AXE_CACHE[key]
 
 
+def element_shot(html: str, uid: int, assets_dir: Path | None = None, width: int = 1280) -> bytes | None:
+    """A cropped picture of one element on the rendered page, outlined in red, with some of its surroundings.
+    None when the element takes no space on screen (page settings, hidden elements)."""
+    for attempt in (1, 2):
+        try:
+            browser = _LOCAL.get()
+            context = browser.new_context(service_workers='block', viewport={'width': width, 'height': 900})
+            try:
+                context.route('**/*', _router(Path(assets_dir) if assets_dir else None, []))
+                page = context.new_page()
+                page.set_content(scan_copy(Doc(html), ASSET_ORIGIN if assets_dir else None), wait_until='load', timeout=15000)
+                box = page.evaluate("""(uid) => {
+                    const el = document.querySelector('[data-al-uid="' + uid + '"]');
+                    if (!el) return null;
+                    const s = document.createElement('style');
+                    s.textContent = '[data-al-uid="' + uid + '"]{outline:4px solid #e11d48 !important;outline-offset:3px !important}';
+                    document.head.appendChild(s);
+                    const r = el.getBoundingClientRect();
+                    if (r.width < 1 && r.height < 1) return null;
+                    return {x: r.left + window.scrollX, y: r.top + window.scrollY, w: r.width, h: r.height,
+                            pw: document.documentElement.scrollWidth, ph: document.documentElement.scrollHeight};
+                }""", int(uid))
+                if not box:
+                    return None
+                pad_x, pad_y = 260, 150
+                x = max(0, box['x'] - pad_x)
+                y = max(0, box['y'] - pad_y)
+                w = min(max(box['w'] + 2 * pad_x, 520), box['pw'] - x, 1280)
+                h = min(max(box['h'] + 2 * pad_y, 260), box['ph'] - y, 760)
+                return page.screenshot(clip={'x': x, 'y': y, 'width': max(w, 50), 'height': max(h, 50)}, full_page=True)
+            finally:
+                context.close()
+        except Exception as error:  # noqa: BLE001
+            _LOCAL.close()
+            if attempt == 2:
+                raise ScanError(f'Picture failed: {error}') from error
+    return None
+
+
 def screenshot(html: str, assets_dir: Path | None = None, highlight_uids: tuple[int, ...] = (), width: int = 1280,
                max_height: int = 6000) -> bytes:
     """A PNG of the page as the sandbox renders it (scripts never run), with changed elements outlined."""

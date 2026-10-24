@@ -20,7 +20,7 @@ def _engine(name='08_legacy_portal_gallery'):
 
 def test_policy_gate():
     p = agent.Policy()
-    mk = lambda **k: type('P', (), {'needs_input': False, 'rule_id': 'x', 'risk': 'low', **k})()  # noqa: E731
+    mk = lambda **k: type('P', (), {'needs_input': False, 'rule_id': 'x', 'risk': 'low', 'selector': 's', 'before': 'b', **k})()  # noqa: E731
     assert p.allows(mk())[0]
     assert not p.allows(mk(needs_input=True))[0]
     assert not p.allows(mk(risk='medium'))[0]

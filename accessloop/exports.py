@@ -17,8 +17,10 @@ IMPACT_PRIORITY = {'critical': 'Highest', 'serious': 'High', 'moderate': 'Medium
 
 
 # ---- patch -----------------------------------------------------------------------------------------------------
-def git_patch(original: str, working: str, path: str = 'index.html', author: str = '', subject: str = '') -> str:
-    """A `git am`-compatible patch (and a plain unified diff underneath) from the original to the repaired page."""
+def git_patch(original: str, working: str, path: str = 'index.html', author: str = '', subject: str = '',
+              new_files: dict | None = None) -> str:
+    """A `git am`-compatible patch (and a plain unified diff underneath) from the original to the repaired page,
+    including any new files the fixes created (for example captions), placed next to the page."""
     a = original.splitlines(keepends=True)
     b = working.splitlines(keepends=True)
     diff = ''.join(difflib.unified_diff(a, b, fromfile=f'a/{path}', tofile=f'b/{path}', n=3))
@@ -26,6 +28,11 @@ def git_patch(original: str, working: str, path: str = 'index.html', author: str
         return ''
     if not diff.endswith('\n'):
         diff += '\n\\ No newline at end of file\n'
+    folder = path.rsplit('/', 1)[0] + '/' if '/' in path else ''
+    for name, text in sorted((new_files or {}).items()):
+        lines = text.splitlines(keepends=True)
+        diff += (f'diff --git a/{folder}{name} b/{folder}{name}\nnew file mode 100644\n--- /dev/null\n+++ b/{folder}{name}\n'
+                 f'@@ -0,0 +1,{len(lines)} @@\n' + ''.join('+' + ln if ln.endswith('\n') else '+' + ln + '\n' for ln in lines))
     when = datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
     who = author.strip() or 'AccessLoop reviewer'
     head = (f'From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001\n'

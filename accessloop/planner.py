@@ -50,7 +50,7 @@ def propose_one(doc: Doc, digest: str, index: int, finding: Finding, language: s
         return None
     before, after = _snippet(doc.source, new_source, draft)
     return Proposal(**common, before=before, after=after, new_html=new_source, fields=tuple(draft.fields),
-                    edits=tuple(draft.edits))
+                    edits=tuple(draft.edits), files=tuple(sorted((draft.files or {}).items())))
 
 
 def plan(source: str, findings: tuple[Finding, ...], language: str = 'en') -> tuple[Proposal, ...]:

@@ -223,7 +223,7 @@ def gallery(engine, source, r):
 
 
 REVIEWER_CHOICES = {'aria-hidden-focus': {'choice': 'unfocus'}, 'aria-required-attr': {'aria-checked': 'false'},
-                    'video-caption': {'src': 'media/how-to-upi.en.vtt'}, 'meta-refresh': {'choice': 'remove'}}
+                    'video-caption': {'how': 'write', 'src': 'media/how-to-upi.en.vtt', 'cues': '0:00 Open your UPI app\n0:04 Tap Send money'}, 'meta-refresh': {'choice': 'remove'}}
 
 
 def structure_gallery(engine, source, r):

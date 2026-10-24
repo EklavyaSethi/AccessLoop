@@ -37,6 +37,7 @@ with st.sidebar:
         st.text_input('Your name (required)', key='al_reviewer', max_chars=80, placeholder='e.g. Yanis Singla',
                       help='Recorded with every decision and agent run, in the audit log and the evidence report. '
                            'For verified, signed identities add accounts: python -m accessloop users add NAME.')
+    ui.ai_panel()
     st.selectbox('Interface language / इंटरफ़ेस की भाषा', list(LANGS), format_func=LANGS.get, key='al_ui_lang',
                  help='Hindi covers navigation, page introductions, steps, buttons and key labels. Findings stay in English.')
 try:

@@ -744,24 +744,109 @@ def server_map(doc, el, f, language, values):
 
 
 
+_TS = r'(?:(\d{1,2}):)?(\d{1,2}):(\d{2})(?:[.,](\d{1,3}))?'
+
+
+def _secs(m, i: int) -> float:
+    h, mi, se, ms = (m.group(i + k) for k in range(4))
+    return int(h or 0) * 3600 + int(mi) * 60 + int(se) + (int((ms or '0').ljust(3, '0')) / 1000)
+
+
+def _stamp(t: float) -> str:
+    ms = int(round(t * 1000))
+    return f'{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d}.{ms % 1000:03d}'
+
+
+def captions_vtt(text: str) -> tuple[str, int]:
+    """Turn what a person typed (or pasted) into a valid WebVTT file. Accepts lines like '0:00 Open your UPI app' or
+    '0:00-0:04 Open your UPI app', or a whole WebVTT or SRT file. Times must go forward; markup is not allowed."""
+    raw = (text or '').replace('\r\n', '\n').strip()
+    if not raw:
+        raise FixInputError('Type the captions: one line per caption, starting with its time, for example "0:00 Open your UPI app".')
+    if len(raw) > 20000:
+        raise FixInputError('The captions are too long (over 20,000 characters).')
+    if '<' in raw or '>' in raw.replace('-->', ''):
+        raise FixInputError('Captions are plain text: remove < and > characters.')
+    cues: list[list] = []
+    full = re.compile(rf'^\s*{_TS}\s*-->\s*{_TS}')
+    short = re.compile(rf'^\s*{_TS}(?:\s*[-\u2013]\s*{_TS})?\s+(.+)$')
+    lines = raw.split('\n')
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        m = full.match(line)
+        if m:                                             # WebVTT / SRT block: times line, then text lines
+            start, end = _secs(m, 1), _secs(m, 5)
+            words = []
+            i += 1
+            while i < len(lines) and lines[i].strip():
+                words.append(lines[i].strip())
+                i += 1
+            cues.append([start, end, ' '.join(words)])
+            continue
+        m = short.match(line)
+        if m:
+            start = _secs(m, 1)
+            end = _secs(m, 5) if m.group(6) else None
+            cues.append([start, end, m.group(9).strip()])
+        elif line and not re.fullmatch(r'WEBVTT.*|\d+', line):
+            raise FixInputError(f'Line {i + 1} has no start time: "{line[:60]}". Write it as "0:12 your words".')
+        i += 1
+    if not cues:
+        raise FixInputError('No captions found. Write one line per caption, for example "0:00 Open your UPI app".')
+    for k, c in enumerate(cues):
+        if c[1] is None:
+            c[1] = cues[k + 1][0] if k + 1 < len(cues) else c[0] + 4.0
+        if not c[2]:
+            raise FixInputError(f'Caption {k + 1} has a time but no words.')
+        if c[1] <= c[0] or (k and c[0] < cues[k - 1][0]):
+            raise FixInputError(f'Caption {k + 1} ("{c[2][:40]}"): times must go forward and end after they start.')
+    if len(cues) > 1000:
+        raise FixInputError('More than 1,000 captions: split the video or attach an existing file.')
+    body = '\n\n'.join(f'{k + 1}\n{_stamp(a)} --> {_stamp(b)}\n{t}' for k, (a, b, t) in enumerate(cues))
+    return 'WEBVTT\n\n' + body + '\n', len(cues)
+
+
 @fixer('video-caption', mode='input')
 def video_caption(doc, el, f, language, values):
     if el.tag != 'video' or el.content is None:
         return None
-    flds = (_text_field('src', 'Captions file (WebVTT) path', 'For example "media/intro.en.vtt". It must exist on your site.'),)
-    if values is None:
-        return Draft(focus=_tag_focus(el), explanation='Videos with speech need captions. Give the path of the captions file.',
-                     evidence='<video> has no <track kind="captions">.', mode='input', fields=flds,
-                     preview='<track kind="captions" src="…">')
-    src = clean_text(values.get('src'), 3, 200, 'Captions file path')
-    if re.match(r'(?i)\s*(javascript|data|vbscript):', src) or '"' in src or not re.search(r'\.vtt(\?.*)?$', src, re.I):
-        raise FixInputError('Give the path of a .vtt captions file (http/https or a relative path).')
     code = language if re.fullmatch(r'[a-z]{2}(?:-[A-Z]{2})?', language or '') else 'en'
-    tag = (f'<track kind="captions" src="{html_std.escape(src, quote=True)}" srclang="{code}" '
-           f'label="Captions" default>')
-    return Draft([Edit(el.start_end, el.start_end, tag)], (el.start, el.start_end),
-                 'Attach the captions file you named.', f'Reviewer-provided captions file: {src}')
-
+    video = (el.value('src') or next((c.value('src') for c in el.children if c.tag == 'source' and c.value('src')), '') or 'video')
+    video = video.split('?')[0].split('#')[0]
+    stem = re.sub(r'[^A-Za-z0-9_./-]', '-', video.rsplit('.', 1)[0]).lstrip('/.') or 'video'
+    default_src = f'{stem}.{code}.vtt'
+    flds = (_select('how', 'How do you want to add captions?',
+                    [('write', 'Write them here: AccessLoop creates the captions file for you'),
+                     ('file', 'I already have a captions file on the site')]),
+            {'name': 'cues', 'label': 'Captions: one line each, starting with the time it appears', 'kind': 'textarea',
+             'required': False, 'max': 20000,
+             'help': '0:00 Open your UPI app\n0:04 Tap "Send money"\n0:09 Enter the amount and your UPI PIN\n'
+                     'An end time is optional ("0:00-0:04 ..."). You can also paste a whole WebVTT or SRT file.'},
+            _text_field('src', 'Captions file path', f'Where the file sits next to the page. Default: {default_src}',
+                        required=False))
+    if values is None:
+        return Draft(focus=_tag_focus(el), explanation='Videos with speech need captions. Type them here and AccessLoop '
+                     'creates the captions file and links it, or point to a captions file you already have.',
+                     evidence='<video> has no <track kind="captions">.', mode='input', fields=flds,
+                     preview=f'<track kind="captions" src="{default_src}" srclang="{code}" label="Captions" default>')
+    how = _choose(values, 'how', [('write', ''), ('file', '')])
+    src = (values.get('src') or '').strip() or default_src
+    if re.match(r'(?i)\s*(javascript|data|vbscript):', src) or '"' in src or '..' in src or not re.search(r'\.vtt(\?.*)?$', src, re.I):
+        raise FixInputError('The captions file path must end in .vtt, for example "media/intro.en.vtt".')
+    files = {}
+    if how == 'write':
+        if src.startswith(('http:', 'https:', '/')):
+            raise FixInputError('For captions you write here, use a path relative to the page, for example "media/intro.en.vtt".')
+        vtt, n = captions_vtt(values.get('cues', ''))
+        files = {src: vtt}
+        why, ev = f'Create {src} with the {n} captions you wrote and link it.', f'Reviewer-written captions ({n}) saved as {src}'
+    else:
+        if not (values.get('src') or '').strip():
+            raise FixInputError('Give the path of your captions file, for example "media/intro.en.vtt".')
+        why, ev = 'Attach the captions file you named.', f'Reviewer-provided captions file: {src}'
+    tag = (f'<track kind="captions" src="{html_std.escape(src, quote=True)}" srclang="{code}" label="Captions" default>')
+    return Draft([Edit(el.start_end, el.start_end, tag)], (el.start, el.start_end), why, ev, files=files)
 
 
 @fixer('meta-refresh', mode='input')

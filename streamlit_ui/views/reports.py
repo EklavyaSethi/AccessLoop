@@ -21,6 +21,11 @@ def render() -> None:
         b.download_button('Evidence record (JSON)', s.report_json(), file_name=f'{base}_evidence.json', mime='application/json')
         c, d = st.columns(2)
         c.download_button('Repaired page (HTML)', s.file('working'), file_name=f'{base}_repaired.html', mime='text/html')
+        made = s.new_files()
+        if made:
+            st.download_button(f'Repaired page + {len(made)} new file(s) it needs (.zip)', s.bundle(),
+                               file_name=f'{base}_repaired_with_files.zip', mime='application/zip', type='primary',
+                               help='Files the fixes created, such as captions: ' + ', '.join(made))
         d.download_button('Original page (HTML)', s.file('original'), file_name=f'{base}_original.html', mime='text/html')
         st.caption('To make a PDF, open the evidence report in your browser and choose Print, then Save as PDF.')
 
@@ -28,7 +33,9 @@ def render() -> None:
         ui.h2('Standard formats')
         st.caption('For developers, auditors and issue trackers. Every file is generated from this session.')
         cols = st.columns(3)
-        items = [('patch', 'Code change (git patch)', 'Apply with git am or git apply.'),
+        items = [('agent-html', 'Agent run report (HTML, print to PDF)', 'Policy, every step, every change, audit hashes.'),
+                 ('agent-json', 'Agent run record (JSON)', 'Machine-readable; signed when you are signed in.'),
+                 ('patch', 'Code change (git patch)', 'Apply with git am or git apply.'),
                  ('acr', 'Conformance report (VPAT-style)', 'All 55 WCAG 2.2 A/AA criteria, using your manual checks too.'),
                  ('jira', 'Jira import (CSV)', 'One ticket per remaining issue.'),
                  ('github', 'GitHub issues (Markdown + gh script)', 'One issue per remaining issue.'),

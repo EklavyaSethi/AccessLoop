@@ -155,3 +155,111 @@ def footer() -> None:
     st.markdown('<div class="al-foot">AccessLoop is a proof of concept and does not certify WCAG conformance. Automated checks find '
                 'only part of the barriers real people face, so keyboard, screen-reader and human usability testing remain necessary.</div>',
                 unsafe_allow_html=True)
+
+
+def ai_status_html() -> str:
+    """One line: which AI drafts the agent's answers, and whether the last connection test worked."""
+    import os
+    from accessloop import ai_drafts
+    from accessloop.ai_advisor import provider
+    prov = provider()
+    probe = st.session_state.get('al_ai_probe') or {}
+    if prov == 'off':
+        return (f'{badge("AI off", "neutral")} Drafts come from the page itself (labelled "no AI"). '
+                'Switch on Gemini in <b>AI assistant</b> in the sidebar.')
+    name = 'Google Gemini' if prov == 'gemini' else 'Local model (Ollama)'
+    label = f'{name} · {ai_drafts.model_name()}'
+    if probe.get('provider') == prov and probe.get('ok'):
+        state = f'{badge("connected", "ok")} tested {esc(probe["checked_at"])}, {probe["seconds"]} s'
+    elif probe.get('provider') == prov:
+        state = f'{badge("not responding", "bad")} {esc(probe.get("error", "")[:120])}'
+    else:
+        state = badge('not tested yet', 'warn')
+    key_note = '' if prov != 'gemini' or os.getenv('GEMINI_API_KEY') else ' · no API key set'
+    return f'{badge("AI on", "info")} <b>{esc(label)}</b> {state}{esc(key_note)}'
+
+
+def ai_panel() -> None:
+    """Sidebar: switch the AI on or off, give it a key for this session, test the connection. The key stays in this
+    app's memory only: never written to disk, the audit log or any report."""
+    import os
+    from accessloop import ai_drafts
+    from accessloop.ai_advisor import provider
+    with st.expander('AI assistant', icon=':material/auto_awesome:', expanded=False):
+        st.markdown(ai_status_html(), unsafe_allow_html=True)
+        choices = {'off': 'Off (suggestions from the page, no AI)', 'gemini': 'Google Gemini', 'local': 'Local model (Ollama, nothing leaves this computer)'}
+        current = provider()
+        pick = st.selectbox('Drafts written by', list(choices), index=list(choices).index(current), format_func=choices.get,
+                            key='al_ai_provider')
+        if pick != current:
+            os.environ['ACCESSLOOP_AI'] = pick
+            st.session_state.pop('al_ai_probe', None)
+            st.rerun()
+        if pick == 'gemini':
+            if not os.getenv('GEMINI_API_KEY'):
+                key = st.text_input('Gemini API key', type='password', key='al_ai_key',
+                                    help='Free key from aistudio.google.com. Kept in memory for this app session only.')
+                if key:
+                    os.environ['GEMINI_API_KEY'] = key.strip()
+                    st.session_state['al_ai_key'] = ''
+                    st.rerun()
+            else:
+                st.caption('API key loaded (hidden).')
+            model = st.text_input('Model', value=ai_drafts.model_name(), key='al_ai_model')
+            if model.strip() and model.strip() != ai_drafts.model_name():
+                os.environ['GEMINI_MODEL'] = model.strip()
+        if pick != 'off' and st.button('Test connection', key='al_ai_test'):
+            with st.spinner('Asking the model for one test draft…'):
+                st.session_state['al_ai_probe'] = ai_drafts.probe()
+            st.rerun()
+        r = st.session_state.get('al_ai_probe')
+        if r and r.get('ok'):
+            st.success(f'Working ({r["seconds"]} s). Test draft: “{r["sample"]}”')
+        elif r and r.get('error') and pick != 'off':
+            st.error(r['error'][:300])
+            if r.get('models'):
+                st.caption('Models your key can use: ' + ', '.join(r['models']))
+
+
+def code_context_html(ctx: dict) -> str:
+    """Source lines around a fix, with line numbers; the lines the fix touches are marked (not by colour alone)."""
+    rows = []
+    for ln in ctx.get('lines', []):
+        mark = '▶' if ln['changed'] else ' '
+        cls = ' class="chg"' if ln['changed'] else ''
+        rows.append(f'<div{cls}><span class="ln" aria-hidden="true">{ln["n"]:>5} {mark}</span>{esc(ln["text"]) or " "}</div>')
+    span = f'lines {ctx.get("first_line")}–{ctx.get("last_line")} of {ctx.get("total_lines")}'
+    return (f'<div class="al-code" role="group" aria-label="Source code around the fix, {esc(span)}; marked lines change">'
+            + ''.join(rows) + '</div>')
+
+
+def where_is_it(s, proposal_id: str, key: str) -> None:
+    """'Where is this on the page?' panel: sentence, breadcrumb, source context, and a picture on demand."""
+    try:
+        ctx = s.where(proposal_id)
+    except Exception as error:  # noqa: BLE001
+        st.caption(f'Context unavailable: {error}')
+        return
+    st.markdown(f'**{esc(ctx["sentence"])}**')
+    if ctx.get('breadcrumb'):
+        st.markdown('<div class="al-crumbs" aria-label="Where it sits">' + ' › '.join(esc(c) for c in ctx['breadcrumb']) + '</div>',
+                    unsafe_allow_html=True)
+    if ctx.get('lines'):
+        st.caption(f'In the code: lines {ctx["first_line"]}–{ctx["last_line"]} of {ctx["total_lines"]} (▶ marks the lines this fix changes).')
+        st.markdown(code_context_html(ctx), unsafe_allow_html=True)
+    if ctx.get('visible'):
+        if st.button('Show it on the page', key=f'pic_{key}', icon=':material/visibility:'):
+            st.session_state[f'pic_on_{key}'] = True
+        if st.session_state.get(f'pic_on_{key}'):
+            try:
+                img = s.picture(proposal_id)
+            except Exception as error:  # noqa: BLE001
+                img, err = None, str(error)
+            else:
+                err = ''
+            if img:
+                st.image(img, caption='The element on the rendered page, outlined in red (scripts never run).')
+            else:
+                st.caption(err or 'This element takes no space on screen (for example it is hidden), so there is nothing to picture.')
+    else:
+        st.caption('This is a page setting, not something visible on screen.')

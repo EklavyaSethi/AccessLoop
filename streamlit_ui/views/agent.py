@@ -53,6 +53,19 @@ def render() -> None:
     c3.markdown('<div class="al-note">Never types text for you.<br>Stops after 6 rollbacks in a row.<br>'
                 'Original file never touched.</div>', unsafe_allow_html=True)
     risks = ['low'] if level.startswith('Low-risk') else ['low', 'medium']
+    st.markdown(f'<div class="al-note">{ui.ai_status_html()}</div>', unsafe_allow_html=True)
+    from accessloop.ai_advisor import provider as _prov
+    prov = _prov()
+    use_ai = st.checkbox('Draft the words the agent needs (alt text, names, titles) for me to review'
+                         + (' with AI' if prov != 'off' else ''), value=True, key='agent_ai',
+                         help='Nothing is applied until you accept or edit each draft. Every draft and how you used it is recorded.')
+    consent = False
+    if use_ai and prov != 'off':
+        consent = st.checkbox(f'I agree to send redacted snippets of this page to the AI ({"Google Gemini" if prov == "gemini" else "a model on this computer"}). '
+                              'Field values, long numbers and e-mail addresses are removed first.', key='agent_ai_consent')
+    elif use_ai:
+        st.caption('AI is switched off, so drafts come from the page itself (file names, field names, the main heading) and are '
+                   'labelled "no AI". Switch on Gemini in "AI assistant" in the sidebar.')
     auth = state.get('auth') or {}
     if auth.get('four_eyes'):
         st.info('Four-eyes mode is on. Starting the agent counts as the second approval, so only a signed-in approver can start it.')
@@ -63,7 +76,8 @@ def render() -> None:
     named = ui.require_name(state, 'run the agent')
     if named:
         who = (auth.get('user') or {}).get('display') or ui.reviewer()
-        st.caption(f'This run will be recorded as approved by {who}.')
+        st.caption(f'This run will be recorded as approved by {who}. Stay on this page until the console says "stop": '
+                   'with AI drafting on, the last step can take up to 25 seconds.')
     if st.button(ui.t('Let the agent repair this page'), type='primary', key='agent_go', disabled=not named) and named:
         left, right = st.columns([5, 6])
         live = left.empty()
@@ -79,7 +93,8 @@ def render() -> None:
             lines.append(line)
             term.markdown(_console(lines[-40:], running=True), unsafe_allow_html=True)
         reviewer = ui.reviewer() or ((auth.get('user') or {}).get('display', ''))
-        if ui.run(s.run_agent, risks, limit, reviewer, ui.language(), (), on_step, on_log, 0.35 if slow else 0):
+        if ui.run(s.run_agent, risks, limit, reviewer, ui.language(), (), on_step, on_log, 0.35 if slow else 0,
+                  ai_drafts=use_ai, ai_consent=consent):
             st.rerun()
 
     run = state.get('agent')
@@ -93,6 +108,14 @@ def render() -> None:
                 ('Fixes kept', run['applied'], 'good'), ('Rolled back', run['rolled_back'], 'bad' if run['rolled_back'] else ''),
                 ('Waiting for you', len(run['questions']) + len(run['held']), '')])
     st.caption(f'Policy: {run["policy_text"]} Took {run["seconds"]} s.' + (f' {run["stopped"]}' if run.get('stopped') else ''))
+    d1, d2, _ = st.columns([2, 2, 3])
+    for col, kind, label in ((d1, 'agent-html', 'Download agent run report'), (d2, 'agent-json', 'Download run record (JSON)')):
+        try:
+            content, fname, mime = s.export(kind)
+            col.download_button(label, content, file_name=fname, mime=mime.split(';')[0], key=f'dl_{kind}',
+                                type='primary' if kind == 'agent-html' else 'secondary')
+        except Exception as error:  # noqa: BLE001
+            col.caption(str(error))
     left, right = st.columns([5, 6])
     with left:
         with st.expander(f'Every step ({len(run["steps"])})', expanded=False):
@@ -106,12 +129,30 @@ def render() -> None:
         ui.h2('4 · The agent needs your words')
         st.caption('These fixes need text only a person knows. Fill in the ones you can; each answer is applied, re-scanned '
                    'and kept only if it verifies.')
+        drafts = state.get('ai_drafts', {})
+        if not drafts:
+            if st.button('Draft these answers for me', key='agent_draft_now', disabled=not named):
+                if ui.run(s.draft_answers, bool(st.session_state.get('agent_ai_consent')), ui.reviewer()):
+                    st.rerun()
         answers = []
         for q in questions[:20]:
             p = proposals[(q['rule'], q['selector'], q['line'])]
+            d = drafts.get(f'{q["rule"]}|{q["selector"]}|{q["line"]}')
             with st.container(border=True):
                 st.markdown(f'**{ui.esc(p["title"])}** · line {p.get("line") or "?"} · `{ui.esc(p["selector"])}`')
                 st.caption(p['explanation'])
+                with st.expander('Where is this on the page?', icon=':material/my_location:'):
+                    ui.where_is_it(s, p['id'], 'q_' + p['id'])
+                if d:
+                    for i, f in enumerate(p.get('fields', [])):
+                        key = f'val_{p["id"]}_{i}'
+                        if f['name'] in d and key not in st.session_state:
+                            st.session_state[key] = d[f['name']]
+                    who = f'AI draft · {d.get("_model", "")}' if d.get('_source') == 'ai' else 'Suggestion from the page (no AI)'
+                    st.markdown(f'{ui.badge(who, "info" if d.get("_source") == "ai" else "neutral")}'
+                                f'{ui.badge(d.get("_confidence", "low") + " confidence", "neutral")} '
+                                f'<span style="color:#4a5568">{ui.esc(d.get("_why", ""))} Check it before applying.</span>',
+                                unsafe_allow_html=True)
                 values = _inputs(p) or {}
                 if any(v for v in values.values()):
                     answers.append({'rule': q['rule'], 'selector': q['selector'], 'line': q['line'], 'values': values})

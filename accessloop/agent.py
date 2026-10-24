@@ -24,8 +24,11 @@ class Policy:
     max_changes: int = 200                  # most writes in one run
     stop_after_rollbacks: int = 6           # circuit breaker: stop after this many rollbacks in a row
     batch: bool = True                      # apply identical fixes together (one write, one re-scan)
+    skip: frozenset = frozenset()           # (rule, selector, before) a person rejected: never applied by the agent
 
     def allows(self, p) -> tuple[bool, str]:
+        if (p.rule_id, p.selector, p.before) in self.skip:
+            return False, 'a person rejected this fix'
         if p.needs_input:
             return False, 'needs words only a person knows'
         if p.rule_id in self.deny_rules:
@@ -34,11 +37,18 @@ class Policy:
             return False, f'{p.risk}-risk fixes need a person in this policy'
         return True, ''
 
+    def public(self) -> dict:
+        d = {k: v for k, v in asdict(self).items() if k != 'skip'}
+        d['rejected_by_a_person'] = len(self.skip)
+        return d
+
     def describe(self) -> str:
         parts = [f'applies {" and ".join(self.risks)}-risk automatic fixes', f'at most {self.max_changes} changes',
                  f'stops after {self.stop_after_rollbacks} rollbacks in a row']
         if self.deny_rules:
             parts.append('never touches ' + ', '.join(self.deny_rules))
+        if self.skip:
+            parts.append(f'skips {len(self.skip)} fix(es) a person rejected')
         return '; '.join(parts) + '; never types text for you.'
 
 
@@ -74,6 +84,7 @@ class Run:
 
     def to_dict(self) -> dict:
         d = asdict(self)
+        d['policy'] = self.policy.public()
         d['policy_text'] = self.policy.describe()
         return d
 
@@ -120,7 +131,7 @@ def run(engine: Workflow, policy: Policy | None = None, reviewer: str = 'AccessL
         return s
 
     engine._event('agent_started', 'Agent run started. Policy: ' + policy.describe(), reviewer=reviewer,
-                  policy=asdict(policy))
+                  policy=policy.public())
     say('policy', policy.describe())
     say('perceive', f'working copy sha256 {_sha(engine.current_html)}… ({len(engine.current_html):,} bytes); original kept read-only')
     t = time.perf_counter()
@@ -173,6 +184,8 @@ def run(engine: Workflow, policy: Policy | None = None, reviewer: str = 'AccessL
         where = ', '.join(f'line {p.line}' if p.line else p.selector for p in todo[:3]) + (' …' if n > 3 else '')
         say('gate', f'{rule} ×{n} · risk {todo[0].risk} · allowed ({where})')
         sha_before = _sha(engine.current_html)
+        from .context import describe as _where
+        wheres = {x.proposal_id: _where(engine.current_html, x.uid, x.edits)['sentence'] for x in todo}
         rule_counts_before = dict(engine.current_scan.counts()) if engine.current_scan else {}
         step('gate', f'Policy allows {n} “{rule}” fix{"es" if n > 1 else ""}', f'risk {todo[0].risk}; '
              + ('one write for all of them' if n > 1 else todo[0].selector), rule, n)
@@ -190,7 +203,8 @@ def run(engine: Workflow, policy: Policy | None = None, reviewer: str = 'AccessL
         written = todo
         if n == 1 and engine.last_candidate is not None and engine.last_candidate.proposal_id == todo[0].proposal_id:
             written = [engine.last_candidate]          # the exact text that was written
-        changes = [{'line': p.line, 'selector': p.selector, 'before': p.before, 'after': p.after} for p in written]
+        changes = [{'line': p.line, 'selector': p.selector, 'before': p.before, 'after': p.after,
+                    'where': wheres.get(p.proposal_id, '')} for p in written]
         if status != 'refused':
             say('act', f'wrote {n} edit{"s" if n > 1 else ""} to working.html (sha {sha_before}… → '
                 f'{_sha(engine.current_html) if status == "verified" else "restored " + sha_before}…)')
@@ -221,9 +235,13 @@ def run(engine: Workflow, policy: Policy | None = None, reviewer: str = 'AccessL
     # hand over to the person
     for p in engine.proposals:
         ok, why = policy.allows(p)
+        if why == 'a person rejected this fix':
+            continue
         if p.needs_input:
             r.questions.append({'id': p.proposal_id, 'rule': p.rule_id, 'selector': p.selector, 'line': p.line,
                                 'question': p.explanation, 'fields': [dict(f) for f in p.fields]})
+        elif not ok and why == 'a person rejected this fix':
+            continue
         elif not ok:
             r.held.append({'id': p.proposal_id, 'rule': p.rule_id, 'selector': p.selector, 'line': p.line, 'why': why})
     cur = engine.current_scan

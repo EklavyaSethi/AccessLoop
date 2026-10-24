@@ -83,6 +83,17 @@ def _clean_name(value: object, limit: int = 80) -> str:
     return text[:limit]
 
 
+def _clean_values(values: object) -> dict | None:
+    """Typed values from a reviewer: short fields capped at 300 characters, captions text at 20,000."""
+    if not isinstance(values, dict):
+        return None
+    out = {}
+    for k, v in list(values.items())[:20]:
+        key = str(k)[:40]
+        out[key] = v if isinstance(v, bool) else str(v)[:20000 if key == 'cues' else 300]
+    return out or None
+
+
 def diff_lines(before: str, after: str) -> list[dict]:
     raw = list(difflib.unified_diff(before.splitlines(), after.splitlines(), fromfile='before', tofile='proposed', n=2, lineterm=''))
     out = []
@@ -172,6 +183,8 @@ class Session:
         self.ai_review: dict = {}
         self.manual: dict = {}
         self.agent_run: dict | None = None
+        self.ai_drafts: dict = {}           # 'rule|selector|line' -> draft (AI or rule-based) waiting for a person
+        self.rejected: dict = {}            # (rule, selector, before) -> who rejected it and when: never offered again
 
     # ---- samples ------------------------------------------------------------------------------
     def samples(self) -> list[dict]:
@@ -261,7 +274,7 @@ class Session:
             self.language = self._language(language)
             if values is not None and not isinstance(values, dict):
                 raise ApiError('Typed values must be an object.')
-            clean = {str(k)[:40]: (v if isinstance(v, bool) else str(v)[:300]) for k, v in (values or {}).items()} or None
+            clean = _clean_values(values)
             if self.four_eyes:
                 # Maker-checker: this approval only becomes a change when a different person confirms it.
                 self.pending[proposal.proposal_id] = {'kind': 'single', 'values': clean, 'requested_by': self.reviewer,
@@ -300,6 +313,8 @@ class Session:
                 self._apply_now(engine, proposal, item['values'], label)
 
     def _apply_now(self, engine: Workflow, proposal, clean: dict | None, label: str) -> None:
+        from .. import context
+        where = context.describe(engine.current_html, proposal.uid, proposal.edits)['sentence']
         out = engine.apply(proposal.proposal_id, approved=True, language=self.language, values=clean,
                            reviewer=label or None)
         self._last_ann = (out.announce_before, out.announce_after)
@@ -308,8 +323,34 @@ class Session:
         if applied is not None and applied.proposal_id == proposal.proposal_id:
             logged = applied      # records the exact text that was written, including reviewer-typed text
         self._log(logged, 'approved', out.status, out.detail, (out.before_count, out.after_count), label)
+        self.fix_log[-1]['where'] = where
         self.outcome = {**out.to_dict(), 'rule': proposal.rule_id, 'selector': proposal.selector}
         self.ai_review = {}
+
+    def where(self, proposal_id: object) -> dict:
+        """Where a proposed fix sits on the page: plain sentence, breadcrumb and the surrounding source lines."""
+        from .. import context
+        with self.lock:
+            engine = self._need_scanned()
+            p = self._proposal(engine, proposal_id)
+            return context.describe(engine.current_html, p.uid, p.edits)
+
+    def picture(self, proposal_id: object) -> bytes | None:
+        """A cropped picture of the element on the rendered page, outlined. None if it takes no space on screen."""
+        from ..scanner import element_shot
+        with self.lock:
+            engine = self._need_scanned()
+            p = self._proposal(engine, proposal_id)
+            html, uid, assets = engine.current_html, p.uid, engine.assets_dir
+        if uid is None:
+            return None
+        key = (sha256(html), uid)
+        cache = self.__dict__.setdefault('_pictures', {})
+        if key not in cache:
+            if len(cache) > 60:
+                cache.clear()
+            cache[key] = element_shot(html, uid, assets)
+        return cache[key]
 
     def preview(self, proposal_id: object, language: object, values: object = None) -> dict:
         with self.lock:
@@ -317,13 +358,13 @@ class Session:
             proposal = self._proposal(engine, proposal_id)
             if values is not None and not isinstance(values, dict):
                 raise ApiError('Typed values must be an object.')
-            clean = {str(k)[:40]: (v if isinstance(v, bool) else str(v)[:300]) for k, v in (values or {}).items()} or None
+            clean = _clean_values(values)
             return engine.preview(proposal.proposal_id, language=self._language(language), values=clean)
 
     def approve_batch(self, rule: object, language: object, reviewer: object) -> None:
         with self.lock:
             engine = self._need_scanned()
-            ids = [p.proposal_id for p in engine.proposals if p.rule_id == rule and not p.needs_input]
+            ids = [p.proposal_id for p in engine.proposals if p.rule_id == rule and not p.needs_input and not self._is_rejected(p)]
             if len(ids) < 2:
                 raise ApiError('There is no batch of automatic fixes for that rule. Run the scan again.', 409)
             self.reviewer = self._who(reviewer)
@@ -339,7 +380,7 @@ class Session:
             self._batch_now(engine, rule, self.reviewer)
 
     def _batch_now(self, engine: Workflow, rule: object, label: str) -> None:
-        ids = [p.proposal_id for p in engine.proposals if p.rule_id == rule and not p.needs_input]
+        ids = [p.proposal_id for p in engine.proposals if p.rule_id == rule and not p.needs_input and not self._is_rejected(p)]
         if len(ids) < 2:
             raise ApiError('That batch is no longer available. Run the scan again.', 409)
         first = next(p for p in engine.proposals if p.proposal_id == ids[0])
@@ -358,7 +399,8 @@ class Session:
 
     # ---- agent mode -------------------------------------------------------------------------------
     def run_agent(self, risks: object = ('low',), max_changes: object = 200, reviewer: object = '', language: object = 'en',
-                  deny_rules: object = (), on_step=None, on_log=None, pace: object = 0) -> dict:
+                  deny_rules: object = (), on_step=None, on_log=None, pace: object = 0, ai_drafts: object = False,
+                  ai_consent: object = False) -> dict:
         """Let the agent repair the page inside a policy. In four-eyes mode only an approver may start it: the policy is
         the second person's approval, given in advance."""
         from .. import agent
@@ -377,7 +419,7 @@ class Session:
                 raise ApiError('Four-eyes mode is on: only a signed-in approver can let the agent apply fixes.', 403)
             self.language = self._language(language)
             label = f'AccessLoop agent (policy approved by {self.reviewer})' if self.reviewer else 'AccessLoop agent'
-            policy = agent.Policy(risks=levels, deny_rules=deny, max_changes=limit)
+            policy = agent.Policy(risks=levels, deny_rules=deny, max_changes=limit, skip=frozenset(self.rejected))
 
             def step(s, run):
                 if s.phase in ('commit', 'rollback'):
@@ -391,7 +433,8 @@ class Session:
                         'wcag': info.get('wcag', []), 'level': info.get('level', ''),
                         'before': '\n'.join(tag(c) + c['before'] for c in ch),
                         'after': '\n'.join(tag(c) + c['after'] for c in ch),
-                        'evidence': '', 'explanation': info.get('title', s.rule), 'decision': 'approved by agent policy',
+                        'evidence': '', 'where': ' / '.join(dict.fromkeys(c.get('where', '') for c in ch if c.get('where')))[:400],
+                        'explanation': info.get('title', s.rule), 'decision': 'approved by agent policy',
                         'status': 'verified' if s.phase == 'commit' else 'rolled_back', 'detail': s.detail,
                         'reviewer': label, 'findings_before': 0, 'findings_after': s.violations or 0})
                 if on_step:
@@ -400,13 +443,63 @@ class Session:
                 delay = max(0.0, min(float(pace or 0), 1.5))
             except (TypeError, ValueError):
                 delay = 0.0
+            started = _now()
+            sha_before = sha256(engine.current_html)
             run = agent.run(engine, policy, reviewer=label, language=self.language, on_step=step, on_log=on_log, pace=delay)
             self.agent_run = run.to_dict()
+            self.agent_run.update({'started_utc': started, 'finished_utc': _now(), 'approved_by': self.reviewer,
+                                   'page': self.source_name, 'sha_before': sha_before, 'sha_after': sha256(engine.current_html),
+                                   'version': __version__, 'drafts': 0})
             self.outcome = {'status': 'verified' if run.applied else 'unchanged',
                             'detail': f'Agent: {run.before} → {run.after} violations, {run.applied} fixes kept.',
                             'rule': 'agent', 'selector': '', 'before_count': run.before, 'after_count': run.after}
             self.ai_review = {}
-            return self.agent_run
+            run_dict = self.agent_run
+            proposals = tuple(engine.proposals)
+        # The AI step talks to a remote model and can be slow: it runs WITHOUT the session lock, so every page of the
+        # app stays usable meanwhile. Its results are stored under the lock when they arrive.
+        if ai_drafts is True and run.questions:
+            t0 = time.perf_counter()
+
+            def say(phase, text):
+                line = (round(run.seconds + time.perf_counter() - t0, 3), phase, text)
+                run_dict['console'].append(line)
+                if on_log:
+                    on_log(line, run)
+            self._draft(engine, ai_consent is True, say, proposals)
+            with self.lock:
+                run_dict['drafts'] = len(self.ai_drafts)
+        return run_dict
+
+    @staticmethod
+    def _key(rule, selector, line) -> str:
+        return f'{rule}|{selector}|{line}'
+
+    def _draft(self, engine: Workflow, consent: bool, say=None, proposals=None) -> dict:
+        """Call the drafter outside the session lock (it may wait on a remote model), then store results under it."""
+        from .. import ai_drafts
+        proposals = tuple(engine.proposals) if proposals is None else proposals
+        drafts = ai_drafts.draft(engine, proposals, consent=consent, on_log=say)
+        by_id = {p.proposal_id: p for p in proposals}
+        with self.lock:
+            for pid, d in drafts.items():
+                p = by_id[pid]
+                self.ai_drafts[self._key(p.rule_id, p.selector, p.line)] = d
+        return drafts
+
+    def draft_answers(self, consent: object = False, reviewer: object = '') -> dict:
+        """Draft the words the agent asked for (AI when switched on and consented, else rule-based). Applies nothing."""
+        with self.lock:
+            engine = self._need_scanned()
+            self.reviewer = self._who(reviewer)
+            proposals = tuple(engine.proposals)
+        lines: list = []
+        self._draft(engine, consent is True, lambda phase, text: lines.append((0.0, phase, text)), proposals)
+        with self.lock:
+            if self.agent_run is not None:
+                self.agent_run['console'] = list(self.agent_run.get('console', [])) + lines
+                self.agent_run['drafts'] = len(self.ai_drafts)
+            return dict(self.ai_drafts)
 
     def answer(self, answers: object, language: object, reviewer: object) -> list[dict]:
         """Apply the person's answers to the agent's questions. Each is matched to the current proposal by rule, element and
@@ -424,10 +517,24 @@ class Session:
             if match is None:
                 results.append({'rule': a.get('rule'), 'status': 'gone', 'detail': 'No longer on the page.'})
                 continue
+            key = self._key(match.rule_id, match.selector, match.line)
+            d = self.ai_drafts.get(key)
             try:
                 self.approve(match.proposal_id, language, reviewer, a['values'])
                 results.append({'rule': match.rule_id, 'status': (self.outcome or {}).get('status', ''),
                                 'detail': (self.outcome or {}).get('detail', '')})
+                if d:
+                    typed = {k: str(v) for k, v in a['values'].items()}
+                    drafted = {k: str(v) for k, v in d.items() if not k.startswith('_')}
+                    use = 'accepted as drafted' if all(typed.get(k) == v for k, v in drafted.items()) else 'edited by the person'
+                    src = 'AI draft' if d.get('_source') == 'ai' else 'rule-based suggestion'
+                    with self.lock:
+                        engine._event('ai_draft_decision', f'{match.rule_id}: {src} {use}; result {results[-1]["status"]}.',
+                                      rule=match.rule_id, source=d.get('_source'), model=d.get('_model'), drafted=drafted,
+                                      applied=typed, use=use, reviewer=self.reviewer)
+                        if self.fix_log and self.fix_log[-1]['rule'] == match.rule_id:
+                            self.fix_log[-1]['decision'] = f'approved ({src}, {use})'
+                    self.ai_drafts.pop(key, None)
             except (ApiError, WorkflowError) as error:
                 results.append({'rule': match.rule_id, 'status': 'refused', 'detail': str(error)})
         return results
@@ -459,9 +566,24 @@ class Session:
             proposal = self._proposal(engine, proposal_id)
             self.reviewer = self._who(reviewer)
             out = engine.reject(proposal.proposal_id, self.reviewer or None)
+            self.rejected[(proposal.rule_id, proposal.selector, proposal.before)] = {'by': self.reviewer, 'time_utc': _now()}
             self._last_ann = ('', '')
             self._log(proposal, 'rejected', 'rejected', out.detail, (out.before_count, out.after_count))
             self.outcome = {**out.to_dict(), 'rule': proposal.rule_id, 'selector': proposal.selector}
+
+    def unreject(self, rule: object, selector: object, reviewer: object) -> None:
+        """Offer a rejected fix again (recorded)."""
+        with self.lock:
+            engine = self._need_scanned()
+            self.reviewer = self._who(reviewer)
+            keys = [k for k in self.rejected if k[0] == rule and k[1] == selector]
+            for k in keys:
+                self.rejected.pop(k)
+            engine._event('setting', f'{rule} on {selector}: rejection withdrawn, the fix is offered again.',
+                          rule=str(rule), selector=str(selector), reviewer=self.reviewer)
+
+    def _is_rejected(self, p) -> bool:
+        return (p.rule_id, p.selector, p.before) in self.rejected
 
     def reset(self) -> None:
         with self.lock:
@@ -514,6 +636,7 @@ class Session:
                          'changed': original != current, 'outcome': self.outcome,
                          'events': list(reversed(engine.events)), 'fix_log': list(self.fix_log),
                          'audit': engine.audit_status(), 'manual_results': dict(self.manual), 'agent': self.agent_run,
+                         'ai_drafts': dict(self.ai_drafts), 'ai_provider': ai_provider(),
                          'changes': [{k: c[k] for k in ('n', 'kind', 'rule', 'label', 'selector', 'status', 'reverts')}
                                      for c in engine.changes()]})
             scan = engine.current_scan
@@ -523,6 +646,8 @@ class Session:
             impact_of = {(f.rule_id, f.selector): f.impact for f in scan.items}
             proposals = []
             for p in engine.proposals:
+                if self._is_rejected(p):
+                    continue
                 info = self.rules.get(p.rule_id, {})
                 proposals.append({
                     'id': p.proposal_id, 'rule': p.rule_id, 'selector': p.selector,
@@ -532,10 +657,12 @@ class Session:
                     'mode': p.mode, 'needs_input': p.needs_input, 'fields': list(p.fields), 'risk': p.risk,
                     'line': p.line, 'kind': scan.items[p.finding_index].kind if 0 <= p.finding_index < len(scan.items) else 'violation',
                 })
-            eligible = {(p.rule_id, p.selector) for p in engine.proposals}
+            eligible = {(p.rule_id, p.selector) for p in engine.proposals if not self._is_rejected(p)}
+            rejected_by = {(p.rule_id, p.selector): self.rejected[(p.rule_id, p.selector, p.before)]
+                           for p in engine.proposals if self._is_rejected(p)}
             auto_by_rule: dict[str, int] = {}
             for p in engine.proposals:
-                if not p.needs_input:
+                if not p.needs_input and not self._is_rejected(p):
                     auto_by_rule[p.rule_id] = auto_by_rule.get(p.rule_id, 0) + 1
             batches = [{'rule': r, 'count': n, 'title': self.rules.get(r, {}).get('title', r)}
                        for r, n in sorted(auto_by_rule.items(), key=lambda kv: -kv[1]) if n >= 2]
@@ -548,8 +675,11 @@ class Session:
                     'rule': f.rule_id, 'selector': f.selector, 'impact': f.impact, 'help': f.help,
                     'description': f.description[:600], 'wcag': info.get('wcag', []), 'level': info.get('level', ''),
                     'handling': info.get('handling', 'unclassified'),
-                    'handling_label': 'Needs a human check (axe could not decide)' if f.kind == 'review'
-                                      else catalog_mod.HANDLING.get(info.get('handling', ''), 'Unclassified'),
+                    'handling_label': (f'Fix rejected by {rejected_by[(f.rule_id, f.selector)]["by"]}: left unchanged for a person'
+                                       if (f.rule_id, f.selector) in rejected_by else
+                                       'Needs a human check (axe could not decide)' if f.kind == 'review'
+                                       else catalog_mod.HANDLING.get(info.get('handling', ''), 'Unclassified')),
+                    'rejected': (f.rule_id, f.selector) in rejected_by,
                     'note': info.get('note', ''), 'help_url': info.get('help_url', ''), 'kind': f.kind,
                 })
             before = engine.before or scan
@@ -637,9 +767,21 @@ class Session:
                     doc = accounts.sign_document(doc, self.identity)
                 return (json.dumps(doc, indent=2, ensure_ascii=False), f'{base}_evidence{"_signed" if self.identity else ""}.json',
                         'application/json; charset=utf-8')
+            if kind in ('agent-html', 'agent-json'):
+                from .. import agent_report
+                try:
+                    doc = agent_report.build(self.state())
+                except ValueError as error:
+                    raise ApiError(str(error), 409) from error
+                if kind == 'agent-json':
+                    if self.identity is not None:
+                        doc = accounts.sign_document(doc, self.identity)
+                    return agent_report.to_json(doc), f'{base}_agent_run{"_signed" if self.identity else ""}.json', \
+                        'application/json; charset=utf-8'
+                return agent_report.to_html(doc), f'{base}_agent_run_report.html', 'text/html; charset=utf-8'
             if kind == 'patch':
                 text = exports_mod.git_patch(read_source(engine.workspace / 'original.html'), engine.current_html,
-                                             self.source_name or 'index.html', self.reviewer)
+                                             self.source_name or 'index.html', self.reviewer, new_files=engine.extra_files())
                 return text, f'{base}_accessloop.patch', 'text/x-diff; charset=utf-8'
             state = self.state()
             if not state.get('scanned'):
@@ -659,6 +801,23 @@ class Session:
                 return (exports_mod.junit_xml([{'file': self.source_name, 'status': 'scanned', 'findings': findings}]),
                         f'{base}_junit.xml', 'application/xml; charset=utf-8')
             raise ApiError('Unknown export.', 404)
+
+    def new_files(self) -> dict[str, str]:
+        with self.lock:
+            return self._need_loaded().extra_files()
+
+    def bundle(self) -> bytes:
+        """The repaired page plus every file the fixes created (captions ...), in their folders, as a zip."""
+        import io
+        import zipfile
+        with self.lock:
+            engine = self._need_loaded()
+            buf = io.BytesIO()
+            with zipfile.ZipFile(buf, 'w', zipfile.ZIP_DEFLATED) as z:
+                z.writestr(self.source_name or 'index.html', engine.current_html)
+                for name, text in engine.extra_files().items():
+                    z.writestr(name, text)
+            return buf.getvalue()
 
     def screenshots(self) -> tuple[bytes, bytes]:
         with self.lock:
@@ -819,7 +978,10 @@ class Handler(BaseHTTPRequestHandler):
                 s.record_manual(data.get('criterion'), data.get('result', ''), data.get('notes'), data.get('reviewer'))
             elif path == '/api/agent':
                 s.run_agent(data.get('risks') or ['low'], data.get('max_changes', 200), data.get('reviewer'),
-                            data.get('language', 'en'), data.get('deny_rules') or [])
+                            data.get('language', 'en'), data.get('deny_rules') or [], ai_drafts=data.get('ai_drafts') is True,
+                            ai_consent=data.get('ai_consent') is True)
+            elif path == '/api/draft':
+                s.draft_answers(data.get('consent') is True, data.get('reviewer'))
             elif path == '/api/answer':
                 s.answer(data.get('answers'), data.get('language', 'en'), data.get('reviewer'))
             elif path == '/api/approve-batch':

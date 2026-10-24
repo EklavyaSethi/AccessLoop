@@ -42,6 +42,7 @@ class Draft:
     fields: tuple = ()                 # input mode: what to ask the reviewer
     risk: str = 'low'                  # low | medium
     preview: str = ''                  # input mode: the change shown before the reviewer types anything
+    files: dict = field(default_factory=dict)   # new files the fix creates next to the page (relative path -> text)
 
 
 Fixer = Callable[[Doc, Element, object, str, 'dict | None'], 'Draft | None']

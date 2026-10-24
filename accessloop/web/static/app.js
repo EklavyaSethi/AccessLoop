@@ -173,6 +173,8 @@
         control = h('select', { id, name: f.name }, (f.options || []).map(([value, label]) => h('option', { value, text: label })));
       } else if (f.kind === 'checkbox') {
         control = h('input', { id, name: f.name, type: 'checkbox' });
+      } else if (f.kind === 'textarea') {
+        control = h('textarea', { id, name: f.name, rows: '6', maxlength: String(f.max || 20000), placeholder: f.help || '' });
       } else {
         control = h('input', { id, name: f.name, type: 'text', maxlength: String(f.max || 150), autocomplete: 'off' });
       }
@@ -180,7 +182,7 @@
       if (cache[f.name] !== undefined) {
         if (f.kind === 'checkbox') control.checked = !!cache[f.name]; else control.value = cache[f.name];
       }
-      control.addEventListener(f.kind === 'text' ? 'input' : 'change',
+      control.addEventListener(f.kind === 'text' || f.kind === 'textarea' ? 'input' : 'change',
         () => { cache[f.name] = f.kind === 'checkbox' ? control.checked : control.value; });
       inputs[f.name] = { control, kind: f.kind };
       const hint = f.help ? h('span', { class: 'hint', id: `${id}-h`, text: f.help }) : null;

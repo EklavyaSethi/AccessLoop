@@ -66,7 +66,7 @@ def build_html(d: dict) -> str:
             e(f['time_utc'].replace('T', ' ').replace('+00:00', ' UTC')),
             f'<code>{e(f["rule"])}</code><br><span class="muted">WCAG {e(", ".join(f["wcag"]) or "n/a")}'
             f'{(" · Level " + e(f["level"])) if f["level"] else ""}</span>',
-            f'<code>{e(f["selector"])}</code>',
+            f'<code>{e(f["selector"])}</code>' + (f'<br><span class="muted">{e(f["where"])}</span>' if f.get('where') else ''),
             f'<pre class="del">{e(f["before"])}</pre><pre class="add">{e(f["after"])}</pre>'
             f'<span class="muted">{e(f["evidence"])}</span>'
             + (f'<br><span class="muted">Screen reader: {e(f.get("announce_before") or "–")} → {e(f.get("announce_after") or "–")}</span>'

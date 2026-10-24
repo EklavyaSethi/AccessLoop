@@ -13,25 +13,25 @@
   "audit_events": [
     {
       "seq": 1,
-      "timestamp_utc": "2026-10-23T04:35:07+00:00",
+      "timestamp_utc": "2026-10-24T05:18:00+00:00",
       "event": "loaded",
       "detail": "Original saved as a separate copy; it is never modified.",
       "working_sha256": "4d45bfd0a29b0adb8777b48400fbb0e5410f60f3b4856eaea13398f944049201",
       "versions": {
-        "accessloop": "0.9.0"
+        "accessloop": "0.11.0"
       },
       "original_sha256": "4d45bfd0a29b0adb8777b48400fbb0e5410f60f3b4856eaea13398f944049201",
       "prev": "0000000000000000000000000000000000000000000000000000000000000000",
-      "hash": "0d01cfb3bec807cc5bc051173cee77807ebdfcd0117dccc77529373c426c988d"
+      "hash": "93e20362b1a7e97bb8e0c1fe4233511475aaf044115c7d3025188ecd2eee8b75"
     },
     {
       "seq": 2,
-      "timestamp_utc": "2026-10-23T04:35:08+00:00",
+      "timestamp_utc": "2026-10-24T05:18:01+00:00",
       "event": "scanned",
       "detail": "5 violation nodes, 0 needs-review nodes; 5 fix proposals.",
       "working_sha256": "4d45bfd0a29b0adb8777b48400fbb0e5410f60f3b4856eaea13398f944049201",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -43,19 +43,19 @@
       },
       "proposals": 5,
       "input_proposals": 0,
-      "scan_ms": 316,
+      "scan_ms": 268,
       "plan_ms": 1,
-      "prev": "0d01cfb3bec807cc5bc051173cee77807ebdfcd0117dccc77529373c426c988d",
-      "hash": "f16cb3b3f5a7ef8c97bfafeccea50cea3b05dc7e5dd32f02b675cf22cc5cadac"
+      "prev": "93e20362b1a7e97bb8e0c1fe4233511475aaf044115c7d3025188ecd2eee8b75",
+      "hash": "4f1ebaa39b56a50b6ed70ba775be6b199be9ac450990a5d8a8d77192fce729be"
     },
     {
       "seq": 3,
-      "timestamp_utc": "2026-10-23T04:35:08+00:00",
+      "timestamp_utc": "2026-10-24T05:18:01+00:00",
       "event": "verified",
       "detail": "4d45bfd0a2-0-button-name: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "f14f4dcf77bfb268f8936b2131c1e33755bfd081bd448ebe98b9d0d5d7ebe95c",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -63,45 +63,45 @@
       "rule": "button-name",
       "announce_before": "(no name), button",
       "announce_after": "“Submit claim”, button",
-      "verify_ms": 296,
+      "verify_ms": 292,
       "mode": "auto",
       "selector": "#submit-claim",
       "before": "<span aria-hidden=\"true\">Submit claim</span>",
       "after": "<span>Submit claim</span>",
       "backup": "0002_4d45bfd0a29b.html",
-      "prev": "f16cb3b3f5a7ef8c97bfafeccea50cea3b05dc7e5dd32f02b675cf22cc5cadac",
-      "hash": "923256d9b955d1408c71d46ac7bcbce4552422dd7a7eb919b82039e69ab55315"
+      "prev": "4f1ebaa39b56a50b6ed70ba775be6b199be9ac450990a5d8a8d77192fce729be",
+      "hash": "1fe2365bbe5d3ee2aa6e565c47e9b95183b233fce6982c80484140af46c3afab"
     },
     {
       "seq": 4,
-      "timestamp_utc": "2026-10-23T04:35:08+00:00",
+      "timestamp_utc": "2026-10-24T05:18:01+00:00",
       "event": "verified",
       "detail": "f14f4dcf77-0-html-has-lang: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "da03ab53341cd8f8f8fb065bf07f2755d3865a3ad8832c2506308d0feb0f1f40",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
       "proposal_id": "f14f4dcf77-0-html-has-lang",
       "rule": "html-has-lang",
-      "verify_ms": 328,
+      "verify_ms": 278,
       "mode": "auto",
       "selector": "html",
       "before": "<html>",
       "after": "<html lang=\"en\">",
       "backup": "0003_f14f4dcf77bf.html",
-      "prev": "923256d9b955d1408c71d46ac7bcbce4552422dd7a7eb919b82039e69ab55315",
-      "hash": "c18427fe6e12b06d929d43a183897adfe0cc71c84d6592a4eab50f933602bb80"
+      "prev": "1fe2365bbe5d3ee2aa6e565c47e9b95183b233fce6982c80484140af46c3afab",
+      "hash": "5ce2977d09c4479458a0c816da91b4004fc9683d85c7e4f1c0a91059738231f1"
     },
     {
       "seq": 5,
-      "timestamp_utc": "2026-10-23T04:35:09+00:00",
+      "timestamp_utc": "2026-10-24T05:18:02+00:00",
       "event": "verified",
       "detail": "da03ab5334-0-label: Target rule improved (3 → 2); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "ff5c633f232b78f7bdc88f4b508353d5d44d9145d6f574b229f3d43043f174c8",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -109,23 +109,23 @@
       "rule": "label",
       "announce_before": "(no name), edit text",
       "announce_after": "“Policy number”, edit text",
-      "verify_ms": 285,
+      "verify_ms": 271,
       "mode": "auto",
       "selector": "#claim-policy",
       "before": "<label>Policy number</label>\n    <input id=\"claim-policy\" name=\"policy\" type=\"text\">",
       "after": "<label for=\"claim-policy\">Policy number</label>\n    <input id=\"claim-policy\" name=\"policy\" type=\"text\">",
       "backup": "0004_da03ab53341c.html",
-      "prev": "c18427fe6e12b06d929d43a183897adfe0cc71c84d6592a4eab50f933602bb80",
-      "hash": "8d199905c8d14f868f321e26992e89226cad23ea3868d75cea9558c08c69c4c9"
+      "prev": "5ce2977d09c4479458a0c816da91b4004fc9683d85c7e4f1c0a91059738231f1",
+      "hash": "4e3e97ff18269676132b36458c22c04b1ce9d6b7252d000bd1049fc963e209ba"
     },
     {
       "seq": 6,
-      "timestamp_utc": "2026-10-23T04:35:09+00:00",
+      "timestamp_utc": "2026-10-24T05:18:02+00:00",
       "event": "verified",
       "detail": "ff5c633f23-0-label: Target rule improved (2 → 1); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "d25ac978ffaa575a8a01b241250c202152cbdff8d7eb52762310459eeeda664d",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -133,23 +133,23 @@
       "rule": "label",
       "announce_before": "(no name), edit text",
       "announce_after": "“Date of incident”, edit text",
-      "verify_ms": 291,
+      "verify_ms": 262,
       "mode": "auto",
       "selector": "#claim-date",
       "before": "<label>Date of incident</label>\n    <input id=\"claim-date\" name=\"incident_date\" type=\"date\">",
       "after": "<label for=\"claim-date\">Date of incident</label>\n    <input id=\"claim-date\" name=\"incident_date\" type=\"date\">",
       "backup": "0005_ff5c633f232b.html",
-      "prev": "8d199905c8d14f868f321e26992e89226cad23ea3868d75cea9558c08c69c4c9",
-      "hash": "68790bd9181bbeb65b9a660f0ca105533f61f90521f4e03e7d0f74ef8bb9a60c"
+      "prev": "4e3e97ff18269676132b36458c22c04b1ce9d6b7252d000bd1049fc963e209ba",
+      "hash": "1b4677959e2382d15af34ab264ac552cac48ac04ece6ac22e7e1a6d6cc4f750c"
     },
     {
       "seq": 7,
-      "timestamp_utc": "2026-10-23T04:35:09+00:00",
+      "timestamp_utc": "2026-10-24T05:18:02+00:00",
       "event": "verified",
       "detail": "d25ac978ff-0-label: Target rule improved (1 → 0); no increase in detected rule counts. Every targeted element was fixed and no element gained a new problem.",
       "working_sha256": "3126ba2cca47c608091b21c43e7f59502c8558a959ad5129cfa278fed06b4ffd",
       "versions": {
-        "accessloop": "0.9.0",
+        "accessloop": "0.11.0",
         "axe": "4.14.0",
         "browser": "Chromium 141.0.7390.37"
       },
@@ -157,21 +157,21 @@
       "rule": "label",
       "announce_before": "(no name), spin button",
       "announce_after": "“Estimated claim amount (₹)”, spin button",
-      "verify_ms": 281,
+      "verify_ms": 278,
       "mode": "auto",
       "selector": "#claim-amount",
       "before": "<label>Estimated claim amount (₹)</label>\n    <input id=\"claim-amount\" name=\"amount\" type=\"number\" min=\"0\">",
       "after": "<label for=\"claim-amount\">Estimated claim amount (₹)</label>\n    <input id=\"claim-amount\" name=\"amount\" type=\"number\" min=\"0\">",
       "backup": "0006_d25ac978ffaa.html",
-      "prev": "68790bd9181bbeb65b9a660f0ca105533f61f90521f4e03e7d0f74ef8bb9a60c",
-      "hash": "f0ca13eb6581e81506270cff043257f1e172b3fd865d7718663fafc043b33bce"
+      "prev": "1b4677959e2382d15af34ab264ac552cac48ac04ece6ac22e7e1a6d6cc4f750c",
+      "hash": "3b8e6ab8e99039dfe381a5c4507f27325c31196ed5390375e135473ce402142d"
     }
   ],
   "audit_log": {
     "file": "audit.jsonl",
     "entries": 7,
     "verified": true,
-    "message": "All 7 entries verified; head f0ca13eb6581e815…",
-    "head_sha256": "f0ca13eb6581e81506270cff043257f1e172b3fd865d7718663fafc043b33bce"
+    "message": "All 7 entries verified; head 3b8e6ab8e99039df…",
+    "head_sha256": "3b8e6ab8e99039dfe381a5c4507f27325c31196ed5390375e135473ce402142d"
   }
 }
