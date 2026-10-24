@@ -1,51 +1,139 @@
+"""Home: editorial hero, real product figures, the current session and the workflow. Nothing on this page is invented:
+every number comes from the rule catalogue or the live session, and empty states say what to do next."""
 from __future__ import annotations
+import re
+from html import escape as esc
+
 import streamlit as st
 from .. import ui
 
 
+def _when(ts: str | None) -> str:
+    return (ts or '').replace('T', ' ')[11:16] + ' UTC' if ts else ''
+
+
+EVENT_TEXT = {'loaded': 'Page loaded', 'scanned': 'Page scanned', 'verified': 'Fix verified and kept',
+              'rolled_back': 'Fix rolled back', 'rejected': 'Fix rejected, nothing written', 'refused': 'Change refused',
+              'agent_started': 'Agent run started', 'agent_finished': 'Agent run finished', 'ai_drafted': 'Answers drafted',
+              'ai_draft_decision': 'Draft used by a person', 'reverted': 'Fix undone', 'reset': 'Session reset',
+              'manual_check': 'Manual check recorded', 'approval_requested': 'Waiting for a second approver',
+              'blocked': 'Change blocked'}
+
+
+def _detail(e: dict) -> str:
+    text = re.sub(r'^[0-9a-f]{10}-\d+-', '', (e.get('detail') or '').strip())   # drop the internal proposal id
+    text = text.split(';')[0]
+    return text if len(text) <= 80 else text[:79] + '…'
+
+
+def _flow(state: dict) -> str:
+    m = state.get('metrics') or {}
+    scanned = bool(state.get('scanned'))
+    eligible, verified = m.get('eligible', 0), m.get('verified', 0)
+    steps = [
+        ('Scan', 'A real browser and axe-core list every barrier they can detect.',
+         'done' if scanned else 'cur'),
+        ('Propose', 'Fixed templates prepare an exact, reviewable change.',
+         'done' if scanned else ''),
+        ('Approve', 'A named person approves each change, or the policy the agent follows.',
+         'cur' if scanned and eligible else ('done' if scanned and verified else '')),
+        ('Verify', 'The page is scanned again; anything that does not help is undone.',
+         'done' if verified else ''),
+    ]
+    rows = []
+    for i, (name, text, cls) in enumerate(steps, 1):
+        tag = {'cur': '<span class="st">current step</span>', 'done': '<span class="st ok">done</span>'}.get(cls, '')
+        mark = '✓' if cls == 'done' else str(i)
+        aria = ' aria-current="step"' if cls == 'cur' else ''
+        rows.append(f'<li class="{cls}"{aria}><span class="dot" aria-hidden="true">{mark}</span>'
+                    f'<div><b>{name}{tag}</b><span class="d">{text}</span></div></li>')
+    return '<ol class="al-flow" aria-label="Workflow">' + ''.join(rows) + '</ol>'
+
+
+def _session_panel(state: dict) -> str:
+    if not state.get('loaded'):
+        return ('<div class="al-panel"><p class="cap">Current session</p><h2>No page loaded yet</h2>'
+                '<p>Load one of the sample banking pages or your own HTML file, then scan it. AccessLoop never changes your '
+                'original file: it works on a copy, and every change waits for a person\'s approval.</p></div>')
+    name = esc(state.get('source_name') or 'page')
+    if not state.get('scanned'):
+        return (f'<div class="al-panel"><p class="cap">Current session</p><p class="big"><b>{name}</b> is loaded and '
+                'ready to scan.</p><p>Run the scan to see every barrier the engine can detect, by severity.</p></div>')
+    m = state['metrics']
+    base, cur = m['baseline'], m['current']
+    pct = round(100 * (base - cur) / base) if base else 0
+    return (f'<div class="al-panel"><p class="cap">Current session · {name}</p>'
+            f'<p class="big">Violations <b>{base} → {cur}</b>. <b>{m["verified"]}</b> fixes verified and kept, '
+            f'<b>{m["eligible"]}</b> waiting for approval.</p>'
+            f'<div class="al-bar" role="img" aria-label="{pct}% of the violations found at the first scan are fixed">'
+            f'<span style="width:{max(0, min(pct, 100))}%"></span></div>'
+            f'<p>{pct}% of the first scan\'s violations resolved · {m["rolled_back"]} rolled back · {m["rejected"]} rejected · '
+            f'{m["manual"]} need a person.</p>'
+            f'<p style="margin-top:14px"><b style="color:var(--ink)">Next:</b> '
+            f'{"review the fixes waiting for approval, or let the agent apply the low-risk ones." if m["eligible"] else "download the evidence, or check the manual review queue."}</p></div>')
+
+
+def _activity(state: dict) -> str:
+    events = [e for e in (state.get('events') or []) if e.get('event') in EVENT_TEXT][:6]
+    if not events:
+        body = ('<p>No activity yet. Every scan, decision and agent step will appear here, and in the signed audit log.</p>')
+    else:
+        rows = ''.join(f'<li><span class="txt"><span class="what">{esc(EVENT_TEXT[e["event"]])}</span>'
+                       f'<span class="sub">{esc(_detail(e))}</span></span>'
+                       f'<span class="when">{esc(_when(e.get("timestamp_utc")))}</span></li>' for e in events[:5])
+        body = f'<ul class="al-rows">{rows}</ul>'
+    return f'<div class="al-panel"><p class="cap">Recent activity</p>{body}</div>'
+
+
 def render() -> None:
     s = ui.session()
+    state = s.state()
     summary = s.catalog['summary']
-    st.markdown(f"""
+    live, total = summary['by_handling']['live'], summary['total_rules']
+    checked = summary['scanned_today'] + summary['best_practice_optional']
+    st.markdown("""
 <div class="al-hero">
-  <span class="al-eyebrow">Accessibility repair with a human in the loop</span>
-  <h1>Fix accessibility issues. Prove every fix.</h1>
-  <p>AccessLoop scans a web page, proposes small template-based repairs, applies only the ones you approve,
-  re-scans to verify, and automatically undoes anything that makes the page worse.</p>
+  <div class="al-kicker">Accessibility engineering · Human-approved repairs</div>
+  <h1>Fix accessibility issues.<br><em>Prove every fix.</em></h1>
+  <p>Find accessibility barriers, review safe source-level repairs, approve every change, and verify the results with
+  browser-based evidence.</p>
 </div>""", unsafe_allow_html=True)
-    a, b, c = st.columns([1, 1, 2])
+    a, b, _ = st.columns([1.1, 1.1, 4])
     with a:
-        ui.link('load', 'Start with a page', ':material/play_arrow:')
+        if st.button('Start a scan', type='primary', icon=':material/arrow_forward:', key='home_start'):
+            from .. import nav
+            st.switch_page(nav.PAGES['load'])
     with b:
         ui.link('how', 'How it works', ':material/help:')
 
+    pending = (state.get('metrics') or {}).get('eligible') if state.get('scanned') else None
     st.markdown(f"""
-<div class="al-trust">
-  <div class="al-stat"><div class="n">{summary['by_handling']['live']}</div><div class="l">issue types it can fix, each proven in a real browser</div></div>
-  <div class="al-stat"><div class="n">{summary['scanned_today'] + summary['best_practice_optional']}</div><div class="l">rules checked on every scan</div></div>
-  <div class="al-stat"><div class="n">{summary['criteria_total']}</div><div class="l">WCAG 2.2 A and AA criteria mapped</div></div>
-  <div class="al-stat"><div class="n">100%</div><div class="l">of source changes need your approval</div></div>
+<div class="al-strip">
+  <div><div class="n">{live}</div><div class="l">repair templates, each proven in a real browser</div></div>
+  <div><div class="n">{checked}</div><div class="l">axe-core rules checked per scan, of {total} in the engine</div></div>
+  <div><div class="n">{summary['criteria_total']}</div><div class="l">WCAG 2.2 A and AA criteria mapped; {summary['criteria_axe_testable']} automatable, the rest on a manual checklist</div></div>
+  <div><div class="n">{pending if pending is not None else '–'}</div><div class="l">{'fixes waiting for your approval' if pending is not None else 'fixes waiting for approval (scan a page first)'}</div></div>
 </div>
-
-<div class="al-section"><h2>How a repair works</h2><p>Four steps, each one visible and reversible.</p></div>
-<div class="al-grid c4">
-  <div class="al-card"><div class="al-ico">1</div><h3>Scan</h3><p>A real browser opens the page and the industry-standard axe-core engine lists every barrier it can detect, by severity.</p></div>
-  <div class="al-card"><div class="al-ico">2</div><h3>Propose</h3><p>For safe, unambiguous problems, a fixed template prepares an exact before-and-after change. No free-form generated code.</p></div>
-  <div class="al-card"><div class="al-ico">3</div><h3>Approve</h3><p>You review each diff and approve or reject it. Nothing is written without your decision, and your name is recorded.</p></div>
-  <div class="al-card"><div class="al-ico">4</div><h3>Verify</h3><p>The page is scanned again. If the issue is not gone, or anything else got worse, the change is rolled back automatically.</p></div>
+<div class="al-board">
+  {_session_panel(state)}
+  <div class="al-panel"><p class="cap">Workflow</p>{_flow(state)}</div>
 </div>
-
-<div class="al-section"><h2>Built for regulated finance teams</h2><p>Banks, insurers and wealth platforms need accessible digital services and a trail an auditor can read.</p></div>
-<div class="al-grid c3">
-  <div class="al-card"><h3>Evidence for auditors</h3><p>A printable report lists every decision, who made it, the exact change, and file fingerprints (SHA-256) before and after.</p></div>
-  <div class="al-card"><h3>Safe on sensitive forms</h3><p>KYC, payment and claim forms are never auto-rewritten. Changes are small, reviewed, re-tested and reversible.</p></div>
-  <div class="al-card"><h3>Mapped to the standards</h3><p>Every rule is mapped to WCAG 2.2, supporting teams working towards SEBI digital-accessibility and EU Accessibility Act expectations. It is not a compliance certificate.</p></div>
-</div>
-
-<div class="al-section"><h2>What it does today, and what is next</h2></div>
-<div class="al-grid c2">
-  <div class="al-card"><h3>Available now</h3><p>Static HTML pages, whole sites (.zip) and server-side templates. Agent mode plus human-approved fixes for {summary['by_handling']['live']} rule types: missing alt text, link and button names, labels, page language and title, zoom blocking, low contrast, invalid ARIA, headings, landmarks, tables and more. Text only you can supply is always typed by you, never guessed. A WCAG checklist covers what no tool can test.</p></div>
-  <div class="al-card"><h3>Roadmap</h3><p>React, Angular and Vue component sources; company single sign-on; AI-drafted wording that a person approves; the {summary['by_handling']['guided']} remaining structural rules as reviewer-decided fixes.</p></div>
-</div>
-""", unsafe_allow_html=True)
+<div class="al-board b3">
+  {_activity(state)}
+  <div class="al-panel"><p class="cap">Governance</p><h2 class="sm">Nothing changes without a name on it</h2>
+    <p>Every change is approved by a named person, or by a policy that person approved for the agent. Each fix is kept
+    only if a fresh scan shows it helped and nothing got worse; otherwise it is undone byte for byte. Every step goes into a
+    hash-chained, signed audit log.</p></div>
+  <div class="al-panel"><p class="cap">Coverage</p><h2 class="sm">{live} of {total} rules repairable</h2>
+    <div class="al-bar" role="img" aria-label="{live} of {total} engine rules have a repair template"><span style="width:{round(100 * live / total)}%"></span></div>
+    <p>{summary['by_handling']['guided']} more are explained but need a structural decision; {summary['by_handling']['excluded']} are
+    deprecated, experimental or AAA-only. Automated checks cover part of WCAG: this is not a conformance certificate.</p></div>
+</div>""", unsafe_allow_html=True)
+    c1, c2, c3, _ = st.columns([1, 1, 1, 2])
+    with c1:
+        ui.link('agent', 'Open agent mode', ':material/smart_toy:')
+    with c2:
+        ui.link('reports', 'Reports and evidence', ':material/description:')
+    with c3:
+        ui.link('coverage', 'Full rule coverage', ':material/fact_check:')
     ui.footer()

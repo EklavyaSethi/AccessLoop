@@ -6,7 +6,7 @@ from .. import ui
 def render() -> None:
     s = ui.session()
     state = s.state()
-    ui.page_header('Scan the page', 'A sandboxed headless browser opens your page (no scripts allowed, no network access) and runs axe-core against WCAG 2.0, 2.1 and 2.2 Level A and AA rules.', 2, state)
+    ui.page_header('Scan the page', 'A sandboxed headless browser opens your page (page scripts never run, no network access) and runs axe-core against WCAG 2.0, 2.1 and 2.2 Level A and AA rules.', 2, state)
     ui.need_loaded(state)
     ui.show_flash()
     cov = s.catalog['summary']
@@ -41,10 +41,7 @@ def render() -> None:
                 st.caption('Styles, fonts or images from these addresses were not part of the scan. Contrast and visibility '
                            'results reflect only what loaded from the page and its own folder.')
                 st.code('\n'.join(state['blocked'][:80]))
-        sev = state['severity']
-        rows = [{'Severity': k.title(), 'At first scan': sev['baseline'].get(k, 0), 'Now': sev['current'].get(k, 0)}
-                for k in ('critical', 'serious', 'moderate', 'minor')]
-        st.dataframe(rows, hide_index=True, **ui.stretch(st.dataframe))
+        st.markdown(ui.severity_html(state['severity']), unsafe_allow_html=True)
         a, b = st.columns(2)
         with a:
             ui.link('review', 'Review proposed fixes', ':material/arrow_forward:')

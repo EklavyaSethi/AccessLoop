@@ -7,15 +7,11 @@ from html import escape
 
 import streamlit as st
 
-from streamlit_ui import nav, theme, ui
+from streamlit_ui import nav, ui
 
 st.set_page_config(page_title='AccessLoop · Reviewed accessibility repair', page_icon='♿', layout='wide',
                    initial_sidebar_state='expanded')
 ui.setup()
-try:
-    st.logo(str(theme.LOGO_PATH))
-except Exception:  # noqa: BLE001 - the logo is cosmetic
-    pass
 
 session = ui.session()
 if session.auth_required():
@@ -32,7 +28,15 @@ if session.auth_required():
     st.stop()
 
 from streamlit_ui.i18n import LANGS
+try:
+    page = st.navigation(nav.build(), position='hidden')   # replaced by nav.sidebar(): accessible plain links
+    with st.sidebar:
+        nav.brand()
+        nav.sidebar()
+except TypeError:   # Streamlit older than 1.36 has no position argument
+    page = st.navigation(nav.build())
 with st.sidebar:
+    st.markdown('<p class="al-navsec">Session</p>', unsafe_allow_html=True)
     if not ((ui.session().state().get('auth') or {}).get('user')):
         st.text_input('Your name (required)', key='al_reviewer', max_chars=80, placeholder='e.g. Yanis Singla',
                       help='Recorded with every decision and agent run, in the audit log and the evidence report. '
@@ -40,13 +44,6 @@ with st.sidebar:
     ui.ai_panel()
     st.selectbox('Interface language / इंटरफ़ेस की भाषा', list(LANGS), format_func=LANGS.get, key='al_ui_lang',
                  help='Hindi covers navigation, page introductions, steps, buttons and key labels. Findings stay in English.')
-try:
-    page = st.navigation(nav.build(), position='hidden')   # replaced by nav.sidebar(): accessible plain links
-    with st.sidebar:
-        nav.sidebar()
-except TypeError:   # Streamlit older than 1.36 has no position argument
-    page = st.navigation(nav.build())
-
 with st.sidebar:
     state = ui.session().state()
     if state['loaded']:

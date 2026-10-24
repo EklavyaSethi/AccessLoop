@@ -2,6 +2,33 @@
 
 All notable changes to AccessLoop. Versions follow semantic versioning; dates are UTC.
 
+## 0.14.1 – 2026-10-24
+- **WCAG manual checklist made light:** progress ring and per-principle progress bars; "One at a time" mode shows only
+  the next criterion (the 32 with no automated rule first) with How to test / Passes when and one-click Pass, Fail,
+  Partly, N/A; "Skip for now" records nothing; "By principle" tabs with open counts and a hide-answered toggle.
+- **Severity before/after panel** on Scan and Verify (numbers written out; not colour-dependent).
+- Fixes from a full sweep of every page in three states (nothing loaded, scanned, after an agent run), at 1440 and
+  390 px, with axe: removed the entrance animation (text faded in from transparent and failed contrast for a moment);
+  heading levels on Home and the checklist; long values (file names, rupee figures) no longer overflow metric boxes;
+  long hashes and paths wrap instead of widening the page; the step indicator shows the page you are on and marks only
+  steps that are really done; stale page text corrected (scan sandbox wording, how-it-works AI role, supported inputs,
+  SEBI); emoji icons on How it works replaced with numbered markers; quotes no longer escaped in "Where is this?".
+
+## 0.14.0 – 2026-10-24
+- **New look: editorial, light and calm.** One design system for every page: near-white canvas, white surfaces with
+  thin borders, an editorial serif for page titles and figures with a clean sans-serif for everything else, monospace
+  for code, colour kept for actions and status. Every text colour meets 4.5:1 contrast; status is always written, never
+  shown by colour alone. Subtle hover, focus and entrance transitions, all switched off when the system asks for
+  reduced motion. Responsive at 1440, 1024, 768 and 390 px. Fonts are local (no CDN), so it works offline.
+- **Sidebar:** AccessLoop wordmark, navigation grouped into Workspace, Review, Evidence and Reference, then the session
+  settings (name, AI assistant, language) and the current-session summary.
+- **Home:** editorial hero ("Fix accessibility issues. Prove every fix."), a metrics strip with real figures only (repair
+  templates, rules per scan, WCAG criteria with how many are automatable, fixes waiting for approval), the current session
+  with a progress bar and the next step, the Scan → Propose → Approve → Verify sequence with the real current step, recent
+  activity from the audit log, governance and coverage panels. Empty states say what to do next.
+- Metrics, step indicator, diffs, code context, notices, badges, agent timeline and console restyled to match.
+- Accessibility: the source-code context panel can now be scrolled with the keyboard (it takes focus).
+
 ## 0.13.1 – 2026-10-24
 - `python -m accessloop.measure`: speed and draft quality on the sample pages (load, scan, agent, drafts applied exactly
   as drafted). Results in `docs/MEASUREMENTS.md`: 12 pages, 155 → 100 violations, 35 fixes kept and 0 rolled back,

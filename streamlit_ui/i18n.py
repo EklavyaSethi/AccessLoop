@@ -18,7 +18,7 @@ HI: dict[str, str] = {
     '★ Agent mode': '★ एजेंट मोड', 'Let the agent repair this page': 'एजेंट को यह पेज ठीक करने दें',
     'Apply my answers': 'मेरे उत्तर लागू करें', 'Fixes kept': 'रखे गए सुधार', 'Waiting for you': 'आपकी प्रतीक्षा में',
     'Issue coverage': 'समस्याओं का कवरेज', 'How it works': 'यह कैसे काम करता है',
-    'Workflow': 'कार्यप्रवाह', 'Evidence': 'साक्ष्य', 'Reference': 'संदर्भ',
+    'Workflow': 'कार्यप्रवाह', 'Workspace': 'कार्यक्षेत्र', 'Evidence': 'साक्ष्य', 'Reference': 'संदर्भ',
     # steps
     'Load': 'लोड', 'Scan': 'स्कैन', 'Review': 'समीक्षा', 'Verify': 'सत्यापन', 'Report': 'रिपोर्ट',
     # buttons and labels

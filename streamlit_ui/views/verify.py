@@ -17,10 +17,7 @@ def render() -> None:
                 ('Rolled back', m['rolled_back'], 'bad' if m['rolled_back'] else '')])
 
     ui.h2('Severity before and after')
-    sev = state['severity']
-    order = ('critical', 'serious', 'moderate', 'minor')
-    chart = [{'Severity': k.title(), 'At first scan': sev['baseline'].get(k, 0), 'Now': sev['current'].get(k, 0)} for k in order]
-    st.bar_chart(chart, x='Severity', y=['At first scan', 'Now'])
+    st.markdown(ui.severity_html(state['severity']), unsafe_allow_html=True)
 
     ui.h2('Rule by rule')
     counts = state['rule_counts']

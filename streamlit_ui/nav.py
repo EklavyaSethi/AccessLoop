@@ -7,15 +7,15 @@ from .i18n import t
 # (section, key, title, icon, module)
 SPEC = [
     ('', 'home', 'Home', ':material/home:', 'home'),
-    ('Workflow', 'load', '1 · Load page', ':material/upload_file:', 'load'),
-    ('Workflow', 'scan', '2 · Scan', ':material/search:', 'scan'),
-    ('Workflow', 'agent', '★ Agent mode', ':material/smart_toy:', 'agent'),
-    ('Workflow', 'review', '3 · Review fixes', ':material/rule:', 'review'),
-    ('Workflow', 'verify', '4 · Verify results', ':material/verified:', 'verify'),
-    ('Workflow', 'manual', 'Manual review queue', ':material/assignment_late:', 'manual'),
-    ('Workflow', 'checklist', 'WCAG manual checklist', ':material/checklist:', 'checklist'),
-    ('Workflow', 'preview', 'Page preview', ':material/preview:', 'preview'),
-    ('Workflow', 'site', 'Site scan (many pages)', ':material/folder_open:', 'site'),
+    ('Workspace', 'load', '1 · Load page', ':material/upload_file:', 'load'),
+    ('Workspace', 'scan', '2 · Scan', ':material/search:', 'scan'),
+    ('Workspace', 'agent', '★ Agent mode', ':material/smart_toy:', 'agent'),
+    ('Workspace', 'review', '3 · Review fixes', ':material/rule:', 'review'),
+    ('Workspace', 'verify', '4 · Verify results', ':material/verified:', 'verify'),
+    ('Review', 'manual', 'Manual review queue', ':material/assignment_late:', 'manual'),
+    ('Review', 'checklist', 'WCAG manual checklist', ':material/checklist:', 'checklist'),
+    ('Review', 'preview', 'Page preview', ':material/preview:', 'preview'),
+    ('Review', 'site', 'Site scan (many pages)', ':material/folder_open:', 'site'),
     ('Evidence', 'reports', 'Reports and downloads', ':material/description:', 'reports'),
     ('Evidence', 'audit', 'Audit trail', ':material/history:', 'audit'),
     ('Evidence', 'trace', 'Agent trace', ':material/timeline:', 'trace'),
@@ -34,6 +34,13 @@ def build() -> dict:
         PAGES[key] = page
         sections.setdefault(t(section), []).append(page)
     return sections
+
+
+def brand() -> None:
+    from .theme import LOGO_SVG
+    mark = LOGO_SVG.replace('width="40" height="40"', 'width="28" height="28" aria-hidden="true" focusable="false"')
+    st.markdown('<div class="al-brand">' + mark + '<div><span class="w">AccessLoop</span>'
+                '<span class="s">Accessibility repair, human approved</span></div></div>', unsafe_allow_html=True)
 
 
 def sidebar() -> None:

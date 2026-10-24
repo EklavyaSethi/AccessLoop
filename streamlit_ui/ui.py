@@ -94,9 +94,25 @@ def badge(text: str, kind: str = 'neutral') -> str:
 
 def metrics(items: list[tuple]) -> None:
     """items: (label, value, tone) where tone is '', 'good' or 'bad'."""
-    cells = ''.join(f'<div class="al-metric {esc(tone)}"><div class="v">{esc(str(v))}</div><div class="l">{esc(t(l))}</div></div>'
-                    for l, v, tone in items)
+    cells = ''.join(f'<div class="al-metric {esc(tone)}"><div class="v{" long" if len(str(v)) > 9 else ""}">{esc(str(v))}</div>'
+                    f'<div class="l">{esc(t(l))}</div></div>' for l, v, tone in items)
     st.markdown(f'<div class="al-metrics">{cells}</div>', unsafe_allow_html=True)
+
+
+def severity_html(sev: dict) -> str:
+    """Before/after bars per severity. Every bar carries its number as text, so nothing depends on colour or length."""
+    order = ('critical', 'serious', 'moderate', 'minor')
+    top = max([1] + [sev['baseline'].get(k, 0) for k in order] + [sev['current'].get(k, 0) for k in order])
+    rows = []
+    for k in order:
+        b, c = sev['baseline'].get(k, 0), sev['current'].get(k, 0)
+        change = 'no change' if b == c else (f'{b - c} fewer' if c < b else f'{c - b} more')
+        rows.append(f'<div class="al-sev"><div class="k"><span class="badge {k}">{k.title()}</span></div>'
+                    f'<div class="bars"><div class="b0" style="width:{100 * b / top:.0f}%"></div><div class="b1" style="width:{100 * c / top:.0f}%"></div></div>'
+                    f'<div class="nums"><b>{b} → {c}</b><span>{change}</span></div></div>')
+    return ('<div class="al-panel al-sevbox" role="group" aria-label="Violations by severity, at first scan and now">'
+            '<p class="cap">Violations by severity <span class="key"><i class="k0"></i>at first scan <i class="k1"></i>now</span></p>'
+            + ''.join(rows) + '</div>')
 
 
 def diff_html(lines: list[dict]) -> str:
@@ -120,10 +136,15 @@ def page_header(title: str, subtitle: str, step: int | None = None, state: dict 
     st.markdown(f'<div class="al-head" lang="{lang}"><div class="eyebrow">{esc(eyebrow)}</div><h1>{esc(title)}</h1>'
                 f'<p>{esc(subtitle)}</p></div>', unsafe_allow_html=True)
     if state is not None:
-        cur = current_step(state)
+        cur = step - 1 if step else current_step(state)      # the step this page belongs to
+        m = state.get('metrics') or {}
+        decided = m.get('verified', 0) + m.get('rejected', 0) + m.get('rolled_back', 0)
+        really_done = [bool(state.get('loaded')), bool(state.get('scanned')),
+                       bool(state.get('scanned')) and (decided > 0 or m.get('eligible', 1) == 0),
+                       m.get('verified', 0) > 0 or m.get('rolled_back', 0) > 0, False]
         parts = []
         for i, n in enumerate(STEPS):
-            cls = 'done' if i < cur else 'cur' if i == cur else ''
+            cls = 'cur' if i == cur else 'done' if really_done[i] else ''
             aria = ' aria-current="step"' if i == cur else ''
             parts.append(f'<li class="{cls}"{aria}><span class="n" aria-hidden="true">{i + 1}</span>{esc(t(n))}</li>')
         items = ''.join(parts)
@@ -235,7 +256,7 @@ def code_context_html(ctx: dict) -> str:
         cls = ' class="chg"' if ln['changed'] else ''
         rows.append(f'<div{cls}><span class="ln" aria-hidden="true">{ln["n"]:>5} {mark}</span>{esc(ln["text"]) or " "}</div>')
     span = f'lines {ctx.get("first_line")}–{ctx.get("last_line")} of {ctx.get("total_lines")}'
-    return (f'<div class="al-code" role="group" aria-label="Source code around the fix, {esc(span)}; marked lines change">'
+    return (f'<div class="al-code" role="group" tabindex="0" aria-label="Source code around the fix, {esc(span)}; marked lines change">'
             + ''.join(rows) + '</div>')
 
 
@@ -246,7 +267,7 @@ def where_is_it(s, proposal_id: str, key: str) -> None:
     except Exception as error:  # noqa: BLE001
         st.caption(f'Context unavailable: {error}')
         return
-    st.markdown(f'**{esc(ctx["sentence"])}**')
+    st.markdown(f'**{esc(ctx["sentence"], quote=False)}**')
     if ctx.get('breadcrumb'):
         st.markdown('<div class="al-crumbs" aria-label="Where it sits">' + ' › '.join(esc(c) for c in ctx['breadcrumb']) + '</div>',
                     unsafe_allow_html=True)

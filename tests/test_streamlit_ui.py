@@ -37,7 +37,7 @@ def test_nav_covers_every_view_and_builds():
     sections = nav.build()
     assert [k for _, k, *_ in nav.SPEC] == PAGES
     assert set(nav.PAGES) == set(PAGES)
-    assert list(sections)[0] == '' and 'Workflow' in sections and 'Evidence' in sections and 'Reference' in sections
+    assert list(sections)[0] == '' and 'Workspace' in sections and 'Review' in sections and 'Evidence' in sections and 'Reference' in sections
     st.rendered.clear()
     nav.sidebar()     # our accessible replacement for Streamlit's menu: one plain link per page
     assert sum(1 for kind, *_ in st.rendered if kind == 'page_link') == len(nav.SPEC)
